@@ -1,0 +1,63 @@
+﻿<Application x:Class="HiNative.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:HiNative"
+             xmlns:Converters="using:HiNative.Converters">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="TopBarBG"
+                                     Color="{StaticResource HiNativeOrange}" />
+                    <SolidColorBrush x:Key="TopBarText"
+                                     Color="White" />
+                    <SolidColorBrush x:Key="ComboBoxText"
+                                     Color="Black" />
+                    <SolidColorBrush x:Key="HoverOrange"
+                                     Color="#ffBF5430" />
+                    <SolidColorBrush x:Key="PressedOrange"
+                                     Color="#ff7F3820" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="TopBarBG"
+                                     Color="#FF222222" />
+                    <SolidColorBrush x:Key="TopBarText"
+                                     Color="{StaticResource HiNativeOrange}" />
+                    <SolidColorBrush x:Key="ComboBoxText"
+                                     Color="{StaticResource HiNativeOrange}" />
+                    <SolidColorBrush x:Key="HoverOrange"
+                                     Color="#ffBF5430" />
+                    <SolidColorBrush x:Key="PressedOrange"
+                                     Color="#ff7F3820" />
+                    </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/DataTemplates.xaml" />
+                <ResourceDictionary Source="/Resources/PivotStyles.xaml" />
+                <ResourceDictionary Source="/Resources/ListViewStyles.xaml" />
+                <!--<ResourceDictionary Source="/Resources/RadioButtonStyles.xaml" />-->
+                <ResourceDictionary Source="/Resources/ButtonStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <vm:ViewModelLocator xmlns:vm="using:HiNative.ViewModels"
+                                 x:Key="Locator" />
+            <Color x:Key="HiNativeOrange">#FFFF7040</Color>
+            <Color x:Key="HiNativeBlue">#FF243BB2</Color>
+            <Converters:EmptyStringVisibilityConverter x:Key="EmptyStringVisibilityConverter"/>
+            <Converters:EditVisibilityConverter x:Key="EditVisibilityConverter" />
+            <Converters:NativeAnswersColorConverter x:Key="NativeAnswersColorConverter" />
+            <Converters:NullImageConverter x:Key="NullImageConverter" />
+            <Converters:ChoiceNullToVisibility x:Key="NullToVisibilityConverter" />
+            <Converters:ChoiceVisibilityConverter x:Key="ChoiceVisibilityConverter" />
+            <Converters:ZeroEqualsCollapsed x:Key="ZeroEqualsCollapsed" />
+            <Converters:OPColorConverter x:Key="OPColorConverter" />
+            <Converters:BooleanInverter x:Key="BooleanInverter" />
+            <Converters:LikedColorConverter x:Key="LikedColorConverter" />
+            <FontFamily x:Key="Icomoon">Fonts/icomoon.ttf#Icomoon</FontFamily>
+            <FontFamily x:Key="Sofia Pro">Fonts/Sofia_Pro_Soft_Bold.ttf#SofiaProSoftW01-Bold</FontFamily>
+            <Converters:LanguageCountrySelector x:Key="LanguageCountrySelector" 
+                                                languagesTemplate="{StaticResource LanguagesTemplate}"
+                                                countriesTemplate="{StaticResource CountriesTemplate}"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

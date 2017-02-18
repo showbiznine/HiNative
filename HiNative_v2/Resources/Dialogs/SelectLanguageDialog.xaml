@@ -1,0 +1,260 @@
+﻿<ContentDialog xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:local="using:HiNative.Resources.Dialogs"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:Controls="using:HiNative.Controls"
+               x:Name="diagRoot"
+               x:Class="HiNative.Resources.Dialogs.SelectLanguageDialog"
+               mc:Ignorable="d"
+               Title="Select a language"
+               PrimaryButtonText="OK"
+               SecondaryButtonText="CANCEL"
+               PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+               SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+               FullSizeDesired="True"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="lstLanguage"
+                  VerticalAlignment="Top"
+                  Margin="0,12,0,0"
+                  SelectedItem="{Binding SelectedLanguage, Mode=TwoWay, ElementName=diagRoot}"
+                  d:LayoutOverrides="VerticalAlignment, Width, TopMargin, BottomMargin"
+                  SelectionChanged="lstLanguage_SelectionChanged"
+                  DisplayMemberPath="language_name" />
+        <StackPanel VerticalAlignment="Bottom"
+                    Margin="0, 12"
+                    Visibility="{Binding IsLanguageSelected, ElementName=diagRoot}"
+                    d:LayoutOverrides="Width"
+                    Grid.Row="1">
+            <StackPanel x:Name="stkStudy"
+                        Orientation="Vertical"
+                        Visibility="{Binding StudyLanguage, ElementName=diagRoot}">
+                <RadioButton x:Name="radBeg"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             BorderThickness="0,0,0,0.5"
+                             Padding="8,6,0,8"
+                             GroupName="study"
+                             d:LayoutOverrides="Width">
+                    <RadioButton.BorderBrush>
+                        <SolidColorBrush Color="{ThemeResource SystemBaseLowColor}" />
+                    </RadioButton.BorderBrush>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="textBlock"
+                                   TextWrapping="Wrap"
+                                   Text="Beginner"
+                                   d:LayoutOverrides="Width, Height" />
+                        <TextBlock x:Name="textBlock_Copy"
+                                   TextWrapping="Wrap"
+                                   Text="I find it difficult to understand answers to questions in this language"
+                                   Grid.ColumnSpan="2"
+                                   Margin="0,8,0,0"
+                                   d:LayoutOverrides="Width, Height"
+                                   Grid.Row="1">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{ThemeResource SystemBaseMediumColor}" />
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                        <Controls:FluencyControl Margin="12,0,0,0"
+                                                 d:LayoutOverrides="Height"
+                                                 VerticalAlignment="Center"
+                                                 Grid.Column="1"
+                                                 FluencyLevel="1" />
+                    </Grid>
+                </RadioButton>
+                <RadioButton x:Name="radBegInt"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             BorderThickness="0,0,0,0.5"
+                             Padding="8,6,0,8"
+                             GroupName="study"
+                             d:LayoutOverrides="Width">
+                    <RadioButton.BorderBrush>
+                        <SolidColorBrush Color="{ThemeResource SystemBaseLowColor}" />
+                    </RadioButton.BorderBrush>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="textBlock1"
+                                   TextWrapping="Wrap"
+                                   Text="Beginner - Intermediate"
+                                   d:LayoutOverrides="Width, Height" />
+                        <TextBlock x:Name="textBlock_Copy1"
+                                   TextWrapping="Wrap"
+                                   Text="I'm capable of forming simple questions in this language and I can understand simple answers"
+                                   Grid.ColumnSpan="2"
+                                   Margin="0,8,0,0"
+                                   d:LayoutOverrides="Width, Height"
+                                   Grid.Row="1">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{ThemeResource SystemBaseMediumColor}" />
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                        <Controls:FluencyControl Margin="12,0,0,0"
+                                                 d:LayoutOverrides="Height"
+                                                 VerticalAlignment="Center"
+                                                 Grid.Column="1"
+                                                 FluencyLevel="2" />
+                    </Grid>
+                </RadioButton>
+                <RadioButton x:Name="radInt"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             BorderThickness="0,0,0,0.5"
+                             Padding="8,6,0,8"
+                             GroupName="study"
+                             d:LayoutOverrides="Width">
+                    <RadioButton.BorderBrush>
+                        <SolidColorBrush Color="{ThemeResource SystemBaseLowColor}" />
+                    </RadioButton.BorderBrush>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="textBlock2"
+                                   TextWrapping="Wrap"
+                                   Text="Intermediate"
+                                   d:LayoutOverrides="Width, Height" />
+                        <TextBlock x:Name="textBlock_Copy2"
+                                   TextWrapping="Wrap"
+                                   Text="I'm capable of forming simple questions in this language and I can understand simple answers"
+                                   Grid.ColumnSpan="2"
+                                   Margin="0,8,0,0"
+                                   d:LayoutOverrides="Width, Height"
+                                   Grid.Row="1">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{ThemeResource SystemBaseMediumColor}" />
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                        <Controls:FluencyControl Margin="12,0,0,0"
+                                                 d:LayoutOverrides="Height"
+                                                 VerticalAlignment="Center"
+                                                 Grid.Column="1"
+                                                 FluencyLevel="3" />
+                    </Grid>
+                </RadioButton>
+                <RadioButton x:Name="radAdv"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             BorderThickness="0,0,0,0.5"
+                             Padding="8,6,0,8"
+                             GroupName="study"
+                             d:LayoutOverrides="Width">
+                    <RadioButton.BorderBrush>
+                        <SolidColorBrush Color="{ThemeResource SystemBaseLowColor}" />
+                    </RadioButton.BorderBrush>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="textBlock3"
+                                   TextWrapping="Wrap"
+                                   Text="Advanced"
+                                   d:LayoutOverrides="Width, Height" />
+                        <TextBlock x:Name="textBlock_Copy3"
+                                   TextWrapping="Wrap"
+                                   Text="I'm able to understand long, complex answers"
+                                   Grid.ColumnSpan="2"
+                                   Margin="0,8,0,0"
+                                   d:LayoutOverrides="Width, Height"
+                                   Grid.Row="1">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{ThemeResource SystemBaseMediumColor}" />
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                        <Controls:FluencyControl Margin="12,0,0,0"
+                                                 d:LayoutOverrides="Height"
+                                                 VerticalAlignment="Center"
+                                                 Grid.Column="1"
+                                                 FluencyLevel="4" />
+                    </Grid>
+                </RadioButton>
+            </StackPanel>
+            <StackPanel x:Name="stkNative"
+                        Orientation="Vertical"
+                        Visibility="{Binding NativeLanguage, ElementName=diagRoot}">
+                <RadioButton x:Name="radNF"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             BorderThickness="0,0,0,0.5"
+                             Padding="8,6,0,8"
+                             GroupName="native"
+                             d:LayoutOverrides="Width">
+                    <RadioButton.BorderBrush>
+                        <SolidColorBrush Color="{ThemeResource SystemBaseLowColor}" />
+                    </RadioButton.BorderBrush>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="textBlock4"
+                                   TextWrapping="Wrap"
+                                   Text="Near-fluent"
+                                   d:LayoutOverrides="Width, Height" />
+                    </Grid>
+                </RadioButton>
+                <RadioButton x:Name="radFluent"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             BorderThickness="0,0,0,0.5"
+                             Padding="8,6,0,8"
+                             GroupName="native"
+                             d:LayoutOverrides="Width">
+                    <RadioButton.BorderBrush>
+                        <SolidColorBrush Color="{ThemeResource SystemBaseLowColor}" />
+                    </RadioButton.BorderBrush>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="textBlock5"
+                                   TextWrapping="Wrap"
+                                   Text="Fluent"
+                                   d:LayoutOverrides="Width, Height" />
+                    </Grid>
+                </RadioButton>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</ContentDialog>

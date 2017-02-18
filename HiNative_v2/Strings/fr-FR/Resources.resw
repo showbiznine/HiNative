@@ -1,0 +1,4488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="abc_action_bar_home_description.Text" xml:space="preserve">
+    <value>"Revenir à l'accueil"</value>
+  </data>
+  <data name="abc_action_bar_home_description_format.Text" xml:space="preserve">
+    <value>%1$s, %2$s</value>
+  </data>
+  <data name="abc_action_bar_home_subtitle_description_format.Text" xml:space="preserve">
+    <value>%1$s, %2$s, %3$s</value>
+  </data>
+  <data name="abc_action_bar_up_description.Text" xml:space="preserve">
+    <value>Revenir en haut de la page</value>
+  </data>
+  <data name="abc_action_menu_overflow_description.Text" xml:space="preserve">
+    <value>"Plus d'options"</value>
+  </data>
+  <data name="abc_action_mode_done.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="abc_activity_chooser_view_see_all.Text" xml:space="preserve">
+    <value>Tout afficher</value>
+  </data>
+  <data name="abc_activitychooserview_choose_application.Text" xml:space="preserve">
+    <value>Sélectionner une application</value>
+  </data>
+  <data name="abc_capital_off.Text" xml:space="preserve">
+    <value>DÉSACTIVÉ</value>
+  </data>
+  <data name="abc_capital_on.Text" xml:space="preserve">
+    <value>ACTIVÉ</value>
+  </data>
+  <data name="abc_search_hint.Text" xml:space="preserve">
+    <value>Rechercher…</value>
+  </data>
+  <data name="abc_searchview_description_clear.Text" xml:space="preserve">
+    <value>Effacer la requête</value>
+  </data>
+  <data name="abc_searchview_description_query.Text" xml:space="preserve">
+    <value>Requête de recherche</value>
+  </data>
+  <data name="abc_searchview_description_search.Text" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="abc_searchview_description_submit.Text" xml:space="preserve">
+    <value>Envoyer la requête</value>
+  </data>
+  <data name="abc_searchview_description_voice.Text" xml:space="preserve">
+    <value>Recherche vocale</value>
+  </data>
+  <data name="abc_shareactionprovider_share_with.Text" xml:space="preserve">
+    <value>Partager avec</value>
+  </data>
+  <data name="abc_shareactionprovider_share_with_application.Text" xml:space="preserve">
+    <value>Partager avec %s</value>
+  </data>
+  <data name="abc_toolbar_collapse_description.Text" xml:space="preserve">
+    <value>Réduire</value>
+  </data>
+  <data name="com_facebook_device_auth_instructions.Text" xml:space="preserve">
+    <value>Rendez-vous sur &lt;b&gt;facebook.com/device&lt;/b&gt;&lt;br /&gt; sur votre smartphone ou votre ordinateur et entrez ce code :</value>
+  </data>
+  <data name="com_facebook_image_download_unknown_error.Text" xml:space="preserve">
+    <value>Une erreur inattendue s’est produite au moment de télécharger une image.</value>
+  </data>
+  <data name="com_facebook_internet_permission_error_message.Text" xml:space="preserve">
+    <value>La connexion au web nécessite une autorisation d’accéder à INTERNET</value>
+  </data>
+  <data name="com_facebook_internet_permission_error_title.Text" xml:space="preserve">
+    <value>Erreur AndroidManifest</value>
+  </data>
+  <data name="com_facebook_like_button_liked.Text" xml:space="preserve">
+    <value>J’aime déjà</value>
+  </data>
+  <data name="com_facebook_like_button_not_liked.Text" xml:space="preserve">
+    <value>J’aime</value>
+  </data>
+  <data name="com_facebook_loading.Text" xml:space="preserve">
+    <value>Chargement...</value>
+  </data>
+  <data name="com_facebook_loginview_cancel_action.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="com_facebook_loginview_log_in_button.Text" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="com_facebook_loginview_log_in_button_long.Text" xml:space="preserve">
+    <value>Connexion avec Facebook</value>
+  </data>
+  <data name="com_facebook_loginview_log_out_action.Text" xml:space="preserve">
+    <value>Déconnexion</value>
+  </data>
+  <data name="com_facebook_loginview_log_out_button.Text" xml:space="preserve">
+    <value>Déconnexion</value>
+  </data>
+  <data name="com_facebook_loginview_logged_in_as.Text" xml:space="preserve">
+    <value>Connexion en tant que : %1$s</value>
+  </data>
+  <data name="com_facebook_loginview_logged_in_using_facebook.Text" xml:space="preserve">
+    <value>Connecté(e) à l’aide de Facebook</value>
+  </data>
+  <data name="com_facebook_send_button_text.Text" xml:space="preserve">
+    <value>Envoyer</value>
+  </data>
+  <data name="com_facebook_share_button_text.Text" xml:space="preserve">
+    <value>Partager</value>
+  </data>
+  <data name="com_facebook_tooltip_default.Text" xml:space="preserve">
+    <value>Nouveau ! Choisissez les informations que vous souhaitez partager avec les applications.</value>
+  </data>
+  <data name="common_google_play_services_enable_button.Text" xml:space="preserve">
+    <value>Activer</value>
+  </data>
+  <data name="common_google_play_services_enable_text.Text" xml:space="preserve">
+    <value>"%1$s ne fonctionnera pas tant que vous n'aurez pas activé les services Google Play."</value>
+  </data>
+  <data name="common_google_play_services_enable_title.Text" xml:space="preserve">
+    <value>Activer les services Google Play</value>
+  </data>
+  <data name="common_google_play_services_install_button.Text" xml:space="preserve">
+    <value>Installer les services Google Play</value>
+  </data>
+  <data name="common_google_play_services_install_text_phone.Text" xml:space="preserve">
+    <value>%1$s ne fonctionnera pas sans les services Google Play, qui ne sont pas installés sur votre téléphone.</value>
+  </data>
+  <data name="common_google_play_services_install_text_tablet.Text" xml:space="preserve">
+    <value>%1$s ne fonctionnera pas sans les services Google Play, qui ne sont pas installés sur votre tablette.</value>
+  </data>
+  <data name="common_google_play_services_install_title.Text" xml:space="preserve">
+    <value>Installer les services Google Play</value>
+  </data>
+  <data name="common_google_play_services_notification_ticker.Text" xml:space="preserve">
+    <value>Erreur liée aux services Google Play</value>
+  </data>
+  <data name="common_google_play_services_unknown_issue.Text" xml:space="preserve">
+    <value>"L'application %1$s rencontre des problèmes avec les services Google Play. Si le problème persiste, veuillez contacter le développeur pour obtenir de l'aide."</value>
+  </data>
+  <data name="common_google_play_services_unsupported_text.Text" xml:space="preserve">
+    <value>"%1$s dépend des services Google Play, qui ne sont pas compatibles avec votre appareil. Veuillez contacter le fabricant pour obtenir de l'aide."</value>
+  </data>
+  <data name="common_google_play_services_unsupported_title.Text" xml:space="preserve">
+    <value>Services Google Play</value>
+  </data>
+  <data name="common_google_play_services_update_button.Text" xml:space="preserve">
+    <value>Mettre à jour</value>
+  </data>
+  <data name="common_google_play_services_update_text.Text" xml:space="preserve">
+    <value>"%1$s ne fonctionnera pas tant que vous n'aurez pas mis à jour les services Google Play."</value>
+  </data>
+  <data name="common_google_play_services_update_title.Text" xml:space="preserve">
+    <value>Mettre à jour les services Google Play</value>
+  </data>
+  <data name="common_google_play_services_updating_text.Text" xml:space="preserve">
+    <value>%1$s ne fonctionnera pas sans les services Google Play, qui sont en cours de mise à jour.</value>
+  </data>
+  <data name="common_google_play_services_updating_title.Text" xml:space="preserve">
+    <value>Mise à jour des services Google Play</value>
+  </data>
+  <data name="common_google_play_services_wear_update_text.Text" xml:space="preserve">
+    <value>La nouvelle version des services Google Play est nécessaire. Elle sera bientôt installée automatiquement.</value>
+  </data>
+  <data name="common_open_on_phone.Text" xml:space="preserve">
+    <value>Ouvrir sur le téléphone</value>
+  </data>
+  <data name="common_signin_button_text.Text" xml:space="preserve">
+    <value>Se connecter</value>
+  </data>
+  <data name="common_signin_button_text_long.Text" xml:space="preserve">
+    <value>Se connecter avec Google</value>
+  </data>
+  <data name="joda_time_android_date_time.Text" xml:space="preserve">
+    <value>%1$s à %2$s</value>
+  </data>
+  <data name="joda_time_android_preposition_for_date.Text" xml:space="preserve">
+    <value>le %s</value>
+  </data>
+  <data name="joda_time_android_preposition_for_time.Text" xml:space="preserve">
+    <value>à %s</value>
+  </data>
+  <data name="joda_time_android_relative_time.Text" xml:space="preserve">
+    <value>%1$s, %2$s</value>
+  </data>
+  <data name="messenger_send_button_text.Text" xml:space="preserve">
+    <value>Envoyer</value>
+  </data>
+  <data name="status_bar_notification_info_overflow.Text" xml:space="preserve">
+    <value>&gt;999</value>
+  </data>
+  <data name="dgts__call_me.Text" xml:space="preserve">
+    <value>Appelez moi</value>
+  </data>
+  <data name="dgts__calling.Text" xml:space="preserve">
+    <value>Appel en cours…</value>
+  </data>
+  <data name="dgts__confirmation_code.Text" xml:space="preserve">
+    <value>Code de confirmation</value>
+  </data>
+  <data name="dgts__confirmation_edit_hint.Text" xml:space="preserve">
+    <value>Entrez le code à 6 chiffres que nous vous avons envoyé</value>
+  </data>
+  <data name="dgts__confirmation_error.Text" xml:space="preserve">
+    <value>Impossible de confirmer votre numéro de téléphone</value>
+  </data>
+  <data name="dgts__confirmation_error_alternative.Text" xml:space="preserve">
+    <value>Désolé, nous rencontrons des difficultés à vous envoyer un code de confirmation.</value>
+  </data>
+  <data name="dgts__confirmation_expired.Text" xml:space="preserve">
+    <value>Ce code a expiré. Veuillez renvoyer le code de confirmation.</value>
+  </data>
+  <data name="dgts__continue.Text" xml:space="preserve">
+    <value>Continuer</value>
+  </data>
+  <data name="dgts__digits_logo_desc.Text" xml:space="preserve">
+    <value>icône du logo digits</value>
+  </data>
+  <data name="dgts__digits_logo_name_desc.Text" xml:space="preserve">
+    <value>nom du logo digits</value>
+  </data>
+  <data name="dgts__dismiss.Text" xml:space="preserve">
+    <value>Rejeter</value>
+  </data>
+  <data name="dgts__done.Text" xml:space="preserve">
+    <value>Fait</value>
+  </data>
+  <data name="dgts__email_request_edit_hint.Text" xml:space="preserve">
+    <value>Adresse email</value>
+  </data>
+  <data name="dgts__email_request_title.Text" xml:space="preserve">
+    <value>"Entrez l'adresse email"</value>
+  </data>
+  <data name="dgts__find_your_friends.Text" xml:space="preserve">
+    <value>Trouvez vos amis.</value>
+  </data>
+  <data name="dgts__image_header_description.Text" xml:space="preserve">
+    <value>Bannière pour la connexion</value>
+  </data>
+  <data name="dgts__invalid_email.Text" xml:space="preserve">
+    <value>Email invalide. Essayez à nouveau.</value>
+  </data>
+  <data name="dgts__login_digits_text.Text" xml:space="preserve">
+    <value>Utiliser mon numéro de téléphone</value>
+  </data>
+  <data name="dgts__network_error.Text" xml:space="preserve">
+    <value>Veuillez vérifier votre réseau et réessayer.</value>
+  </data>
+  <data name="dgts__not_now.Text" xml:space="preserve">
+    <value>Pas maintenant</value>
+  </data>
+  <data name="dgts__okay.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="dgts__phone_number_edit_hint.Text" xml:space="preserve">
+    <value>Votre numéro</value>
+  </data>
+  <data name="dgts__phone_number_text.Text" xml:space="preserve">
+    <value>Saisissez votre numéro de téléphone.</value>
+  </data>
+  <data name="dgts__pin_code_verification_title.Text" xml:space="preserve">
+    <value>Entrez le code de vérification en deux étapes</value>
+  </data>
+  <data name="dgts__resend_confirmation_button_code.Text" xml:space="preserve">
+    <value>Renvoyer le code</value>
+  </data>
+  <data name="dgts__resend_confirmation_text.Text" xml:space="preserve">
+    <value>Renvoyer le code de confirmation</value>
+  </data>
+  <data name="dgts__sending.Text" xml:space="preserve">
+    <value>Envoi en cours…</value>
+  </data>
+  <data name="dgts__success_desc.Text" xml:space="preserve">
+    <value>Icône Réussite</value>
+  </data>
+  <data name="dgts__try_again.Text" xml:space="preserve">
+    <value>Réessayer</value>
+  </data>
+  <data name="dgts__try_again_confirmation.Text" xml:space="preserve">
+    <value>Veuillez vérifier votre code et réessayer.</value>
+  </data>
+  <data name="dgts__try_again_email.Text" xml:space="preserve">
+    <value>Veuillez vérifier votre email et réessayez</value>
+  </data>
+  <data name="dgts__try_again_phone_number.Text" xml:space="preserve">
+    <value>Veuillez vérifier votre numéro et réessayer.</value>
+  </data>
+  <data name="dgts__try_another_phone.Text" xml:space="preserve">
+    <value>Essayez un autre numéro de téléphone.</value>
+  </data>
+  <data name="dgts__unsupported_operator_error.Text" xml:space="preserve">
+    <value>"Impossible d'envoyer un SMS à ce numéro."</value>
+  </data>
+  <data name="dgts__upload_contacts.Text" xml:space="preserve">
+    <value>"Nous utilisons Digits by Twitter pour vous trouver plus de vos amis qui utilisent cette application. Lorsque vous tapoterez sur OK, nous téléchargerons votre carnet d'adresses à Digits by Twitter afin que nous puissions vous aider à trouver des utilisateurs de %1$s que vous connaissez ou aider les autres utilisateurs de %1$s à vous trouver."</value>
+  </data>
+  <data name="dgts__verification_code.Text" xml:space="preserve">
+    <value>Code de vérification</value>
+  </data>
+  <data name="dgts_pin_code_terms.Text" xml:space="preserve">
+    <value>Vous avez précédemment créé un code de vérification en 2 étapes sur digits.com</value>
+  </data>
+  <data name="hs__app_review_button.Text" xml:space="preserve">
+    <value>NOTER</value>
+  </data>
+  <data name="hs__attach_screenshot_btn.Text" xml:space="preserve">
+    <value>"Fixez une capture d'écran"</value>
+  </data>
+  <data name="hs__attach_screenshot_button.Text" xml:space="preserve">
+    <value>ATTACHER</value>
+  </data>
+  <data name="hs__ca_msg.Text" xml:space="preserve">
+    <value>Nous sommes heureux de pouvoir vous aider</value>
+  </data>
+  <data name="hs__change_btn.Text" xml:space="preserve">
+    <value>Changez</value>
+  </data>
+  <data name="hs__chat_hint.Text" xml:space="preserve">
+    <value>Entrez votre message</value>
+  </data>
+  <data name="hs__confirmation_footer_msg.Text" xml:space="preserve">
+    <value>Merci de votre message !</value>
+  </data>
+  <data name="hs__confirmation_msg.Text" xml:space="preserve">
+    <value>Avons-nous répondu à toutes vos questions ?</value>
+  </data>
+  <data name="hs__contact_us_btn.Text" xml:space="preserve">
+    <value>CONTACTEZ-NOUS</value>
+  </data>
+  <data name="hs__conversation_detail_error.Text" xml:space="preserve">
+    <value>Veuillez décrire le problème.</value>
+  </data>
+  <data name="hs__conversation_end_msg.Text" xml:space="preserve">
+    <value>Cette conversation a pris fin.</value>
+  </data>
+  <data name="hs__conversation_header.Text" xml:space="preserve">
+    <value>Conversation</value>
+  </data>
+  <data name="hs__conversation_started_message.Text" xml:space="preserve">
+    <value>Votre message a bien été reçu. Merci de nous avoir contactés !</value>
+  </data>
+  <data name="hs__copy.Text" xml:space="preserve">
+    <value>Copie</value>
+  </data>
+  <data name="hs__could_not_open_attachment_msg.Text" xml:space="preserve">
+    <value>Aucune application ne peut effectuer cette action</value>
+  </data>
+  <data name="hs__could_not_reach_support_msg.Text" xml:space="preserve">
+    <value>"Impossible de joindre l'assistance"</value>
+  </data>
+  <data name="hs__cr_msg.Text" xml:space="preserve">
+    <value>Pouvons-nous vous aider pour autre chose ?</value>
+  </data>
+  <data name="hs__csat_additonal_feedback_message.Text" xml:space="preserve">
+    <value>"D'autres retours ? (optionnel)"</value>
+  </data>
+  <data name="hs__csat_dislike_message.Text" xml:space="preserve">
+    <value>Détesté</value>
+  </data>
+  <data name="hs__csat_like_message.Text" xml:space="preserve">
+    <value>Adoré</value>
+  </data>
+  <data name="hs__csat_message.Text" xml:space="preserve">
+    <value>Que pensez-vous de notre service clientèle ?</value>
+  </data>
+  <data name="hs__csat_option_message.Text" xml:space="preserve">
+    <value>Ou</value>
+  </data>
+  <data name="hs__csat_ratingbar.Text" xml:space="preserve">
+    <value>"Merci d'évaluer notre service"</value>
+  </data>
+  <data name="hs__csat_submit_toast.Text" xml:space="preserve">
+    <value>"Merci d'avoir donné votre avis"</value>
+  </data>
+  <data name="hs__data_not_found_msg.Text" xml:space="preserve">
+    <value>Données introuvables</value>
+  </data>
+  <data name="hs__default_notification_content_title.Text" xml:space="preserve">
+    <value>Aider</value>
+  </data>
+  <data name="hs__description_invalid_length_error.Text" xml:space="preserve">
+    <value>Veuillez donner plus de détails pour mieux vous aider</value>
+  </data>
+  <data name="hs__dm_video_loading.Text" xml:space="preserve">
+    <value>Chargement de la vidéo …</value>
+  </data>
+  <data name="hs__done_btn.Text" xml:space="preserve">
+    <value>Complété</value>
+  </data>
+  <data name="hs__email_hint.Text" xml:space="preserve">
+    <value>E-mail (facultatif)</value>
+  </data>
+  <data name="hs__email_required_hint.Text" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="hs__empty_section.Text" xml:space="preserve">
+    <value>"Désolé ! Aucune question n'est répertoriée dans cette section"</value>
+  </data>
+  <data name="hs__faq_fetching_fail_message.Text" xml:space="preserve">
+    <value>Impossible de charger la FAQ pour le moment. Veuillez réessayer plus tard…</value>
+  </data>
+  <data name="hs__faq_header.Text" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="hs__faqs_search_footer.Text" xml:space="preserve">
+    <value>Pas FAQ trouvé.</value>
+  </data>
+  <data name="hs__feedback_button.Text" xml:space="preserve">
+    <value>Réaction</value>
+  </data>
+  <data name="hs__fetching_faqs_message.Text" xml:space="preserve">
+    <value>Nous cherchons vos réponses…</value>
+  </data>
+  <data name="hs__file_not_found_msg.Text" xml:space="preserve">
+    <value>Fichier non trouvé</value>
+  </data>
+  <data name="hs__file_type_audio.Text" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="hs__file_type_csv.Text" xml:space="preserve">
+    <value>CSV</value>
+  </data>
+  <data name="hs__file_type_ms_office.Text" xml:space="preserve">
+    <value>Document Office</value>
+  </data>
+  <data name="hs__file_type_pdf.Text" xml:space="preserve">
+    <value>PDF</value>
+  </data>
+  <data name="hs__file_type_rtf.Text" xml:space="preserve">
+    <value>RTF</value>
+  </data>
+  <data name="hs__file_type_text.Text" xml:space="preserve">
+    <value>TXT</value>
+  </data>
+  <data name="hs__file_type_unknown.Text" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="hs__file_type_video.Text" xml:space="preserve">
+    <value>Vidéo</value>
+  </data>
+  <data name="hs__help_header.Text" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="hs__image_attachment.Text" xml:space="preserve">
+    <value>Image jointe</value>
+  </data>
+  <data name="hs__image_not_available.Text" xml:space="preserve">
+    <value>Image non disponible</value>
+  </data>
+  <data name="hs__invalid_description_error.Text" xml:space="preserve">
+    <value>Description non valide</value>
+  </data>
+  <data name="hs__invalid_email_error.Text" xml:space="preserve">
+    <value>"S'il vous plaît entrer une adresse email valide"</value>
+  </data>
+  <data name="hs__mark_helpful_toast.Text" xml:space="preserve">
+    <value>Question a été indiqué comme utile</value>
+  </data>
+  <data name="hs__mark_no.Text" xml:space="preserve">
+    <value>NON</value>
+  </data>
+  <data name="hs__mark_unhelpful_toast.Text" xml:space="preserve">
+    <value>"Question a été marquée ne m'a pas aidé"</value>
+  </data>
+  <data name="hs__mark_yes.Text" xml:space="preserve">
+    <value>OUI</value>
+  </data>
+  <data name="hs__mark_yes_no_question.Text" xml:space="preserve">
+    <value>Cela vous a-t-il été utile?</value>
+  </data>
+  <data name="hs__network_error_msg.Text" xml:space="preserve">
+    <value>"Oups ! Une erreur s'est produite"</value>
+  </data>
+  <data name="hs__network_unavailable_msg.Text" xml:space="preserve">
+    <value>Réseau non disponible.</value>
+  </data>
+  <data name="hs__new_conversation_btn.Text" xml:space="preserve">
+    <value>COMMENCER UNE NOUVELLE CONVERSATION</value>
+  </data>
+  <data name="hs__new_conversation_header.Text" xml:space="preserve">
+    <value>Nouvelle conversation</value>
+  </data>
+  <data name="hs__new_conversation_hint.Text" xml:space="preserve">
+    <value>Comment pouvons-nous vous aider ?</value>
+  </data>
+  <data name="hs__no_search_results_message.Text" xml:space="preserve">
+    <value>"Oups ! Nous n'avons rien trouvé pour query"</value>
+  </data>
+  <data name="hs__notification_content_text.Text" xml:space="preserve">
+    <value>RE:</value>
+  </data>
+  <data name="hs__permission_denied_message.Text" xml:space="preserve">
+    <value>"Une permission de stockage est nécessaire pour accéder aux captures d'écran et télécharger les pièces jointes"</value>
+  </data>
+  <data name="hs__permission_denied_snackbar_action.Text" xml:space="preserve">
+    <value>Réglages</value>
+  </data>
+  <data name="hs__permission_not_granted.Text" xml:space="preserve">
+    <value>"L'application n'a pas la permission pour accéder à vos photos"</value>
+  </data>
+  <data name="hs__permission_rationale_snackbar_action_label.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="hs__question_header" xml:space="preserve">
+    <value>Notre aide vous a-t-elle été utile.</value>
+  </data>
+  <data name="hs__question_unhelpful_message.Text" xml:space="preserve">
+    <value>Notre aide ne vous a pas été utile.</value>
+  </data>
+  <data name="hs__rate_button.Text" xml:space="preserve">
+    <value>Évaluez</value>
+  </data>
+  <data name="hs__remove_screenshot_btn.Text" xml:space="preserve">
+    <value>"Supprimer la copie d'écran"</value>
+  </data>
+  <data name="hs__retry_faq_fetching_button.Text" xml:space="preserve">
+    <value>RÉESSAYER</value>
+  </data>
+  <data name="hs__review_accepted_message.Text" xml:space="preserve">
+    <value>"Vous avez accepté la demande d'avis."</value>
+  </data>
+  <data name="hs__review_close_button.Text" xml:space="preserve">
+    <value>Fermez</value>
+  </data>
+  <data name="hs__review_message.Text" xml:space="preserve">
+    <value>"Si vous aimez notre app, veuillez prendre un moment pour la noter dans l'App Store"</value>
+  </data>
+  <data name="hs__review_request_message.Text" xml:space="preserve">
+    <value>"Voulez-vous noter l'appli sur le Play Store ?"</value>
+  </data>
+  <data name="hs__review_title.Text" xml:space="preserve">
+    <value>"Donner une note à l'app"</value>
+  </data>
+  <data name="hs__screenshot_add.Text" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="hs__screenshot_cloud_attach_error.Text" xml:space="preserve">
+    <value>"Erreur de fixation d'écran. S'il vous plaît choisir une image disponible localement sur le périphérique."</value>
+  </data>
+  <data name="hs__screenshot_limit_error.Text" xml:space="preserve">
+    <value>"Taille d'écran ne doit pas dépasser %.2f Mo"</value>
+  </data>
+  <data name="hs__screenshot_remove.Text" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="hs__screenshot_sent_msg.Text" xml:space="preserve">
+    <value>"La capture d'écran a été envoyée"</value>
+  </data>
+  <data name="hs__screenshot_upload_error_msg.Text" xml:space="preserve">
+    <value>"Erreur pendant le téléchargement de la capture d'écran"</value>
+  </data>
+  <data name="hs__search_footer.Text" xml:space="preserve">
+    <value>"Vous n'avez pas pu trouver ce que vous cherchiez ?"</value>
+  </data>
+  <data name="hs__search_hint.Text" xml:space="preserve">
+    <value>Décrivez votre problème</value>
+  </data>
+  <data name="hs__search_result_message.Text" xml:space="preserve">
+    <value>Questions/réponses relatives à la vôtre</value>
+  </data>
+  <data name="hs__search_result_title.Text" xml:space="preserve">
+    <value>Suggestions</value>
+  </data>
+  <data name="hs__search_title.Text" xml:space="preserve">
+    <value>Recherche</value>
+  </data>
+  <data name="hs__select_a_question_message.Text" xml:space="preserve">
+    <value>Veuillez choisir une question à gauche</value>
+  </data>
+  <data name="hs__send_anyway.Text" xml:space="preserve">
+    <value>ENVOYER QUAND MÊME</value>
+  </data>
+  <data name="hs__send_msg_btn.Text" xml:space="preserve">
+    <value>Envoyez</value>
+  </data>
+  <data name="hs__sending_fail_msg.Text" xml:space="preserve">
+    <value>Message non envoyé. Touchez pour réessayer.</value>
+  </data>
+  <data name="hs__sending_msg.Text" xml:space="preserve">
+    <value>Envoi…</value>
+  </data>
+  <data name="hs__solved_btn.Text" xml:space="preserve">
+    <value>Oui, résolu !</value>
+  </data>
+  <data name="hs__starting_download.Text" xml:space="preserve">
+    <value>Début du téléchargement…</value>
+  </data>
+  <data name="hs__submit_conversation_btn.Text" xml:space="preserve">
+    <value>Soumettez</value>
+  </data>
+  <data name="hs__unsolved_btn.Text" xml:space="preserve">
+    <value>Non, non résolu</value>
+  </data>
+  <data name="hs__username_blank_error.Text" xml:space="preserve">
+    <value>"S'il vous plaît entrer un nom valide"</value>
+  </data>
+  <data name="hs__username_hint.Text" xml:space="preserve">
+    <value>Votre nom</value>
+  </data>
+  <data name="tw__allow_btn_txt.Text" xml:space="preserve">
+    <value>Autoriser</value>
+  </data>
+  <data name="tw__like_tweet.Text" xml:space="preserve">
+    <value>Aimer le Tweet</value>
+  </data>
+  <data name="tw__liked_tweet.Text" xml:space="preserve">
+    <value>Ne plus aimer</value>
+  </data>
+  <data name="tw__loading_tweet.Text" xml:space="preserve">
+    <value>Chargement du Tweet</value>
+  </data>
+  <data name="tw__login_btn_txt.Text" xml:space="preserve">
+    <value>Se connecter avec Twitter</value>
+  </data>
+  <data name="tw__not_now_btn_txt.Text" xml:space="preserve">
+    <value>Pas maintenant</value>
+  </data>
+  <data name="tw__pause.Text" xml:space="preserve">
+    <value>pause</value>
+  </data>
+  <data name="tw__play.Text" xml:space="preserve">
+    <value>lire</value>
+  </data>
+  <data name="tw__relative_date_format_long.Text" xml:space="preserve">
+    <value>d/M/y</value>
+  </data>
+  <data name="tw__relative_date_format_short.Text" xml:space="preserve">
+    <value>d MMM</value>
+  </data>
+  <data name="tw__replay.Text" xml:space="preserve">
+    <value>relire</value>
+  </data>
+  <data name="tw__retweeted_by_format.Text" xml:space="preserve">
+    <value>Retweeté par %1$s</value>
+  </data>
+  <data name="tw__share_content_format.Text" xml:space="preserve">
+    <value>Lisez le Tweet de @%1$s : https://twitter.com/%1$s/status/%2$s</value>
+  </data>
+  <data name="tw__share_email_desc.Text" xml:space="preserve">
+    <value>"Autoriser %1$s à accéder à l'adresse email associée à votre compte Twitter @%2$s afin que %1$s puisse l'utiliser conformément à la politique de confidentialité. Par exemple, %1$s pourra vous envoyer des actualités et d'autres informations à cette adresse."</value>
+  </data>
+  <data name="tw__share_email_title.Text" xml:space="preserve">
+    <value>Partagez votre adresse email</value>
+  </data>
+  <data name="tw__share_subject_format.Text" xml:space="preserve">
+    <value>Tweet de %1$s (@%2$s)</value>
+  </data>
+  <data name="tw__share_tweet.Text" xml:space="preserve">
+    <value>Partager le Tweet</value>
+  </data>
+  <data name="tw__tweet_content_description.Text" xml:space="preserve">
+    <value>%1$s. %2$s. %3$s.</value>
+  </data>
+  <data name="about_hinative_section_header.Text" xml:space="preserve">
+    <value>À propos de HiNative</value>
+  </data>
+  <data name="account_setting_navigation_item_title.Text" xml:space="preserve">
+    <value>Mon compte</value>
+  </data>
+  <data name="account_settings_section_header.Text" xml:space="preserve">
+    <value>Paramètres de compte</value>
+  </data>
+  <data name="activity_answer_create.Text" xml:space="preserve">
+    <value>%1$s a répondu à la question %2$s</value>
+  </data>
+  <data name="activity_choice_create.Text" xml:space="preserve">
+    <value>%1$s a répondu à votre question %2$s</value>
+  </data>
+  <data name="activity_comment_create.Text" xml:space="preserve">
+    <value>%1$s à commenté sur sa question %2$s</value>
+  </data>
+  <data name="activity_featured_answer_create.Text" xml:space="preserve">
+    <value>Votre réponse a été choisie comme la plus appropriée à la question %1$s</value>
+  </data>
+  <data name="activity_like_create.Text" xml:space="preserve">
+    <value>%1$s a aimé votre réponse %2$s</value>
+  </data>
+  <data name="activity_mention_create.Text" xml:space="preserve">
+    <value>%1$s vous a mentionné dans %2$s</value>
+  </data>
+  <data name="activity_noactivity_maintext.Text" xml:space="preserve">
+    <value>"Il n'y à pas de Notifications jusqu'à présent."</value>
+  </data>
+  <data name="activity_noactivity_subtext.Text" xml:space="preserve">
+    <value>"Si vous recevez une réponse ou un j'aime,
+	 ce sera affiché ici."</value>
+  </data>
+  <data name="answer_recommend_level1.Text" xml:space="preserve">
+    <value>Veuillez répondre dans sa langue maternelle car il/ elle est débutant(e) en Français.</value>
+  </data>
+  <data name="answer_recommend_level2.Text" xml:space="preserve">
+    <value>Éviter les expressions complexes car il/elle a seulement des notions de Français.</value>
+  </data>
+  <data name="answer_recommend_level3.Text" xml:space="preserve">
+    <value>Vous pouvez répondre dans la langue que vous souhaitez car son niveau de Français est intermédiaire.</value>
+  </data>
+  <data name="answer_recommend_level4.Text" xml:space="preserve">
+    <value>Vous pouvez répondre dans la langue que vous souhaitez car son niveau de Français est avancé.</value>
+  </data>
+  <data name="answer_recommend_me.Text" xml:space="preserve">
+    <value>Dites merci, demandez des clarifications, etc.</value>
+  </data>
+  <data name="ask_label_choice.Text" xml:space="preserve">
+    <value>Est-ce-que ça semble naturel?</value>
+  </data>
+  <data name="ask_label_description.Text" xml:space="preserve">
+    <value>"S'il vous plait choisir le type de question"</value>
+  </data>
+  <data name="ask_label_difference.Text" xml:space="preserve">
+    <value>Quelle est la différence?</value>
+  </data>
+  <data name="ask_label_difference_footer.Text" xml:space="preserve">
+    <value>"\?
+	 Sentez-vous alèse de fournir des phrases en exemple."</value>
+  </data>
+  <data name="ask_label_difference_subtitle.Text" xml:space="preserve">
+    <value>"Quelle est la différence entre les deux? A et B. N'hésiter pas à fournir des phrases en exemple."</value>
+  </data>
+  <data name="ask_label_example.Text" xml:space="preserve">
+    <value>Veuillez me montrer des exemples de phrases contenant ~~.</value>
+  </data>
+  <data name="ask_label_free.Text" xml:space="preserve">
+    <value>Question gratuite</value>
+  </data>
+  <data name="ask_label_free_subtitle.Text" xml:space="preserve">
+    <value>Poser des questions à propos de la langue, culture, tout ce que vous désirez.</value>
+  </data>
+  <data name="ask_label_meaning.Text" xml:space="preserve">
+    <value>Qu’est-ce que cela signifie ?</value>
+  </data>
+  <data name="ask_label_whatsay.Text" xml:space="preserve">
+    <value>Comment dit-on on cela?</value>
+  </data>
+  <data name="ask_label_whatsay_subtitle.Text" xml:space="preserve">
+    <value>Comment dit-on on cela en ~~?</value>
+  </data>
+  <data name="ask_navigation_item_title.Text" xml:space="preserve">
+    <value>Choisir un format de réponse</value>
+  </data>
+  <data name="ask_tab_bar_item_title.Text" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="audio_permission_denied.Text" xml:space="preserve">
+    <value>"Seul le demandeur, le répondeur et les utilisateurs premium ont accès à l'audio."</value>
+  </data>
+  <data name="audio_recorder_note.Text" xml:space="preserve">
+    <value>Appuyez sur le bouton et maintenez-le enfoncé pour enregistrer. Lâchez lorsque vous aurez terminé.</value>
+  </data>
+  <data name="audio_uploading.Text" xml:space="preserve">
+    <value>Transfert en cours…</value>
+  </data>
+  <data name="audio_wait.Text" xml:space="preserve">
+    <value>Veuillez attendre que le fichier audio soit chargé.</value>
+  </data>
+  <data name="bookmarked_description.Text" xml:space="preserve">
+    <value>"Les favoris peuvent être parcourus à partir de la liste de votre profil.
+	Vous pouvez également recevoir des notifications lorsque quelqu'un répond à une question que vous avez mis en favoris.
+	(Utilisateurs premium uniquement)"</value>
+  </data>
+  <data name="bookmarked_title.Text" xml:space="preserve">
+    <value>Ajouté aux favoris</value>
+  </data>
+  <data name="bookmarks_nobookmark_maintext.Text" xml:space="preserve">
+    <value>"Il n'y a encore aucun favori."</value>
+  </data>
+  <data name="bookmarks_nobookmark_subtext" xml:space="preserve">
+    <value>Favoris</value>
+  </data>
+  <data name="comments_navigation_item_title.Text" xml:space="preserve">
+    <value>Commentaire</value>
+  </data>
+  <data name="common_additional_info.Text" xml:space="preserve">
+    <value>Publier des informations supplémentaires</value>
+  </data>
+  <data name="common_and.Text" xml:space="preserve">
+    <value>et</value>
+  </data>
+  <data name="common_back.Text" xml:space="preserve">
+    <value>Retour</value>
+  </data>
+  <data name="common_bookmarks.Text" xml:space="preserve">
+    <value>Bookmarks</value>
+  </data>
+  <data name="common_cancel.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="common_change_password.Text" xml:space="preserve">
+    <value>Changer le mot de passe</value>
+  </data>
+  <data name="common_choose_answer.Text" xml:space="preserve">
+    <value>Choose an answer above before adding a comment.</value>
+  </data>
+  <data name="common_close.Text" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="common_close_question.Text" xml:space="preserve">
+    <value>Fermer cette question ?</value>
+  </data>
+  <data name="common_comment_closed_question.Text" xml:space="preserve">
+    <value>Cette question est fermée.</value>
+  </data>
+  <data name="common_confirm.Text" xml:space="preserve">
+    <value>Confirmer</value>
+  </data>
+  <data name="common_confirm_delete_account.Text" xml:space="preserve">
+    <value>Êtes-vous certain de vouloir supprimer votre compte ?</value>
+  </data>
+  <data name="common_confirm_delete_file.Text" xml:space="preserve">
+    <value>Les fichiers supprimés ne peuvent pas être récupérés. Voulez-vous vraiment supprimer ?</value>
+  </data>
+  <data name="common_confirm_sign_out.Text" xml:space="preserve">
+    <value>Êtes-vous certain(e) de vouloir vous déconnecter ?</value>
+  </data>
+  <data name="common_continue.Text" xml:space="preserve">
+    <value>Continuer</value>
+  </data>
+  <data name="common_copied.Text" xml:space="preserve">
+    <value>Copié</value>
+  </data>
+  <data name="common_copy.Text" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="common_current_password.Text" xml:space="preserve">
+    <value>Mot de passe actuel</value>
+  </data>
+  <data name="common_delete_account.Text" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="common_delete_answer.Text" xml:space="preserve">
+    <value>Voulez-vous vraiment supprimer cette réponse ?</value>
+  </data>
+  <data name="common_delete_photo.Text" xml:space="preserve">
+    <value>Voulez-vous vraiment supprimer cette photo ?</value>
+  </data>
+  <data name="common_delete_question.Text" xml:space="preserve">
+    <value>Êtes-vous certain de vouloir supprimer cette question ?</value>
+  </data>
+  <data name="common_description.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="common_destroy.Text" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="common_dismiss.Text" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="common_dummy_user_message.Text" xml:space="preserve">
+    <value>Cet utilisateur est un utilisateur factice.</value>
+  </data>
+  <data name="common_edit.Text" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="common_facebook.Text" xml:space="preserve">
+    <value>Partage ceci sur Facebook</value>
+  </data>
+  <data name="common_facebook_sent.Text" xml:space="preserve">
+    <value>Partagé</value>
+  </data>
+  <data name="common_messsage_updated.Text" xml:space="preserve">
+    <value>Mis à jour</value>
+  </data>
+  <data name="common_native_language.Text" xml:space="preserve">
+    <value>Langue maternelle</value>
+  </data>
+  <data name="common_new_answer.Text" xml:space="preserve">
+    <value>"Répondre. Il n'y a pas de mauvaises réponses :)"</value>
+  </data>
+  <data name="common_new_comment.Text" xml:space="preserve">
+    <value>Publier un commentaire</value>
+  </data>
+  <data name="common_new_password.Text" xml:space="preserve">
+    <value>Nouveau mot de passe</value>
+  </data>
+  <data name="common_no.Text" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="common_notifications.Text" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="common_now_sending.Text" xml:space="preserve">
+    <value>Envoi en cours…</value>
+  </data>
+  <data name="common_ok.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="common_or.Text" xml:space="preserve">
+    <value>ou</value>
+  </data>
+  <data name="common_password.Text" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="common_questions.Text" xml:space="preserve">
+    <value>Questions</value>
+  </data>
+  <data name="common_reopen.Text" xml:space="preserve">
+    <value>Rouvrir</value>
+  </data>
+  <data name="common_reopen_question.Text" xml:space="preserve">
+    <value>Rouvrir cette question ?</value>
+  </data>
+  <data name="common_replace_file.Text" xml:space="preserve">
+    <value>Il y a déjà un fichier. Voulez-vous supprimer ce fichier ?</value>
+  </data>
+  <data name="common_report.Text" xml:space="preserve">
+    <value>Marqué comme spam</value>
+  </data>
+  <data name="common_search.Text" xml:space="preserve">
+    <value>Recherche</value>
+  </data>
+  <data name="common_search_result.Text" xml:space="preserve">
+    <value>Résultat de la recherche</value>
+  </data>
+  <data name="common_self_introduction.Text" xml:space="preserve">
+    <value>Présentez-vous</value>
+  </data>
+  <data name="common_settings.Text" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="common_sign_out.Text" xml:space="preserve">
+    <value>Se déconnecter</value>
+  </data>
+  <data name="common_twitter.Text" xml:space="preserve">
+    <value>Partage ceci sur Twitter</value>
+  </data>
+  <data name="common_twitter_sent.Text" xml:space="preserve">
+    <value>Tweeté</value>
+  </data>
+  <data name="common_unsubscribed_user.Text" xml:space="preserve">
+    <value>Utilisateur non enregistré.</value>
+  </data>
+  <data name="common_unsubscribed_user_message.Text" xml:space="preserve">
+    <value>"Cet utilisateur n'est plus inscrit à HiNative."</value>
+  </data>
+  <data name="common_username.Text" xml:space="preserve">
+    <value>"Nom d'utilisateur"</value>
+  </data>
+  <data name="common_yes.Text" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="connectionerror_alert_view_context.Text" xml:space="preserve">
+    <value>"Votre réponse n'a pas pu être postée. Tapez \"Réessayer\" pour renvoyer cette réponse."</value>
+  </data>
+  <data name="connectionerror_alert_view_retry.Text" xml:space="preserve">
+    <value>Essayer de nouveau</value>
+  </data>
+  <data name="connectionerror_alert_view_title.Text" xml:space="preserve">
+    <value>Erreur de connection</value>
+  </data>
+  <data name="connectionerror_progress_view_message.Text" xml:space="preserve">
+    <value>Pas de connexion au serveur</value>
+  </data>
+  <data name="delete_account_alert_success.Text" xml:space="preserve">
+    <value>Compte supprimé avec succès</value>
+  </data>
+  <data name="edit_answer_navigation_item_title.Text" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="edit_choice_question_navigation_item_title.Text" xml:space="preserve">
+    <value>Est-ce-que ça semble naturel?</value>
+  </data>
+  <data name="edit_difference_question_navigation_item_title.Text" xml:space="preserve">
+    <value>Quelle est la différence?</value>
+  </data>
+  <data name="edit_email_label_current_email.Text" xml:space="preserve">
+    <value>Adresse mail actuelle</value>
+  </data>
+  <data name="edit_email_label_current_password_description.Text" xml:space="preserve">
+    <value>Entrez votre mot de passe deHiNative de nouveau afin de sauvegarder les changements à votre compte.</value>
+  </data>
+  <data name="edit_email_label_new_email.Text" xml:space="preserve">
+    <value>Nouvelle adresse mail</value>
+  </data>
+  <data name="edit_email_navigation_item_title.Text" xml:space="preserve">
+    <value>Changer adresse mail</value>
+  </data>
+  <data name="edit_password_label_current_password_description.Text" xml:space="preserve">
+    <value>Nous avons besoin de voter mot de passe actuel afin de confirmer le changement.</value>
+  </data>
+  <data name="edit_password_label_new_password_description.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="edit_password_text_field_placeholder_password_confirmation.Text" xml:space="preserve">
+    <value>Confirmation du mot de passe</value>
+  </data>
+  <data name="edit_profile_label_add_interested_language.Text" xml:space="preserve">
+    <value>Ajouter la langue qui vous intéresse</value>
+  </data>
+  <data name="edit_profile_label_add_language.Text" xml:space="preserve">
+    <value>Ajouter une Langue</value>
+  </data>
+  <data name="edit_profile_label_add_native_language.Text" xml:space="preserve">
+    <value>Ajouter langue maternelle</value>
+  </data>
+  <data name="edit_profile_label_learning_language.Text" xml:space="preserve">
+    <value>Langue qui vous intéresse</value>
+  </data>
+  <data name="edit_profile_label_learning_level.Text" xml:space="preserve">
+    <value>"Niveau d'apprentissage"</value>
+  </data>
+  <data name="edit_profile_label_learning_level_id_1.Text" xml:space="preserve">
+    <value>Débutant</value>
+  </data>
+  <data name="edit_profile_label_learning_level_id_2.Text" xml:space="preserve">
+    <value>Notions basiques</value>
+  </data>
+  <data name="edit_profile_label_learning_level_id_3.Text" xml:space="preserve">
+    <value>Intermediaire</value>
+  </data>
+  <data name="edit_profile_label_learning_level_id_4.Text" xml:space="preserve">
+    <value>Avancé</value>
+  </data>
+  <data name="edit_profile_label_learning_level_id_5.Text" xml:space="preserve">
+    <value>Parlé couramment</value>
+  </data>
+  <data name="edit_profile_label_learning_level_id_6.Text" xml:space="preserve">
+    <value>presque parfait</value>
+  </data>
+  <data name="edit_profile_label_nationality.Text" xml:space="preserve">
+    <value>Nationalité et région</value>
+  </data>
+  <data name="edit_profile_label_native_language.Text" xml:space="preserve">
+    <value>Langue maternelle</value>
+  </data>
+  <data name="edit_profile_label_native_level.Text" xml:space="preserve">
+    <value>Niveau</value>
+  </data>
+  <data name="edit_profile_label_photo.Text" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="edit_profile_navigation_item_title.Text" xml:space="preserve">
+    <value>Modifier le Profil</value>
+  </data>
+  <data name="edit_question_bar_button_item_done.Text" xml:space="preserve">
+    <value>Terminer</value>
+  </data>
+  <data name="edit_question_bar_button_item_edit.Text" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="edit_question_bar_button_item_post.Text" xml:space="preserve">
+    <value>Afficher</value>
+  </data>
+  <data name="edit_question_button_normal_edit.Text" xml:space="preserve">
+    <value>Modifier cette question</value>
+  </data>
+  <data name="edit_question_button_normal_post.Text" xml:space="preserve">
+    <value>Poser cette question</value>
+  </data>
+  <data name="edit_question_common_update.Text" xml:space="preserve">
+    <value>Mise à jour</value>
+  </data>
+  <data name="edit_question_content_alert_limit_characters.Text" xml:space="preserve">
+    <value>"S'il vous plait entrez moins de %1$s caractères."</value>
+  </data>
+  <data name="edit_question_error_retry_button.Text" xml:space="preserve">
+    <value>réessayer</value>
+  </data>
+  <data name="edit_question_error_retry_message.Text" xml:space="preserve">
+    <value>"Oublié d'afficher la question. Voulez-vous réessayer?"</value>
+  </data>
+  <data name="edit_question_error_retry_network_error_message.Text" xml:space="preserve">
+    <value>Réseau inaccessible. Voulez-vous réessayer?</value>
+  </data>
+  <data name="edit_question_error_retry_upload_audio_message.Text" xml:space="preserve">
+    <value>Échec du transfert de la piste audio. Voulez-vous réessayer ?</value>
+  </data>
+  <data name="edit_question_error_retry_upload_image_message.Text" xml:space="preserve">
+    <value>"L'image n'a pas pu être téléchargée. Voulez-vous réessayer ?"</value>
+  </data>
+  <data name="edit_question_image_delete.Text" xml:space="preserve">
+    <value>Êtes-vous certain de vouloir effacer cette image?</value>
+  </data>
+  <data name="edit_question_image_update.Text" xml:space="preserve">
+    <value>Êtes-vous certain de vouloir faire une mise à jour de cette image?</value>
+  </data>
+  <data name="edit_question_input_accessory_help_description.Text" xml:space="preserve">
+    <value>Le format de la question sera traduite automatiquement pour les autres utilisateurs.</value>
+  </data>
+  <data name="edit_question_label_add.Text" xml:space="preserve">
+    <value>+Ajouter</value>
+  </data>
+  <data name="edit_question_label_additional_info.Text" xml:space="preserve">
+    <value>Information aditionnelle</value>
+  </data>
+  <data name="edit_question_label_free_description.Text" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="edit_question_label_language_description.Text" xml:space="preserve">
+    <value>Question à propos de %1$s</value>
+  </data>
+  <data name="edit_question_label_tags.Text" xml:space="preserve">
+    <value>Étiquettes</value>
+  </data>
+  <data name="edit_question_supplement_alert_limit_characters.Text" xml:space="preserve">
+    <value>"S'il vous plait entrez moins de %1$s caractères pour plus d'information."</value>
+  </data>
+  <data name="edit_question_text_field_alert_limit_characters.Text" xml:space="preserve">
+    <value>"S'il vous plait entrez moins de %1$s caractères."</value>
+  </data>
+  <data name="edit_question_text_field_placeholder_free.Text" xml:space="preserve">
+    <value>Poser des questions à propos de la langue, culture, tout ce que vous désirez. Vous pouvez demander dans la langue de votre choix.</value>
+  </data>
+  <data name="edit_question_text_field_placeholder_phrase.Text" xml:space="preserve">
+    <value>Écriver un mot, bout de phrase ou phrase complete</value>
+  </data>
+  <data name="edit_question_text_field_placeholder_supplement.Text" xml:space="preserve">
+    <value>"Écrivez de l'information additionelle ici. Vous pouvez écrire dans la langue de votre choix."</value>
+  </data>
+  <data name="editing_question_alert_error.Text" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="editing_question_alert_success.Text" xml:space="preserve">
+    <value>succès</value>
+  </data>
+  <data name="editing_question_navigation_title_editing_question.Text" xml:space="preserve">
+    <value>Modifier la Question</value>
+  </data>
+  <data name="editing_question_navigation_title_new_question.Text" xml:space="preserve">
+    <value>Nouvelle Question</value>
+  </data>
+  <data name="editing_question_template_county_arg1_countyr_arg2_space_arg3_content.Text" xml:space="preserve">
+    <value>Cette question est à propos de %1$s %2$s %3$s</value>
+  </data>
+  <data name="editing_question_template_difference_add_keyword_button_title.Text" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="editing_question_template_difference_arg1_language_arg2_space_arg3_keyword_arg4_conjunction_arg5_keyword_arg6_add_keyword_button.Text" xml:space="preserve">
+    <value>"Cette question est à propos de %1$s %2$s Quelle est la difference entre %3$s %4$s %5$s ?
+	 Feel free to provide example sentences. %6$s"</value>
+  </data>
+  <data name="editing_question_template_difference_conjunction.Text" xml:space="preserve">
+    <value>et</value>
+  </data>
+  <data name="editing_question_template_example_arg1_language_arg2_space_arg3_keyword.Text" xml:space="preserve">
+    <value>"Cette question concerne %1$s %2$s Veuillez me montrer des exemples de phrases contenant %3$s Dites-moi autant d'expressions quotidiennes que possible."</value>
+  </data>
+  <data name="editing_question_template_free_arg1_language_arg2_space_arg3_content.Text" xml:space="preserve">
+    <value>Cette question est à propos de %1$s %2$s %3$s</value>
+  </data>
+  <data name="editing_question_template_meaning_arg1_language_arg2_space_arg3_keyword.Text" xml:space="preserve">
+    <value>Cette question concerne %1$s %2$s Que signifie %3$s ?</value>
+  </data>
+  <data name="editing_question_template_natural_arg1_language_arg2_space_arg3_content.Text" xml:space="preserve">
+    <value>Cette question est à propos de %1$s %2$s %3$s Est-ce-que ça semble naturel ?</value>
+  </data>
+  <data name="editing_question_template_whatsay_arg1_language_arg2_keyword.Text" xml:space="preserve">
+    <value>"Qu'est-ce-que c'est en %1$s ? %2$s"</value>
+  </data>
+  <data name="error_5xx_message.Text" xml:space="preserve">
+    <value>Une erreur est survenue</value>
+  </data>
+  <data name="error_activity_setting_fail_to_patch_message.Text" xml:space="preserve">
+    <value>"La mise à jour de vos réglages de notification n'à pu être effectué. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_answer_fail_to_delete_message.Text" xml:space="preserve">
+    <value>"La réponse n'a pu être supprimée. Veuillez réessayer plus tard."</value>
+  </data>
+  <data name="error_answer_fail_to_like_message.Text" xml:space="preserve">
+    <value>"\"Like\" has failed. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_answer_fail_to_patch_message.Text" xml:space="preserve">
+    <value>"La réponse n'a pu être modififiée. Veuillez réessayer plus tard."</value>
+  </data>
+  <data name="error_answer_fail_to_post_message.Text" xml:space="preserve">
+    <value>"La tentative d'afficher une réponse à échouée. Veuillez réessayer plus tard."</value>
+  </data>
+  <data name="error_answer_fail_to_select_featured_message.Text" xml:space="preserve">
+    <value>"Vous avez échoué à sortir le plus utile de la question. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_answer_not_permitted_to_delete_message.Text" xml:space="preserve">
+    <value>"Vous n'avez pas l'autorisation de supprimer cette réponse."</value>
+  </data>
+  <data name="error_answer_not_permitted_to_patch_message.Text" xml:space="preserve">
+    <value>"Vous n'avez pas l'autorisation de mettre à jour cette réponse."</value>
+  </data>
+  <data name="error_audio_fail_to_delete_message.Text" xml:space="preserve">
+    <value>"Il n'a pas été possible de supprimer cette piste audio. Veuillez réessayer un peu plus tard."</value>
+  </data>
+  <data name="error_audio_fail_to_upload_message.Text" xml:space="preserve">
+    <value>"Il n'a pas été possible de transférer cette piste audio. Veuillez réessayer un peu plus tard."</value>
+  </data>
+  <data name="error_audio_not_permitted_to_delete_message.Text" xml:space="preserve">
+    <value>"Vous n'avez pas l'autorisation de supprimer cette piste audio."</value>
+  </data>
+  <data name="error_common_message.Text" xml:space="preserve">
+    <value>"Une erreur est survenue. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_image_fail_to_delete_message.Text" xml:space="preserve">
+    <value>"L'image n'à pu être supprimé. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_image_fail_to_upload_message.Text" xml:space="preserve">
+    <value>"L'image n'à pu être téléchargé. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_image_not_permitted_to_delete_message.Text" xml:space="preserve">
+    <value>"Vous n'avez pas l'autorisation de supprimer cette image."</value>
+  </data>
+  <data name="error_invalid_token_message.Text" xml:space="preserve">
+    <value>Jeton invalide</value>
+  </data>
+  <data name="error_mail_setting_fail_to_patch_message.Text" xml:space="preserve">
+    <value>"La mise à jour de votre réglage mail n'à pu être effectué. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_question_fail_to_choice_message.Text" xml:space="preserve">
+    <value>"La réponse n'a pas pu être publiée. Veuillez réessayer plus tard."</value>
+  </data>
+  <data name="error_question_fail_to_close_message.Text" xml:space="preserve">
+    <value>"Il fût impossible de fermer les questions. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_question_fail_to_delete_message.Text" xml:space="preserve">
+    <value>"La question n'à pu être supprimé. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_question_fail_to_patch_message.Text" xml:space="preserve">
+    <value>"La question n'à pu être modifiée. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_question_fail_to_post_message.Text" xml:space="preserve">
+    <value>"La question n'à pu être posé. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_question_fail_to_reopen_message.Text" xml:space="preserve">
+    <value>"La question n'à pu être réouvert. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_question_not_exist_message.Text" xml:space="preserve">
+    <value>"Question n'existe pas"</value>
+  </data>
+  <data name="error_question_not_permitted_to_delete_message.Text" xml:space="preserve">
+    <value>"Vous n'avez pas l'autorisation de supprimer cette question."</value>
+  </data>
+  <data name="error_question_not_permitted_to_patch_message.Text" xml:space="preserve">
+    <value>"Vous n'avez pas l'autorisation de mettre à jour cette question."</value>
+  </data>
+  <data name="error_signin_invalid_message.Text" xml:space="preserve">
+    <value>"Nom d'utilisateur ou mot de passe invalide"</value>
+  </data>
+  <data name="error_unknown_description.Text" xml:space="preserve">
+    <value>Erreur inconnue</value>
+  </data>
+  <data name="error_unknown_message.Text" xml:space="preserve">
+    <value>Une erreur est survenue</value>
+  </data>
+  <data name="error_user_fail_to_delete_profile_image_message.Text" xml:space="preserve">
+    <value>"L'image du profil n'à pu être supprimé. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_user_fail_to_update_profile_message.Text" xml:space="preserve">
+    <value>"Le profil n'à pu être mis à jour. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_user_fail_to_upload_profile_image_message.Text" xml:space="preserve">
+    <value>"L'image du profil ne peut être affiché. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="error_user_not_permitted_to_update_profile_message.Text" xml:space="preserve">
+    <value>"Vous n'avez pas l'autorisation de mettre à jour le profil."</value>
+  </data>
+  <data name="filter_dashboard_title.Text" xml:space="preserve">
+    <value>Filtre de questions</value>
+  </data>
+  <data name="filter_selector_audios_only_title.Text" xml:space="preserve">
+    <value>Seulement les questions dotées de pistes sonores.</value>
+  </data>
+  <data name="filter_selector_interesting_only_sub_title.Text" xml:space="preserve">
+    <value>"Afficher les questions de ceux dont la langue maternelle m'intéresse."</value>
+  </data>
+  <data name="filter_selector_interesting_only_title.Text" xml:space="preserve">
+    <value>"À propos de la langue qui m'intéresse."</value>
+  </data>
+  <data name="filter_selector_not_answered_only_title.Text" xml:space="preserve">
+    <value>Questions sans réponses.</value>
+  </data>
+  <data name="flash_messages_answers_create.Text" xml:space="preserve">
+    <value>Réponse publiée</value>
+  </data>
+  <data name="flash_messages_answers_destroy.Text" xml:space="preserve">
+    <value>Réponse supprimée</value>
+  </data>
+  <data name="flash_messages_answers_edit.Text" xml:space="preserve">
+    <value>Modifiçation complété</value>
+  </data>
+  <data name="flash_messages_featured_answer_choiced.Text" xml:space="preserve">
+    <value>réponse en vedette sélectionnée</value>
+  </data>
+  <data name="flash_messages_finish_to_reset_email.Text" xml:space="preserve">
+    <value>"Un mail a été envoyé à l'adresse que vous avez saisie. Cliquer juste sur le lien de cet e-mail"</value>
+  </data>
+  <data name="flash_messages_finish_to_reset_password.Text" xml:space="preserve">
+    <value>Le mot de passe à été modifié avec succès</value>
+  </data>
+  <data name="flash_messages_profiles_update.Text" xml:space="preserve">
+    <value>Profil à jour</value>
+  </data>
+  <data name="flash_messages_questions_choiced.Text" xml:space="preserve">
+    <value>Réponse publiée</value>
+  </data>
+  <data name="flash_messages_questions_closed.Text" xml:space="preserve">
+    <value>Question maintenant fermé</value>
+  </data>
+  <data name="flash_messages_questions_create.Text" xml:space="preserve">
+    <value>Question publiée</value>
+  </data>
+  <data name="flash_messages_questions_destroy.Text" xml:space="preserve">
+    <value>Question supprimée</value>
+  </data>
+  <data name="flash_messages_questions_edit.Text" xml:space="preserve">
+    <value>Question modifiée</value>
+  </data>
+  <data name="flash_messages_questions_reopened.Text" xml:space="preserve">
+    <value>Question maintenant réouverte</value>
+  </data>
+  <data name="flash_messages_questions_subscribed.Text" xml:space="preserve">
+    <value>"Vous recevrez une notification lorsque quelqu'un répondra à cette question."</value>
+  </data>
+  <data name="flash_messages_questions_unsubscribed.Text" xml:space="preserve">
+    <value>"You'll no longer get notifications about this question."</value>
+  </data>
+  <data name="future_answer.Text" xml:space="preserve">
+    <value>Sélectionnons une réponse mise en avant parmi celles que vous avez reçues.</value>
+  </data>
+  <data name="future_answer_alert.Text" xml:space="preserve">
+    <value>Visualiser</value>
+  </data>
+  <data name="home_questions_question_number_of_answer_label.Text" xml:space="preserve">
+    <value>Réponse</value>
+  </data>
+  <data name="home_questions_question_number_of_answers_label.Text" xml:space="preserve">
+    <value>Réponses</value>
+  </data>
+  <data name="home_scroll_item_active_language.Text" xml:space="preserve">
+    <value>%1$s</value>
+  </data>
+  <data name="home_scroll_item_active_language_option.Text" xml:space="preserve">
+    <value>Questions à propos de %1$s</value>
+  </data>
+  <data name="home_tab_bar_item_title.Text" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="inquiry_button_title.Text" xml:space="preserve">
+    <value>"Contacter l'assistance HiNative"</value>
+  </data>
+  <data name="languages_learning_level_description_advanced.Text" xml:space="preserve">
+    <value>Capable de comprendre des réponses longues et complexes.</value>
+  </data>
+  <data name="languages_learning_level_description_beginner.Text" xml:space="preserve">
+    <value>Il est difficile de comprendre les réponses aux questions dans la langue ciblée.</value>
+  </data>
+  <data name="languages_learning_level_description_beginner_intermediate.Text" xml:space="preserve">
+    <value>Capable de poser des questions simples. Peut comprendre les réponses simples.</value>
+  </data>
+  <data name="languages_learning_level_description_intermediate.Text" xml:space="preserve">
+    <value>Capable de poser tout types de questions générales. Capable de comprendre quelques réponses longues.</value>
+  </data>
+  <data name="languages_learning_level_navigation_title.Text" xml:space="preserve">
+    <value>Niveau</value>
+  </data>
+  <data name="learning_level_popup_label_description.Text" xml:space="preserve">
+    <value>"Le symbol du niveau de langue indique votre compétence dans la langue qui vous intéresse. Le réglage de votre niveau de compétence permet aux autres utilisateurs d'écrire des phrases simple."</value>
+  </data>
+  <data name="learning_level_popup_label_title.Text" xml:space="preserve">
+    <value>Quel est ce symbole?</value>
+  </data>
+  <data name="lln__advanced.Text" xml:space="preserve">
+    <value>Avancé</value>
+  </data>
+  <data name="lln__beginner.Text" xml:space="preserve">
+    <value>Débutant absolu</value>
+  </data>
+  <data name="lln__beginner_intermediate.Text" xml:space="preserve">
+    <value>Notions basiques</value>
+  </data>
+  <data name="lln__fluent.Text" xml:space="preserve">
+    <value>Parfaite maîtrise</value>
+  </data>
+  <data name="lln__intermediate.Text" xml:space="preserve">
+    <value>Intermédiaire</value>
+  </data>
+  <data name="lln__near_fluent.Text" xml:space="preserve">
+    <value>Forte maîtrise</value>
+  </data>
+  <data name="ln__afrikaans.Text" xml:space="preserve">
+    <value>Afrikaans</value>
+  </data>
+  <data name="ln__ainu.Text" xml:space="preserve">
+    <value>Aïnou</value>
+  </data>
+  <data name="ln__albanian.Text" xml:space="preserve">
+    <value>Albanais</value>
+  </data>
+  <data name="ln__arabic.Text" xml:space="preserve">
+    <value>Arabe</value>
+  </data>
+  <data name="ln__armenian.Text" xml:space="preserve">
+    <value>Arménien</value>
+  </data>
+  <data name="ln__aymara.Text" xml:space="preserve">
+    <value>Aymara</value>
+  </data>
+  <data name="ln__azerbaijani.Text" xml:space="preserve">
+    <value>Azéri</value>
+  </data>
+  <data name="ln__azeri.Text" xml:space="preserve">
+    <value>Azéri</value>
+  </data>
+  <data name="ln__basque.Text" xml:space="preserve">
+    <value>Basque</value>
+  </data>
+  <data name="ln__belarusian.Text" xml:space="preserve">
+    <value>Béliorusse</value>
+  </data>
+  <data name="ln__bengali.Text" xml:space="preserve">
+    <value>Bengalais</value>
+  </data>
+  <data name="ln__bosnian.Text" xml:space="preserve">
+    <value>Bosniaque</value>
+  </data>
+  <data name="ln__bulgarian.Text" xml:space="preserve">
+    <value>Bulgare</value>
+  </data>
+  <data name="ln__catalan.Text" xml:space="preserve">
+    <value>Catalan</value>
+  </data>
+  <data name="ln__cherokee.Text" xml:space="preserve">
+    <value>Cherokee</value>
+  </data>
+  <data name="ln__croatian.Text" xml:space="preserve">
+    <value>Croate</value>
+  </data>
+  <data name="ln__czech.Text" xml:space="preserve">
+    <value>Tchèque</value>
+  </data>
+  <data name="ln__danish.Text" xml:space="preserve">
+    <value>Danois</value>
+  </data>
+  <data name="ln__dutch.Text" xml:space="preserve">
+    <value>Hollandais</value>
+  </data>
+  <data name="ln__dutch__belgium_.Text" xml:space="preserve">
+    <value>Néerlandais (Belgique)</value>
+  </data>
+  <data name="ln__english__uk_.Text" xml:space="preserve">
+    <value>Anglais (GB)</value>
+  </data>
+  <data name="ln__english__us_.Text" xml:space="preserve">
+    <value>Anglais (USA)</value>
+  </data>
+  <data name="ln__esperanto.Text" xml:space="preserve">
+    <value>Espéranto</value>
+  </data>
+  <data name="ln__estonian.Text" xml:space="preserve">
+    <value>Estonien</value>
+  </data>
+  <data name="ln__faroese.Text" xml:space="preserve">
+    <value>Féroïen</value>
+  </data>
+  <data name="ln__finnish.Text" xml:space="preserve">
+    <value>Finnois</value>
+  </data>
+  <data name="ln__french__canada_.Text" xml:space="preserve">
+    <value>Français (Canada)</value>
+  </data>
+  <data name="ln__french__france_.Text" xml:space="preserve">
+    <value>Français (France)</value>
+  </data>
+  <data name="ln__frisian.Text" xml:space="preserve">
+    <value>Frison</value>
+  </data>
+  <data name="ln__galician.Text" xml:space="preserve">
+    <value>Galicien</value>
+  </data>
+  <data name="ln__georgian.Text" xml:space="preserve">
+    <value>Géorgien</value>
+  </data>
+  <data name="ln__german.Text" xml:space="preserve">
+    <value>Allemand</value>
+  </data>
+  <data name="ln__greek.Text" xml:space="preserve">
+    <value>Grec</value>
+  </data>
+  <data name="ln__guarani.Text" xml:space="preserve">
+    <value>Guarani</value>
+  </data>
+  <data name="ln__gujarati.Text" xml:space="preserve">
+    <value>Gujarati</value>
+  </data>
+  <data name="ln__haitian.Text" xml:space="preserve">
+    <value>Haïtien</value>
+  </data>
+  <data name="ln__hawaiian.Text" xml:space="preserve">
+    <value>Hawaïen</value>
+  </data>
+  <data name="ln__hebrew.Text" xml:space="preserve">
+    <value>Hébreu</value>
+  </data>
+  <data name="ln__hindi.Text" xml:space="preserve">
+    <value>Hindou</value>
+  </data>
+  <data name="ln__hungarian.Text" xml:space="preserve">
+    <value>Hongrois</value>
+  </data>
+  <data name="ln__icelandic.Text" xml:space="preserve">
+    <value>Islandais</value>
+  </data>
+  <data name="ln__indonesian.Text" xml:space="preserve">
+    <value>Indonésien</value>
+  </data>
+  <data name="ln__irish.Text" xml:space="preserve">
+    <value>Irlandais</value>
+  </data>
+  <data name="ln__italian.Text" xml:space="preserve">
+    <value>Italien</value>
+  </data>
+  <data name="ln__japanese.Text" xml:space="preserve">
+    <value>Japonais</value>
+  </data>
+  <data name="ln__javanese.Text" xml:space="preserve">
+    <value>Javanais</value>
+  </data>
+  <data name="ln__kannada.Text" xml:space="preserve">
+    <value>Kannada</value>
+  </data>
+  <data name="ln__kazakh.Text" xml:space="preserve">
+    <value>Kazakh</value>
+  </data>
+  <data name="ln__khmer.Text" xml:space="preserve">
+    <value>Khmer</value>
+  </data>
+  <data name="ln__kiswahili.Text" xml:space="preserve">
+    <value>Kiswahili</value>
+  </data>
+  <data name="ln__klingon.Text" xml:space="preserve">
+    <value>Klingon</value>
+  </data>
+  <data name="ln__korean.Text" xml:space="preserve">
+    <value>Coréen</value>
+  </data>
+  <data name="ln__kurdish.Text" xml:space="preserve">
+    <value>Kurde</value>
+  </data>
+  <data name="ln__laotian.Text" xml:space="preserve">
+    <value>Laotien</value>
+  </data>
+  <data name="ln__latin.Text" xml:space="preserve">
+    <value>Latin</value>
+  </data>
+  <data name="ln__latvian.Text" xml:space="preserve">
+    <value>Letton</value>
+  </data>
+  <data name="ln__limburgish.Text" xml:space="preserve">
+    <value>Limbourgeois</value>
+  </data>
+  <data name="ln__lithuanian.Text" xml:space="preserve">
+    <value>Lituanien</value>
+  </data>
+  <data name="ln__macedonian.Text" xml:space="preserve">
+    <value>Macédonien</value>
+  </data>
+  <data name="ln__malagasy.Text" xml:space="preserve">
+    <value>Malgache</value>
+  </data>
+  <data name="ln__malay.Text" xml:space="preserve">
+    <value>Malais</value>
+  </data>
+  <data name="ln__malayalam.Text" xml:space="preserve">
+    <value>Malayalam</value>
+  </data>
+  <data name="ln__malaysian.Text" xml:space="preserve">
+    <value>Malais</value>
+  </data>
+  <data name="ln__maltese.Text" xml:space="preserve">
+    <value>Maltais</value>
+  </data>
+  <data name="ln__marathi.Text" xml:space="preserve">
+    <value>Marathi</value>
+  </data>
+  <data name="ln__mongolian.Text" xml:space="preserve">
+    <value>Mongole</value>
+  </data>
+  <data name="ln__nepali.Text" xml:space="preserve">
+    <value>Népalais</value>
+  </data>
+  <data name="ln__northern_sami.Text" xml:space="preserve">
+    <value>Same du Nord</value>
+  </data>
+  <data name="ln__norwegian__bokmal_.Text" xml:space="preserve">
+    <value>Norvégien (Bokmal)</value>
+  </data>
+  <data name="ln__norwegian__nynorsk_.Text" xml:space="preserve">
+    <value>Norvégien (Nynorsk)</value>
+  </data>
+  <data name="ln__pashto.Text" xml:space="preserve">
+    <value>Pachto</value>
+  </data>
+  <data name="ln__persian.Text" xml:space="preserve">
+    <value>Perse</value>
+  </data>
+  <data name="ln__polish.Text" xml:space="preserve">
+    <value>Polonais</value>
+  </data>
+  <data name="ln__portuguese__brazil_.Text" xml:space="preserve">
+    <value>Portugais (Brésil)</value>
+  </data>
+  <data name="ln__portuguese__portugal_.Text" xml:space="preserve">
+    <value>Portugais (Portugal)</value>
+  </data>
+  <data name="ln__punjabi.Text" xml:space="preserve">
+    <value>Pendjabi</value>
+  </data>
+  <data name="ln__quechua.Text" xml:space="preserve">
+    <value>Quechua</value>
+  </data>
+  <data name="ln__romanian.Text" xml:space="preserve">
+    <value>Roumain</value>
+  </data>
+  <data name="ln__romansh.Text" xml:space="preserve">
+    <value>Romanche</value>
+  </data>
+  <data name="ln__russian.Text" xml:space="preserve">
+    <value>Russe</value>
+  </data>
+  <data name="ln__sanskrit.Text" xml:space="preserve">
+    <value>Sanskrit</value>
+  </data>
+  <data name="ln__serbian.Text" xml:space="preserve">
+    <value>Serbe</value>
+  </data>
+  <data name="ln__simplified_chinese__china_.Text" xml:space="preserve">
+    <value>Chinois simplifié (Chine)</value>
+  </data>
+  <data name="ln__slavic.Text" xml:space="preserve">
+    <value>Slave</value>
+  </data>
+  <data name="ln__slovak.Text" xml:space="preserve">
+    <value>Slovaque</value>
+  </data>
+  <data name="ln__slovenian.Text" xml:space="preserve">
+    <value>Slovène</value>
+  </data>
+  <data name="ln__somali.Text" xml:space="preserve">
+    <value>Somalien</value>
+  </data>
+  <data name="ln__spanish__chile_.Text" xml:space="preserve">
+    <value>Espagnol (Chili)</value>
+  </data>
+  <data name="ln__spanish__colombia_.Text" xml:space="preserve">
+    <value>Espagnol (Colombie)</value>
+  </data>
+  <data name="ln__spanish__mexico_.Text" xml:space="preserve">
+    <value>Espagnol (Mexique)</value>
+  </data>
+  <data name="ln__spanish__spain_.Text" xml:space="preserve">
+    <value>Espagnol (Espagne)</value>
+  </data>
+  <data name="ln__spanish__venezuela__.Text" xml:space="preserve">
+    <value>Espagnol (Venezuela)</value>
+  </data>
+  <data name="ln__swedish.Text" xml:space="preserve">
+    <value>Suédois</value>
+  </data>
+  <data name="ln__syriac.Text" xml:space="preserve">
+    <value>Syriaque</value>
+  </data>
+  <data name="ln__tagalog.Text" xml:space="preserve">
+    <value>Tagalog</value>
+  </data>
+  <data name="ln__tajik.Text" xml:space="preserve">
+    <value>Tadjik</value>
+  </data>
+  <data name="ln__tamil.Text" xml:space="preserve">
+    <value>Tamoul</value>
+  </data>
+  <data name="ln__tatar.Text" xml:space="preserve">
+    <value>Tatar</value>
+  </data>
+  <data name="ln__telugu.Text" xml:space="preserve">
+    <value>Télougou</value>
+  </data>
+  <data name="ln__thai.Text" xml:space="preserve">
+    <value>Thaï</value>
+  </data>
+  <data name="ln__tibet.Text" xml:space="preserve">
+    <value>Tibétain</value>
+  </data>
+  <data name="ln__tongan.Text" xml:space="preserve">
+    <value>Tongien</value>
+  </data>
+  <data name="ln__traditional_chinese__hong_kong_.Text" xml:space="preserve">
+    <value>Chinois traditionnel (Hong Kong)</value>
+  </data>
+  <data name="ln__traditional_chinese__taiwan_.Text" xml:space="preserve">
+    <value>Chinois traditionnel (Taïwan)</value>
+  </data>
+  <data name="ln__turkish.Text" xml:space="preserve">
+    <value>Turc</value>
+  </data>
+  <data name="ln__ukrainian.Text" xml:space="preserve">
+    <value>Ukrainien</value>
+  </data>
+  <data name="ln__urdu.Text" xml:space="preserve">
+    <value>Ourdou</value>
+  </data>
+  <data name="ln__uzbek.Text" xml:space="preserve">
+    <value>Ouzbek</value>
+  </data>
+  <data name="ln__vietnamese.Text" xml:space="preserve">
+    <value>Vietnamien</value>
+  </data>
+  <data name="ln__welsh.Text" xml:space="preserve">
+    <value>Gallois</value>
+  </data>
+  <data name="ln__xhosa.Text" xml:space="preserve">
+    <value>Xhosa</value>
+  </data>
+  <data name="ln__yiddish.Text" xml:space="preserve">
+    <value>Yiddish</value>
+  </data>
+  <data name="ln__zulu.Text" xml:space="preserve">
+    <value>Zoulou</value>
+  </data>
+  <data name="n_r_an.Text" xml:space="preserve">
+    <value>%1$s a répondu à votre question.</value>
+  </data>
+  <data name="n_r_ch.Text" xml:space="preserve">
+    <value>%1$s a répondu à votre question.</value>
+  </data>
+  <data name="n_r_cm.Text" xml:space="preserve">
+    <value>%1$s à commenté sur sa question.</value>
+  </data>
+  <data name="n_r_ft.Text" xml:space="preserve">
+    <value>Votre réponse à été choisie comme étant la réponse en vedette par %1$s.</value>
+  </data>
+  <data name="n_r_lk.Text" xml:space="preserve">
+    <value>%1$s a aimé votre réponse.</value>
+  </data>
+  <data name="n_r_mn.Text" xml:space="preserve">
+    <value>%1$s vous a mentionné.</value>
+  </data>
+  <data name="n_r_ot.Text" xml:space="preserve">
+    <value>%1$s a également répondu à la question de %2$s.</value>
+  </data>
+  <data name="nationalities_navigation_item_title.Text" xml:space="preserve">
+    <value>Nationalité et région</value>
+  </data>
+  <data name="networkerror_alert_view_message.Text" xml:space="preserve">
+    <value>Réseau inaccessible.</value>
+  </data>
+  <data name="nn__AFGHANISTAN.Text" xml:space="preserve">
+    <value>AFGHANISTAN</value>
+  </data>
+  <data name="nn__ALBANIA.Text" xml:space="preserve">
+    <value>ALBANIE</value>
+  </data>
+  <data name="nn__ALGERIA.Text" xml:space="preserve">
+    <value>ALGÉRIE</value>
+  </data>
+  <data name="nn__ANDORRA.Text" xml:space="preserve">
+    <value>ANDORRE</value>
+  </data>
+  <data name="nn__ANGOLA.Text" xml:space="preserve">
+    <value>ANGOLA</value>
+  </data>
+  <data name="nn__ANGUILLA.Text" xml:space="preserve">
+    <value>ANGUILLA</value>
+  </data>
+  <data name="nn__ANTARCTICA.Text" xml:space="preserve">
+    <value>ANTARCTIQUE</value>
+  </data>
+  <data name="nn__ARGENTINA.Text" xml:space="preserve">
+    <value>ARGENTINE</value>
+  </data>
+  <data name="nn__ARMENIA.Text" xml:space="preserve">
+    <value>ARMÉNIE</value>
+  </data>
+  <data name="nn__ARUBA.Text" xml:space="preserve">
+    <value>ARUBA</value>
+  </data>
+  <data name="nn__AUSTRALIA.Text" xml:space="preserve">
+    <value>AUSTRALIE</value>
+  </data>
+  <data name="nn__AUSTRIA.Text" xml:space="preserve">
+    <value>AUTRICHE</value>
+  </data>
+  <data name="nn__AZERBAIJAN.Text" xml:space="preserve">
+    <value>AZERBAÏDJAN</value>
+  </data>
+  <data name="nn__BAHAMAS.Text" xml:space="preserve">
+    <value>BAHAMAS</value>
+  </data>
+  <data name="nn__BAHRAIN.Text" xml:space="preserve">
+    <value>BAHREIN</value>
+  </data>
+  <data name="nn__BANGLADESH.Text" xml:space="preserve">
+    <value>BANGLADESH</value>
+  </data>
+  <data name="nn__BARBADOS.Text" xml:space="preserve">
+    <value>BARBADE</value>
+  </data>
+  <data name="nn__BELARUS.Text" xml:space="preserve">
+    <value>BIÉLORUSSIE</value>
+  </data>
+  <data name="nn__BELGIUM.Text" xml:space="preserve">
+    <value>BELGIQUE</value>
+  </data>
+  <data name="nn__BELIZE.Text" xml:space="preserve">
+    <value>BÉLIZE</value>
+  </data>
+  <data name="nn__BENIN.Text" xml:space="preserve">
+    <value>BÉNIN</value>
+  </data>
+  <data name="nn__BERMUDA.Text" xml:space="preserve">
+    <value>BERMUDES</value>
+  </data>
+  <data name="nn__BHUTAN.Text" xml:space="preserve">
+    <value>BHOUTAN</value>
+  </data>
+  <data name="nn__BOTSWANA.Text" xml:space="preserve">
+    <value>BOTSWANA</value>
+  </data>
+  <data name="nn__BRAZIL.Text" xml:space="preserve">
+    <value>BRÉSIL</value>
+  </data>
+  <data name="nn__BULGARIA.Text" xml:space="preserve">
+    <value>BULGARIE</value>
+  </data>
+  <data name="nn__BURUNDI.Text" xml:space="preserve">
+    <value>BURUNDI</value>
+  </data>
+  <data name="nn__CAMBODIA.Text" xml:space="preserve">
+    <value>CAMBODGE</value>
+  </data>
+  <data name="nn__CAMEROON.Text" xml:space="preserve">
+    <value>CAMEROUN</value>
+  </data>
+  <data name="nn__CANADA.Text" xml:space="preserve">
+    <value>CANADA</value>
+  </data>
+  <data name="nn__CHAD.Text" xml:space="preserve">
+    <value>TCHAD</value>
+  </data>
+  <data name="nn__CHILE.Text" xml:space="preserve">
+    <value>CHILI</value>
+  </data>
+  <data name="nn__CHINA.Text" xml:space="preserve">
+    <value>CHINE</value>
+  </data>
+  <data name="nn__COLOMBIA.Text" xml:space="preserve">
+    <value>COLOMBIE</value>
+  </data>
+  <data name="nn__COMOROS.Text" xml:space="preserve">
+    <value>COMORES</value>
+  </data>
+  <data name="nn__CONGO.Text" xml:space="preserve">
+    <value>CONGO</value>
+  </data>
+  <data name="nn__CROATIA.Text" xml:space="preserve">
+    <value>CROATIE</value>
+  </data>
+  <data name="nn__CUBA.Text" xml:space="preserve">
+    <value>CUBA</value>
+  </data>
+  <data name="nn__CYPRUS.Text" xml:space="preserve">
+    <value>CHYPRE</value>
+  </data>
+  <data name="nn__DENMARK.Text" xml:space="preserve">
+    <value>DANEMARK</value>
+  </data>
+  <data name="nn__DJIBOUTI.Text" xml:space="preserve">
+    <value>DJIBOUTI</value>
+  </data>
+  <data name="nn__DOMINICA.Text" xml:space="preserve">
+    <value>DOMINIQUE</value>
+  </data>
+  <data name="nn__ECUADOR.Text" xml:space="preserve">
+    <value>ÉQUATEUR</value>
+  </data>
+  <data name="nn__EGYPT.Text" xml:space="preserve">
+    <value>ÉGYPTE</value>
+  </data>
+  <data name="nn__ERITREA.Text" xml:space="preserve">
+    <value>ÉRYTRÉE</value>
+  </data>
+  <data name="nn__ESTONIA.Text" xml:space="preserve">
+    <value>ESTONIE</value>
+  </data>
+  <data name="nn__ETHIOPIA.Text" xml:space="preserve">
+    <value>ÉTHIOPIE</value>
+  </data>
+  <data name="nn__FIJI.Text" xml:space="preserve">
+    <value>FIJI (LES ÎLES)</value>
+  </data>
+  <data name="nn__FINLAND.Text" xml:space="preserve">
+    <value>FINLANDE</value>
+  </data>
+  <data name="nn__FRANCE.Text" xml:space="preserve">
+    <value>FRANCE</value>
+  </data>
+  <data name="nn__GABON.Text" xml:space="preserve">
+    <value>GABON</value>
+  </data>
+  <data name="nn__GAMBIA.Text" xml:space="preserve">
+    <value>GAMBIE</value>
+  </data>
+  <data name="nn__GEORGIA.Text" xml:space="preserve">
+    <value>GÉORGIE</value>
+  </data>
+  <data name="nn__GERMANY.Text" xml:space="preserve">
+    <value>ALLEMAGNE</value>
+  </data>
+  <data name="nn__GHANA.Text" xml:space="preserve">
+    <value>GHANA</value>
+  </data>
+  <data name="nn__GIBRALTAR.Text" xml:space="preserve">
+    <value>GIBRALTAR</value>
+  </data>
+  <data name="nn__GREECE.Text" xml:space="preserve">
+    <value>GRÈCE</value>
+  </data>
+  <data name="nn__GREENLAND.Text" xml:space="preserve">
+    <value>GROENLAND</value>
+  </data>
+  <data name="nn__GRENADA.Text" xml:space="preserve">
+    <value>GRENADE</value>
+  </data>
+  <data name="nn__GUADELOUPE.Text" xml:space="preserve">
+    <value>GUADELOUPE</value>
+  </data>
+  <data name="nn__GUAM.Text" xml:space="preserve">
+    <value>GUAM (ÎLES)</value>
+  </data>
+  <data name="nn__GUATEMALA.Text" xml:space="preserve">
+    <value>GUATÉMALA</value>
+  </data>
+  <data name="nn__GUINEA.Text" xml:space="preserve">
+    <value>GUINÉE</value>
+  </data>
+  <data name="nn__GUYANA.Text" xml:space="preserve">
+    <value>GUYANA</value>
+  </data>
+  <data name="nn__HAITI.Text" xml:space="preserve">
+    <value>HAÏTI</value>
+  </data>
+  <data name="nn__HONDURAS.Text" xml:space="preserve">
+    <value>HONDURAS</value>
+  </data>
+  <data name="nn__HUNGARY.Text" xml:space="preserve">
+    <value>HONGRIE</value>
+  </data>
+  <data name="nn__ICELAND.Text" xml:space="preserve">
+    <value>ISLAND</value>
+  </data>
+  <data name="nn__INDIA.Text" xml:space="preserve">
+    <value>INDE</value>
+  </data>
+  <data name="nn__INDONESIA.Text" xml:space="preserve">
+    <value>INDONÉSIE</value>
+  </data>
+  <data name="nn__IRAQ.Text" xml:space="preserve">
+    <value>IRAK</value>
+  </data>
+  <data name="nn__IRELAND.Text" xml:space="preserve">
+    <value>IRLANDE</value>
+  </data>
+  <data name="nn__ISRAEL.Text" xml:space="preserve">
+    <value>ISRAËL</value>
+  </data>
+  <data name="nn__ITALY.Text" xml:space="preserve">
+    <value>ITALIE</value>
+  </data>
+  <data name="nn__JAMAICA.Text" xml:space="preserve">
+    <value>JAMAÏQUE</value>
+  </data>
+  <data name="nn__JAPAN.Text" xml:space="preserve">
+    <value>JAPON</value>
+  </data>
+  <data name="nn__JERSEY.Text" xml:space="preserve">
+    <value>JERSEY</value>
+  </data>
+  <data name="nn__JORDAN.Text" xml:space="preserve">
+    <value>JORDANIE</value>
+  </data>
+  <data name="nn__KAZAKHSTAN.Text" xml:space="preserve">
+    <value>KAZAKHSTAN</value>
+  </data>
+  <data name="nn__KENYA.Text" xml:space="preserve">
+    <value>KENYA</value>
+  </data>
+  <data name="nn__KIRIBATI.Text" xml:space="preserve">
+    <value>KIRIBATI</value>
+  </data>
+  <data name="nn__KUWAIT.Text" xml:space="preserve">
+    <value>KOWEÏT</value>
+  </data>
+  <data name="nn__KYRGYZSTAN.Text" xml:space="preserve">
+    <value>KIRGHIZISTAN</value>
+  </data>
+  <data name="nn__LATVIA.Text" xml:space="preserve">
+    <value>LETTONIE</value>
+  </data>
+  <data name="nn__LEBANON.Text" xml:space="preserve">
+    <value>LIBAN</value>
+  </data>
+  <data name="nn__LESOTHO.Text" xml:space="preserve">
+    <value>LESOTHO</value>
+  </data>
+  <data name="nn__LIBERIA.Text" xml:space="preserve">
+    <value>LIBÉRIA</value>
+  </data>
+  <data name="nn__LIBYA.Text" xml:space="preserve">
+    <value>LIBYE</value>
+  </data>
+  <data name="nn__LIECHTENSTEIN.Text" xml:space="preserve">
+    <value>LIECHTENSTEIN</value>
+  </data>
+  <data name="nn__LITHUANIA.Text" xml:space="preserve">
+    <value>LITUANIE</value>
+  </data>
+  <data name="nn__LUXEMBOURG.Text" xml:space="preserve">
+    <value>LUXEMBOURG</value>
+  </data>
+  <data name="nn__MACAO.Text" xml:space="preserve">
+    <value>MACAO</value>
+  </data>
+  <data name="nn__MADAGASCAR.Text" xml:space="preserve">
+    <value>MADAGASCAR</value>
+  </data>
+  <data name="nn__MALAWI.Text" xml:space="preserve">
+    <value>MALAWI</value>
+  </data>
+  <data name="nn__MALAYSIA.Text" xml:space="preserve">
+    <value>MALAYSIE</value>
+  </data>
+  <data name="nn__MALDIVES.Text" xml:space="preserve">
+    <value>MALDIVES</value>
+  </data>
+  <data name="nn__MALI.Text" xml:space="preserve">
+    <value>MALI</value>
+  </data>
+  <data name="nn__MALTA.Text" xml:space="preserve">
+    <value>MALTE</value>
+  </data>
+  <data name="nn__MARTINIQUE.Text" xml:space="preserve">
+    <value>MARTINIQUE</value>
+  </data>
+  <data name="nn__MAURITANIA.Text" xml:space="preserve">
+    <value>MAURITANIE</value>
+  </data>
+  <data name="nn__MAURITIUS.Text" xml:space="preserve">
+    <value>ÎLE MAURICE</value>
+  </data>
+  <data name="nn__MAYOTTE.Text" xml:space="preserve">
+    <value>MAYOTTE</value>
+  </data>
+  <data name="nn__MEXICO.Text" xml:space="preserve">
+    <value>MEXIQUE</value>
+  </data>
+  <data name="nn__MONACO.Text" xml:space="preserve">
+    <value>MONACO</value>
+  </data>
+  <data name="nn__MONGOLIA.Text" xml:space="preserve">
+    <value>MONGOLIE</value>
+  </data>
+  <data name="nn__MONTENEGRO.Text" xml:space="preserve">
+    <value>MONTÉNÉGRO</value>
+  </data>
+  <data name="nn__MONTSERRAT.Text" xml:space="preserve">
+    <value>MONTSERRAT</value>
+  </data>
+  <data name="nn__MOROCCO.Text" xml:space="preserve">
+    <value>MAROC</value>
+  </data>
+  <data name="nn__MOZAMBIQUE.Text" xml:space="preserve">
+    <value>MOZAMBIQUE</value>
+  </data>
+  <data name="nn__MYANMAR.Text" xml:space="preserve">
+    <value>BIRMANIE</value>
+  </data>
+  <data name="nn__NAMIBIA.Text" xml:space="preserve">
+    <value>NAMIBIE</value>
+  </data>
+  <data name="nn__NAURU.Text" xml:space="preserve">
+    <value>NAURU</value>
+  </data>
+  <data name="nn__NEPAL.Text" xml:space="preserve">
+    <value>NÉPAL</value>
+  </data>
+  <data name="nn__NETHERLANDS.Text" xml:space="preserve">
+    <value>HOLLANDE</value>
+  </data>
+  <data name="nn__NICARAGUA.Text" xml:space="preserve">
+    <value>NICARAGUA</value>
+  </data>
+  <data name="nn__NIGER.Text" xml:space="preserve">
+    <value>NIGER</value>
+  </data>
+  <data name="nn__NIGERIA.Text" xml:space="preserve">
+    <value>NIGÉRIA</value>
+  </data>
+  <data name="nn__NIUE.Text" xml:space="preserve">
+    <value>NIUE</value>
+  </data>
+  <data name="nn__NORWAY.Text" xml:space="preserve">
+    <value>NORVÈGE</value>
+  </data>
+  <data name="nn__OMAN.Text" xml:space="preserve">
+    <value>OMAN</value>
+  </data>
+  <data name="nn__PAKISTAN.Text" xml:space="preserve">
+    <value>PAKISTAN</value>
+  </data>
+  <data name="nn__PALAU.Text" xml:space="preserve">
+    <value>PALAOS</value>
+  </data>
+  <data name="nn__PANAMA.Text" xml:space="preserve">
+    <value>PANAMA</value>
+  </data>
+  <data name="nn__PARAGUAY.Text" xml:space="preserve">
+    <value>PARAGUAY</value>
+  </data>
+  <data name="nn__PERU.Text" xml:space="preserve">
+    <value>PÉROU</value>
+  </data>
+  <data name="nn__PHILIPPINES.Text" xml:space="preserve">
+    <value>PHILIPPINES</value>
+  </data>
+  <data name="nn__PITCAIRN.Text" xml:space="preserve">
+    <value>ÎLE PITCAIRN</value>
+  </data>
+  <data name="nn__POLAND.Text" xml:space="preserve">
+    <value>POLOGNE</value>
+  </data>
+  <data name="nn__PORTUGAL.Text" xml:space="preserve">
+    <value>PORTUGAL</value>
+  </data>
+  <data name="nn__QATAR.Text" xml:space="preserve">
+    <value>QATAR</value>
+  </data>
+  <data name="nn__ROMANIA.Text" xml:space="preserve">
+    <value>ROUMANIE</value>
+  </data>
+  <data name="nn__RWANDA.Text" xml:space="preserve">
+    <value>RWANDA</value>
+  </data>
+  <data name="nn__SAMOA.Text" xml:space="preserve">
+    <value>SAMOA</value>
+  </data>
+  <data name="nn__SENEGAL.Text" xml:space="preserve">
+    <value>SÉNÉGAL</value>
+  </data>
+  <data name="nn__SERBIA.Text" xml:space="preserve">
+    <value>SERBIE</value>
+  </data>
+  <data name="nn__SEYCHELLES.Text" xml:space="preserve">
+    <value>SEYCHELLES</value>
+  </data>
+  <data name="nn__SINGAPORE.Text" xml:space="preserve">
+    <value>SINGAPOUR</value>
+  </data>
+  <data name="nn__SLOVAKIA.Text" xml:space="preserve">
+    <value>SLOVAQUIE</value>
+  </data>
+  <data name="nn__SLOVENIA.Text" xml:space="preserve">
+    <value>SLOVÉNIE</value>
+  </data>
+  <data name="nn__SOMALIA.Text" xml:space="preserve">
+    <value>SOMALIE</value>
+  </data>
+  <data name="nn__SPAIN.Text" xml:space="preserve">
+    <value>ESPAGNE</value>
+  </data>
+  <data name="nn__SUDAN.Text" xml:space="preserve">
+    <value>SOUDAN</value>
+  </data>
+  <data name="nn__SURINAME.Text" xml:space="preserve">
+    <value>SURINAME</value>
+  </data>
+  <data name="nn__SWAZILAND.Text" xml:space="preserve">
+    <value>SWAZILAND</value>
+  </data>
+  <data name="nn__SWEDEN.Text" xml:space="preserve">
+    <value>SUÈDE</value>
+  </data>
+  <data name="nn__SWITZERLAND.Text" xml:space="preserve">
+    <value>SUISSE</value>
+  </data>
+  <data name="nn__TAIWAN.Text" xml:space="preserve">
+    <value>TAÏWAN</value>
+  </data>
+  <data name="nn__TAJIKISTAN.Text" xml:space="preserve">
+    <value>TADJIKISTAN</value>
+  </data>
+  <data name="nn__THAILAND.Text" xml:space="preserve">
+    <value>THAÏLANDE</value>
+  </data>
+  <data name="nn__TOKELAU.Text" xml:space="preserve">
+    <value>TOKELAU</value>
+  </data>
+  <data name="nn__TONGA.Text" xml:space="preserve">
+    <value>TONGA</value>
+  </data>
+  <data name="nn__TUNISIA.Text" xml:space="preserve">
+    <value>TUNISIE</value>
+  </data>
+  <data name="nn__TURKEY.Text" xml:space="preserve">
+    <value>TURQUIE</value>
+  </data>
+  <data name="nn__TURKMENISTAN.Text" xml:space="preserve">
+    <value>TURKMÉNISTAN</value>
+  </data>
+  <data name="nn__TUVALU.Text" xml:space="preserve">
+    <value>TUVALU</value>
+  </data>
+  <data name="nn__UGANDA.Text" xml:space="preserve">
+    <value>OUGANDA</value>
+  </data>
+  <data name="nn__UKRAINE.Text" xml:space="preserve">
+    <value>UKRAINE</value>
+  </data>
+  <data name="nn__URUGUAY.Text" xml:space="preserve">
+    <value>URUGUAY</value>
+  </data>
+  <data name="nn__UZBEKISTAN.Text" xml:space="preserve">
+    <value>OUZBÉKISTAN</value>
+  </data>
+  <data name="nn__VANUATU.Text" xml:space="preserve">
+    <value>VANUATU</value>
+  </data>
+  <data name="nn__YEMEN.Text" xml:space="preserve">
+    <value>YÉMEN</value>
+  </data>
+  <data name="nn__ZAMBIA.Text" xml:space="preserve">
+    <value>ZAMBIE</value>
+  </data>
+  <data name="nn__ZIMBABWE.Text" xml:space="preserve">
+    <value>ZIMBABWE</value>
+  </data>
+  <data name="nn___land_islands.Text" xml:space="preserve">
+    <value>"ÅLAND, ÉTAT LIBRE ASSOCIÉ D'"</value>
+  </data>
+  <data name="nn__american_samoa.Text" xml:space="preserve">
+    <value>SAMOA AMÉRICAINES</value>
+  </data>
+  <data name="nn__antigua_and_barbuda.Text" xml:space="preserve">
+    <value>ANTIGUA-ET-BARBUDA</value>
+  </data>
+  <data name="nn__bolivia__plurinational_state_of.Text" xml:space="preserve">
+    <value>BOLIVIE, ÉTAT PLURINATIONAL DE</value>
+  </data>
+  <data name="nn__bonaire__sint_eustatius_and_saba.Text" xml:space="preserve">
+    <value>BONAIRE, SAINT-EUSTACHE ET SABA</value>
+  </data>
+  <data name="nn__bosnia_and_herzegovina.Text" xml:space="preserve">
+    <value>BOSNIE HERZÉGOVINE</value>
+  </data>
+  <data name="nn__bouvet_island.Text" xml:space="preserve">
+    <value>BOUVET (ILE)</value>
+  </data>
+  <data name="nn__british_indian_ocean_territory.Text" xml:space="preserve">
+    <value>"TERRITOIRE BRITANNIQUE DE L'OCÉAN INDIEN"</value>
+  </data>
+  <data name="nn__brunei_darussalam.Text" xml:space="preserve">
+    <value>BRUNEI (SULTANAT DE)</value>
+  </data>
+  <data name="nn__burkina_faso.Text" xml:space="preserve">
+    <value>BURKINA FASO</value>
+  </data>
+  <data name="nn__c_te_d_ivoire.Text" xml:space="preserve">
+    <value>"CÔTE D'IVOIRE"</value>
+  </data>
+  <data name="nn__cape_verde.Text" xml:space="preserve">
+    <value>CAP VERT</value>
+  </data>
+  <data name="nn__cayman_islands.Text" xml:space="preserve">
+    <value>CAIMANS (ILES)</value>
+  </data>
+  <data name="nn__central_african_republic.Text" xml:space="preserve">
+    <value>RÉPUBLIQUE CENTRAFRICAINE</value>
+  </data>
+  <data name="nn__christmas_island.Text" xml:space="preserve">
+    <value>CHRISTMAS (ILE)</value>
+  </data>
+  <data name="nn__cocos__keeling__islands.Text" xml:space="preserve">
+    <value>ÎLES COCOS</value>
+  </data>
+  <data name="nn__congo__the_democratic_republic_of_the.Text" xml:space="preserve">
+    <value>CONGO, RÉPUBLIQUE DÉMOCRATIQUE DU</value>
+  </data>
+  <data name="nn__cook_islands.Text" xml:space="preserve">
+    <value>ÎLES COOK</value>
+  </data>
+  <data name="nn__costa_rica.Text" xml:space="preserve">
+    <value>COSTA RICA</value>
+  </data>
+  <data name="nn__cura_ao.Text" xml:space="preserve">
+    <value>CURAÇAO</value>
+  </data>
+  <data name="nn__czech_republic.Text" xml:space="preserve">
+    <value>REPUBLIQUE TCHÈQUE</value>
+  </data>
+  <data name="nn__dominican_republic.Text" xml:space="preserve">
+    <value>RÉPUBLIQUE DOMINICAINE</value>
+  </data>
+  <data name="nn__el_salvador.Text" xml:space="preserve">
+    <value>SALVADOR</value>
+  </data>
+  <data name="nn__equatorial_guinea.Text" xml:space="preserve">
+    <value>GUINÉE ÉQUATORIALE</value>
+  </data>
+  <data name="nn__falkland_islands__malvinas_.Text" xml:space="preserve">
+    <value>ÎLES MALOUINES</value>
+  </data>
+  <data name="nn__faroe_islands.Text" xml:space="preserve">
+    <value>FÉROÉ (LES ÎLES)</value>
+  </data>
+  <data name="nn__french_guiana.Text" xml:space="preserve">
+    <value>GUYANE FRANÇAISE</value>
+  </data>
+  <data name="nn__french_polynesia.Text" xml:space="preserve">
+    <value>POLYNÉSIE FRANÇAISE</value>
+  </data>
+  <data name="nn__french_southern_territories.Text" xml:space="preserve">
+    <value>TERRITOIRE DES TERRES AUSTRALES ET ANTARCTIQUES FRANÇAISES</value>
+  </data>
+  <data name="nn__guinea_bissau.Text" xml:space="preserve">
+    <value>GUINÉE BISSAU</value>
+  </data>
+  <data name="nn__heard_island_and_mcdonald_islands.Text" xml:space="preserve">
+    <value>ÎLES HEARD-ET-MCDONALD</value>
+  </data>
+  <data name="nn__holy_see__vatican_city_state_.Text" xml:space="preserve">
+    <value>SAINT SIÈGE (ÉTAT DE LA CITÉ DU VATICAN)</value>
+  </data>
+  <data name="nn__hong_kong.Text" xml:space="preserve">
+    <value>HONG KONG</value>
+  </data>
+  <data name="nn__iran__islamic_republic_of.Text" xml:space="preserve">
+    <value>"IRAN, RÉPUBLIQUE ISLAMIQUE D'"</value>
+  </data>
+  <data name="nn__isle_of_man.Text" xml:space="preserve">
+    <value>ÎLE DE MAN</value>
+  </data>
+  <data name="nn__korea__democratic_people_s_republic_of.Text" xml:space="preserve">
+    <value>CORÉE, RÉPUBLIQUE POPULAIRE DÉMOCRATIQUE DE</value>
+  </data>
+  <data name="nn__korea__republic_of.Text" xml:space="preserve">
+    <value>CORÉE, RÉPUBLIQUE DE</value>
+  </data>
+  <data name="nn__lao_people_s_democratic_republic.Text" xml:space="preserve">
+    <value>LAOS (RÉPUBLIQUE DÉMOCRATIQUE POPULAIRE LAO)</value>
+  </data>
+  <data name="nn__macedonia__the_former_yugoslav_republic_of.Text" xml:space="preserve">
+    <value>MACÉDOINE, ANCIENNE RÉPUBLIQUE YOUGOSLAVE DE</value>
+  </data>
+  <data name="nn__marshall_islands.Text" xml:space="preserve">
+    <value>ÎLES MARSHALL</value>
+  </data>
+  <data name="nn__micronesia__federated_states_of.Text" xml:space="preserve">
+    <value>MICRONÉSIE, ÉTATS FÉDÉRÉS DE</value>
+  </data>
+  <data name="nn__moldova__republic_of.Text" xml:space="preserve">
+    <value>MOLDAVIE, RÉPUBLIQUE DE</value>
+  </data>
+  <data name="nn__new_caledonia.Text" xml:space="preserve">
+    <value>NOUVELLE CALÉDONIE</value>
+  </data>
+  <data name="nn__new_zealand.Text" xml:space="preserve">
+    <value>NOUVELLE ZELANDE</value>
+  </data>
+  <data name="nn__norfolk_island.Text" xml:space="preserve">
+    <value>ÎLE NORFOLK</value>
+  </data>
+  <data name="nn__northern_mariana_islands.Text" xml:space="preserve">
+    <value>ÎLES MARIANNES DU NORD</value>
+  </data>
+  <data name="nn__palestine__state_of.Text" xml:space="preserve">
+    <value>PALESTINE, ÉTAT DE</value>
+  </data>
+  <data name="nn__papua_new_guinea.Text" xml:space="preserve">
+    <value>PAPOUASIE NOUVELLE-GUINÉE</value>
+  </data>
+  <data name="nn__puerto_rico.Text" xml:space="preserve">
+    <value>PORTO RICO</value>
+  </data>
+  <data name="nn__r_union.Text" xml:space="preserve">
+    <value>RÉUNION</value>
+  </data>
+  <data name="nn__russian_federation.Text" xml:space="preserve">
+    <value>FÉDÉRATION RUSSE</value>
+  </data>
+  <data name="nn__saint_barth_lemy.Text" xml:space="preserve">
+    <value>SAINT BARTHÉLÉMY</value>
+  </data>
+  <data name="nn__saint_helena__ascension_and_tristan_da_cunha.Text" xml:space="preserve">
+    <value>SAINTE-HÉLÈNE, ASCENSION ET TRISTAN DA CUNHA</value>
+  </data>
+  <data name="nn__saint_kitts_and_nevis.Text" xml:space="preserve">
+    <value>SAINT-CHRISTOPHE-ET-NIÉVÈS</value>
+  </data>
+  <data name="nn__saint_lucia.Text" xml:space="preserve">
+    <value>SAINTE LUCIE</value>
+  </data>
+  <data name="nn__saint_martin__french_part_.Text" xml:space="preserve">
+    <value>SAINT-MARTIN (ANTILLES FRANÇAISES)</value>
+  </data>
+  <data name="nn__saint_pierre_and_miquelon.Text" xml:space="preserve">
+    <value>SAINT PIERRE ET MIQUELON</value>
+  </data>
+  <data name="nn__saint_vincent_and_the_grenadines.Text" xml:space="preserve">
+    <value>SAINT VINCENT LES GRENADINES</value>
+  </data>
+  <data name="nn__san_marino.Text" xml:space="preserve">
+    <value>SAINT MARIN</value>
+  </data>
+  <data name="nn__sao_tome_and_principe.Text" xml:space="preserve">
+    <value>SAO TOMÉ-ET-PRINCIPE</value>
+  </data>
+  <data name="nn__saudi_arabia.Text" xml:space="preserve">
+    <value>ARABIE SAOUDITE</value>
+  </data>
+  <data name="nn__sierra_leone.Text" xml:space="preserve">
+    <value>SIERRA LEONE</value>
+  </data>
+  <data name="nn__sint_maarten__dutch_part_.Text" xml:space="preserve">
+    <value>SAINT-MARTIN (ROYAUME DES PAYS-BAS)</value>
+  </data>
+  <data name="nn__solomon_islands.Text" xml:space="preserve">
+    <value>ÎLES SALOMON</value>
+  </data>
+  <data name="nn__south_africa.Text" xml:space="preserve">
+    <value>AFRIQUE DU SUD</value>
+  </data>
+  <data name="nn__south_georgia_and_the_south_sandwich_islands.Text" xml:space="preserve">
+    <value>GÉORGIE DU SUD-ET-LES ÎLES SANDWICH DU SUD</value>
+  </data>
+  <data name="nn__south_sudan.Text" xml:space="preserve">
+    <value>SOUDAN DU SUD</value>
+  </data>
+  <data name="nn__sri_lanka.Text" xml:space="preserve">
+    <value>SRI LANKA</value>
+  </data>
+  <data name="nn__svalbard_and_jan_mayen.Text" xml:space="preserve">
+    <value>SVALBARD ET JAN MAYEN</value>
+  </data>
+  <data name="nn__syrian_arab_republic.Text" xml:space="preserve">
+    <value>SYRIE (RÉPUBLIQUE ARABE SYRIENNE)</value>
+  </data>
+  <data name="nn__tanzania__united_republic_of.Text" xml:space="preserve">
+    <value>TANZANIE, RÉPUBLIQUE UNIE DE</value>
+  </data>
+  <data name="nn__timor_leste.Text" xml:space="preserve">
+    <value>TIMOR ORIENTAL</value>
+  </data>
+  <data name="nn__trinidad_and_tobago.Text" xml:space="preserve">
+    <value>TRINITÉ ET TOBAGO</value>
+  </data>
+  <data name="nn__turks_and_caicos_islands.Text" xml:space="preserve">
+    <value>ILES TURQUES ET CAIQUES</value>
+  </data>
+  <data name="nn__united_arab_emirates.Text" xml:space="preserve">
+    <value>ÉMIRATS ARABES UNIS</value>
+  </data>
+  <data name="nn__united_kingdom.Text" xml:space="preserve">
+    <value>ROYAUME-UNIS</value>
+  </data>
+  <data name="nn__united_states.Text" xml:space="preserve">
+    <value>ÉTATS UNIS</value>
+  </data>
+  <data name="nn__united_states_minor_outlying_islands.Text" xml:space="preserve">
+    <value>ÎLES MINEURES ÉLOIGNÉES DES ÉTATS-UNIS</value>
+  </data>
+  <data name="nn__venezuela__bolivarian_republic_of.Text" xml:space="preserve">
+    <value>VÉNÉZUELA, RÉPUBLIQUE BOLIVIENNE DU</value>
+  </data>
+  <data name="nn__viet_nam.Text" xml:space="preserve">
+    <value>VIETNAM</value>
+  </data>
+  <data name="nn__virgin_islands__british.Text" xml:space="preserve">
+    <value>ILES VIERGES BRITANNIQUES</value>
+  </data>
+  <data name="nn__virgin_islands__u_s_.Text" xml:space="preserve">
+    <value>ILES VIERGES (ETATS UNIS)</value>
+  </data>
+  <data name="nn__wallis_and_futuna.Text" xml:space="preserve">
+    <value>WALLIS ET FUTUNA</value>
+  </data>
+  <data name="nn__western_sahara.Text" xml:space="preserve">
+    <value>SAHARA OCCIDENTAL</value>
+  </data>
+  <data name="npg__AFGHANISTAN.Text" xml:space="preserve">
+    <value>AFGHANISTAN</value>
+  </data>
+  <data name="npg__ALBANIA.Text" xml:space="preserve">
+    <value>ALBANIE</value>
+  </data>
+  <data name="npg__ALGERIA.Text" xml:space="preserve">
+    <value>ALGÉRIE</value>
+  </data>
+  <data name="npg__ANDORRA.Text" xml:space="preserve">
+    <value>ANDORRE</value>
+  </data>
+  <data name="npg__ANGOLA.Text" xml:space="preserve">
+    <value>ANGOLA</value>
+  </data>
+  <data name="npg__ANGUILLA.Text" xml:space="preserve">
+    <value>ANGUILLA</value>
+  </data>
+  <data name="npg__ANTARCTICA.Text" xml:space="preserve">
+    <value>ANTARCTIQUE</value>
+  </data>
+  <data name="npg__ARGENTINA.Text" xml:space="preserve">
+    <value>ARGENTINE</value>
+  </data>
+  <data name="npg__ARMENIA.Text" xml:space="preserve">
+    <value>ARMÉNIE</value>
+  </data>
+  <data name="npg__ARUBA.Text" xml:space="preserve">
+    <value>ARUBA</value>
+  </data>
+  <data name="npg__AUSTRALIA.Text" xml:space="preserve">
+    <value>AUSTRALIE</value>
+  </data>
+  <data name="npg__AUSTRIA.Text" xml:space="preserve">
+    <value>AUTRICHE</value>
+  </data>
+  <data name="npg__AZERBAIJAN.Text" xml:space="preserve">
+    <value>AZERBAÏDJAN</value>
+  </data>
+  <data name="npg__BAHAMAS.Text" xml:space="preserve">
+    <value>BAHAMAS</value>
+  </data>
+  <data name="npg__BAHRAIN.Text" xml:space="preserve">
+    <value>BAHREIN</value>
+  </data>
+  <data name="npg__BANGLADESH.Text" xml:space="preserve">
+    <value>BANGLADESH</value>
+  </data>
+  <data name="npg__BARBADOS.Text" xml:space="preserve">
+    <value>BARBADE</value>
+  </data>
+  <data name="npg__BELARUS.Text" xml:space="preserve">
+    <value>BIÉLORUSSIE</value>
+  </data>
+  <data name="npg__BELGIUM.Text" xml:space="preserve">
+    <value>BELGIQUE</value>
+  </data>
+  <data name="npg__BELIZE.Text" xml:space="preserve">
+    <value>BÉLIZE</value>
+  </data>
+  <data name="npg__BENIN.Text" xml:space="preserve">
+    <value>BÉNIN</value>
+  </data>
+  <data name="npg__BERMUDA.Text" xml:space="preserve">
+    <value>BERMUDES</value>
+  </data>
+  <data name="npg__BHUTAN.Text" xml:space="preserve">
+    <value>BHOUTAN</value>
+  </data>
+  <data name="npg__BOTSWANA.Text" xml:space="preserve">
+    <value>BOTSWANA</value>
+  </data>
+  <data name="npg__BRAZIL.Text" xml:space="preserve">
+    <value>BRÉSIL</value>
+  </data>
+  <data name="npg__BULGARIA.Text" xml:space="preserve">
+    <value>BULGARIE</value>
+  </data>
+  <data name="npg__BURUNDI.Text" xml:space="preserve">
+    <value>BURUNDI</value>
+  </data>
+  <data name="npg__CAMBODIA.Text" xml:space="preserve">
+    <value>CAMBODGE</value>
+  </data>
+  <data name="npg__CAMEROON.Text" xml:space="preserve">
+    <value>CAMEROUN</value>
+  </data>
+  <data name="npg__CANADA.Text" xml:space="preserve">
+    <value>CANADA</value>
+  </data>
+  <data name="npg__CHAD.Text" xml:space="preserve">
+    <value>TCHAD</value>
+  </data>
+  <data name="npg__CHILE.Text" xml:space="preserve">
+    <value>CHILI</value>
+  </data>
+  <data name="npg__CHINA.Text" xml:space="preserve">
+    <value>CHINE</value>
+  </data>
+  <data name="npg__COLOMBIA.Text" xml:space="preserve">
+    <value>COLOMBIE</value>
+  </data>
+  <data name="npg__COMOROS.Text" xml:space="preserve">
+    <value>COMORES</value>
+  </data>
+  <data name="npg__CONGO.Text" xml:space="preserve">
+    <value>CONGO</value>
+  </data>
+  <data name="npg__CROATIA.Text" xml:space="preserve">
+    <value>CROATIE</value>
+  </data>
+  <data name="npg__CUBA.Text" xml:space="preserve">
+    <value>CUBA</value>
+  </data>
+  <data name="npg__CYPRUS.Text" xml:space="preserve">
+    <value>CHYPRE</value>
+  </data>
+  <data name="npg__DENMARK.Text" xml:space="preserve">
+    <value>DANEMARK</value>
+  </data>
+  <data name="npg__DJIBOUTI.Text" xml:space="preserve">
+    <value>DJIBOUTI</value>
+  </data>
+  <data name="npg__DOMINICA.Text" xml:space="preserve">
+    <value>DOMINIQUE</value>
+  </data>
+  <data name="npg__ECUADOR.Text" xml:space="preserve">
+    <value>ÉQUATEUR</value>
+  </data>
+  <data name="npg__EGYPT.Text" xml:space="preserve">
+    <value>ÉGYPTE</value>
+  </data>
+  <data name="npg__ERITREA.Text" xml:space="preserve">
+    <value>ÉRYTRÉE</value>
+  </data>
+  <data name="npg__ESTONIA.Text" xml:space="preserve">
+    <value>ESTONIE</value>
+  </data>
+  <data name="npg__ETHIOPIA.Text" xml:space="preserve">
+    <value>ÉTHIOPIE</value>
+  </data>
+  <data name="npg__FIJI.Text" xml:space="preserve">
+    <value>FIJI (LES ÎLES)</value>
+  </data>
+  <data name="npg__FINLAND.Text" xml:space="preserve">
+    <value>FINLANDE</value>
+  </data>
+  <data name="npg__FRANCE.Text" xml:space="preserve">
+    <value>FRANCE</value>
+  </data>
+  <data name="npg__GABON.Text" xml:space="preserve">
+    <value>GABON</value>
+  </data>
+  <data name="npg__GAMBIA.Text" xml:space="preserve">
+    <value>GAMBIE</value>
+  </data>
+  <data name="npg__GEORGIA.Text" xml:space="preserve">
+    <value>GÉORGIE</value>
+  </data>
+  <data name="npg__GERMANY.Text" xml:space="preserve">
+    <value>ALLEMAGNE</value>
+  </data>
+  <data name="npg__GHANA.Text" xml:space="preserve">
+    <value>GHANA</value>
+  </data>
+  <data name="npg__GIBRALTAR.Text" xml:space="preserve">
+    <value>GIBRALTAR</value>
+  </data>
+  <data name="npg__GREECE.Text" xml:space="preserve">
+    <value>GRÈCE</value>
+  </data>
+  <data name="npg__GREENLAND.Text" xml:space="preserve">
+    <value>GROENLAND</value>
+  </data>
+  <data name="npg__GRENADA.Text" xml:space="preserve">
+    <value>GRENADE</value>
+  </data>
+  <data name="npg__GUADELOUPE.Text" xml:space="preserve">
+    <value>GUADELOUPE</value>
+  </data>
+  <data name="npg__GUAM.Text" xml:space="preserve">
+    <value>GUAM (ÎLES)</value>
+  </data>
+  <data name="npg__GUATEMALA.Text" xml:space="preserve">
+    <value>GUATÉMALA</value>
+  </data>
+  <data name="npg__GUINEA.Text" xml:space="preserve">
+    <value>GUINÉE</value>
+  </data>
+  <data name="npg__GUYANA.Text" xml:space="preserve">
+    <value>GUYANA</value>
+  </data>
+  <data name="npg__HAITI.Text" xml:space="preserve">
+    <value>HAÏTI</value>
+  </data>
+  <data name="npg__HONDURAS.Text" xml:space="preserve">
+    <value>HONDURAS</value>
+  </data>
+  <data name="npg__HUNGARY.Text" xml:space="preserve">
+    <value>HONGRIE</value>
+  </data>
+  <data name="npg__ICELAND.Text" xml:space="preserve">
+    <value>ISLAND</value>
+  </data>
+  <data name="npg__INDIA.Text" xml:space="preserve">
+    <value>INDE</value>
+  </data>
+  <data name="npg__INDONESIA.Text" xml:space="preserve">
+    <value>INDONÉSIE</value>
+  </data>
+  <data name="npg__IRAQ.Text" xml:space="preserve">
+    <value>IRAK</value>
+  </data>
+  <data name="npg__IRELAND.Text" xml:space="preserve">
+    <value>IRLANDE</value>
+  </data>
+  <data name="npg__ISRAEL.Text" xml:space="preserve">
+    <value>ISRAËL</value>
+  </data>
+  <data name="npg__ITALY.Text" xml:space="preserve">
+    <value>ITALIE</value>
+  </data>
+  <data name="npg__JAMAICA.Text" xml:space="preserve">
+    <value>JAMAÏQUE</value>
+  </data>
+  <data name="npg__JAPAN.Text" xml:space="preserve">
+    <value>JAPON</value>
+  </data>
+  <data name="npg__JERSEY.Text" xml:space="preserve">
+    <value>JERSEY</value>
+  </data>
+  <data name="npg__JORDAN.Text" xml:space="preserve">
+    <value>JORDANIE</value>
+  </data>
+  <data name="npg__KAZAKHSTAN.Text" xml:space="preserve">
+    <value>KAZAKHSTAN</value>
+  </data>
+  <data name="npg__KENYA.Text" xml:space="preserve">
+    <value>KENYA</value>
+  </data>
+  <data name="npg__KIRIBATI.Text" xml:space="preserve">
+    <value>KIRIBATI</value>
+  </data>
+  <data name="npg__KUWAIT.Text" xml:space="preserve">
+    <value>KOWEÏT</value>
+  </data>
+  <data name="npg__KYRGYZSTAN.Text" xml:space="preserve">
+    <value>KIRGHIZISTAN</value>
+  </data>
+  <data name="npg__LATVIA.Text" xml:space="preserve">
+    <value>LETTONIE</value>
+  </data>
+  <data name="npg__LEBANON.Text" xml:space="preserve">
+    <value>LIBAN</value>
+  </data>
+  <data name="npg__LESOTHO.Text" xml:space="preserve">
+    <value>LESOTHO</value>
+  </data>
+  <data name="npg__LIBERIA.Text" xml:space="preserve">
+    <value>LIBÉRIA</value>
+  </data>
+  <data name="npg__LIBYA.Text" xml:space="preserve">
+    <value>LIBYE</value>
+  </data>
+  <data name="npg__LIECHTENSTEIN.Text" xml:space="preserve">
+    <value>LIECHTENSTEIN</value>
+  </data>
+  <data name="npg__LITHUANIA.Text" xml:space="preserve">
+    <value>LITUANIE</value>
+  </data>
+  <data name="npg__LUXEMBOURG.Text" xml:space="preserve">
+    <value>LUXEMBOURG</value>
+  </data>
+  <data name="npg__MACAO.Text" xml:space="preserve">
+    <value>MACAO</value>
+  </data>
+  <data name="npg__MADAGASCAR.Text" xml:space="preserve">
+    <value>MADAGASCAR</value>
+  </data>
+  <data name="npg__MALAWI.Text" xml:space="preserve">
+    <value>MALAWI</value>
+  </data>
+  <data name="npg__MALAYSIA.Text" xml:space="preserve">
+    <value>MALAYSIE</value>
+  </data>
+  <data name="npg__MALDIVES.Text" xml:space="preserve">
+    <value>MALDIVES</value>
+  </data>
+  <data name="npg__MALI.Text" xml:space="preserve">
+    <value>MALI</value>
+  </data>
+  <data name="npg__MALTA.Text" xml:space="preserve">
+    <value>MALTE</value>
+  </data>
+  <data name="npg__MARTINIQUE.Text" xml:space="preserve">
+    <value>MARTINIQUE</value>
+  </data>
+  <data name="npg__MAURITANIA.Text" xml:space="preserve">
+    <value>MAURITANIE</value>
+  </data>
+  <data name="npg__MAURITIUS.Text" xml:space="preserve">
+    <value>ÎLE MAURICE</value>
+  </data>
+  <data name="npg__MAYOTTE.Text" xml:space="preserve">
+    <value>MAYOTTE</value>
+  </data>
+  <data name="npg__MEXICO.Text" xml:space="preserve">
+    <value>MEXIQUE</value>
+  </data>
+  <data name="npg__MONACO.Text" xml:space="preserve">
+    <value>MONACO</value>
+  </data>
+  <data name="npg__MONGOLIA.Text" xml:space="preserve">
+    <value>MONGOLIE</value>
+  </data>
+  <data name="npg__MONTENEGRO.Text" xml:space="preserve">
+    <value>MONTÉNÉGRO</value>
+  </data>
+  <data name="npg__MONTSERRAT.Text" xml:space="preserve">
+    <value>MONTSERRAT</value>
+  </data>
+  <data name="npg__MOROCCO.Text" xml:space="preserve">
+    <value>MAROC</value>
+  </data>
+  <data name="npg__MOZAMBIQUE.Text" xml:space="preserve">
+    <value>MOZAMBIQUE</value>
+  </data>
+  <data name="npg__MYANMAR.Text" xml:space="preserve">
+    <value>BIRMANIE</value>
+  </data>
+  <data name="npg__NAMIBIA.Text" xml:space="preserve">
+    <value>NAMIBIE</value>
+  </data>
+  <data name="npg__NAURU.Text" xml:space="preserve">
+    <value>NAURU</value>
+  </data>
+  <data name="npg__NEPAL.Text" xml:space="preserve">
+    <value>NÉPAL</value>
+  </data>
+  <data name="npg__NETHERLANDS.Text" xml:space="preserve">
+    <value>HOLLANDE</value>
+  </data>
+  <data name="npg__NICARAGUA.Text" xml:space="preserve">
+    <value>NICARAGUA</value>
+  </data>
+  <data name="npg__NIGER.Text" xml:space="preserve">
+    <value>NIGER</value>
+  </data>
+  <data name="npg__NIGERIA.Text" xml:space="preserve">
+    <value>NIGÉRIA</value>
+  </data>
+  <data name="npg__NIUE.Text" xml:space="preserve">
+    <value>NIUE</value>
+  </data>
+  <data name="npg__NORWAY.Text" xml:space="preserve">
+    <value>NORVÈGE</value>
+  </data>
+  <data name="npg__OMAN.Text" xml:space="preserve">
+    <value>OMAN</value>
+  </data>
+  <data name="npg__PAKISTAN.Text" xml:space="preserve">
+    <value>PAKISTAN</value>
+  </data>
+  <data name="npg__PALAU.Text" xml:space="preserve">
+    <value>PALAOS</value>
+  </data>
+  <data name="npg__PANAMA.Text" xml:space="preserve">
+    <value>PANAMA</value>
+  </data>
+  <data name="npg__PARAGUAY.Text" xml:space="preserve">
+    <value>PARAGUAY</value>
+  </data>
+  <data name="npg__PERU.Text" xml:space="preserve">
+    <value>PÉROU</value>
+  </data>
+  <data name="npg__PHILIPPINES.Text" xml:space="preserve">
+    <value>PHILIPPINES</value>
+  </data>
+  <data name="npg__PITCAIRN.Text" xml:space="preserve">
+    <value>ÎLE PITCAIRN</value>
+  </data>
+  <data name="npg__POLAND.Text" xml:space="preserve">
+    <value>POLOGNE</value>
+  </data>
+  <data name="npg__PORTUGAL.Text" xml:space="preserve">
+    <value>PORTUGAL</value>
+  </data>
+  <data name="npg__QATAR.Text" xml:space="preserve">
+    <value>QATAR</value>
+  </data>
+  <data name="npg__ROMANIA.Text" xml:space="preserve">
+    <value>ROUMANIE</value>
+  </data>
+  <data name="npg__RWANDA.Text" xml:space="preserve">
+    <value>RWANDA</value>
+  </data>
+  <data name="npg__SAMOA.Text" xml:space="preserve">
+    <value>SAMOA</value>
+  </data>
+  <data name="npg__SENEGAL.Text" xml:space="preserve">
+    <value>SÉNÉGAL</value>
+  </data>
+  <data name="npg__SERBIA.Text" xml:space="preserve">
+    <value>SERBIE</value>
+  </data>
+  <data name="npg__SEYCHELLES.Text" xml:space="preserve">
+    <value>SEYCHELLES</value>
+  </data>
+  <data name="npg__SINGAPORE.Text" xml:space="preserve">
+    <value>SINGAPOUR</value>
+  </data>
+  <data name="npg__SLOVAKIA.Text" xml:space="preserve">
+    <value>SLOVAQUIE</value>
+  </data>
+  <data name="npg__SLOVENIA.Text" xml:space="preserve">
+    <value>SLOVÉNIE</value>
+  </data>
+  <data name="npg__SOMALIA.Text" xml:space="preserve">
+    <value>SOMALIE</value>
+  </data>
+  <data name="npg__SPAIN.Text" xml:space="preserve">
+    <value>ESPAGNE</value>
+  </data>
+  <data name="npg__SUDAN.Text" xml:space="preserve">
+    <value>SOUDAN</value>
+  </data>
+  <data name="npg__SURINAME.Text" xml:space="preserve">
+    <value>SURINAME</value>
+  </data>
+  <data name="npg__SWAZILAND.Text" xml:space="preserve">
+    <value>SWAZILAND</value>
+  </data>
+  <data name="npg__SWEDEN.Text" xml:space="preserve">
+    <value>SUÈDE</value>
+  </data>
+  <data name="npg__SWITZERLAND.Text" xml:space="preserve">
+    <value>SUISSE</value>
+  </data>
+  <data name="npg__TAIWAN.Text" xml:space="preserve">
+    <value>TAÏWAN</value>
+  </data>
+  <data name="npg__TAJIKISTAN.Text" xml:space="preserve">
+    <value>TADJIKISTAN</value>
+  </data>
+  <data name="npg__THAILAND.Text" xml:space="preserve">
+    <value>THAÏLANDE</value>
+  </data>
+  <data name="npg__TOKELAU.Text" xml:space="preserve">
+    <value>TOKELAU</value>
+  </data>
+  <data name="npg__TONGA.Text" xml:space="preserve">
+    <value>TONGA</value>
+  </data>
+  <data name="npg__TUNISIA.Text" xml:space="preserve">
+    <value>TUNISIE</value>
+  </data>
+  <data name="npg__TURKEY.Text" xml:space="preserve">
+    <value>TURQUIE</value>
+  </data>
+  <data name="npg__TURKMENISTAN.Text" xml:space="preserve">
+    <value>TURKMÉNISTAN</value>
+  </data>
+  <data name="npg__TUVALU.Text" xml:space="preserve">
+    <value>TUVALU</value>
+  </data>
+  <data name="npg__UGANDA.Text" xml:space="preserve">
+    <value>OUGANDA</value>
+  </data>
+  <data name="npg__UKRAINE.Text" xml:space="preserve">
+    <value>UKRAINE</value>
+  </data>
+  <data name="npg__URUGUAY.Text" xml:space="preserve">
+    <value>URUGUAY</value>
+  </data>
+  <data name="npg__UZBEKISTAN.Text" xml:space="preserve">
+    <value>OUZBÉKISTAN</value>
+  </data>
+  <data name="npg__VANUATU.Text" xml:space="preserve">
+    <value>VANUATU</value>
+  </data>
+  <data name="npg__YEMEN.Text" xml:space="preserve">
+    <value>YÉMEN</value>
+  </data>
+  <data name="npg__ZAMBIA.Text" xml:space="preserve">
+    <value>ZAMBIE</value>
+  </data>
+  <data name="npg__ZIMBABWE.Text" xml:space="preserve">
+    <value>ZIMBABWE</value>
+  </data>
+  <data name="npg___land_islands.Text" xml:space="preserve">
+    <value>"ÅLAND, ÉTAT LIBRE ASSOCIÉ D'"</value>
+  </data>
+  <data name="npg__american_samoa.Text" xml:space="preserve">
+    <value>SAMOA AMÉRICAINES</value>
+  </data>
+  <data name="npg__antigua_and_barbuda.Text" xml:space="preserve">
+    <value>ANTIGUA-ET-BARBUDA</value>
+  </data>
+  <data name="npg__bolivia__plurinational_state_of.Text" xml:space="preserve">
+    <value>BOLIVIE, ÉTAT PLURINATIONAL DE</value>
+  </data>
+  <data name="npg__bonaire__sint_eustatius_and_saba.Text" xml:space="preserve">
+    <value>BONAIRE, SAINT-EUSTACHE ET SABA</value>
+  </data>
+  <data name="npg__bosnia_and_herzegovina.Text" xml:space="preserve">
+    <value>BOSNIE HERZÉGOVINE</value>
+  </data>
+  <data name="npg__bouvet_island.Text" xml:space="preserve">
+    <value>BOUVET (ILE)</value>
+  </data>
+  <data name="npg__british_indian_ocean_territory.Text" xml:space="preserve">
+    <value>"TERRITOIRE BRITANNIQUE DE L'OCÉAN INDIEN"</value>
+  </data>
+  <data name="npg__brunei_darussalam.Text" xml:space="preserve">
+    <value>BRUNEI (SULTANAT DE)</value>
+  </data>
+  <data name="npg__burkina_faso.Text" xml:space="preserve">
+    <value>BURKINA FASO</value>
+  </data>
+  <data name="npg__c_te_d_ivoire.Text" xml:space="preserve">
+    <value>"CÔTE D'IVOIRE"</value>
+  </data>
+  <data name="npg__cape_verde.Text" xml:space="preserve">
+    <value>CAP VERT</value>
+  </data>
+  <data name="npg__cayman_islands.Text" xml:space="preserve">
+    <value>CAIMANS (ILES)</value>
+  </data>
+  <data name="npg__central_african_republic.Text" xml:space="preserve">
+    <value>RÉPUBLIQUE CENTRAFRICAINE</value>
+  </data>
+  <data name="npg__christmas_island.Text" xml:space="preserve">
+    <value>CHRISTMAS (ILE)</value>
+  </data>
+  <data name="npg__cocos__keeling__islands.Text" xml:space="preserve">
+    <value>ÎLES COCOS</value>
+  </data>
+  <data name="npg__congo__the_democratic_republic_of_the.Text" xml:space="preserve">
+    <value>CONGO, RÉPUBLIQUE DÉMOCRATIQUE DU</value>
+  </data>
+  <data name="npg__cook_islands.Text" xml:space="preserve">
+    <value>ÎLES COOK</value>
+  </data>
+  <data name="npg__costa_rica.Text" xml:space="preserve">
+    <value>COSTA RICA</value>
+  </data>
+  <data name="npg__cura_ao.Text" xml:space="preserve">
+    <value>CURAÇAO</value>
+  </data>
+  <data name="npg__czech_republic.Text" xml:space="preserve">
+    <value>REPUBLIQUE TCHÈQUE</value>
+  </data>
+  <data name="npg__dominican_republic.Text" xml:space="preserve">
+    <value>RÉPUBLIQUE DOMINICAINE</value>
+  </data>
+  <data name="npg__el_salvador.Text" xml:space="preserve">
+    <value>SALVADOR</value>
+  </data>
+  <data name="npg__equatorial_guinea.Text" xml:space="preserve">
+    <value>GUINÉE ÉQUATORIALE</value>
+  </data>
+  <data name="npg__falkland_islands__malvinas_.Text" xml:space="preserve">
+    <value>ÎLES MALOUINES</value>
+  </data>
+  <data name="npg__faroe_islands.Text" xml:space="preserve">
+    <value>FÉROÉ (LES ÎLES)</value>
+  </data>
+  <data name="npg__french_guiana.Text" xml:space="preserve">
+    <value>GUYANE FRANÇAISE</value>
+  </data>
+  <data name="npg__french_polynesia.Text" xml:space="preserve">
+    <value>POLYNÉSIE FRANÇAISE</value>
+  </data>
+  <data name="npg__french_southern_territories.Text" xml:space="preserve">
+    <value>TERRITOIRE DES TERRES AUSTRALES ET ANTARCTIQUES FRANÇAISES</value>
+  </data>
+  <data name="npg__guinea_bissau.Text" xml:space="preserve">
+    <value>GUINÉE BISSAU</value>
+  </data>
+  <data name="npg__heard_island_and_mcdonald_islands.Text" xml:space="preserve">
+    <value>ÎLES HEARD-ET-MCDONALD</value>
+  </data>
+  <data name="npg__holy_see__vatican_city_state_.Text" xml:space="preserve">
+    <value>SAINT SIÈGE (ÉTAT DE LA CITÉ DU VATICAN)</value>
+  </data>
+  <data name="npg__hong_kong.Text" xml:space="preserve">
+    <value>HONG KONG</value>
+  </data>
+  <data name="npg__iran__islamic_republic_of.Text" xml:space="preserve">
+    <value>"IRAN, RÉPUBLIQUE ISLAMIQUE D'"</value>
+  </data>
+  <data name="npg__isle_of_man.Text" xml:space="preserve">
+    <value>ÎLE DE MAN</value>
+  </data>
+  <data name="npg__korea__democratic_people_s_republic_of.Text" xml:space="preserve">
+    <value>CORÉE, RÉPUBLIQUE POPULAIRE DÉMOCRATIQUE DE</value>
+  </data>
+  <data name="npg__korea__republic_of.Text" xml:space="preserve">
+    <value>CORÉE, RÉPUBLIQUE DE</value>
+  </data>
+  <data name="npg__lao_people_s_democratic_republic.Text" xml:space="preserve">
+    <value>LAOS (RÉPUBLIQUE DÉMOCRATIQUE POPULAIRE LAO)</value>
+  </data>
+  <data name="npg__macedonia__the_former_yugoslav_republic_of.Text" xml:space="preserve">
+    <value>MACÉDOINE, ANCIENNE RÉPUBLIQUE YOUGOSLAVE DE</value>
+  </data>
+  <data name="npg__marshall_islands.Text" xml:space="preserve">
+    <value>ÎLES MARSHALL</value>
+  </data>
+  <data name="npg__micronesia__federated_states_of.Text" xml:space="preserve">
+    <value>MICRONÉSIE, ÉTATS FÉDÉRÉS DE</value>
+  </data>
+  <data name="npg__moldova__republic_of.Text" xml:space="preserve">
+    <value>MOLDAVIE, RÉPUBLIQUE DE</value>
+  </data>
+  <data name="npg__new_caledonia.Text" xml:space="preserve">
+    <value>NOUVELLE CALÉDONIE</value>
+  </data>
+  <data name="npg__new_zealand.Text" xml:space="preserve">
+    <value>NOUVELLE ZELANDE</value>
+  </data>
+  <data name="npg__norfolk_island.Text" xml:space="preserve">
+    <value>ÎLE NORFOLK</value>
+  </data>
+  <data name="npg__northern_mariana_islands.Text" xml:space="preserve">
+    <value>ÎLES MARIANNES DU NORD</value>
+  </data>
+  <data name="npg__palestine__state_of.Text" xml:space="preserve">
+    <value>PALESTINE, ÉTAT DE</value>
+  </data>
+  <data name="npg__papua_new_guinea.Text" xml:space="preserve">
+    <value>PAPOUASIE NOUVELLE-GUINÉE</value>
+  </data>
+  <data name="npg__puerto_rico.Text" xml:space="preserve">
+    <value>PORTO RICO</value>
+  </data>
+  <data name="npg__r_union.Text" xml:space="preserve">
+    <value>RÉUNION</value>
+  </data>
+  <data name="npg__russian_federation.Text" xml:space="preserve">
+    <value>FÉDÉRATION RUSSE</value>
+  </data>
+  <data name="npg__saint_barth_lemy.Text" xml:space="preserve">
+    <value>SAINT BARTHÉLÉMY</value>
+  </data>
+  <data name="npg__saint_helena__ascension_and_tristan_da_cunha.Text" xml:space="preserve">
+    <value>SAINTE-HÉLÈNE, ASCENSION ET TRISTAN DA CUNHA</value>
+  </data>
+  <data name="npg__saint_kitts_and_nevis.Text" xml:space="preserve">
+    <value>SAINT-CHRISTOPHE-ET-NIÉVÈS</value>
+  </data>
+  <data name="npg__saint_lucia.Text" xml:space="preserve">
+    <value>SAINTE LUCIE</value>
+  </data>
+  <data name="npg__saint_martin__french_part_.Text" xml:space="preserve">
+    <value>SAINT-MARTIN (ANTILLES FRANÇAISES)</value>
+  </data>
+  <data name="npg__saint_pierre_and_miquelon.Text" xml:space="preserve">
+    <value>SAINT PIERRE ET MIQUELON</value>
+  </data>
+  <data name="npg__saint_vincent_and_the_grenadines.Text" xml:space="preserve">
+    <value>SAINT VINCENT LES GRENADINES</value>
+  </data>
+  <data name="npg__san_marino.Text" xml:space="preserve">
+    <value>SAINT MARIN</value>
+  </data>
+  <data name="npg__sao_tome_and_principe.Text" xml:space="preserve">
+    <value>SAO TOMÉ-ET-PRINCIPE</value>
+  </data>
+  <data name="npg__saudi_arabia.Text" xml:space="preserve">
+    <value>ARABIE SAOUDITE</value>
+  </data>
+  <data name="npg__sierra_leone.Text" xml:space="preserve">
+    <value>SIERRA LEONE</value>
+  </data>
+  <data name="npg__sint_maarten__dutch_part_.Text" xml:space="preserve">
+    <value>SAINT-MARTIN (ROYAUME DES PAYS-BAS)</value>
+  </data>
+  <data name="npg__solomon_islands.Text" xml:space="preserve">
+    <value>ÎLES SALOMON</value>
+  </data>
+  <data name="npg__south_africa.Text" xml:space="preserve">
+    <value>AFRIQUE DU SUD</value>
+  </data>
+  <data name="npg__south_georgia_and_the_south_sandwich_islands.Text" xml:space="preserve">
+    <value>GÉORGIE DU SUD-ET-LES ÎLES SANDWICH DU SUD</value>
+  </data>
+  <data name="npg__south_sudan.Text" xml:space="preserve">
+    <value>SOUDAN DU SUD</value>
+  </data>
+  <data name="npg__sri_lanka.Text" xml:space="preserve">
+    <value>SRI LANKA</value>
+  </data>
+  <data name="npg__svalbard_and_jan_mayen.Text" xml:space="preserve">
+    <value>SVALBARD ET JAN MAYEN</value>
+  </data>
+  <data name="npg__syrian_arab_republic.Text" xml:space="preserve">
+    <value>SYRIE (RÉPUBLIQUE ARABE SYRIENNE)</value>
+  </data>
+  <data name="npg__tanzania__united_republic_of.Text" xml:space="preserve">
+    <value>TANZANIE, RÉPUBLIQUE UNIE DE</value>
+  </data>
+  <data name="npg__timor_leste.Text" xml:space="preserve">
+    <value>TIMOR ORIENTAL</value>
+  </data>
+  <data name="npg__trinidad_and_tobago.Text" xml:space="preserve">
+    <value>TRINITÉ ET TOBAGO</value>
+  </data>
+  <data name="npg__turks_and_caicos_islands.Text" xml:space="preserve">
+    <value>ILES TURQUES ET CAIQUES</value>
+  </data>
+  <data name="npg__united_arab_emirates.Text" xml:space="preserve">
+    <value>ÉMIRATS ARABES UNIS</value>
+  </data>
+  <data name="npg__united_kingdom.Text" xml:space="preserve">
+    <value>ROYAUME-UNIS</value>
+  </data>
+  <data name="npg__united_states.Text" xml:space="preserve">
+    <value>ÉTATS UNIS</value>
+  </data>
+  <data name="npg__united_states_minor_outlying_islands.Text" xml:space="preserve">
+    <value>ÎLES MINEURES ÉLOIGNÉES DES ÉTATS-UNIS</value>
+  </data>
+  <data name="npg__venezuela__bolivarian_republic_of.Text" xml:space="preserve">
+    <value>VÉNÉZUELA, RÉPUBLIQUE BOLIVIENNE DU</value>
+  </data>
+  <data name="npg__viet_nam.Text" xml:space="preserve">
+    <value>VIETNAM</value>
+  </data>
+  <data name="npg__virgin_islands__british.Text" xml:space="preserve">
+    <value>ILES VIERGES BRITANNIQUES</value>
+  </data>
+  <data name="npg__virgin_islands__u_s_.Text" xml:space="preserve">
+    <value>ILES VIERGES (ETATS UNIS)</value>
+  </data>
+  <data name="npg__wallis_and_futuna.Text" xml:space="preserve">
+    <value>WALLIS ET FUTUNA</value>
+  </data>
+  <data name="npg__western_sahara.Text" xml:space="preserve">
+    <value>SAHARA OCCIDENTAL</value>
+  </data>
+  <data name="open_url_link_menu_copy_link.Text" xml:space="preserve">
+    <value>Copier le lien</value>
+  </data>
+  <data name="open_url_link_menu_open_in_safari.Text" xml:space="preserve">
+    <value>Ouvrir avec Safari</value>
+  </data>
+  <data name="others_setting_navigation_item_title.Text" xml:space="preserve">
+    <value>Autres</value>
+  </data>
+  <data name="pg__afrikaans.Text" xml:space="preserve">
+    <value>Afrikaans</value>
+  </data>
+  <data name="pg__ainu.Text" xml:space="preserve">
+    <value>Aïnou</value>
+  </data>
+  <data name="pg__albanian.Text" xml:space="preserve">
+    <value>Albanais</value>
+  </data>
+  <data name="pg__arabic.Text" xml:space="preserve">
+    <value>Arabe</value>
+  </data>
+  <data name="pg__armenian.Text" xml:space="preserve">
+    <value>Arménien</value>
+  </data>
+  <data name="pg__aymara.Text" xml:space="preserve">
+    <value>Aymara</value>
+  </data>
+  <data name="pg__azerbaijani.Text" xml:space="preserve">
+    <value>Azéri</value>
+  </data>
+  <data name="pg__azeri.Text" xml:space="preserve">
+    <value>Azéri</value>
+  </data>
+  <data name="pg__basque.Text" xml:space="preserve">
+    <value>Basque</value>
+  </data>
+  <data name="pg__belarusian.Text" xml:space="preserve">
+    <value>Béliorusse</value>
+  </data>
+  <data name="pg__bengali.Text" xml:space="preserve">
+    <value>Bengalais</value>
+  </data>
+  <data name="pg__bosnian.Text" xml:space="preserve">
+    <value>Bosniaque</value>
+  </data>
+  <data name="pg__bulgarian.Text" xml:space="preserve">
+    <value>Bulgare</value>
+  </data>
+  <data name="pg__catalan.Text" xml:space="preserve">
+    <value>Catalan</value>
+  </data>
+  <data name="pg__cherokee.Text" xml:space="preserve">
+    <value>Cherokee</value>
+  </data>
+  <data name="pg__croatian.Text" xml:space="preserve">
+    <value>Croate</value>
+  </data>
+  <data name="pg__czech.Text" xml:space="preserve">
+    <value>Tchèque</value>
+  </data>
+  <data name="pg__danish.Text" xml:space="preserve">
+    <value>Danois</value>
+  </data>
+  <data name="pg__dutch.Text" xml:space="preserve">
+    <value>Hollandais</value>
+  </data>
+  <data name="pg__dutch__belgium_.Text" xml:space="preserve">
+    <value>Néerlandais (Belgique)</value>
+  </data>
+  <data name="pg__english__uk_.Text" xml:space="preserve">
+    <value>Anglais (GB)</value>
+  </data>
+  <data name="pg__english__us_.Text" xml:space="preserve">
+    <value>Anglais (USA)</value>
+  </data>
+  <data name="pg__esperanto.Text" xml:space="preserve">
+    <value>Espéranto</value>
+  </data>
+  <data name="pg__estonian.Text" xml:space="preserve">
+    <value>Estonien</value>
+  </data>
+  <data name="pg__faroese.Text" xml:space="preserve">
+    <value>Féroïen</value>
+  </data>
+  <data name="pg__finnish.Text" xml:space="preserve">
+    <value>Finnois</value>
+  </data>
+  <data name="pg__french__canada_.Text" xml:space="preserve">
+    <value>Français (Canada)</value>
+  </data>
+  <data name="pg__french__france_.Text" xml:space="preserve">
+    <value>Français (France)</value>
+  </data>
+  <data name="pg__frisian.Text" xml:space="preserve">
+    <value>Frison</value>
+  </data>
+  <data name="pg__galician.Text" xml:space="preserve">
+    <value>Galicien</value>
+  </data>
+  <data name="pg__georgian.Text" xml:space="preserve">
+    <value>Géorgien</value>
+  </data>
+  <data name="pg__german.Text" xml:space="preserve">
+    <value>Allemand</value>
+  </data>
+  <data name="pg__greek.Text" xml:space="preserve">
+    <value>Grec</value>
+  </data>
+  <data name="pg__guarani.Text" xml:space="preserve">
+    <value>Guarani</value>
+  </data>
+  <data name="pg__gujarati.Text" xml:space="preserve">
+    <value>Gujarati</value>
+  </data>
+  <data name="pg__haitian.Text" xml:space="preserve">
+    <value>Haïtien</value>
+  </data>
+  <data name="pg__hawaiian.Text" xml:space="preserve">
+    <value>Hawaïen</value>
+  </data>
+  <data name="pg__hebrew.Text" xml:space="preserve">
+    <value>Hébreu</value>
+  </data>
+  <data name="pg__hindi.Text" xml:space="preserve">
+    <value>Hindou</value>
+  </data>
+  <data name="pg__hungarian.Text" xml:space="preserve">
+    <value>Hongrois</value>
+  </data>
+  <data name="pg__icelandic.Text" xml:space="preserve">
+    <value>Islandais</value>
+  </data>
+  <data name="pg__indonesian.Text" xml:space="preserve">
+    <value>Indonésien</value>
+  </data>
+  <data name="pg__irish.Text" xml:space="preserve">
+    <value>Irlandais</value>
+  </data>
+  <data name="pg__italian.Text" xml:space="preserve">
+    <value>Italien</value>
+  </data>
+  <data name="pg__japanese.Text" xml:space="preserve">
+    <value>Japonais</value>
+  </data>
+  <data name="pg__javanese.Text" xml:space="preserve">
+    <value>Javanais</value>
+  </data>
+  <data name="pg__kannada.Text" xml:space="preserve">
+    <value>Kannada</value>
+  </data>
+  <data name="pg__kazakh.Text" xml:space="preserve">
+    <value>Kazakh</value>
+  </data>
+  <data name="pg__khmer.Text" xml:space="preserve">
+    <value>Khmer</value>
+  </data>
+  <data name="pg__kiswahili.Text" xml:space="preserve">
+    <value>Kiswahili</value>
+  </data>
+  <data name="pg__klingon.Text" xml:space="preserve">
+    <value>Klingon</value>
+  </data>
+  <data name="pg__korean.Text" xml:space="preserve">
+    <value>Coréen</value>
+  </data>
+  <data name="pg__kurdish.Text" xml:space="preserve">
+    <value>Kurde</value>
+  </data>
+  <data name="pg__laotian.Text" xml:space="preserve">
+    <value>Laotien</value>
+  </data>
+  <data name="pg__latin.Text" xml:space="preserve">
+    <value>Latin</value>
+  </data>
+  <data name="pg__latvian.Text" xml:space="preserve">
+    <value>Letton</value>
+  </data>
+  <data name="pg__limburgish.Text" xml:space="preserve">
+    <value>Limbourgeois</value>
+  </data>
+  <data name="pg__lithuanian.Text" xml:space="preserve">
+    <value>Lituanien</value>
+  </data>
+  <data name="pg__macedonian.Text" xml:space="preserve">
+    <value>Macédonien</value>
+  </data>
+  <data name="pg__malagasy.Text" xml:space="preserve">
+    <value>Malgache</value>
+  </data>
+  <data name="pg__malay.Text" xml:space="preserve">
+    <value>Malais</value>
+  </data>
+  <data name="pg__malayalam.Text" xml:space="preserve">
+    <value>Malayalam</value>
+  </data>
+  <data name="pg__malaysian.Text" xml:space="preserve">
+    <value>Malais</value>
+  </data>
+  <data name="pg__maltese.Text" xml:space="preserve">
+    <value>Maltais</value>
+  </data>
+  <data name="pg__marathi.Text" xml:space="preserve">
+    <value>Marathi</value>
+  </data>
+  <data name="pg__mongolian.Text" xml:space="preserve">
+    <value>Mongole</value>
+  </data>
+  <data name="pg__nepali.Text" xml:space="preserve">
+    <value>Népalais</value>
+  </data>
+  <data name="pg__northern_sami.Text" xml:space="preserve">
+    <value>Same du Nord</value>
+  </data>
+  <data name="pg__norwegian__bokmal_.Text" xml:space="preserve">
+    <value>Norvégien (Bokmal)</value>
+  </data>
+  <data name="pg__norwegian__nynorsk_.Text" xml:space="preserve">
+    <value>Norvégien (Nynorsk)</value>
+  </data>
+  <data name="pg__pashto.Text" xml:space="preserve">
+    <value>Pachto</value>
+  </data>
+  <data name="pg__persian.Text" xml:space="preserve">
+    <value>Perse</value>
+  </data>
+  <data name="pg__polish.Text" xml:space="preserve">
+    <value>Polonais</value>
+  </data>
+  <data name="pg__portuguese__brazil_.Text" xml:space="preserve">
+    <value>Portugais (Brésil)</value>
+  </data>
+  <data name="pg__portuguese__portugal_.Text" xml:space="preserve">
+    <value>Portugais (Portugal)</value>
+  </data>
+  <data name="pg__punjabi.Text" xml:space="preserve">
+    <value>Pendjabi</value>
+  </data>
+  <data name="pg__quechua.Text" xml:space="preserve">
+    <value>Quechua</value>
+  </data>
+  <data name="pg__romanian.Text" xml:space="preserve">
+    <value>Roumain</value>
+  </data>
+  <data name="pg__romansh.Text" xml:space="preserve">
+    <value>Romanche</value>
+  </data>
+  <data name="pg__russian.Text" xml:space="preserve">
+    <value>Russe</value>
+  </data>
+  <data name="pg__sanskrit.Text" xml:space="preserve">
+    <value>Sanskrit</value>
+  </data>
+  <data name="pg__serbian.Text" xml:space="preserve">
+    <value>Serbe</value>
+  </data>
+  <data name="pg__simplified_chinese__china_.Text" xml:space="preserve">
+    <value>Chinois simplifié (Chine)</value>
+  </data>
+  <data name="pg__slavic.Text" xml:space="preserve">
+    <value>Slave</value>
+  </data>
+  <data name="pg__slovak.Text" xml:space="preserve">
+    <value>Slovaque</value>
+  </data>
+  <data name="pg__slovenian.Text" xml:space="preserve">
+    <value>Slovène</value>
+  </data>
+  <data name="pg__somali.Text" xml:space="preserve">
+    <value>Somalien</value>
+  </data>
+  <data name="pg__spanish__chile_.Text" xml:space="preserve">
+    <value>Espagnol (Chili)</value>
+  </data>
+  <data name="pg__spanish__colombia_.Text" xml:space="preserve">
+    <value>Espagnol (Colombie)</value>
+  </data>
+  <data name="pg__spanish__mexico_.Text" xml:space="preserve">
+    <value>Espagnol (Mexique)</value>
+  </data>
+  <data name="pg__spanish__spain_.Text" xml:space="preserve">
+    <value>Espagnol (Espagne)</value>
+  </data>
+  <data name="pg__spanish__venezuela__.Text" xml:space="preserve">
+    <value>Espagnol (Venezuela)</value>
+  </data>
+  <data name="pg__swedish.Text" xml:space="preserve">
+    <value>Suédois</value>
+  </data>
+  <data name="pg__syriac.Text" xml:space="preserve">
+    <value>Syriaque</value>
+  </data>
+  <data name="pg__tagalog.Text" xml:space="preserve">
+    <value>Tagalog</value>
+  </data>
+  <data name="pg__tajik.Text" xml:space="preserve">
+    <value>Tadjik</value>
+  </data>
+  <data name="pg__tamil.Text" xml:space="preserve">
+    <value>Tamoul</value>
+  </data>
+  <data name="pg__tatar.Text" xml:space="preserve">
+    <value>Tatar</value>
+  </data>
+  <data name="pg__telugu.Text" xml:space="preserve">
+    <value>Télougou</value>
+  </data>
+  <data name="pg__thai.Text" xml:space="preserve">
+    <value>Thaï</value>
+  </data>
+  <data name="pg__tibet.Text" xml:space="preserve">
+    <value>Tibétain</value>
+  </data>
+  <data name="pg__tongan.Text" xml:space="preserve">
+    <value>Tongien</value>
+  </data>
+  <data name="pg__traditional_chinese__hong_kong_.Text" xml:space="preserve">
+    <value>Chinois traditionnel (Hong Kong)</value>
+  </data>
+  <data name="pg__traditional_chinese__taiwan_.Text" xml:space="preserve">
+    <value>Chinois traditionnel (Taïwan)</value>
+  </data>
+  <data name="pg__turkish.Text" xml:space="preserve">
+    <value>Turc</value>
+  </data>
+  <data name="pg__ukrainian.Text" xml:space="preserve">
+    <value>Ukrainien</value>
+  </data>
+  <data name="pg__urdu.Text" xml:space="preserve">
+    <value>Ourdou</value>
+  </data>
+  <data name="pg__uzbek.Text" xml:space="preserve">
+    <value>Ouzbek</value>
+  </data>
+  <data name="pg__vietnamese.Text" xml:space="preserve">
+    <value>Vietnamien</value>
+  </data>
+  <data name="pg__welsh.Text" xml:space="preserve">
+    <value>Gallois</value>
+  </data>
+  <data name="pg__xhosa.Text" xml:space="preserve">
+    <value>Xhosa</value>
+  </data>
+  <data name="pg__yiddish.Text" xml:space="preserve">
+    <value>Yiddish</value>
+  </data>
+  <data name="pg__zulu.Text" xml:space="preserve">
+    <value>Zoulou</value>
+  </data>
+  <data name="premium_alert_button_ok_restore.Text" xml:space="preserve">
+    <value>Restaurer</value>
+  </data>
+  <data name="premium_alert_description_audio.Text" xml:space="preserve">
+    <value>Seul celui qui pose la question et les membres premium peuvent écouter cet enregistrement vocal.</value>
+  </data>
+  <data name="premium_alert_description_audios_only_filter.Text" xml:space="preserve">
+    <value>"Seuls les membres premium peuvent filtrer les questions pour n'afficher que celles dotées d'une piste sonore."</value>
+  </data>
+  <data name="premium_alert_description_bookmarks.Text" xml:space="preserve">
+    <value>Seuls les membres premium peuvent consulter leurs favoris.</value>
+  </data>
+  <data name="premium_alert_description_priority.Text" xml:space="preserve">
+    <value>"Un abonnement Premium est exigé pour que les questions s'affichent de manière préférentielle."</value>
+  </data>
+  <data name="premium_alert_description_search_bookmarks.Text" xml:space="preserve">
+    <value>Only Premium Members can search their bookmarks.</value>
+  </data>
+  <data name="premium_alert_description_search_questions.Text" xml:space="preserve">
+    <value>Only Premium users can search questions.</value>
+  </data>
+  <data name="premium_alert_label_title.Text" xml:space="preserve">
+    <value>Fonctionnalité réservée aux membres premium</value>
+  </data>
+  <data name="premium_alert_message_can_restore.Text" xml:space="preserve">
+    <value>Il semble que vous ne pouvez pas restaurer votre compte. Voudriez-vous restaurer ?</value>
+  </data>
+  <data name="premium_alert_purchased.Text" xml:space="preserve">
+    <value>Vous êtes déjà membre premium.</value>
+  </data>
+  <data name="premium_information_label_cancellation.Text" xml:space="preserve">
+    <value>"Annuler l'abonnement premium."</value>
+  </data>
+  <data name="premium_information_label_introduction.Text" xml:space="preserve">
+    <value>Découvrir les avantages premium.</value>
+  </data>
+  <data name="premium_information_tickets_title.Text" xml:space="preserve">
+    <value>Nombre de tickets restants</value>
+  </data>
+  <data name="premium_information_title.Text" xml:space="preserve">
+    <value>Premium</value>
+  </data>
+  <data name="premium_information_url_cancellacion.Text" xml:space="preserve">
+    <value>http://support-en.hinative.com/premium-cancellation</value>
+  </data>
+  <data name="premium_landing_button_go_premium_title_purchase.Text" xml:space="preserve">
+    <value>Choisissez le forfait Premium à $9.99/mois.</value>
+  </data>
+  <data name="premium_landing_button_go_premium_title_purchased.Text" xml:space="preserve">
+    <value>Abonné</value>
+  </data>
+  <data name="premium_landing_button_go_premium_title_purchased_on_web.Text" xml:space="preserve">
+    <value>Abonné (web)</value>
+  </data>
+  <data name="premium_landing_button_go_premium_title_restore.Text" xml:space="preserve">
+    <value>Restaurer</value>
+  </data>
+  <data name="premium_landing_button_restore.Text" xml:space="preserve">
+    <value>Restaurer</value>
+  </data>
+  <data name="premium_landing_feature_bookmark_notifications_summary.Text" xml:space="preserve">
+    <value>Receive notifications for your bookmarked questions.</value>
+  </data>
+  <data name="premium_landing_feature_bookmark_notifications_title.Text" xml:space="preserve">
+    <value>Bookmark Notifications</value>
+  </data>
+  <data name="premium_landing_feature_bookmarks_list_summary.Text" xml:space="preserve">
+    <value>En utilisant les favoris, vous pouvez consulter les questions posées auparavant, recevoir des notifications liées aux questions que vous avez ajoutées aux favoris.</value>
+  </data>
+  <data name="premium_landing_feature_bookmarks_list_title.Text" xml:space="preserve">
+    <value>Navigation à travers vos favoris</value>
+  </data>
+  <data name="premium_landing_feature_play_others_answer_audio_summary.Text" xml:space="preserve">
+    <value>"Vous pouvez écouter les réponses vocales d'autres personnes."</value>
+  </data>
+  <data name="premium_landing_feature_play_others_answer_audio_title.Text" xml:space="preserve">
+    <value>"Ayez la possibilité d'écouter les transferts audio de tous les utilisateurs"</value>
+  </data>
+  <data name="premium_landing_feature_priority_display_summary.Text" xml:space="preserve">
+    <value>Recevez 10 tickets par mois, votre question sera mieux positionnée sur le flux lorsque vous utilisez un ticket.</value>
+  </data>
+  <data name="premium_landing_feature_priority_display_title.Text" xml:space="preserve">
+    <value>Priorité de la question</value>
+  </data>
+  <data name="premium_landing_feature_search_bookmarks_summary.Text" xml:space="preserve">
+    <value>Search your bookmarked items on your profile page.</value>
+  </data>
+  <data name="premium_landing_feature_search_bookmarks_title.Text" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="premium_landing_feature_search_summary.Text" xml:space="preserve">
+    <value>Search your questions and bookmarks.</value>
+  </data>
+  <data name="premium_landing_feature_search_title.Text" xml:space="preserve">
+    <value>Search Feature</value>
+  </data>
+  <data name="premium_landing_label_agreement_on_terms.Text" xml:space="preserve">
+    <value>En vous inscrivant au service premium, vous reconnaissez et acceptez les %1$s.</value>
+  </data>
+  <data name="premium_landing_label_restore_description.Text" xml:space="preserve">
+    <value>"En tant qu'utilisateur premium, vous pouvez restaurer votre service premium sur un autre appareil."</value>
+  </data>
+  <data name="premium_landing_label_summary.Text" xml:space="preserve">
+    <value>Apprenez les langues de manière plus efficace grâce à HiNative</value>
+  </data>
+  <data name="premium_landing_label_terms.Text" xml:space="preserve">
+    <value>"Conditions d'utilisation du service premium"</value>
+  </data>
+  <data name="premium_landing_status_failed_to_go_premium.Text" xml:space="preserve">
+    <value>"Nous n'avons pas pu initialiser votre paiement."</value>
+  </data>
+  <data name="premium_landing_status_failure_in_purchasing.Text" xml:space="preserve">
+    <value>"Nous n'avons pas pu traiter votre paiement."</value>
+  </data>
+  <data name="premium_landing_status_success_in_purchasing.Text" xml:space="preserve">
+    <value>Achat terminé !</value>
+  </data>
+  <data name="premium_priority_cell_description.Text" xml:space="preserve">
+    <value>Afficher ma question en haut</value>
+  </data>
+  <data name="premium_priority_cell_remaining_tickets.Text" xml:space="preserve">
+    <value>Nombre de tickets restants</value>
+  </data>
+  <data name="premium_priority_cell_use_a_ticket.Text" xml:space="preserve">
+    <value>Use a ticket</value>
+  </data>
+  <data name="premium_priority_counter_suffix.Text" xml:space="preserve">
+    <value>You will receive notifications when someone responds to a question that you have bookmarked. (Premium users only)</value>
+  </data>
+  <data name="premium_suggestion_bookmarks_search.Text" xml:space="preserve">
+    <value>Bookmarks can be searched from the list in your profile. (Premium users only)</value>
+  </data>
+  <data name="premium_title_premium_service.Text" xml:space="preserve">
+    <value>Service premium</value>
+  </data>
+  <data name="profile_button_edit_profile.Text" xml:space="preserve">
+    <value>Modifier le profil</value>
+  </data>
+  <data name="profile_choose_existing.Text" xml:space="preserve">
+    <value>Choisir une photo existante</value>
+  </data>
+  <data name="profile_delete_photo.Text" xml:space="preserve">
+    <value>Supprimer la photo du profil</value>
+  </data>
+  <data name="profile_label_answers.Text" xml:space="preserve">
+    <value>Réponses</value>
+  </data>
+  <data name="profile_label_following_tags.Text" xml:space="preserve">
+    <value>Tag suivant</value>
+  </data>
+  <data name="profile_label_learning_language.Text" xml:space="preserve">
+    <value>Langue(s) qui vous intéresse</value>
+  </data>
+  <data name="profile_label_nationality.Text" xml:space="preserve">
+    <value>Nationalité et région</value>
+  </data>
+  <data name="profile_label_nationality_not_inputed.Text" xml:space="preserve">
+    <value>"S'il vous plait entrez votre nationalité"</value>
+  </data>
+  <data name="profile_label_native_language.Text" xml:space="preserve">
+    <value>Langue maternelle</value>
+  </data>
+  <data name="profile_label_number_of_answers.Text" xml:space="preserve">
+    <value>Nombre de réponses</value>
+  </data>
+  <data name="profile_label_number_of_bookmarks.Text" xml:space="preserve">
+    <value>Favoris</value>
+  </data>
+  <data name="profile_label_number_of_featured_answers.Text" xml:space="preserve">
+    <value>Réponse en vedette</value>
+  </data>
+  <data name="profile_label_number_of_likes.Text" xml:space="preserve">
+    <value>"Nombre de j'aime"</value>
+  </data>
+  <data name="profile_label_number_of_questions.Text" xml:space="preserve">
+    <value>Nombre de questions</value>
+  </data>
+  <data name="profile_label_number_of_quick_responses.Text" xml:space="preserve">
+    <value>Réponses rapides</value>
+  </data>
+  <data name="profile_label_questions.Text" xml:space="preserve">
+    <value>Questions</value>
+  </data>
+  <data name="profile_label_self_introduction_not_inputed.Text" xml:space="preserve">
+    <value>"S'il vous plait présentez-vous"</value>
+  </data>
+  <data name="profile_label_symbol.Text" xml:space="preserve">
+    <value>Quel est ce symbole?</value>
+  </data>
+  <data name="profile_message_delete_image.Text" xml:space="preserve">
+    <value>Image du profil supprimée</value>
+  </data>
+  <data name="profile_message_upload_image.Text" xml:space="preserve">
+    <value>Image du profil changé</value>
+  </data>
+  <data name="profile_navigation_item_right_bar_button_item.Text" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="profile_navigation_item_title.Text" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="profile_show_image.Text" xml:space="preserve">
+    <value>Voir la photo du profil</value>
+  </data>
+  <data name="profile_tab_bar_item_title.Text" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="profile_take_photo.Text" xml:space="preserve">
+    <value>Prendre une photo</value>
+  </data>
+  <data name="question_balloon_language.Text" xml:space="preserve">
+    <value>Question à propos de %1$s</value>
+  </data>
+  <data name="question_button_normal_answer.Text" xml:space="preserve">
+    <value>Réponse</value>
+  </data>
+  <data name="question_cell_nativelabel_title.Text" xml:space="preserve">
+    <value>Langue maternelle</value>
+  </data>
+  <data name="question_detail_label_poll_results.Text" xml:space="preserve">
+    <value>Voir les résultats</value>
+  </data>
+  <data name="question_detail_poll_results_title.Text" xml:space="preserve">
+    <value>Résultats du sondage</value>
+  </data>
+  <data name="question_detail_question_not_done_posting.Text" xml:space="preserve">
+    <value>"La publication de la question n'est pas encore terminée."</value>
+  </data>
+  <data name="question_detail_show_profile_prohibition.Text" xml:space="preserve">
+    <value>Vous ne pouvez pas afficher la page de profil durant le tutoriel.</value>
+  </data>
+  <data name="question_detail_subscribe.Text" xml:space="preserve">
+    <value>Activer les notifications</value>
+  </data>
+  <data name="question_detail_unsubscribe.Text" xml:space="preserve">
+    <value>Désactiver les notifications</value>
+  </data>
+  <data name="question_label_close.Text" xml:space="preserve">
+    <value>Question fermée</value>
+  </data>
+  <data name="question_navigation_item_title.Text" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="question_noquestion_by_filter_maintext.Text" xml:space="preserve">
+    <value>"Il n'y a aucune question qui rencontrent ces conditions."</value>
+  </data>
+  <data name="question_noquestion_by_filter_subtext.Text" xml:space="preserve">
+    <value>"S'ils vous plait effectuer une nouvelle recherche en utilisant des conditions différentes."</value>
+  </data>
+  <data name="question_noquestion_maintext.Text" xml:space="preserve">
+    <value>"Il n'y à actuellement aucune questions
+	 à propos de cette langue."</value>
+  </data>
+  <data name="question_noquestion_subtext.Text" xml:space="preserve">
+    <value>"Pourriez-vous présenter HiNative à
+	 quelqu'un qui parle cette langue?"</value>
+  </data>
+  <data name="question_placeholder_you_can_answer.Text" xml:space="preserve">
+    <value>Vous pouvez répondre après avoir sélectionné un/une.</value>
+  </data>
+  <data name="questions_index_native_questions.Text" xml:space="preserve">
+    <value>Questions sur%1$s</value>
+  </data>
+  <data name="questions_index_study_questions.Text" xml:space="preserve">
+    <value>Questions sur %1$s</value>
+  </data>
+  <data name="questions_new_additional_info_placeholder.Text" xml:space="preserve">
+    <value>"Vous pouvez ajouter de l'information supplémentaire si vous le désirez. Vous pouvez écrire dans la langue de votre choix."</value>
+  </data>
+  <data name="questions_new_content_placeholder.Text" xml:space="preserve">
+    <value>"N'hésitez pas à Demandez quoi que ce soit. Vous pouvez Demander dans la langue de votre choix."</value>
+  </data>
+  <data name="questions_show_choice.Text" xml:space="preserve">
+    <value>%1$s Est-ce-que ça semble naturel?</value>
+  </data>
+  <data name="questions_show_choice_keyword_a_little_unnatural.Text" xml:space="preserve">
+    <value>Quelque peu anormal</value>
+  </data>
+  <data name="questions_show_choice_keyword_natural.Text" xml:space="preserve">
+    <value>Naturel</value>
+  </data>
+  <data name="questions_show_choice_keyword_not_understand.Text" xml:space="preserve">
+    <value>Je ne comprends pas</value>
+  </data>
+  <data name="questions_show_choice_keyword_unnatural.Text" xml:space="preserve">
+    <value>Anormal</value>
+  </data>
+  <data name="questions_show_close.Text" xml:space="preserve">
+    <value>Fermer cette question</value>
+  </data>
+  <data name="questions_show_confirm_best_answer.Text" xml:space="preserve">
+    <value>Mettre en vedette cette réponse ?</value>
+  </data>
+  <data name="questions_show_difference.Text" xml:space="preserve">
+    <value>%1$s Quelle est la différence entre?</value>
+  </data>
+  <data name="questions_show_example.Text" xml:space="preserve">
+    <value>"Veuillez me montrer des exemples des phrases contenant %1$s.
+	Dites-moi autant d'expressions quotidiennes que possible."</value>
+  </data>
+  <data name="questions_show_meaning.Text" xml:space="preserve">
+    <value>Que signifie %1$s ?</value>
+  </data>
+  <data name="questions_show_please_touch_answer.Text" xml:space="preserve">
+    <value>Veuillez sélectionner une réponse.</value>
+  </data>
+  <data name="questions_show_please_wait_sending.Text" xml:space="preserve">
+    <value>"Veuillez patienter s'il vous plait"</value>
+  </data>
+  <data name="questions_show_reopen.Text" xml:space="preserve">
+    <value>Rouvrir cette question</value>
+  </data>
+  <data name="questions_show_whatsay.Text" xml:space="preserve">
+    <value>Comment dit-on %1$s en %2$s?</value>
+  </data>
+  <data name="questions_show_whatsay_photo.Text" xml:space="preserve">
+    <value>Comment dit-on cela en %1$s?</value>
+  </data>
+  <data name="recent_searches_title.Text" xml:space="preserve">
+    <value>Recent Searches</value>
+  </data>
+  <data name="recommend_feature_answer.Text" xml:space="preserve">
+    <value>Sélectionnons une réponse mise en avant ! %1$s</value>
+  </data>
+  <data name="report_alert_view_message.Text" xml:space="preserve">
+    <value>Êtes-vous sûr de signaler comme inapproprié?</value>
+  </data>
+  <data name="report_alert_view_send_action_title.Text" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="report_success_message.Text" xml:space="preserve">
+    <value>Envoyé</value>
+  </data>
+  <data name="search_bookmarks_no_bookmarks.Text" xml:space="preserve">
+    <value>No bookmark matched.</value>
+  </data>
+  <data name="search_bookmarks_search_bar_placeholder.Text" xml:space="preserve">
+    <value>Search bookmarks</value>
+  </data>
+  <data name="search_noquestions_maintext.Text" xml:space="preserve">
+    <value>No questions matched.</value>
+  </data>
+  <data name="search_placeholder_bookmarks.Text" xml:space="preserve">
+    <value>Search your bookmarks</value>
+  </data>
+  <data name="search_placeholder_questions.Text" xml:space="preserve">
+    <value>Search your questions</value>
+  </data>
+  <data name="search_placeholder_questions_and_bookmarks.Text" xml:space="preserve">
+    <value>Search your questions and bookmarks</value>
+  </data>
+  <data name="select_language_question_title.Text" xml:space="preserve">
+    <value>Choisir une langue</value>
+  </data>
+  <data name="settings_label_aboutapp.Text" xml:space="preserve">
+    <value>À propos de HiNative</value>
+  </data>
+  <data name="settings_label_account.Text" xml:space="preserve">
+    <value>Mon compte</value>
+  </data>
+  <data name="settings_label_answer.Text" xml:space="preserve">
+    <value>Réponse</value>
+  </data>
+  <data name="settings_label_asct.Text" xml:space="preserve">
+    <value>Affichage basé sur la Loi sur les Transactions Commerciales Spéciales</value>
+  </data>
+  <data name="settings_label_bugreport.Text" xml:space="preserve">
+    <value>Rapport des erreurs</value>
+  </data>
+  <data name="settings_label_change_email.Text" xml:space="preserve">
+    <value>"Changer d'adresse électronique"</value>
+  </data>
+  <data name="settings_label_delete_account.Text" xml:space="preserve">
+    <value>Supprimer mon compte</value>
+  </data>
+  <data name="settings_label_featured_answer.Text" xml:space="preserve">
+    <value>Réponse en vedette</value>
+  </data>
+  <data name="settings_label_help.Text" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="settings_label_info.Text" xml:space="preserve">
+    <value>Bulletin</value>
+  </data>
+  <data name="settings_label_information.Text" xml:space="preserve">
+    <value>Informations</value>
+  </data>
+  <data name="settings_label_license.Text" xml:space="preserve">
+    <value>Licence</value>
+  </data>
+  <data name="settings_label_like.Text" xml:space="preserve">
+    <value>"J'aime!"</value>
+  </data>
+  <data name="settings_label_mention.Text" xml:space="preserve">
+    <value>Mention</value>
+  </data>
+  <data name="settings_label_notice.Text" xml:space="preserve">
+    <value>Avis</value>
+  </data>
+  <data name="settings_label_notification_of_night.Text" xml:space="preserve">
+    <value>Notifications de nuit</value>
+  </data>
+  <data name="settings_label_others.Text" xml:space="preserve">
+    <value>Autres (Avis, Termes, etc.)</value>
+  </data>
+  <data name="settings_label_premium.Text" xml:space="preserve">
+    <value>Premium</value>
+  </data>
+  <data name="settings_label_privacy_policy.Text" xml:space="preserve">
+    <value>Politique de confidentialité</value>
+  </data>
+  <data name="settings_label_remind.Text" xml:space="preserve">
+    <value>Sélectionnez une réponse mise en vedette.</value>
+  </data>
+  <data name="settings_label_sign_out.Text" xml:space="preserve">
+    <value>Se déconnecter</value>
+  </data>
+  <data name="settings_label_social_account.Text" xml:space="preserve">
+    <value>Réseau social</value>
+  </data>
+  <data name="settings_label_terms_of_use_premium.Text" xml:space="preserve">
+    <value>"Conditions d'utilisation du service premium HiNative"</value>
+  </data>
+  <data name="settings_label_user_agreement.Text" xml:space="preserve">
+    <value>"Conditions d'utilisation"</value>
+  </data>
+  <data name="settings_label_version.Text" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="settings_url_aboutapp.Text" xml:space="preserve">
+    <value>http://support-en.hinative.com/about</value>
+  </data>
+  <data name="settings_url_asct.Text" xml:space="preserve">
+    <value>http://support-en.hinative.com/asct</value>
+  </data>
+  <data name="settings_url_help.Text" xml:space="preserve">
+    <value>http://help-en.hinative.com/post/119421002137/index</value>
+  </data>
+  <data name="settings_url_privacy.Text" xml:space="preserve">
+    <value>http://support-en.hinative.com/privacy</value>
+  </data>
+  <data name="settings_url_rssnews.Text" xml:space="preserve">
+    <value>http://news-en.hinative.com/tagged/news/rss</value>
+  </data>
+  <data name="settings_url_termofuse.Text" xml:space="preserve">
+    <value>http://support-en.hinative.com/termsofune</value>
+  </data>
+  <data name="settings_url_terms_of_use_premium.Text" xml:space="preserve">
+    <value>http://support-en.hinative.com/termsofuse-premium</value>
+  </data>
+  <data name="show_photo_menu_copied.Text" xml:space="preserve">
+    <value>Copié</value>
+  </data>
+  <data name="show_photo_menu_copy_photo.Text" xml:space="preserve">
+    <value>Copier photo</value>
+  </data>
+  <data name="show_photo_menu_save_failed.Text" xml:space="preserve">
+    <value>"Ne peut enregistrer la photo, s'il vous plait réessayer plus tard"</value>
+  </data>
+  <data name="show_photo_menu_save_finished.Text" xml:space="preserve">
+    <value>Photo enregistré</value>
+  </data>
+  <data name="show_photo_menu_save_photo.Text" xml:space="preserve">
+    <value>Enregistrer la photo</value>
+  </data>
+  <data name="show_photo_menu_saving.Text" xml:space="preserve">
+    <value>Enregistrement en course…</value>
+  </data>
+  <data name="sign_in_button_create_account.Text" xml:space="preserve">
+    <value>"S'inscrire avec une adresse électronique"</value>
+  </data>
+  <data name="sign_in_button_facebook.Text" xml:space="preserve">
+    <value>Se connecter avec Facebook</value>
+  </data>
+  <data name="sign_in_button_lang8.Text" xml:space="preserve">
+    <value>Se connecter avec Lang-8</value>
+  </data>
+  <data name="sign_in_button_normal_sign_in.Text" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="sign_in_button_normal_sign_up.Text" xml:space="preserve">
+    <value>Inscription</value>
+  </data>
+  <data name="sign_in_button_twitter.Text" xml:space="preserve">
+    <value>Se connecter avec Twitter</value>
+  </data>
+  <data name="sign_in_label_forgot_password.Text" xml:space="preserve">
+    <value>Mot de passe oublié?</value>
+  </data>
+  <data name="sign_in_label_no_auto_post.Text" xml:space="preserve">
+    <value>Une connexion aux média sociaux ne publiera rien sur votre calendrier.</value>
+  </data>
+  <data name="sign_in_label_username.Text" xml:space="preserve">
+    <value>"Nom d'utilisateur ou adresse électronique"</value>
+  </data>
+  <data name="sign_up_button_facebook.Text" xml:space="preserve">
+    <value>"S'inscrire avec Facebook"</value>
+  </data>
+  <data name="sign_up_button_lang8.Text" xml:space="preserve">
+    <value>"S'inscrire avec Lang-8"</value>
+  </data>
+  <data name="sign_up_button_twitter.Text" xml:space="preserve">
+    <value>"S'inscrire avec Twitter"</value>
+  </data>
+  <data name="sign_up_label_default_language.Text" xml:space="preserve">
+    <value>Anglais (États-Unis)</value>
+  </data>
+  <data name="sign_up_label_email.Text" xml:space="preserve">
+    <value>Adresse électronique</value>
+  </data>
+  <data name="sign_up_label_learning_language.Text" xml:space="preserve">
+    <value>Langue qui vous intéresse</value>
+  </data>
+  <data name="sign_up_label_learning_level.Text" xml:space="preserve">
+    <value>"Niveau d'apprentissage"</value>
+  </data>
+  <data name="sign_up_label_native_language.Text" xml:space="preserve">
+    <value>Langue maternelle</value>
+  </data>
+  <data name="sign_up_label_native_level.Text" xml:space="preserve">
+    <value>Niveau</value>
+  </data>
+  <data name="sign_up_navigation_item_title.Text" xml:space="preserve">
+    <value>Inscription</value>
+  </data>
+  <data name="sign_up_text_field_placeholder_email.Text" xml:space="preserve">
+    <value>mail@exemple.com</value>
+  </data>
+  <data name="sign_up_text_field_placeholder_password.Text" xml:space="preserve">
+    <value>Plus de 8 caractères</value>
+  </data>
+  <data name="sign_up_text_field_placeholder_username.Text" xml:space="preserve">
+    <value>Exemple) lang8</value>
+  </data>
+  <data name="signup_basic_info_error_email_email_format.Text" xml:space="preserve">
+    <value>Adresse électronique est invalide</value>
+  </data>
+  <data name="signup_basic_info_error_email_require.Text" xml:space="preserve">
+    <value>Adresse électronique est requise</value>
+  </data>
+  <data name="signup_basic_info_error_email_unique.Text" xml:space="preserve">
+    <value>Cette adresse électronique est déjà utilisée</value>
+  </data>
+  <data name="signup_basic_info_error_name_hankaku_format.Text" xml:space="preserve">
+    <value>"Nom d'utilisateur est invalide"</value>
+  </data>
+  <data name="signup_basic_info_error_name_max.Text" xml:space="preserve">
+    <value>"Nom d'utilisateur trop long (maximum est 20 caractères)"</value>
+  </data>
+  <data name="signup_basic_info_error_name_min.Text" xml:space="preserve">
+    <value>"Nom d'utilisateur trop court (minimum est 3 caractères)"</value>
+  </data>
+  <data name="signup_basic_info_error_name_require.Text" xml:space="preserve">
+    <value>"Nom d'utilisateur est nécessaire"</value>
+  </data>
+  <data name="signup_basic_info_error_name_unique.Text" xml:space="preserve">
+    <value>"Nom d'utilisateur déjà pris. Veuillez en essayer un autre."</value>
+  </data>
+  <data name="signup_basic_info_error_offline.Text" xml:space="preserve">
+    <value>Réseau inaccessible</value>
+  </data>
+  <data name="signup_basic_info_error_password_max.Text" xml:space="preserve">
+    <value>Mot de passe trop long (maximum est 128 caractères)</value>
+  </data>
+  <data name="signup_basic_info_error_password_min.Text" xml:space="preserve">
+    <value>Mot de passe est trop court (minimum est 8 caractères)</value>
+  </data>
+  <data name="signup_basic_info_error_password_require.Text" xml:space="preserve">
+    <value>Mot de passe requis</value>
+  </data>
+  <data name="signup_basic_info_error_unknown.Text" xml:space="preserve">
+    <value>"Une erreur est survenue. S'il vous plait réessayer plus tard."</value>
+  </data>
+  <data name="signup_basic_info_guide_email_changeable.Text" xml:space="preserve">
+    <value>"L'adresse électronique peut être modifiée après l'inscription"</value>
+  </data>
+  <data name="signup_basic_info_navigation_title.Text" xml:space="preserve">
+    <value>Inscription</value>
+  </data>
+  <data name="signup_basic_info_text_field_placeholder_email.Text" xml:space="preserve">
+    <value>Adresse électronique</value>
+  </data>
+  <data name="signup_basic_info_text_field_placeholder_name.Text" xml:space="preserve">
+    <value>"Nom d'utilisateur: Alphanumérique seulement."</value>
+  </data>
+  <data name="signup_basic_info_text_field_placeholder_password.Text" xml:space="preserve">
+    <value>Mot de passe: Au moins 8 caractères</value>
+  </data>
+  <data name="signup_button_back.Text" xml:space="preserve">
+    <value>précédant</value>
+  </data>
+  <data name="signup_button_next.Text" xml:space="preserve">
+    <value>Suivant</value>
+  </data>
+  <data name="signup_button_register.Text" xml:space="preserve">
+    <value>"S'inscrire"</value>
+  </data>
+  <data name="signup_languages_navigation_title.Text" xml:space="preserve">
+    <value>Choisir les langues</value>
+  </data>
+  <data name="signup_languages_section_interested_language_title.Text" xml:space="preserve">
+    <value>Choisir langues qui vous intéresse</value>
+  </data>
+  <data name="signup_languages_section_native_language_title.Text" xml:space="preserve">
+    <value>Choisir votre langue maternelle</value>
+  </data>
+  <data name="signup_terms_of_use_attention_body.Text" xml:space="preserve">
+    <value>En vous inscrivant, vous reconnaissez et acceptez les %1$s et la %2$s de HiNative.</value>
+  </data>
+  <data name="signup_terms_of_use_attention_privacy_policy.Text" xml:space="preserve">
+    <value>politique de confidentialité</value>
+  </data>
+  <data name="signup_terms_of_use_attention_terms_of_use.Text" xml:space="preserve">
+    <value>"conditions d'utilisation"</value>
+  </data>
+  <data name="signup_terms_of_use_button_accept_terms_of_use.Text" xml:space="preserve">
+    <value>"Accepter les conditions d'utilisation"</value>
+  </data>
+  <data name="signup_terms_of_use_button_next.Text" xml:space="preserve">
+    <value>Terminé</value>
+  </data>
+  <data name="signup_terms_of_use_button_receive_newsletter.Text" xml:space="preserve">
+    <value>Boîte de réception</value>
+  </data>
+  <data name="signup_terms_of_use_label_newsletter.Text" xml:space="preserve">
+    <value>"Nous allons envoyer des bulletins en ce qui concerne les nouvelles dispositions ainsi que d'autre information importante."</value>
+  </data>
+  <data name="signup_terms_of_use_navigation_title.Text" xml:space="preserve">
+    <value>"Conditions d'utilisation"</value>
+  </data>
+  <data name="signup_tutorial_answer_attention.Text" xml:space="preserve">
+    <value>Répondons ici !</value>
+  </data>
+  <data name="signup_tutorial_ask_view_footer_message.Text" xml:space="preserve">
+    <value>90 % des questions trouvent rapidement une réponse.</value>
+  </data>
+  <data name="signup_tutorial_button_back.Text" xml:space="preserve">
+    <value>Retour</value>
+  </data>
+  <data name="signup_tutorial_button_hints.Text" xml:space="preserve">
+    <value>Vous ne savez pas quoi demander ?</value>
+  </data>
+  <data name="signup_tutorial_button_next.Text" xml:space="preserve">
+    <value>Suivant</value>
+  </data>
+  <data name="signup_tutorial_button_ok.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="signup_tutorial_button_start.Text" xml:space="preserve">
+    <value>Posez vos questions!</value>
+  </data>
+  <data name="signup_tutorial_description_1.Text" xml:space="preserve">
+    <value>HiNative est un service vous permettant de poser à des locuteurs natifs toutes sortes de questions sur leur langue et culture.</value>
+  </data>
+  <data name="signup_tutorial_description_2.Text" xml:space="preserve">
+    <value>Vous pouvez répondre dans votre langue maternelle ou dans la langue utilisée pour poser la question.</value>
+  </data>
+  <data name="signup_tutorial_description_3.Text" xml:space="preserve">
+    <value>"Et bien, essayons d'y répondre !"</value>
+  </data>
+  <data name="signup_tutorial_description_4.Text" xml:space="preserve">
+    <value>"Et maintenant, il est temps de poser une question à d'autres locuteurs natifs."</value>
+  </data>
+  <data name="signup_tutorial_description_5.Text" xml:space="preserve">
+    <value>"C'est très facile de demander. Vous pouvez choisir parmi nos formats de questions prédéterminés."</value>
+  </data>
+  <data name="signup_tutorial_description_6.Text" xml:space="preserve">
+    <value>"Par exemple, si vous voulez demander à des locuteurs espagnols natifs comment dire « Je t'aime » en espagnol, il vous suffit d'écrire « je t'aime » dans l'espace prévu dans ce modèle."</value>
+  </data>
+  <data name="signup_tutorial_description_7.Text" xml:space="preserve">
+    <value>Lorsque vous utilisez le modèle pour poser une question, la question sera automatiquement traduite dans la langue à laquelle ladite question est liée.</value>
+  </data>
+  <data name="signup_tutorial_description_8.Text" xml:space="preserve">
+    <value>Essayons de poser une question, cette fois pour de vrai !</value>
+  </data>
+  <data name="signup_tutorial_description_9.Text" xml:space="preserve">
+    <value>"Vous avez maintenant terminé ce tutoriel. Visitons notre page « d'accueil » et voyons ce que d'autres gens ont demandé."</value>
+  </data>
+  <data name="signup_tutorial_dummy_answer.Text" xml:space="preserve">
+    <value>Cette question est une question de test, la réponse ne sera donc pas publiée.</value>
+  </data>
+  <data name="signup_tutorial_dummy_question_en.Text" xml:space="preserve">
+    <value>Que mangez-vous au petit déjeuner dans votre pays ?</value>
+  </data>
+  <data name="signup_tutorial_editing_question_notify_post_button.Text" xml:space="preserve">
+    <value>Touchez pour publier</value>
+  </data>
+  <data name="signup_tutorial_hint_1.Text" xml:space="preserve">
+    <value>Demandez le nom des choses autour de vous en utilisant le format « Comment dites-vous… ? ».</value>
+  </data>
+  <data name="signup_tutorial_hint_2.Text" xml:space="preserve">
+    <value>Prenez une photo de ce qui est devant vous et posez une question là dessus en utilisant le format « Comment dites-vous… ? ».</value>
+  </data>
+  <data name="signup_tutorial_hint_3.Text" xml:space="preserve">
+    <value>"Rédigez une phrase dans une autre langue et posez une question là dessus en utilisant le format « Est-ce que ça a l'air naturel ? »."</value>
+  </data>
+  <data name="signup_tutorial_hint_4.Text" xml:space="preserve">
+    <value>Demandez des recommandations de musique, de nourriture et de voyages en utilisant notre option « Question libre ».</value>
+  </data>
+  <data name="signup_tutorial_hint_5.Text" xml:space="preserve">
+    <value>Ne soyez pas timide. Vous pouvez demander tout ce que voulez.</value>
+  </data>
+  <data name="signup_tutorial_hints_message.Text" xml:space="preserve">
+    <value>"Il y a quelques suggestions. N'hésitez pas de poser des questions là dessus."</value>
+  </data>
+  <data name="signup_tutorial_label_description_1.Text" xml:space="preserve">
+    <value>HiNative est une endroit où vous pouvez poser des questions sur les différentes cultures et langues étrangères.</value>
+  </data>
+  <data name="signup_tutorial_label_description_2.Text" xml:space="preserve">
+    <value>Avec ce formats de questions préenregistré, il est facile de poser des questions.</value>
+  </data>
+  <data name="signup_tutorial_label_description_3.Text" xml:space="preserve">
+    <value>\"Comment dit-on ceci en Français?\" Il est parfois plus simple de poser des questions en utilisant des images.</value>
+  </data>
+  <data name="signup_tutorial_label_description_4.Text" xml:space="preserve">
+    <value>Il est autoriser de répondre dans votre langue maternelle! Essayez de répondre à quelques questions.</value>
+  </data>
+  <data name="signup_tutorial_label_title_1.Text" xml:space="preserve">
+    <value>Demandez tout ce que vous voulez!</value>
+  </data>
+  <data name="signup_tutorial_label_title_2.Text" xml:space="preserve">
+    <value>Formats des questions</value>
+  </data>
+  <data name="signup_tutorial_label_title_3.Text" xml:space="preserve">
+    <value>Poser des questions en utilisant des images!</value>
+  </data>
+  <data name="signup_tutorial_label_title_4.Text" xml:space="preserve">
+    <value>Répondez aux questions!</value>
+  </data>
+  <data name="signup_tutorial_message_4.Text" xml:space="preserve">
+    <value>Bien !</value>
+  </data>
+  <data name="signup_tutorial_message_9.Text" xml:space="preserve">
+    <value>Félicitations !</value>
+  </data>
+  <data name="store_error_restore_message.Text" xml:space="preserve">
+    <value>"Nous n'avons pas pu restaurer votre compte."</value>
+  </data>
+  <data name="support_mail_failed.Text" xml:space="preserve">
+    <value>Envoi échoué</value>
+  </data>
+  <data name="support_mail_no_account.Text" xml:space="preserve">
+    <value>"Ce n'est pas le paramètre de mail.
+	 S'il vous plait écrivez au support@hinative.com"</value>
+  </data>
+  <data name="support_mail_sent.Text" xml:space="preserve">
+    <value>Envoyé avec succès</value>
+  </data>
+  <data name="support_mail_title.Text" xml:space="preserve">
+    <value>"Envoyer à partir de la page d'accueil"</value>
+  </data>
+  <data name="tickets_remaining_number_label_description.Text" xml:space="preserve">
+    <value>Vous avez utilisé 1 ticket. Les tickets restants peuvent être trouvés dans la %1$s.</value>
+  </data>
+  <data name="tickets_remaining_number_label_description_link_data.Text" xml:space="preserve">
+    <value>Page des paramètres</value>
+  </data>
+  <data name="tickets_remaining_number_label_title.Text" xml:space="preserve">
+    <value>Nombre de tickets restants %1$s</value>
+  </data>
+  <data name="validate_question_format.Text" xml:space="preserve">
+    <value>"S'il vous plait entrer une question valide."</value>
+  </data>
+  <data name="walkthrough_ask1.Text" xml:space="preserve">
+    <value>Votre question sera présentée de cette manière aux autres locuteurs natif.</value>
+  </data>
+  <data name="walkthrough_ask2.Text" xml:space="preserve">
+    <value>%1$s</value>
+  </data>
+  <data name="walkthrough_ask3.Text" xml:space="preserve">
+    <value>▢▢▢</value>
+  </data>
+  <data name="walkthrough_description_free.Text" xml:space="preserve">
+    <value>"Vous pouvez Demander dans la langue de voter choix. Demandez à propos d'une langue, culture, tout ce que vous désirez !"</value>
+  </data>
+  <data name="walkthrough_filter.Text" xml:space="preserve">
+    <value>Vous pouvez filtrer les questions ici.</value>
+  </data>
+  <data name="walkthrough_home1.Text" xml:space="preserve">
+    <value>"Vous pouvez glisser afin de changer
+	les langues des questions"</value>
+  </data>
+  <data name="walkthrough_home2.Text" xml:space="preserve">
+    <value>Vous pouvez voir les questions et les répondre ici.</value>
+  </data>
+  <data name="walkthrough_home3.Text" xml:space="preserve">
+    <value>"Vous pouvez poser de nouvelles questions ici.ous pouvez poser des questions sur les langues,
+	culture, ou ce que vous désirez!"</value>
+  </data>
+  <data name="walkthrough_questiondetail1.Text" xml:space="preserve">
+    <value>Choisir la réponse vedette. Vous pouvez aussi fermer cette question afin de cesser de recevoir des réponses. (Sélectionner la réponse en vedette fermera également la question.)</value>
+  </data>
+  <data name="walkthrough_questiondetail2.Text" xml:space="preserve">
+    <value>"Appuyer \"J'aime!\" Pour les réponses que
+	vous croyez bonnes."</value>
+  </data>
+  <data name="web_browser_now_loading.Text" xml:space="preserve">
+    <value>Téléchargement en cours…</value>
+  </data>
+  <data name="whatisthis_stopwatch_description.Text" xml:space="preserve">
+    <value>"Ce logo montre qu'une réponse a été publiée en moins de 5 minutes après la question."</value>
+  </data>
+  <data name="whatisthis_title.Text" xml:space="preserve">
+    <value>"Qu'est-ce que c'est ?"</value>
+  </data>
+</root>

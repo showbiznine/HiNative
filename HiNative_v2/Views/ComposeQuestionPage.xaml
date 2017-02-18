@@ -1,0 +1,260 @@
+﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:HiNative.Views"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+      x:Class="HiNative.Views.ComposeQuestionPage"
+      DataContext="{Binding Compose, Source={StaticResource Locator}}"
+      mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ScrollViewer x:Name="myScrollViewer"
+                      Grid.Row="1"
+                      Padding="0,12,0,75">
+            <StackPanel Margin="12,0">
+                <TextBlock x:Name="lblPrimaryText"
+                           TextWrapping="Wrap"
+                           Text="{Binding PrimaryText}"
+                           FontSize="20"
+                           FontWeight="SemiBold"
+                           Margin="0,8">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{ThemeResource SystemBaseMediumColor}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBox x:Name="txtMainQuestion"
+                         TextWrapping="Wrap"
+                         Text="{Binding PrimaryQuestionText, Mode=TwoWay}"
+                         PlaceholderText="Write a word, phrase or sentence">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:DataTriggerBehavior Binding="{Binding QuestionType}"
+                                                  Value="DifferenceQuestion">
+                            <Core:ChangePropertyAction TargetObject="{Binding ElementName=txtMainQuestion}"
+                                                       PropertyName="Visibility"
+                                                       Value="Collapsed" />
+                        </Core:DataTriggerBehavior>
+                        <Core:DataTriggerBehavior Binding="{Binding QuestionType}"
+                                                  Value="DifferenceQuestion"
+                                                  ComparisonCondition="NotEqual">
+                            <Core:ChangePropertyAction TargetObject="{Binding ElementName=txtMainQuestion}"
+                                                       PropertyName="Visibility"
+                                                       Value="Visible" />
+                        </Core:DataTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </TextBox>
+                <StackPanel x:Name="stkDifference"
+                            VerticalAlignment="Top">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:DataTriggerBehavior Binding="{Binding QuestionType}"
+                                                  Value="DifferenceQuestion">
+                            <Core:ChangePropertyAction TargetObject="{Binding ElementName=stkDifference}"
+                                                       PropertyName="Visibility"
+                                                       Value="Visible" />
+                        </Core:DataTriggerBehavior>
+                        <Core:DataTriggerBehavior Binding="{Binding QuestionType}"
+                                                  Value="DifferenceQuestion"
+                                                  ComparisonCondition="NotEqual">
+                            <Core:ChangePropertyAction TargetObject="{Binding ElementName=stkDifference}"
+                                                       PropertyName="Visibility"
+                                                       Value="Collapsed" />
+                        </Core:DataTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                    <TextBox x:Name="textBox_Copy"
+                             TextWrapping="Wrap"
+                             Text="{Binding DifferenceQuestionText1, Mode=TwoWay}"
+                             d:LayoutOverrides="TopPosition, BottomPosition"
+                             PlaceholderText="Write a word, phrase or sentence" />
+                    <TextBlock x:Name="textBlock1_Copy2"
+                               TextWrapping="Wrap"
+                               Text="and"
+                               FontSize="20"
+                               FontWeight="SemiBold"
+                               Margin="0,8">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{ThemeResource SystemBaseMediumColor}" />
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <TextBox x:Name="textBox_Copy1"
+                             TextWrapping="Wrap"
+                             Text="{Binding DifferenceQuestionText2, Mode=TwoWay}"
+                             PlaceholderText="Write a word, phrase or sentence" />
+                    <TextBlock x:Name="textBlock1_Copy3"
+                               TextWrapping="Wrap"
+                               Text="and"
+                               FontSize="20"
+                               FontWeight="SemiBold"
+                               Margin="0,8">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{ThemeResource SystemBaseMediumColor}" />
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <TextBox x:Name="textBox_Copy2"
+                             TextWrapping="Wrap"
+                             Text="{Binding DifferenceQuestionText3, Mode=TwoWay}"
+                             PlaceholderText="Write a word, phrase or sentence" />
+                    <TextBlock x:Name="textBlock1_Copy4"
+                               TextWrapping="Wrap"
+                               Text="and"
+                               FontSize="20"
+                               FontWeight="SemiBold"
+                               Margin="0,8">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{ThemeResource SystemBaseMediumColor}" />
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <TextBox x:Name="textBox_Copy3"
+                             TextWrapping="Wrap"
+                             Text="{Binding DifferenceQuestionText4, Mode=TwoWay}"
+                             PlaceholderText="Write a word, phrase or sentence" />
+                </StackPanel>
+                <TextBlock x:Name="lblSecondaryText"
+                           TextWrapping="Wrap"
+                           Text="{Binding SecondaryText}"
+                           FontSize="20"
+                           FontWeight="SemiBold"
+                           Margin="0,8">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{ThemeResource SystemBaseMediumColor}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <ComboBox x:Name="comboBox"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          ItemsSource="{Binding Topics}"
+                          ItemTemplateSelector="{StaticResource LanguageCountrySelector}"
+                          SelectedItem="{Binding SelectedTopic, Mode=TwoWay}" />
+                <TextBlock x:Name="textBlock1_Copy1"
+                           TextWrapping="Wrap"
+                           Text="Additional information"
+                           FontSize="20"
+                           FontWeight="SemiBold"
+                           Margin="0,8">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{ThemeResource SystemBaseMediumColor}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBox x:Name="txtAdditional"
+                         TextWrapping="Wrap"
+                         MinHeight="128"
+                         GotFocus="txt_GotFocus"
+                         PlaceholderText="Write any extra info here"
+                         Text="{Binding AdditionalText, Mode=TwoWay}" />
+                <Rectangle x:Name="recKeyboard"
+                           IsHitTestVisible="False"
+                           Height="{Binding KeyboardHeight}" />
+            </StackPanel>
+        </ScrollViewer>
+        <Grid x:Name="grdTopBar"
+              Margin="0"
+              d:LayoutOverrides="TopPosition, BottomPosition"
+              Background="{ThemeResource TopBarBG}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="button"
+                    Content="&#xE700;"
+                    HorizontalAlignment="Stretch"
+                    Margin="0"
+                    VerticalAlignment="Stretch"
+                    d:LayoutOverrides="Width, Height"
+                    Background="#00000000"
+                    FontSize="24"
+                    FontFamily="Segoe MDL2 Assets"
+                    Foreground="{ThemeResource TopBarText}">
+            </Button>
+            <TextBlock x:Name="textBlock"
+                       Margin="12,0,0,0"
+                       TextWrapping="Wrap"
+                       Text="COMPOSE QUESTION"
+                       d:LayoutOverrides="Width, Height"
+                       Grid.Column="1"
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       TextLineBounds="Tight"
+                       FontWeight="SemiBold"
+                       FontFamily="ms-appx:/Fonts/Sofia_Pro_Soft_Bold.ttf#SofiaProSoftW01-Bold"
+                       Foreground="{ThemeResource TopBarText}">
+            </TextBlock>
+        </Grid>
+        <Grid x:Name="stkAttachments"
+              Tag="closed"
+              Margin="0"
+              VerticalAlignment="Bottom"
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnMicrophone"
+                    Content="&#xE1D6;"
+                    VerticalAlignment="Stretch"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="24"
+                    MinHeight="50"
+                    BorderBrush="{x:Null}"
+                    Background="#00000000"
+                    Foreground="#FFE86435"
+                    Height="50"
+                    Style="{StaticResource AttachmentButtonStyle}"
+                    IsEnabled="False"
+                    IsTabStop="False"
+                    HorizontalAlignment="Stretch" />
+            <Button x:Name="btnAlbum"
+                    Content="&#xEB9F;"
+                    VerticalAlignment="Stretch"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="24"
+                    MinHeight="50"
+                    BorderBrush="{x:Null}"
+                    Background="#00000000"
+                    Foreground="#FFE86435"
+                    Height="50"
+                    Width="75"
+                    Style="{StaticResource AttachmentButtonStyle}"
+                    IsTabStop="False"
+                    Command="{Binding SelectPhotoCommand}"
+                    HorizontalAlignment="Stretch"
+                    Grid.Column="1" />
+            <Button x:Name="btnCamera"
+                    Content="&#xE114;"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="24"
+                    MinHeight="50"
+                    BorderBrush="{x:Null}"
+                    Background="#00000000"
+                    Foreground="#FFE86435"
+                    Height="50"
+                    Style="{StaticResource AttachmentButtonStyle}"
+                    IsTabStop="False"
+                    Command="{Binding TakePhotoCommand}"
+                    IsEnabled="{Binding IsCameraAvailable}"
+                    d:LayoutOverrides="LeftPosition, RightPosition"
+                    Grid.Column="2" />
+            <Button x:Name="btnSendAnswer"
+                    Content="&#xE122;"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    FontSize="24"
+                    FontFamily="Segoe MDL2 Assets"
+                    Foreground="#FFE86435"
+                    Margin="0"
+                    Grid.Column="4"
+                    Background="#00000000"
+                    IsTabStop="False"
+                    Command="{Binding PostQuestionCommand}" />
+        </Grid>
+
+    </Grid>
+</Page>
