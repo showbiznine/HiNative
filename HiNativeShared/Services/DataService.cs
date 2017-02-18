@@ -234,7 +234,6 @@ namespace HiNativeShared.Services
             return res;
         }
 
-
         public static async Task<HNQuestionRoot> PostQuestion(HNQuestionRoot postQuestion)
         {
             HttpClient http = new HttpClient();

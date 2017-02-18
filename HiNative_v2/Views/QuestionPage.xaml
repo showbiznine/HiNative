@@ -695,6 +695,7 @@
                              TextWrapping="Wrap"
                              FontSize="18"
                              PlaceholderText="Type an answer..."
+                             Text="{Binding AnswerText, Mode=TwoWay}"
                              AcceptsReturn="True"
                              BorderThickness="0.5,0,0,0"
                              Height="32"
@@ -722,7 +723,8 @@
                         Height="50"
                         Width="50"
                         Grid.Column="2"
-                        IsTabStop="False">
+                        IsTabStop="False"
+                        Command="{Binding SubmitAnswerCommand}">
                     <Button.Background>
                         <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
                     </Button.Background>
