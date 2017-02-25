@@ -10,6 +10,7 @@ using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -31,9 +32,9 @@ namespace HiNative.ViewModels
 
         #region NewUser
         public string New_Username { get; set; }
-        public bool UsernameValid { get; set; }
+        public bool UsernameUnique { get; set; }
         public string New_Email { get; set; }
-        public bool EmailValid { get; set; }
+        public bool EmailUnique { get; set; }
         public string New_Password { get; set; }
         public string New_ConfirmPassword { get; set; }
         public ObservableCollection<HNLanguage> New_NativeLanguages { get; set; }
@@ -105,111 +106,19 @@ namespace HiNative.ViewModels
                 }
             });
 
-            CheckUsernameConflictsCommand = new RelayCommand<TextChangedEventArgs>(async args =>
+            CheckUsernameConflictsCommand = new RelayCommand<TextChangedEventArgs>(args =>
             {
-                var query = "https://hinative.com/api/v1/check_availability?name=" + New_Username;
-                HttpClient http = new HttpClient();
-                var response = await http.GetAsync(query);
-                if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
-                    UsernameValid = false;
-                else
-                    UsernameValid = true;               
+                //CheckUniqueUsernameAsync();
             });
-            CheckEmailConflictsCommand = new RelayCommand<TextChangedEventArgs>(async args => 
+            CheckEmailConflictsCommand = new RelayCommand<TextChangedEventArgs>(args =>
             {
-                var query = "https://hinative.com/api/v1/check_availability?email=" + New_Username;
-                HttpClient http = new HttpClient();
-                var response = await http.GetAsync(query);
-                if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
-                    EmailValid = false;
-                else
-                    EmailValid = true;
+                //CheckUniqueEmailAsync();
             });
 
             SignUpCommand = new RelayCommand(async () =>
             {
-                #region Validation
-                if (string.IsNullOrWhiteSpace(New_Username) ||
-            New_Username.Length < 6)
-                {
-                    await new MessageDialog("Your username must be at least 6 characters",
-                        "Please enter a valid username").ShowAsync();
-                }
-                else if (string.IsNullOrWhiteSpace(New_Password) ||
-                        New_Password.Length < 8)
-                {
-                    await new MessageDialog("Your password must be at least 8 characters",
-                        "Please enter a valid password").ShowAsync();
-                }
-                else if (New_Password != New_ConfirmPassword)
-                {
-                    await new MessageDialog("Your passwords must match").ShowAsync();
-                }
-                else if (!IsValidEmail(New_Email))
-                {
-                    await new MessageDialog("Please enter a valid email address").ShowAsync();
-                }
-                //else if (New_NativeCountry[0] == null)
-                //{
-                //    await new MessageDialog("Please choose a home country").ShowAsync();
-                //}
-                //else if (New_NativeLanguages.Count < 1)
-                //{
-                //    await new MessageDialog("Please choose at least one native language").ShowAsync();
-                //} 
-                #endregion
-                else
-                {
-                    #region Build User
+                await RegisterUserAsync();
 
-                    #region Format Languages/Countries
-                    foreach (var item in New_NativeLanguages)
-                        item.language_name = null;
-                    foreach (var item in New_StudyLanguages)
-                        item.language_name = null;
-                    #endregion
-
-                    var newUser = new HNNewUserContainer
-                    {
-                        user = new HNNewUser
-                        {
-                            name = New_Username,
-                            email = New_Email,
-                            password = New_Password,
-                            password_confirmation = New_ConfirmPassword,
-                            profile_attributes = new HNProfileAttributes { interface_id = 1},
-                            terms_of_use = "1",
-                            platform = "android",
-                            mail_setting_attributes = new HNMailSettingAttributes { info = false},
-
-                            native_languages_attributes = New_NativeLanguages,
-                            study_languages_attributes = New_StudyLanguages,
-                            #region Notifications Attributes
-                            notifications_attributes = new ObservableCollection<HNNotificationsAttribute>
-                            {
-                                new HNNotificationsAttribute
-                                {
-                                    platform = "android",
-                                    token="fRxU1CeWSL0:APA91bFcj4kOiCfgHNIj2UZHeVK3AUK5c1PasVuJQeSei9Mckx1eiC-BV78uaABOWtVXSWHDMFn4sjba8OKmQxdo_c1MibypzeHrhoaEv0e-J54z_5tCRFZw2kiHtrD8RcS61cQa0bqv"
-                                }
-                            } 
-                            #endregion
-                        }
-                    };
-                    #endregion
-
-                    var createdUser = await DataService.SignUp(newUser);
-                    ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
-                    if (createdUser.token != null)
-                    {
-                        localSettings.Values["API_Token"] = createdUser.token;
-                        localSettings.Values["User_ID"] = createdUser.profile.user_attributes.id;
-                    }
-                    await App.ViewModelLocator.Shell.CheckLoggedIn();
-                    App.ViewModelLocator.Main.CurrentUser = App.ViewModelLocator.Shell.CurrentUser;
-                    App.ViewModelLocator.Main.InitPage();
-                    _navigationService.NavigateTo(typeof(MainPage));
-                }
             });
 
             #region Add Languages and Countries
@@ -250,6 +159,128 @@ namespace HiNative.ViewModels
 
                 }            });
             #endregion
+        }
+
+        private async Task RegisterUserAsync()
+        {
+            #region Validation
+            await CheckUniqueEmailAsync();
+            await CheckUniqueUsernameAsync();
+            if (string.IsNullOrWhiteSpace(New_Username) ||
+        New_Username.Length < 6)
+            {
+                await new MessageDialog("Your username must be at least 6 characters",
+                    "Please enter a valid username").ShowAsync();
+            }
+            else if (string.IsNullOrWhiteSpace(New_Password) ||
+                    New_Password.Length < 8)
+            {
+                await new MessageDialog("Your password must be at least 8 characters",
+                    "Please enter a valid password").ShowAsync();
+            }
+            else if (New_Password != New_ConfirmPassword)
+            {
+                await new MessageDialog("Your passwords must match").ShowAsync();
+            }
+            else if (string.IsNullOrWhiteSpace(New_Email) || !IsValidEmail(New_Email))
+            {
+                await new MessageDialog("Please enter a valid email address").ShowAsync();
+            }
+            else if (!EmailUnique)
+            {
+                await new MessageDialog("This email address is already taken").ShowAsync();
+            }
+            else if (!UsernameUnique)
+            {
+                await new MessageDialog("This username is already taken").ShowAsync();
+            }
+            #endregion
+            else
+            {
+                #region Build User
+
+                #region Format Languages/Countries
+                foreach (var item in New_NativeLanguages)
+                    item.language_name = null;
+                foreach (var item in New_StudyLanguages)
+                    item.language_name = null;
+                #endregion
+
+                var newUser = new HNNewUserContainer
+                {
+                    user = new HNNewUser
+                    {
+                        name = New_Username,
+                        email = New_Email,
+                        password = New_Password,
+                        password_confirmation = New_ConfirmPassword,
+                        profile_attributes = new HNProfileAttributes { interface_id = 1 },
+                        terms_of_use = "1",
+                        platform = "android",
+                        mail_setting_attributes = new HNMailSettingAttributes { info = false },
+
+                        native_languages_attributes = New_NativeLanguages,
+                        study_languages_attributes = New_StudyLanguages,
+                        #region Notifications Attributes
+                        notifications_attributes = new ObservableCollection<HNNotificationsAttribute>
+                            {
+                                new HNNotificationsAttribute
+                                {
+                                    platform = "android",
+                                    token="fRxU1CeWSL0:APA91bFcj4kOiCfgHNIj2UZHeVK3AUK5c1PasVuJQeSei9Mckx1eiC-BV78uaABOWtVXSWHDMFn4sjba8OKmQxdo_c1MibypzeHrhoaEv0e-J54z_5tCRFZw2kiHtrD8RcS61cQa0bqv"
+                                }
+                            }
+                        #endregion
+                    }
+                };
+                #endregion
+
+                try
+                {
+                    var createdUser = await DataService.SignUp(newUser);
+                    Microsoft.HockeyApp.HockeyClient.Current.TrackEvent("User_registered");
+                    App.StoreLogger.Log("User_registered");
+                    ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+                    if (createdUser.token != null)
+                    {
+                        localSettings.Values["API_Token"] = createdUser.token;
+                        localSettings.Values["User_ID"] = createdUser.profile.user_attributes.id;
+                    }
+                    await App.ViewModelLocator.Shell.CheckLoggedIn();
+                    App.ViewModelLocator.Main.CurrentUser = App.ViewModelLocator.Shell.CurrentUser;
+                    App.ViewModelLocator.Main.InitPage();
+                    _navigationService.NavigateTo(typeof(MainPage));
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                    await new MessageDialog("Sign up failed, try a different username and/or email").ShowAsync();
+                    Microsoft.HockeyApp.HockeyClient.Current.TrackEvent("Registration_failed");
+                    App.StoreLogger.Log("Registration_failed");
+                }
+            }
+        }
+
+        private async Task CheckUniqueUsernameAsync()
+        {
+            var query = "https://hinative.com/api/v1/check_availability?name=" + New_Username;
+            HttpClient http = new HttpClient();
+            var response = await http.GetAsync(query);
+            if (response.StatusCode == System.Net.HttpStatusCode.Conflict || New_Username == "test123")
+                UsernameUnique = false;
+            else
+                UsernameUnique = true;
+        }
+
+        private async Task CheckUniqueEmailAsync()
+        {
+            var query = "https://hinative.com/api/v1/check_availability?email=" + New_Email;
+            HttpClient http = new HttpClient();
+            var response = await http.GetAsync(query);
+            if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
+                EmailUnique = false;
+            else
+                EmailUnique = true;
         }
 
         #region Validation

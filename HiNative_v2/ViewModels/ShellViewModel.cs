@@ -8,6 +8,7 @@ using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,8 +40,8 @@ namespace HiNative.ViewModels
             }
             else
             {
-                var task = RegisterBackgroundTask("HiNativeBG.BGTask",
-                    "BGTask",
+                var task = RegisterBackgroundTask("HiNativeBG.BackgroundTask",
+                    "BackgroundTask",
                     new TimeTrigger(15, false),
                     null);
                 IsMenuOpen = false;
@@ -78,8 +79,17 @@ namespace HiNative.ViewModels
             {
                 builder.AddCondition(condition);
             }
-            BackgroundTaskRegistration task = builder.Register();
-            return task;
+            try
+            {
+                BackgroundTaskRegistration task = builder.Register();
+                return task;
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return null;
         } 
         #endregion
 
@@ -100,15 +110,22 @@ namespace HiNative.ViewModels
 
         public async Task CheckLoggedIn()
         {
-            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
-            var id = localSettings.Values["User_ID"];
-            if (id != null)
+            try
             {
-                CurrentUser = await DataService.LoadProfile(Convert.ToInt32(id));
-                _navigationService.NavigateTo(typeof(MainPage));
+                ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+                var id = localSettings.Values["User_ID"];
+                if (id != null)
+                {
+                    CurrentUser = await DataService.LoadProfile(Convert.ToInt32(id));
+                    _navigationService.NavigateTo(typeof(MainPage));
+                }
+                else
+                    _navigationService.NavigateTo(typeof(LoginPage));
             }
-            else
-                _navigationService.NavigateTo(typeof(LoginPage));
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
     }
 }

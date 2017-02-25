@@ -4,14 +4,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:Controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
       x:Class="HiNative.Views.LoginPage"
       mc:Ignorable="d"
-      Background="{ThemeResource TopBarBG}">
-
-    <Page.DataContext>
-        <Binding Path="Login"
-                 Source="{StaticResource Locator}" />
-    </Page.DataContext>
+      Background="{ThemeResource TopBarBG}"
+      DataContext="{Binding Login, Source={StaticResource Locator}}">
 
     <Grid Background="{ThemeResource TopBarBG}">
         <FlipView x:Name="myFlipView"
@@ -22,10 +20,7 @@
                 <Grid>
                     <ScrollViewer Margin="0,36,0,0"
                                   VerticalScrollBarVisibility="Hidden">
-                        <StackPanel>
-                            <StackPanel.Background>
-                                <SolidColorBrush Color="#00FF7040" />
-                            </StackPanel.Background>
+                        <StackPanel Background="#00FF7040">
                             <StackPanel Orientation="Vertical"
                                         VerticalAlignment="Top"
                                         Margin="0,0,0,48">
@@ -48,8 +43,7 @@
                                            FontFamily="ms-appx:/Fonts/Sofia_Pro_Soft_Bold.ttf#SofiaProSoftW01-Bold"
                                            FontSize="60"
                                            FontWeight="Black"
-                                           Foreground="{ThemeResource TopBarText}">
-                                </TextBlock>
+                                           Foreground="{ThemeResource TopBarText}" />
                             </StackPanel>
                             <StackPanel VerticalAlignment="Top"
                                         Margin="12,0">
@@ -79,8 +73,7 @@
                                         FontWeight="Bold"
                                         Foreground="{ThemeResource TopBarText}"
                                         MaxWidth="560"
-                                        IsEnabled="{Binding InCall, Converter={StaticResource BooleanInverter}}">
-                                </Button>
+                                        IsEnabled="{Binding InCall, Converter={StaticResource BooleanInverter}}" />
                             </StackPanel>
 
                         </StackPanel>
@@ -129,14 +122,26 @@
                                      Header="Username"
                                      Text="{Binding New_Username, Mode=TwoWay}"
                                      InputScope="Search"
-                                     BorderBrush="{x:Null}" />
+                                     BorderBrush="{x:Null}">
+                                <Interactivity:Interaction.Behaviors>
+                                    <Core:EventTriggerBehavior EventName="TextChanged">
+                                        <Core:InvokeCommandAction Command="{Binding CheckUsernameConflictsCommand}" />
+                                    </Core:EventTriggerBehavior>
+                                </Interactivity:Interaction.Behaviors>
+                            </TextBox>
                             <TextBox x:Name="txtNewEmail"
                                      TextWrapping="Wrap"
                                      Margin="0,0,0,12"
                                      Header="Email address"
                                      Text="{Binding New_Email, Mode=TwoWay}"
                                      InputScope="EmailSmtpAddress"
-                                     BorderBrush="{x:Null}" />
+                                     BorderBrush="{x:Null}">
+                                <Interactivity:Interaction.Behaviors>
+                                    <Core:EventTriggerBehavior EventName="TextChanged">
+                                        <Core:InvokeCommandAction Command="{Binding CheckEmailConflictsCommand}" />
+                                    </Core:EventTriggerBehavior>
+                                </Interactivity:Interaction.Behaviors>
+                            </TextBox>
                             <PasswordBox x:Name="txtNewPassword"
                                          Margin="0,12"
                                          Header="Password"

@@ -91,13 +91,13 @@ namespace HiNative.Views
             #region Open Animation
             _openAnimation = _compositor.CreateScalarKeyFrameAnimation();
             _openAnimation.Duration = TimeSpan.FromMilliseconds(300);
-            _openAnimation.InsertKeyFrame(1.0f, 0f);
+            _openAnimation.InsertKeyFrame(1.0f, (float)adMainPage.ActualHeight);
             #endregion
 
             #region Close Animation
             _closeAnimation = _compositor.CreateScalarKeyFrameAnimation();
             _closeAnimation.Duration = TimeSpan.FromMilliseconds(300);
-            _closeAnimation.InsertKeyFrame(1.0f, (float)lstNewQuestion.ActualHeight);
+            _closeAnimation.InsertKeyFrame(1.0f, (float)(lstNewQuestion.ActualHeight + adMainPage.ActualHeight));
             #endregion
         }
 
@@ -116,7 +116,7 @@ namespace HiNative.Views
             if (offset < 0) return;
             if (offset > lstNewQuestion.ActualHeight)
             {
-                _newQuestionButton.Offset = new Vector3(0, (float)lstNewQuestion.ActualHeight, 0);
+                _newQuestionButton.Offset = new Vector3(0, (float)(lstNewQuestion.ActualHeight), 0);
                 return;
             }
 
@@ -166,7 +166,7 @@ namespace HiNative.Views
 
         private void CloseMenuInstantly()
         {
-            _newQuestionButton.Offset = new System.Numerics.Vector3(0, (float)lstNewQuestion.ActualHeight, 0);
+            _newQuestionButton.Offset = new System.Numerics.Vector3(0, (float)(lstNewQuestion.ActualHeight + adMainPage.ActualHeight), 0);
             _menuOpen = false;
         }
         #endregion

@@ -1,6 +1,8 @@
 ﻿using GalaSoft.MvvmLight.Threading;
 using HiNative.ViewModels;
 using HiNative.Views;
+using Microsoft.HockeyApp;
+using Microsoft.Services.Store.Engagement;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -31,6 +33,7 @@ namespace HiNative
     {
 
         public static ViewModelLocator ViewModelLocator;
+        public static StoreServicesCustomEventLogger StoreLogger;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -49,6 +52,7 @@ namespace HiNative
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            StoreLogger = StoreServicesCustomEventLogger.GetDefault();
             Debug.WriteLine(this.RequestedTheme);
             #region Title/Status bar
             if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
@@ -82,6 +86,9 @@ namespace HiNative
                 titleBar.ButtonInactiveForegroundColor = hoverF;
             }
             #endregion
+
+            HockeyClient.Current.Configure("8de5fa42d2b445baaf5498c6cc23638b ");
+            SetupStoreAsync();
 
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -120,6 +127,28 @@ namespace HiNative
             }
         }
 
+        private async void SetupStoreAsync()
+        {
+            StoreServicesEngagementManager engagementManager = StoreServicesEngagementManager.GetDefault();
+            await engagementManager.RegisterNotificationChannelAsync();
+        }
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            base.OnActivated(args);
+
+            if (args is ToastNotificationActivatedEventArgs)
+            {
+                var toastActivationArgs = args as ToastNotificationActivatedEventArgs;
+
+                StoreServicesEngagementManager engagementManager = StoreServicesEngagementManager.GetDefault();
+                string originalArgs = engagementManager.ParseArgumentsAndTrackAppLaunch(
+                    toastActivationArgs.Argument);
+
+                // Use the originalArgs variable to access the original arguments
+                // that were passed to the app.
+            }
+        }
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails
@@ -127,9 +156,9 @@ namespace HiNative
         /// <param name="sender">The Frame which failed navigation</param>
         /// <param name="e">Details about the navigation failure</param>
         void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
-        {
-            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
-        }
+    {
+        throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+    }
 
         /// <summary>
         /// Invoked when application execution is being suspended.  Application state is saved

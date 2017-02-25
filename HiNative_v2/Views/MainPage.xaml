@@ -4,6 +4,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:Controls="using:HiNative.Controls"
+      xmlns:Store="using:Microsoft.Advertising.WinRT.UI"
       xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:ToolkitControls="using:Microsoft.Toolkit.Uwp.UI.Controls"
@@ -37,17 +38,196 @@
                   Grid.Row="1"
                   Padding="0,48,0,64"
                   Loaded="listView_Loaded"
-                                               RefreshCommand="{Binding RefreshCommand}">
+                                               RefreshCommand="{Binding RefreshCommand}" Margin="0,50,0,0">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="ItemClick">
                     <Core:InvokeCommandAction Command="{Binding SelectQuestionCommand}" />
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </ToolkitControls:PullToRefreshListView>
-        <StackPanel x:Name="stkAskQuestion"
+        <Grid x:Name="grdTopBar"
+              Margin="0"
+              d:LayoutOverrides="TopPosition, BottomPosition"
+              Background="{ThemeResource TopBarBG}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="48" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="button"
+                    Content="&#xE700;"
+                    HorizontalAlignment="Stretch"
                     Margin="0"
+                    VerticalAlignment="Stretch"
+                    d:LayoutOverrides="Width, Height"
+                    Background="#00000000"
+                    FontSize="24"
+                    FontFamily="Segoe MDL2 Assets"
+                    Click="button_Click"
+                    Command="{Binding ToggleMenuCommand}"
+                    Foreground="{ThemeResource TopBarText}">
+            </Button>
+            <TextBlock x:Name="lblPageName"
+                       Margin="12,0"
+                       TextWrapping="Wrap"
+                       x:Uid="home_tab_bar_item_title" Text="Home"
+                       d:LayoutOverrides="Width"
+                       Grid.Column="1"
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       TextLineBounds="Tight"
+                       FontWeight="SemiBold"
+                       FontFamily="ms-appx:/Fonts/Sofia_Pro_Soft_Bold.ttf#SofiaProSoftW01-Bold"
+                       Foreground="{ThemeResource TopBarText}" />
+            <Button x:Name="button_Copy"
+                    HorizontalAlignment="Stretch"
+                    Margin="0"
+                    VerticalAlignment="Stretch"
+                    Background="#00000000"
+                    FontSize="24"
+                    FontFamily="Segoe UI Symbol"
+                    Grid.Column="2"
+                    Foreground="{ThemeResource TopBarText}"
+                    Command="{Binding GoToNotificationsCommand}">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <TextBlock x:Name="textBlock6"
+                               TextWrapping="Wrap"
+                               Text="&#xEA8F;"
+                               TextLineBounds="TrimToCapHeight"
+                               VerticalAlignment="Center"
+                               Width="Auto"
+                               HorizontalAlignment="Left"
+                               FontFamily="Segoe MDL2 Assets" />
+                    <TextBlock x:Name="textBlock7"
+                               TextWrapping="Wrap"
+                               Text="{Binding UnreadCount.unread_count}"
+                               VerticalAlignment="Center"
+                               TextLineBounds="Tight" />
+                </StackPanel>
+            </Button>
+        </Grid>
+        <StackPanel Orientation="Vertical" 
+                    Grid.Row="1" 
+                    VerticalAlignment="Top"
+                    Background="{ThemeResource TopBarBG}">
+            <Store:AdControl x:Name="adMainPage" Width="320"
+                             Height="50"
+                             AdUnitId="336329"
+                             ApplicationId="c7ead89e-1e8d-4728-a855-d805ceccd3c7"
+                             HorizontalAlignment="Center"/>
+            <Grid x:Name="grdFilter"
+                Margin="0"
+                VerticalAlignment="Top"
+                Height="44">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="44" />
+                    <ColumnDefinition Width="44" />
+                    <ColumnDefinition Width="44" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal"
+                    d:LayoutOverrides="Width, Height, LeftPosition, RightPosition"
+                    Margin="12,0">
+                    <TextBlock x:Name="textBlock5"
+                        TextWrapping="Wrap"
+                        Text="Questions about"
+                        VerticalAlignment="Center"
+                        TextLineBounds="Tight"
+                        FontFamily="ms-appx:/Fonts/Sofia_Pro_Soft_Bold.ttf#SofiaProSoftW01-Bold"
+                        FontSize="16"
+                        Foreground="{ThemeResource TopBarText}"/>
+                    <ComboBox x:Name="comboBox"
+                        VerticalAlignment="Center"
+                        d:LayoutOverrides="Width, LeftPosition, RightPosition"
+                        Background="Transparent"
+                        BorderThickness="2"
+                        BorderBrush="#00000000"
+                        HorizontalAlignment="Stretch"
+                        ItemsSource="{Binding Topics}"
+                        ItemTemplateSelector="{StaticResource LanguageCountrySelector}"
+                        SelectedItem="{Binding SelectedTopic, Mode=TwoWay}"
+                        Foreground="{ThemeResource TopBarText}">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="SelectionChanged">
+                                <Core:InvokeCommandAction Command="{Binding SelectTopicCommand}" />
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </ComboBox>
+                </StackPanel>
+                <ToggleButton x:Name="toggleButton"
+                    Content="&#xE648;"
+                    VerticalAlignment="Stretch"
+                    d:LayoutOverrides="Height"
+                    HorizontalAlignment="Stretch"
+                    Grid.Column="1"
+                    Background="#00000000"
+                    FontFamily="ms-appx:/Fonts/icomoon.ttf#icomoon"
+                    Padding="0"
+                    FontSize="22"
+                    Style="{StaticResource FilterToggleButtonStyle}"
+                    IsChecked="{Binding Filters.questions_not_answered_only, Mode=TwoWay}"
+                    Foreground="{ThemeResource TopBarText}">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:InvokeCommandAction Command="{Binding FilterChangedCommand}" />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </ToggleButton>
+                <ToggleButton x:Name="toggleButton_Copy"
+                    Content="&#xE647;"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    Grid.Column="2"
+                    Background="#00000000"
+                    FontFamily="ms-appx:/Fonts/icomoon.ttf#icomoon"
+                    Padding="0"
+                    d:LayoutOverrides="Height"
+                    FontSize="22"
+                    Style="{StaticResource FilterToggleButtonStyle}"
+                    IsChecked="{Binding Filters.interesting_questions_only, Mode=TwoWay}"
+                    Foreground="{ThemeResource TopBarText}">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:InvokeCommandAction Command="{Binding FilterChangedCommand}" />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </ToggleButton>
+                <ToggleButton x:Name="toggleButton_Copy1"
+                    Content="&#xE669;"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    Grid.Column="3"
+                    Background="#00000000"
+                    FontFamily="ms-appx:/Fonts/icomoon.ttf#icomoon"
+                    Padding="0"
+                    d:LayoutOverrides="Height"
+                    FontSize="22"
+                    Style="{StaticResource FilterToggleButtonStyle}"
+                    IsChecked="{Binding Filters.questions_with_audios_only, Mode=TwoWay}"
+                    Foreground="{ThemeResource TopBarText}">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:InvokeCommandAction Command="{Binding FilterChangedCommand}" />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </ToggleButton>
+                <ProgressBar Height="4"
                     VerticalAlignment="Bottom"
-                    Grid.Row="1">
+                    Grid.ColumnSpan="4"
+                    Background="#00000000"
+                    IsIndeterminate="{Binding InCall}">
+                    <ProgressBar.Foreground>
+                        <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
+                    </ProgressBar.Foreground>
+                </ProgressBar>
+            </Grid>
+        </StackPanel>
+        <StackPanel x:Name="stkAskQuestion"
+                    Margin="0,0,0,44"
+                    VerticalAlignment="Bottom"
+                    Grid.Row="1"
+                    >
             <Border>
                 <Grid x:Name="grdNewQButton"
                       Height="52"
@@ -421,176 +601,5 @@
             </Border>
 
         </StackPanel>
-        <Grid x:Name="grdTopBar"
-              Margin="0"
-              d:LayoutOverrides="TopPosition, BottomPosition"
-              Background="{ThemeResource TopBarBG}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="48" />
-                <ColumnDefinition />
-                <ColumnDefinition Width="48" />
-            </Grid.ColumnDefinitions>
-            <Button x:Name="button"
-                    Content="&#xE700;"
-                    HorizontalAlignment="Stretch"
-                    Margin="0"
-                    VerticalAlignment="Stretch"
-                    d:LayoutOverrides="Width, Height"
-                    Background="#00000000"
-                    FontSize="24"
-                    FontFamily="Segoe MDL2 Assets"
-                    Click="button_Click"
-                    Command="{Binding ToggleMenuCommand}"
-                    Foreground="{ThemeResource TopBarText}">
-            </Button>
-            <TextBlock x:Name="lblPageName"
-                       Margin="12,0"
-                       TextWrapping="Wrap"
-                       x:Uid="home_tab_bar_item_title" Text=""
-                       d:LayoutOverrides="Width"
-                       Grid.Column="1"
-                       VerticalAlignment="Center"
-                       FontSize="20"
-                       TextLineBounds="Tight"
-                       FontWeight="SemiBold"
-                       FontFamily="ms-appx:/Fonts/Sofia_Pro_Soft_Bold.ttf#SofiaProSoftW01-Bold"
-                       Foreground="{ThemeResource TopBarText}" />
-            <Button x:Name="button_Copy"
-                    HorizontalAlignment="Stretch"
-                    Margin="0"
-                    VerticalAlignment="Stretch"
-                    Background="#00000000"
-                    FontSize="24"
-                    FontFamily="Segoe UI Symbol"
-                    Grid.Column="2"
-                    Foreground="{ThemeResource TopBarText}"
-                    Command="{Binding GoToNotificationsCommand}">
-                <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Center">
-                    <TextBlock x:Name="textBlock6"
-                               TextWrapping="Wrap"
-                               Text="&#xEA8F;"
-                               TextLineBounds="TrimToCapHeight"
-                               VerticalAlignment="Center"
-                               Width="Auto"
-                               HorizontalAlignment="Left"
-                               FontFamily="Segoe MDL2 Assets" />
-                    <TextBlock x:Name="textBlock7"
-                               TextWrapping="Wrap"
-                               Text="{Binding UnreadCount.unread_count}"
-                               VerticalAlignment="Center"
-                               TextLineBounds="Tight" />
-                </StackPanel>
-            </Button>
-        </Grid>
-        <Grid x:Name="grdFilter"
-              Margin="0"
-              Grid.Row="1"
-              VerticalAlignment="Top"
-              Height="44"
-              Background="{ThemeResource TopBarBG}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="44" />
-                <ColumnDefinition Width="44" />
-                <ColumnDefinition Width="44" />
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal"
-                        d:LayoutOverrides="Width, Height, LeftPosition, RightPosition"
-                        Margin="12,0">
-                <TextBlock x:Name="textBlock5"
-                           TextWrapping="Wrap"
-                           Text="Questions about"
-                           VerticalAlignment="Center"
-                           TextLineBounds="Tight"
-                           FontFamily="ms-appx:/Fonts/Sofia_Pro_Soft_Bold.ttf#SofiaProSoftW01-Bold"
-                           FontSize="16"
-                           Foreground="{ThemeResource TopBarText}">
-                </TextBlock>
-                <ComboBox x:Name="comboBox"
-                          VerticalAlignment="Center"
-                          d:LayoutOverrides="Width, LeftPosition, RightPosition"
-                          Background="Transparent"
-                          BorderThickness="2"
-                          BorderBrush="#00000000"
-                          HorizontalAlignment="Stretch"
-                          ItemsSource="{Binding Topics}"
-                          ItemTemplateSelector="{StaticResource LanguageCountrySelector}"
-                          SelectedItem="{Binding SelectedTopic, Mode=TwoWay}"
-                          Foreground="{ThemeResource TopBarText}">
-                    <Interactivity:Interaction.Behaviors>
-                        <Core:EventTriggerBehavior EventName="SelectionChanged">
-                            <Core:InvokeCommandAction Command="{Binding SelectTopicCommand}" />
-                        </Core:EventTriggerBehavior>
-                    </Interactivity:Interaction.Behaviors>
-                </ComboBox>
-            </StackPanel>
-            <ToggleButton x:Name="toggleButton"
-                          Content="&#xE648;"
-                          VerticalAlignment="Stretch"
-                          d:LayoutOverrides="Height"
-                          HorizontalAlignment="Stretch"
-                          Grid.Column="1"
-                          Background="#00000000"
-                          FontFamily="ms-appx:/Fonts/icomoon.ttf#icomoon"
-                          Padding="0"
-                          FontSize="22"
-                          Style="{StaticResource FilterToggleButtonStyle}"
-                          IsChecked="{Binding Filters.questions_not_answered_only, Mode=TwoWay}"
-                          Foreground="{ThemeResource TopBarText}">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:InvokeCommandAction Command="{Binding FilterChangedCommand}" />
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </ToggleButton>
-            <ToggleButton x:Name="toggleButton_Copy"
-                          Content="&#xE647;"
-                          VerticalAlignment="Stretch"
-                          HorizontalAlignment="Stretch"
-                          Grid.Column="2"
-                          Background="#00000000"
-                          FontFamily="ms-appx:/Fonts/icomoon.ttf#icomoon"
-                          Padding="0"
-                          d:LayoutOverrides="Height"
-                          FontSize="22"
-                          Style="{StaticResource FilterToggleButtonStyle}"
-                          IsChecked="{Binding Filters.interesting_questions_only, Mode=TwoWay}"
-                          Foreground="{ThemeResource TopBarText}">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:InvokeCommandAction Command="{Binding FilterChangedCommand}" />
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </ToggleButton>
-            <ToggleButton x:Name="toggleButton_Copy1"
-                          Content="&#xE669;"
-                          VerticalAlignment="Stretch"
-                          HorizontalAlignment="Stretch"
-                          Grid.Column="3"
-                          Background="#00000000"
-                          FontFamily="ms-appx:/Fonts/icomoon.ttf#icomoon"
-                          Padding="0"
-                          d:LayoutOverrides="Height"
-                          FontSize="22"
-                          Style="{StaticResource FilterToggleButtonStyle}"
-                          IsChecked="{Binding Filters.questions_with_audios_only, Mode=TwoWay}"
-                          Foreground="{ThemeResource TopBarText}">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:InvokeCommandAction Command="{Binding FilterChangedCommand}" />
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </ToggleButton>
-            <ProgressBar Height="4"
-                         VerticalAlignment="Bottom"
-                         Grid.ColumnSpan="4"
-                         Background="#00000000"
-                         IsIndeterminate="{Binding InCall}">
-                <ProgressBar.Foreground>
-                    <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
-                </ProgressBar.Foreground>
-            </ProgressBar>
-        </Grid>
     </Grid>
 </Page>
