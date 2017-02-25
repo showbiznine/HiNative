@@ -61,7 +61,7 @@
                             Grid.Row="1"
                             Margin="0,12,0,0"
                             Background="#00000000">
-                        <Ellipse x:Name="ellipseProfileImage"
+                        <Ellipse x:Name="ellProfilePicture"
                                  Stroke="#FFE86435">
                             <Ellipse.Fill>
                                 <ImageBrush ImageSource="{Binding CurrentQuestion.user.profile_image, Mode=OneWay}" />

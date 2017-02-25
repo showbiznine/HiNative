@@ -32,20 +32,20 @@ namespace HiNative.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            //if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
-            //{
-            //    var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("profilePicture");
-            //    if (anim != null)
-            //    {
-            //        ellipseProfilePicture.Opacity = 1;
-            //        anim.TryStart(ellipseProfilePicture);
-            //    }
-            //    var usernameAnim = ConnectedAnimationService.GetForCurrentView().GetAnimation("userName");
-            //    if (usernameAnim != null)
-            //    {
-            //        usernameAnim.TryStart(lblUsername);
-            //    } 
-            //}
+            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
+            {
+                var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("ProfilePicture");
+                if (anim != null)
+                {
+                    //ellProfilePicture.Opacity = 1;
+                    anim.TryStart(ellProfilePicture);
+                }
+                var usernameAnim = ConnectedAnimationService.GetForCurrentView().GetAnimation("Username");
+                if (usernameAnim != null)
+                {
+                    usernameAnim.TryStart(lblUsername);
+                }
+            }
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
@@ -53,7 +53,7 @@ namespace HiNative.Views
             base.OnNavigatingFrom(e);
             if (e.NavigationMode == NavigationMode.Back)
             {
-                //ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("profilePicture", profilePicture);
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ProfilePicture", ellProfilePicture);
             }
         }
     }

@@ -38,7 +38,7 @@
                   Grid.Row="1"
                   Padding="0,48,0,64"
                   Loaded="listView_Loaded"
-                                               RefreshCommand="{Binding RefreshCommand}" Margin="0,50,0,0">
+                                               RefreshCommand="{Binding RefreshCommand}" Margin="0,50,0,0" ItemClick="listView_ItemClick">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="ItemClick">
                     <Core:InvokeCommandAction Command="{Binding SelectQuestionCommand}" />

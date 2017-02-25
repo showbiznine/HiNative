@@ -83,11 +83,11 @@ namespace HiNative.ViewModels
                 App.ViewModelLocator.Profile.LoadUser((int)dc.user.id);
                 App.ViewModelLocator.Profile.ProfilePicture = dc.user.profile_image;
                 App.ViewModelLocator.Profile.UserName = dc.user.name;
-                //if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
-                //{
-                //    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("profilePicture", LastClickedProfilePic);
-                //    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("userName", LastClickedUsername); 
-                //}
+                if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
+                {
+                    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ProfilePicture", LastClickedProfilePic);
+                    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("Username", LastClickedUsername);
+                }
                 _navigationService.NavigateTo(typeof(ProfilePage));
 
             });
@@ -99,11 +99,11 @@ namespace HiNative.ViewModels
                 App.ViewModelLocator.Profile.LoadUser((int)CurrentQuestion.user.id);
                 App.ViewModelLocator.Profile.ProfilePicture = CurrentQuestion.user.profile_image;
                 App.ViewModelLocator.Profile.UserName = CurrentQuestion.user.name;
-                //if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
-                //{
-                //    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("profilePicture", LastClickedProfilePic);
-                //    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("userName", LastClickedUsername); 
-                //}
+                if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
+                {
+                    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ProfilePicture", LastClickedProfilePic);
+                    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("Username", LastClickedUsername);
+                }
                 _navigationService.NavigateTo(typeof(ProfilePage));
             });
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HiNativeShared.API.Models;
+using Microsoft.Toolkit.Uwp.UI.Controls;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,6 +20,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 using WinRTXamlToolkit.Controls.Extensions;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -51,14 +54,14 @@ namespace HiNative.Views
             base.OnNavigatedTo(e);
             App.ViewModelLocator.Main.CheckUnreadCount();
             #region ConnectedAnimations
-            //if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
-            //{
-            //    var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("questionRoot");
-            //    if (anim != null)
-            //    {
-            //        anim.TryStart(App.ViewModelLocator.Main.LastSelectedGrid);
-            //    }  
-            //}
+            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
+            {
+                var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("questionRoot");
+                if (anim != null)
+                {
+                    anim.TryStart(App.ViewModelLocator.Main.LastSelectedGrid);
+                }
+            }
             #endregion
         }
 
@@ -210,6 +213,20 @@ namespace HiNative.Views
                 App.ViewModelLocator.Main.PageNumber < App.ViewModelLocator.Main.MaxPages)
             {
                 App.ViewModelLocator.Main.LoadData(true);
+            }
+        }
+
+        private void listView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var clickedItem = (HNQuestion)e.ClickedItem;
+            var container = ((PullToRefreshListView)e.OriginalSource).ContainerFromItem(e.ClickedItem) as ListViewItem;
+            var grid = container.ContentTemplateRoot;
+            //var questionRoot = grid.GetFirstDescendantOfType<Grid>();
+            //var profilePicture = grid.GetFirstDescendantOfType<Ellipse>();
+
+            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
+            {
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("QuestionRoot", grid);
             }
         }
     }

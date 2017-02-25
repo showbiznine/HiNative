@@ -48,31 +48,31 @@ namespace HiNative.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            //if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
-            //{
-            //    var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("questionRoot");
-            //    if (anim != null)
-            //    {
-            //        anim.TryStart(grdQuestion);
-            //    }
-            //    else
-            //    {
-            //        anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("profilePicture");
-            //        if (anim != null)
-            //        {
-            //            anim.TryStart(App.ViewModelLocator.Question.LastClickedProfilePic);
-            //        }
-            //    } 
-            //}
+            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
+            {
+                var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("QuestionRoot");
+                if (anim != null)
+                {
+                    anim.TryStart(grdQuestion);
+                }
+                else
+                {
+                    anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("ProfilePicture");
+                    if (anim != null)
+                    {
+                        anim.TryStart(App.ViewModelLocator.Question.LastClickedProfilePic);
+                    }
+                }
+            }
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             base.OnNavigatingFrom(e);
-            //if (e.NavigationMode == NavigationMode.Back && ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
-            //{
-            //    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("questionRoot", grdQuestion);
-            //}
+            if (e.NavigationMode == NavigationMode.Back && ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
+            {
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("questionRoot", grdQuestion);
+            }
         }
 
         #region Composition
@@ -187,5 +187,6 @@ namespace HiNative.Views
             else
                 OpenMenu();
         }
+
     }
 }

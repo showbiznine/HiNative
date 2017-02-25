@@ -455,7 +455,7 @@
                   VerticalAlignment="Top"
                   HorizontalAlignment="Center"
                   Margin="0,12,0,4">
-                <Ellipse x:Name="ellipseProfilePicture"
+                <Ellipse x:Name="ellProfilePicture"
                          Height="128"
                          Width="128"
                          VerticalAlignment="Bottom">
