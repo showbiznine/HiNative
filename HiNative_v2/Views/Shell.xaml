@@ -241,6 +241,16 @@
                         </Controls:HamburgerMenuItem>
                     </StackPanel>
                     <StackPanel VerticalAlignment="Bottom">
+                        <Button x:Name="btnFeedback" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="48" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Background="Transparent" Command="{Binding LeaveFeedbackCommand}">
+                            <Grid Height="48">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="&#xE939;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" FontSize="22" Foreground="White"/>
+                                <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Leave feedback" VerticalAlignment="Center" Grid.Column="1" FontSize="20" Margin="8,0,0,0" TextLineBounds="Tight" Foreground="White"/>
+                            </Grid>
+                        </Button>
                         <Controls:HamburgerMenuItem x:Name="hmbSettings"
                                                     Content="Settings"
                                                     HorizontalAlignment="Stretch"

@@ -5,6 +5,7 @@ using HiNative.Views;
 using HiNativeShared.API.Models;
 using HiNativeShared.Services;
 using Microsoft.Practices.ServiceLocation;
+using Microsoft.Services.Store.Engagement;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,8 +13,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.ApplicationModel.Background;
+using Windows.ApplicationModel.Email;
 using Windows.Storage;
+using Windows.UI.Popups;
 
 namespace HiNative.ViewModels
 {
@@ -30,6 +34,7 @@ namespace HiNative.ViewModels
         public RelayCommand GoToHomeCommand { get; set; }
         public RelayCommand GoToSettingsCommand { get; set; }
         public RelayCommand FrameNavigatedCommand { get; set; }
+        public RelayCommand LeaveFeedbackCommand { get; set; }
         #endregion
 
         public ShellViewModel()
@@ -105,7 +110,34 @@ namespace HiNative.ViewModels
             {
                 _navigationService.NavigateTo(typeof(MainPage));
             });
+            LeaveFeedbackCommand = new RelayCommand(() =>
+            {
+                LeaveFeedbackAsync();
+            });
             FrameNavigatedCommand = new RelayCommand(() => IsMenuOpen = false);
+        }
+
+        private async void LeaveFeedbackAsync()
+        {
+            if (StoreServicesFeedbackLauncher.IsSupported())
+            {
+                var launcher = StoreServicesFeedbackLauncher.GetDefault();
+                await launcher.LaunchAsync();
+            }
+            else
+            {
+                var msg = new MessageDialog("Why don't you send us an email instead",
+                    "It looks like the feedback hub is having some trouble launching");
+                msg.Commands.Add(new UICommand(
+                    "Yes",
+                    new UICommandInvokedHandler(SendFeedbackEmail)));
+                msg.Commands.Add(new UICommand("No"));
+            }
+        }
+
+        private async void SendFeedbackEmail(IUICommand command)
+        {
+            var success = await Windows.System.Launcher.LaunchUriAsync(new Uri("mailto:hinative_uwp@outlook.com"));
         }
 
         public async Task CheckLoggedIn()
