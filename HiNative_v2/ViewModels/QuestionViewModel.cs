@@ -132,12 +132,21 @@ namespace HiNative.ViewModels
                     }
                     #endregion
 
-                    HNAnswerResult result = await DataService.PostAnswer(answer.answer, (int)CurrentQuestion.id);
-                    UploadImages.Clear();
-                    AnswerText = "";
-                    Answers.Add(result.answer);
-                    InCall = false;
-                    CanSendAnswer = true;
+                    try
+                    {
+                        HNAnswerResult result = await DataService.PostAnswer(answer.answer, (int)CurrentQuestion.id);
+                        LoggerService.LogEvent("Answer_posted");
+                        UploadImages.Clear();
+                        AnswerText = "";
+                        Answers.Add(result.answer);
+                        InCall = false;
+                        CanSendAnswer = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
+                        LoggerService.LogEvent("Posting_answer_failed");
+                    }
                 }
                 else
                     await new MessageDialog("The answer box is empty").ShowAsync();

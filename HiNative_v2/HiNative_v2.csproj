@@ -186,6 +186,7 @@
       <DependentUpon>SelectLanguageDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="Services\LoggerService.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Settings\AppSettings.cs" />
     <Compile Include="ViewModels\ComposeQuestionViewModel.cs" />

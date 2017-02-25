@@ -190,6 +190,7 @@ namespace HiNative.ViewModels
                 try
                 {
                     result = await DataService.PostQuestion(question);
+                    LoggerService.LogEvent("Question_posted");
                     InCall = false;
                     App.ViewModelLocator.Question.CurrentQuestion = result.question;
                     App.ViewModelLocator.Question.LoadAnswers((int)result.question.id);
@@ -199,6 +200,7 @@ namespace HiNative.ViewModels
                 {
                     if (ex is HttpRequestException)
                         await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
+                    LoggerService.LogEvent("Posting_question_failed");
                 }
             });
 

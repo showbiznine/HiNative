@@ -4,6 +4,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:Controls="using:HiNative.Controls"
+      xmlns:XamlBrewer="using:XamlBrewer.Uwp.Controls"
       xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:Media="using:Microsoft.Xaml.Interactions.Media"
@@ -780,7 +781,7 @@
             <Grid.RenderTransform>
                 <CompositeTransform />
             </Grid.RenderTransform>
-            <Controls:BackDrop BlurAmount="5" />
+            <XamlBrewer:BackDrop BlurAmount="5" />
             <TextBlock x:Name="lblHint"
                        HorizontalAlignment="Center"
                        TextWrapping="Wrap"

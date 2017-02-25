@@ -238,8 +238,7 @@ namespace HiNative.ViewModels
                 try
                 {
                     var createdUser = await DataService.SignUp(newUser);
-                    Microsoft.HockeyApp.HockeyClient.Current.TrackEvent("User_registered");
-                    App.StoreLogger.Log("User_registered");
+                    LoggerService.LogEvent("User_registered");
                     ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
                     if (createdUser.token != null)
                     {
@@ -255,8 +254,7 @@ namespace HiNative.ViewModels
                 {
                     Debug.WriteLine(ex.Message);
                     await new MessageDialog("Sign up failed, try a different username and/or email").ShowAsync();
-                    Microsoft.HockeyApp.HockeyClient.Current.TrackEvent("Registration_failed");
-                    App.StoreLogger.Log("Registration_failed");
+                    LoggerService.LogEvent("Registration_failed");
                 }
             }
         }
