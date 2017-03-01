@@ -39,6 +39,7 @@ namespace HiNative.ViewModels
             LogOutCommand = new RelayCommand(() =>
             {
                 ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+                LoggerService.LogEvent("User_logout");
                 localSettings.Values["User_ID"] = null;
                 _navigationService.NavigateTo(typeof(LoginPage));
             });

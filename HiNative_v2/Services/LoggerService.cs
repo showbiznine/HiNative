@@ -10,8 +10,8 @@ namespace HiNative.Services
     {
         public static void LogEvent(string eventName)
         {
-            Microsoft.HockeyApp.HockeyClient.Current.TrackEvent("Registration_failed");
-            App.StoreLogger.Log("Registration_failed");
+            Microsoft.HockeyApp.HockeyClient.Current.TrackEvent(eventName);
+            App.StoreLogger.Log(eventName);
         }
     }
 }

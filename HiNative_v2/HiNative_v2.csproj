@@ -19,9 +19,9 @@
     <PackageCertificateKeyFile>HiNative_v2_StoreKey.pfx</PackageCertificateKeyFile>
     <PackageCertificateThumbprint>FBC6C3935480750265E649FA98245ABB74417129</PackageCertificateThumbprint>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
-    <AppxBundle>Auto</AppxBundle>
+    <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
-    <AppxPackageDir>C:\Users\tppet\Documents\Coding\HiNative_v2\HiNative_v2\AppPackages\</AppxPackageDir>
+    <AppxPackageDir>C:\Users\Tej\Documents\Coding\HiNative\HiNative_v2\AppPackages\</AppxPackageDir>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
     <HockeyAppResourceId>8de5fa42d2b445baaf5498c6cc23638b</HockeyAppResourceId>
   </PropertyGroup>
