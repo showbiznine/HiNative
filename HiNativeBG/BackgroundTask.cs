@@ -92,32 +92,5 @@ namespace HiNativeBG
             ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
 
-        private string GetActivityType(string activity_type)
-        {
-            switch (activity_type)
-            {
-                case "Mention":
-                    return " mentioned you in ";
-                case "Answer":
-                    return " answered ";
-                // Determine whether question is yours, theirs or 3rd party's
-                case "Like":
-                    return " liked your answer in ";
-                default:
-                    return " did something we don't understand yet in ";
-            }
-        }
-
-        private void SendBadge(uint count)
-        {
-            BadgeNumericNotificationContent badgeContent = new BadgeNumericNotificationContent(count);
-            BadgeNotification notif = new BadgeNotification(badgeContent.GetXml());
-            BadgeUpdateManager.CreateBadgeUpdaterForApplication().Update(notif);
-        }
-
-        private void ClearBadge()
-        {
-            BadgeUpdateManager.CreateBadgeUpdaterForApplication().Clear();
-        }
     }
 }

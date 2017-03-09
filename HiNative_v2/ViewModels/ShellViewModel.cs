@@ -45,8 +45,7 @@ namespace HiNative.ViewModels
             }
             else
             {
-                var task = RegisterBackgroundTask("HiNativeBG.BackgroundTask",
-                    "BackgroundTask",
+                var task = RegisterBackgroundTask("CheckNotificationsTask",
                     new TimeTrigger(15, false),
                     null);
                 IsMenuOpen = false;
@@ -55,11 +54,11 @@ namespace HiNative.ViewModels
         }
 
         #region Background Task
-        private async Task<BackgroundTaskRegistration> RegisterBackgroundTask(string taskEntryPoint,
-    string name,
-    TimeTrigger trigger,
-    IBackgroundCondition condition)
+        private async Task<BackgroundTaskRegistration> RegisterBackgroundTask(string name,
+            TimeTrigger trigger,
+            IBackgroundCondition condition)
         {
+            var access = await BackgroundExecutionManager.RequestAccessAsync();
             //Check for existing registrations
             foreach (var _task in BackgroundTaskRegistration.AllTasks)
             {

@@ -629,5 +629,22 @@ namespace HiNativeShared.Services
             }
             return ac.payload.text;
         }
+
+        public static string GetActivityType(string activity_type)
+        {
+            switch (activity_type)
+            {
+                case "Mention":
+                    return " mentioned you in ";
+                case "Answer":
+                    return " answered ";
+                // Determine whether question is yours, theirs or 3rd party's
+                case "Like":
+                    return " liked your answer in ";
+                default:
+                    return " did something we don't understand yet in ";
+            }
+        }
+
     }
 }
