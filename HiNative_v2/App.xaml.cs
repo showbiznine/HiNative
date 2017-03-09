@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Threading;
+using HiNative.Services;
 using HiNative.ViewModels;
 using HiNative.Views;
 using Microsoft.HockeyApp;
@@ -9,6 +10,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -172,6 +174,22 @@ namespace HiNative
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        protected override async void OnBackgroundActivated(BackgroundActivatedEventArgs args)
+        {
+            base.OnBackgroundActivated(args);
+
+            var taskName = args.TaskInstance.Task.Name;
+
+            switch (taskName)
+            {
+                case "CheckNotificationsTask":
+                    await BackgroundService.CheckNotificationsTask(args.TaskInstance);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

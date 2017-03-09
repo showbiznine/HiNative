@@ -1,4 +1,5 @@
 ﻿using HiNativeShared.API.Models;
+using Microsoft.Advertising.Shared.WinRT;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using System;
 using System.Collections.Generic;
@@ -228,6 +229,20 @@ namespace HiNative.Views
             {
                 ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("QuestionRoot", grid);
             }
+        }
+
+        private void adMainPage_AdRefreshed(object sender, RoutedEventArgs e)
+        {
+            if (adMainPage.HasAd)
+                adMainPage.Visibility = Visibility.Visible;
+            else
+                adMainPage.Visibility = Visibility.Collapsed;
+        }
+
+        private void adMainPage_ErrorOccurred(object sender, Microsoft.Advertising.WinRT.UI.AdErrorEventArgs e)
+        {
+            adMainPage.Visibility = Visibility.Collapsed;
+            //adMainPage.Refresh();
         }
     }
 }

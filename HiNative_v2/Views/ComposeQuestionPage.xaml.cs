@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HiNative.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,9 +24,12 @@ namespace HiNative.Views
     /// </summary>
     public sealed partial class ComposeQuestionPage : Page
     {
+        ComposeQuestionViewModel Vm;
+
         public ComposeQuestionPage()
         {
             this.InitializeComponent();
+            Vm = DataContext as ComposeQuestionViewModel;
 
             InputPane.GetForCurrentView().Showing += (s, args) =>
             {
@@ -57,6 +61,12 @@ namespace HiNative.Views
                 this.RenderTransform = trans;
                 args.EnsuredFocusedElementInView = false;
             };
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            App.ViewModelLocator.Shell.RequestAd();
         }
 
         private void txt_GotFocus(object sender, RoutedEventArgs e)

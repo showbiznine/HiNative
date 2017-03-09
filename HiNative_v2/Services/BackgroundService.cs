@@ -32,14 +32,14 @@ namespace HiNative.Services
                         break;
                     }
                     NotificationService.PopToast(activities.activities[i]);
-                    SendBadge((uint)unreadCount.unread_count);
+                    NotificationService.SendBadge((uint)unreadCount.unread_count);
                     //PopTile(activities.activities[i]);
                     localSettings.Values["to_ignore"] = activities.activities[0].id;
                 }
             }
             else
             {
-                ClearBadge();
+                NotificationService.ClearBadge();
             }
 
             _deferral.Complete();

@@ -14,7 +14,7 @@ namespace HiNative.Services
 {
     public class NotificationService
     {
-        public void PopToast(HNActivity activity)
+        public static void PopToast(HNActivity activity)
         {
             string type = DataService.GetActivityType(activity.payload.activity_type);
             string body = DataService.GetBodyText(activity);
@@ -56,14 +56,14 @@ namespace HiNative.Services
             ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
 
-        private void SendBadge(uint count)
+        public static void SendBadge(uint count)
         {
             BadgeNumericNotificationContent badgeContent = new BadgeNumericNotificationContent(count);
             BadgeNotification notif = new BadgeNotification(badgeContent.GetXml());
             BadgeUpdateManager.CreateBadgeUpdaterForApplication().Update(notif);
         }
 
-        private void ClearBadge()
+        public static void ClearBadge()
         {
             BadgeUpdateManager.CreateBadgeUpdaterForApplication().Clear();
         }

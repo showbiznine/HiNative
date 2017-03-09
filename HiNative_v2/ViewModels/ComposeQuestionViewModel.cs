@@ -194,6 +194,9 @@ namespace HiNative.ViewModels
                     InCall = false;
                     App.ViewModelLocator.Question.CurrentQuestion = result.question;
                     App.ViewModelLocator.Question.LoadAnswers((int)result.question.id);
+                    Random rnd = new Random();
+                    if (rnd.Next(1,3) == 2)
+                        App.ViewModelLocator.Shell.ShowAd();
                     _navigationService.NavigateTo(typeof(QuestionPage));
                 }
                 catch (Exception ex)
