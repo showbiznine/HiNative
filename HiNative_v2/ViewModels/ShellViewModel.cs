@@ -2,8 +2,8 @@
 using GalaSoft.MvvmLight.Command;
 using HiNative.Services;
 using HiNative.Views;
-using HiNativeShared.API.Models;
-using HiNativeShared.Services;
+using HiNative.API.Models;
+using HiNative.Services;
 using Microsoft.Advertising.WinRT.UI;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Services.Store.Engagement;

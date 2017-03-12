@@ -1,4 +1,4 @@
-﻿using HiNativeShared.API.Models;
+﻿using HiNative.API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

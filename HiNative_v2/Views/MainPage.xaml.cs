@@ -1,5 +1,5 @@
 ﻿using HiNative.ViewModels;
-using HiNativeShared.API.Models;
+using HiNative.API.Models;
 using Microsoft.Advertising.Shared.WinRT;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using System;

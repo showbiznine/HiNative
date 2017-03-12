@@ -1,4 +1,4 @@
-﻿using HiNativeShared.Services;
+﻿using HiNative.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;

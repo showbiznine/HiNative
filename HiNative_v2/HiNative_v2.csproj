@@ -149,6 +149,29 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Models\HNActivities.cs" />
+    <Compile Include="API\Models\HNActivity.cs" />
+    <Compile Include="API\Models\HNAnswer.cs" />
+    <Compile Include="API\Models\HNAnswerResult.cs" />
+    <Compile Include="API\Models\HNAttachmentResponse.cs" />
+    <Compile Include="API\Models\HNAudio.cs" />
+    <Compile Include="API\Models\HNBookmark.cs" />
+    <Compile Include="API\Models\HNCountry.cs" />
+    <Compile Include="API\Models\HNFilter.cs" />
+    <Compile Include="API\Models\HNImage.cs" />
+    <Compile Include="API\Models\HNKeyword.cs" />
+    <Compile Include="API\Models\HNLanguage.cs" />
+    <Compile Include="API\Models\HNLogin.cs" />
+    <Compile Include="API\Models\HNNewUserContainer.cs" />
+    <Compile Include="API\Models\HNPagination.cs" />
+    <Compile Include="API\Models\HNPayload.cs" />
+    <Compile Include="API\Models\HNQuestion.cs" />
+    <Compile Include="API\Models\HNQuestionRoot.cs" />
+    <Compile Include="API\Models\HNQuestionsResult.cs" />
+    <Compile Include="API\Models\HNUnreadCount.cs" />
+    <Compile Include="API\Models\HNUserAttributes.cs" />
+    <Compile Include="API\Models\HNUserProfile.cs" />
+    <Compile Include="API\Models\HNUserResult.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -189,6 +212,8 @@
       <DependentUpon>SelectLanguageDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\BackgroundService.cs" />
+    <Compile Include="Services\DataService.cs" />
+    <Compile Include="Services\DecodeService.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\LoggerService.cs" />
     <Compile Include="Services\NavigationService.cs" />

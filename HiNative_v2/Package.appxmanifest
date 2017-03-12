@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="2783ShowbizInc.HiNativeforWindows" Publisher="CN=F49E0BBC-ED60-4621-AD64-4F77977D5015" Version="0.9.33.0" />
+  <Identity Name="2783ShowbizInc.HiNativeforWindows" Publisher="CN=F49E0BBC-ED60-4621-AD64-4F77977D5015" Version="0.9.34.0" />
   <mp:PhoneIdentity PhoneProductId="24baccf0-3aea-43d0-a881-4e295d21847c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>HiNative for Windows</DisplayName>

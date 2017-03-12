@@ -1,5 +1,4 @@
 ﻿using HiNative.API.Models;
-using HiNative.Extensions;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
