@@ -203,6 +203,8 @@ namespace HiNative.ViewModels
                 {
                     if (ex is HttpRequestException)
                         await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
+                    else
+                        await new MessageDialog("There was an error posting this question").ShowAsync();
                     LoggerService.LogEvent("Posting_question_failed");
                 }
             });
