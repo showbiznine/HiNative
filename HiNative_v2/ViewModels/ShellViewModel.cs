@@ -17,6 +17,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Email;
+using Windows.Foundation;
+using Windows.Services.Store;
 using Windows.Storage;
 using Windows.UI.Popups;
 
@@ -30,9 +32,11 @@ namespace HiNative.ViewModels
         public bool IsMenuOpen { get; set; }
 
         InterstitialAd myInterstitialAd = null;
-        string myAppId = "d25517cb-12d4-4699-8bdc-52040c712cab";
-        string myAdUnitId = "11389925";
+        string myAppId = "c7ead89e-1e8d-4728-a855-d805ceccd3c7";
+        string myAdUnitId = "336474";
         public bool AdReady = false;
+
+        private StoreContext context = null;
         #endregion
 
         #region Commands
@@ -55,12 +59,56 @@ namespace HiNative.ViewModels
             }
             else
             {
+                CheckForUpdates();
                 var task = RegisterBackgroundTask("CheckNotificationsTask",
                     new TimeTrigger(15, false),
                     null);
                 IsMenuOpen = false;
                 InitializeCommands();
                 SetupAds();
+            }
+        }
+
+        private async Task CheckForUpdates()
+        {
+            if (context == null)
+            {
+                context = StoreContext.GetDefault();
+            }
+
+            // Get the updates that are available.
+            IReadOnlyList<StorePackageUpdate> updates =
+                await context.GetAppAndOptionalStorePackageUpdatesAsync();
+
+            if (updates.Count > 0)
+            {
+                // Alert the user that updates are available and ask for their consent
+                // to start the updates.
+                MessageDialog dialog = new MessageDialog(
+                    "Download and install updates now? This may cause the application to exit.", "There's an update available!");
+                dialog.Commands.Add(new UICommand("Yes"));
+                dialog.Commands.Add(new UICommand("No"));
+                IUICommand command = await dialog.ShowAsync();
+
+                if (command.Label.Equals("Yes", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    // Download and install the updates.
+                    IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus> downloadOperation =
+                        context.RequestDownloadAndInstallStorePackageUpdatesAsync(updates);
+
+                    // The Progress async method is called one time for each step in the download
+                    // and installation process for each package in this request.
+                    //downloadOperation.Progress = async (asyncInfo, progress) =>
+                    //{
+                    //    await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+                    //    () =>
+                    //    {
+                    //        downloadProgressBar.Value = progress.PackageDownloadProgress;
+                    //    });
+                    //};
+
+                    StorePackageUpdateResult result = await downloadOperation.AsTask();
+                }
             }
         }
 
