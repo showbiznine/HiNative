@@ -91,28 +91,7 @@ namespace HiNative.ViewModels
             });
             NewQuestionCommand = new RelayCommand<ItemClickEventArgs>(args =>
             {
-                var q = (args.ClickedItem as Grid).Name;
-                App.ViewModelLocator.Compose.QuestionType = q;
-                App.ViewModelLocator.Compose.Topics = new ObservableCollection<object>();
-
-                if (!q.Contains("Country"))
-                {
-                    foreach (var item in CurrentUser.user_attributes.native_languages_attributes)
-                        App.ViewModelLocator.Compose.Topics.Add(item);
-                    foreach (var item in CurrentUser.user_attributes.study_languages_attributes)
-                        App.ViewModelLocator.Compose.Topics.Add(item);
-                }
-                else
-                {
-                    foreach (var item in CurrentUser.user_attributes.user_interested_countries_attributes)
-                        App.ViewModelLocator.Compose.Topics.Add(item);
-                }
-                if (App.ViewModelLocator.Compose.Topics.Count > 0)
-                {
-                    App.ViewModelLocator.Compose.SelectedTopic = App.ViewModelLocator.Compose.Topics[0]; 
-                }
-                App.ViewModelLocator.Compose.SetupQuestion();
-                _navigationService.NavigateTo(typeof(ComposeQuestionPage));
+                NewQuestionClick(args);
             });
             SelectTopicCommand = new RelayCommand(() => LoadData(false));
             FilterChangedCommand = new RelayCommand(async () =>
@@ -133,6 +112,32 @@ namespace HiNative.ViewModels
                 App.ViewModelLocator.Notifications.LoadNotifications(false);
                 _navigationService.NavigateTo(typeof(NotificationsPage));
             });
+        }
+
+        public void NewQuestionClick(ItemClickEventArgs args)
+        {
+            var q = (args.ClickedItem as Grid).Name;
+            App.ViewModelLocator.Compose.QuestionType = q;
+            App.ViewModelLocator.Compose.Topics = new ObservableCollection<object>();
+
+            if (!q.Contains("Country"))
+            {
+                foreach (var item in CurrentUser.user_attributes.native_languages_attributes)
+                    App.ViewModelLocator.Compose.Topics.Add(item);
+                foreach (var item in CurrentUser.user_attributes.study_languages_attributes)
+                    App.ViewModelLocator.Compose.Topics.Add(item);
+            }
+            else
+            {
+                foreach (var item in CurrentUser.user_attributes.user_interested_countries_attributes)
+                    App.ViewModelLocator.Compose.Topics.Add(item);
+            }
+            if (App.ViewModelLocator.Compose.Topics.Count > 0)
+            {
+                App.ViewModelLocator.Compose.SelectedTopic = App.ViewModelLocator.Compose.Topics[0];
+            }
+            App.ViewModelLocator.Compose.SetupQuestion();
+            _navigationService.NavigateTo(typeof(ComposeQuestionPage));
         }
 
         public void LoadTopics()

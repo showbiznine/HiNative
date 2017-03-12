@@ -1,4 +1,5 @@
-﻿using HiNativeShared.API.Models;
+﻿using HiNative.ViewModels;
+using HiNativeShared.API.Models;
 using Microsoft.Advertising.Shared.WinRT;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using System;
@@ -35,12 +36,13 @@ namespace HiNative.Views
     {
         Compositor _compositor;
         private Visual _newQuestionList;
-        private Visual _newQuestionButton;
+        private Visual _newQuestionPanel;
         private CompositeTransform _newQBtnTransform;
         bool _menuOpen = false;
+
+        private float _panelOffset;
         private ScalarKeyFrameAnimation _openAnimation;
         private ScalarKeyFrameAnimation _closeAnimation;
-        private ScalarKeyFrameAnimation _closeInstantAnimation;
         private ScrollViewer _listScroller;
         private bool _scrolling;
         private double _startPosition;
@@ -48,6 +50,12 @@ namespace HiNative.Views
         public MainPage()
         {
             this.InitializeComponent();
+            NewQuestionControl.ListviewItemCick += new EventHandler<ItemClickEventArgs>(NewQuestionItemClick);
+        }
+
+        private void NewQuestionItemClick(object sender, ItemClickEventArgs e)
+        {
+            (DataContext as MainViewModel).NewQuestionClick(e);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -66,127 +74,114 @@ namespace HiNative.Views
             #endregion
         }
 
-        private void lstNewQuestion_Loaded(object sender, RoutedEventArgs e)
-        {
-            SetupAnimations();
-            CloseMenuInstantly();
-        }
+        //private void lstNewQuestion_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    SetupAnimations();
+        //    CloseMenuInstantly();
+        //}
 
-        #region Composition
-        private void SetupAnimations()
-        {
-            //var root = ElementCompositionPreview.GetElementVisual(stkAskQuestion);
-            //root.Offset = new Vector3(0f, (float)lstNewQuestion.ActualHeight, 0f);
+        //#region Composition
+        //private void SetupAnimations()
+        //{
+        //    _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
+        //    _newQuestionPanel = ElementCompositionPreview.GetElementVisual(stkAskQuestion);
+        //    _panelOffset = _newQuestionPanel.Offset.Y;
 
-            _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
-            _newQuestionList = ElementCompositionPreview.GetElementVisual(lstNewQuestion);
-            _newQuestionButton = ElementCompositionPreview.GetElementVisual(grdNewQButton);
+        //    #region Synced offset
 
-            #region Synced offset
+        //    //Keep the offsets of the pan area and PaneRoot on sync
+        //    var offsetExpressionAnimation = _compositor.CreateExpressionAnimation();
+        //    offsetExpressionAnimation.Expression = "button.Offset.Y";
+        //    offsetExpressionAnimation.SetReferenceParameter("button", _newQuestionPanel);
 
-            //Keep the offsets of the pan area and PaneRoot on sync
-            var offsetExpressionAnimation = _compositor.CreateExpressionAnimation();
-            offsetExpressionAnimation.Expression = "button.Offset.Y";
-            offsetExpressionAnimation.SetReferenceParameter("button", _newQuestionButton);
-            _newQuestionList.StartAnimation("Offset.Y", offsetExpressionAnimation);
+        //    #endregion
 
-            #endregion
+        //    #region Open Animation
+        //    _openAnimation = _compositor.CreateScalarKeyFrameAnimation();
+        //    _openAnimation.Duration = TimeSpan.FromMilliseconds(300);
+        //    _openAnimation.InsertKeyFrame(1.0f, (float)(_panelOffset - lstNewQuestion.ActualHeight));
+        //    #endregion
 
-            #region Open Animation
-            _openAnimation = _compositor.CreateScalarKeyFrameAnimation();
-            _openAnimation.Duration = TimeSpan.FromMilliseconds(300);
-            _openAnimation.InsertKeyFrame(1.0f, (float)adMainPage.ActualHeight);
-            #endregion
+        //    #region Close Animation
+        //    _closeAnimation = _compositor.CreateScalarKeyFrameAnimation();
+        //    _closeAnimation.Duration = TimeSpan.FromMilliseconds(300);
+        //    _closeAnimation.InsertKeyFrame(1.0f, (float)(_panelOffset + lstNewQuestion.ActualHeight));
+        //    #endregion
+        //}
 
-            #region Close Animation
-            _closeAnimation = _compositor.CreateScalarKeyFrameAnimation();
-            _closeAnimation.Duration = TimeSpan.FromMilliseconds(300);
-            _closeAnimation.InsertKeyFrame(1.0f, (float)(lstNewQuestion.ActualHeight + adMainPage.ActualHeight));
-            #endregion
-        }
+        //private void grdNewQButton_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
+        //{
+        //    _newQBtnTransform = grdNewQButton.GetCompositeTransform();
+        //}
 
-        private void grdNewQButton_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
-        {
-            _newQBtnTransform = grdNewQButton.GetCompositeTransform();
-        }
+        //private void grdNewQButton_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        //{
+        //    var y = e.Delta.Translation.Y;
 
-        private void grdNewQButton_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
-        {
-            var y = e.Delta.Translation.Y;
+        //    var offset = _newQuestionPanel.Offset.Y;
 
-            var offset = _newQuestionButton.Offset.Y;
+        //    // keep the pan within the boundary
+        //    if (offset < 0) return;
+        //    if (offset > lstNewQuestion.ActualHeight)
+        //    {
+        //        _newQuestionPanel.Offset = new Vector3(0, (float)(lstNewQuestion.ActualHeight), 0);
+        //        return;
+        //    }
 
-            // keep the pan within the boundary
-            if (offset < 0) return;
-            if (offset > lstNewQuestion.ActualHeight)
-            {
-                _newQuestionButton.Offset = new Vector3(0, (float)(lstNewQuestion.ActualHeight), 0);
-                return;
-            }
+        //    _newQuestionPanel.Offset = new Vector3(0, offset + (float)y, 0);
+        //    // while we are panning the PanArea on X axis, let's sync the PaneRoot's position X too
+        //}
 
-            _newQuestionButton.Offset = new Vector3(0, offset + (float)y, 0);
-            // while we are panning the PanArea on X axis, let's sync the PaneRoot's position X too
-        }
+        //private void grdNewQButton_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        //{
+        //    var y = e.Velocities.Linear.Y;
 
-        private void grdNewQButton_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
-        {
-            var y = e.Velocities.Linear.Y;
+        //    var initialTranslation = lstNewQuestion.ActualHeight;
 
-            var initialTranslation = lstNewQuestion.ActualHeight;
+        //    // ignore a little bit velocity (+/-0.1)
+        //    if (y <= -0.1)
+        //    {
+        //        OpenMenu();
+        //    }
+        //    else if (y > -0.1 && y < 0.1)
+        //    {
+        //        if (Math.Abs(_newQBtnTransform.TranslateY) < Math.Abs(lstNewQuestion.ActualHeight) / 2)
+        //        {
+        //            OpenMenu();
+        //        }
+        //        else
+        //        {
+        //            CloseMenu();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        CloseMenu();
+        //    }
+        //}
 
-            // ignore a little bit velocity (+/-0.1)
-            if (y <= -0.1)
-            {
-                OpenMenu();
-            }
-            else if (y > -0.1 && y < 0.1)
-            {
-                if (Math.Abs(_newQBtnTransform.TranslateY) < Math.Abs(lstNewQuestion.ActualHeight) / 2)
-                {
-                    OpenMenu();
-                }
-                else
-                {
-                    CloseMenu();
-                }
-            }
-            else
-            {
-                CloseMenu();
-            }
-        }
+        //private void OpenMenu()
+        //{
+        //    _panelOffset = _newQuestionPanel.Offset.Y;
+        //    _newQuestionPanel.StartAnimation("Offset.Y", _openAnimation);
+        //    _menuOpen = true;
+        //}
 
-        private void OpenMenu()
-        {
-            _newQuestionButton.StartAnimation("Offset.Y", _openAnimation);
-            _menuOpen = true;
-        }
+        //private void CloseMenu()
+        //{
+        //    _panelOffset = _newQuestionPanel.Offset.Y;
+        //    _newQuestionPanel.StartAnimation("Offset.Y", _closeAnimation);
+        //    _menuOpen = false;
+        //}
 
-        private void CloseMenu()
-        {
-            _newQuestionButton.StartAnimation("Offset.Y", _closeAnimation);
-            _menuOpen = false;
-        }
-
-        private void CloseMenuInstantly()
-        {
-            _newQuestionButton.Offset = new System.Numerics.Vector3(0, (float)(lstNewQuestion.ActualHeight + adMainPage.ActualHeight), 0);
-            _menuOpen = false;
-        }
-        #endregion
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            SetupAnimations();
-        }
-
-        private void grdNewQButton_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            if (_menuOpen)
-                CloseMenu();
-            else
-                OpenMenu();
-        }
+        //private void CloseMenuInstantly()
+        //{
+        //    //_newQuestionButton.Offset = new Vector3(0, (float)(lstNewQuestion.ActualHeight + adMainPage.ActualHeight), 0);
+        //    _newQuestionPanel.Offset = new Vector3(0, (float)(_panelOffset + lstNewQuestion.ActualHeight), 0);
+        //    _menuOpen = false;
+        //    _panelOffset = _newQuestionPanel.Offset.Y;
+        //}
+        //#endregion
 
         private void listView_Loaded(object sender, RoutedEventArgs e)
         {

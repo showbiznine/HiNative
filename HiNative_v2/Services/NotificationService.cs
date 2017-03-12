@@ -16,44 +16,51 @@ namespace HiNative.Services
     {
         public static void PopToast(HNActivity activity)
         {
-            string type = DataService.GetActivityType(activity.payload.activity_type);
-            string body = DataService.GetBodyText(activity);
-
-            #region Toast Visual
-            ToastVisual visual = new ToastVisual()
+            try
             {
-                BindingGeneric = new ToastBindingGeneric()
+                string type = DataService.GetActivityType(activity.payload.activity_type);
+                string body = DataService.GetBodyText(activity);
+
+                #region Toast Visual
+                ToastVisual visual = new ToastVisual()
                 {
-                    Children =
+                    BindingGeneric = new ToastBindingGeneric()
+                    {
+                        Children =
                     {
                         new AdaptiveText() {Text = activity.action_user_name +
                                                     type + body},
                     },
-                    AppLogoOverride = new ToastGenericAppLogo()
-                    {
-                        Source = activity.action_user_image_url,
-                        HintCrop = ToastGenericAppLogoCrop.Circle
-                    },
-                }
-            };
-            #endregion
+                        AppLogoOverride = new ToastGenericAppLogo()
+                        {
+                            Source = activity.action_user_image_url,
+                            HintCrop = ToastGenericAppLogoCrop.Circle
+                        },
+                    }
+                };
+                #endregion
 
-            ToastContent toastContent = new ToastContent()
-            {
-                Visual = visual,
-                ActivationType = ToastActivationType.Foreground,
-                Launch = new QueryString()
+                ToastContent toastContent = new ToastContent()
+                {
+                    Visual = visual,
+                    ActivationType = ToastActivationType.Foreground,
+                    Launch = new QueryString()
                 {
                     { "type", activity.payload.activity_type },
                     { "id", activity.payload.id.ToString() },
                 }.ToString()
-            };
+                };
 
-            var toast = new ToastNotification(toastContent.GetXml());
-            toast.Tag = activity.id.ToString();
-            toast.Group = activity.payload.id.ToString();
-            toast.NotificationMirroring = NotificationMirroring.Allowed;
-            ToastNotificationManager.CreateToastNotifier().Show(toast);
+                var toast = new ToastNotification(toastContent.GetXml());
+                toast.Tag = activity.id.ToString();
+                toast.Group = activity.payload.id.ToString();
+                toast.NotificationMirroring = NotificationMirroring.Allowed;
+                ToastNotificationManager.CreateToastNotifier().Show(toast);
+            }
+            catch (Exception)
+            {
+                LoggerService.LogEvent("Toast_failed");
+            }
         }
 
         public static void SendBadge(uint count)

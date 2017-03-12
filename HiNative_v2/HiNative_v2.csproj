@@ -161,6 +161,9 @@
     <Compile Include="Controls\HamburgerMenuItem.cs">
       <Generator>MSBuild:Compile</Generator>
     </Compile>
+    <Compile Include="Controls\NewQuestionControl.xaml.cs">
+      <DependentUpon>NewQuestionControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\ActivityToColorConverter.cs" />
     <Compile Include="Converters\BooleanInverter.cs" />
     <Compile Include="Converters\ChoiceVisibilityConverter.cs" />
@@ -259,6 +262,10 @@
     <Page Include="Controls\FluencyControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\NewQuestionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\ButtonStyles.xaml">
       <SubType>Designer</SubType>

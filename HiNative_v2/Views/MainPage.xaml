@@ -63,7 +63,6 @@
                     Background="#00000000"
                     FontSize="24"
                     FontFamily="Segoe MDL2 Assets"
-                    Click="button_Click"
                     Command="{Binding ToggleMenuCommand}"
                     Foreground="{ThemeResource TopBarText}">
             </Button>
@@ -223,8 +222,9 @@
                 </ProgressBar>
             </Grid>
         </StackPanel>
-        <StackPanel x:Name="stkAskQuestion"
-                    Margin="0,0,0,44"
+        <Controls:NewQuestionControl x:Name="NewQuestionControl" Grid.Row="1"/>
+        <!--<StackPanel x:Name="stkAskQuestion"
+                    Margin="0"
                     VerticalAlignment="Bottom"
                     Grid.Row="1"
                     >
@@ -335,7 +335,7 @@
                                 </TextBlock.Foreground>
                             </TextBlock>
                         </StackPanel>
-                        <!--<Image x:Name="image" Source="Assets/Icons/Howsay.png" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4,0,0,0"/>-->
+                        --><!--<Image x:Name="image" Source="Assets/Icons/Howsay.png" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4,0,0,0"/>--><!--
                         <Border BorderThickness="0,0,0,0.5"
                                 Grid.Column="1">
                             <Border.BorderBrush>
@@ -446,7 +446,7 @@
                                 <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
-                        <!--<Image x:Name="image_Copy2" Source="Assets/Icons/Whatmean.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="24"/>-->
+                        --><!--<Image x:Name="image_Copy2" Source="Assets/Icons/Whatmean.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="24"/>--><!--
                         <Border BorderThickness="0,0,0,0.5"
                                 Grid.Column="1">
                             <Border.BorderBrush>
@@ -600,6 +600,6 @@
                 </ListView>
             </Border>
 
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Page>
