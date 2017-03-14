@@ -66,7 +66,7 @@ namespace HiNative.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            App.ViewModelLocator.Shell.RequestAd();
+            //App.ViewModelLocator.Shell.RequestAd();
         }
 
         private void txt_GotFocus(object sender, RoutedEventArgs e)
