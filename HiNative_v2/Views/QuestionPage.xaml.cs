@@ -188,5 +188,14 @@ namespace HiNative.Views
                 OpenMenu();
         }
 
+        private void adQuestionPage_ErrorOccurred(object sender, Microsoft.Advertising.WinRT.UI.AdErrorEventArgs e)
+        {
+
+        }
+
+        private void adQuestionPage_AdRefreshed(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

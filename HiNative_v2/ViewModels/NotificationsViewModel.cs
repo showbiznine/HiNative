@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Shapes;
+using Windows.UI.Popups;
 
 namespace HiNative.ViewModels
 {
@@ -67,15 +68,23 @@ namespace HiNative.ViewModels
                 PageNumber++;
             else
                 PageNumber = 1;
-            if (!append)
-                ActivityRoot = await DataService.GetNotifications(PageNumber);
-            else
+            try
             {
-                var r = await DataService.GetNotifications(PageNumber);
-                foreach (var item in r.activities)
+                if (!append)
+                    ActivityRoot = await DataService.GetNotifications(PageNumber);
+                else
                 {
-                    ActivityRoot.activities.Add(item);
+                    var r = await DataService.GetNotifications(PageNumber);
+                    foreach (var item in r.activities)
+                    {
+                        ActivityRoot.activities.Add(item);
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
+                LoggerService.LogEvent("Get_notifications_failed");
             }
             InCall = false;
         }

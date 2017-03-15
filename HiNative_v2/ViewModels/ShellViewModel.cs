@@ -209,9 +209,9 @@ namespace HiNative.ViewModels
 
         private void InitializeCommands()
         {
-            GoToCurrentUserProfileCommand = new RelayCommand(() =>
+            GoToCurrentUserProfileCommand = new RelayCommand(async () =>
             {
-                App.ViewModelLocator.Profile.LoadUser(CurrentUser.user_attributes.id);
+                await App.ViewModelLocator.Profile.LoadUser(CurrentUser.user_attributes.id);
                 _navigationService.NavigateTo(typeof(ProfilePage));
             });
             GoToSettingsCommand = new RelayCommand(() => 
@@ -222,9 +222,9 @@ namespace HiNative.ViewModels
             {
                 _navigationService.NavigateTo(typeof(MainPage));
             });
-            LeaveFeedbackCommand = new RelayCommand(() =>
+            LeaveFeedbackCommand = new RelayCommand(async () =>
             {
-                LeaveFeedbackAsync();
+                await LeaveFeedbackAsync();
             });
             FrameNavigatedCommand = new RelayCommand(() => IsMenuOpen = false);
         }
@@ -269,6 +269,7 @@ namespace HiNative.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+                await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
             }
         }
     }

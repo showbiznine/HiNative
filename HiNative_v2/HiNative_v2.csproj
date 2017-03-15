@@ -372,12 +372,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HiNativeShared\HiNativeShared.csproj">
-      <Project>{0684E820-0C27-4789-9873-DA505DA3CE1C}</Project>
-      <Name>HiNativeShared</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <SDKReference Include="Microsoft.Advertising.Xaml, Version=10.0">
       <Name>Microsoft Advertising SDK for XAML</Name>
     </SDKReference>

@@ -31,6 +31,27 @@ namespace HiNative.Controls
 
         public EventHandler<ItemClickEventArgs> ListviewItemCick;
 
+
+
+        public bool IsPaneOpen
+        {
+            get { return (bool)GetValue(IsPaneOpenProperty); }
+            set { SetValue(IsPaneOpenProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsPaneOpen.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsPaneOpenProperty =
+            DependencyProperty.Register("IsPaneOpen", typeof(bool), typeof(NewQuestionControl), new PropertyMetadata(false, new PropertyChangedCallback(OnPaneOpenChanged)));
+
+        private static void OnPaneOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var pane = d as NewQuestionControl;
+            if (pane.IsPaneOpen)
+                pane.OpenMenu();
+            else
+                pane.CloseMenu();
+        }
+
         public NewQuestionControl()
         {
             this.InitializeComponent();
@@ -39,9 +60,11 @@ namespace HiNative.Controls
         private void grdNewQButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (_menuOpen)
-                CloseMenu();
+                IsPaneOpen = false;
+            //CloseMenu();
             else
-                OpenMenu();
+                IsPaneOpen = true;
+                //OpenMenu();
         }
 
         private void stkAskQuestion_Loaded(object sender, RoutedEventArgs e)
@@ -103,17 +126,20 @@ namespace HiNative.Controls
             // ignore a little bit velocity (+/-0.1)
             if (y <= -0.1)
             {
-                OpenMenu();
+                IsPaneOpen = true;
+                //OpenMenu();
             }
             else if (y > -0.1 && y < 0.1)
             {
                 if (Math.Abs(_newQBtnTransform.TranslateY) < Math.Abs(lstNewQuestion.ActualHeight) / 2)
                 {
-                    OpenMenu();
+                    IsPaneOpen = true;
+                    //OpenMenu();
                 }
                 else
                 {
-                    CloseMenu();
+                    IsPaneOpen = false;
+                    //CloseMenu();
                 }
             }
             else
@@ -156,7 +182,7 @@ namespace HiNative.Controls
 
         private void lstNewQuestion_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ListviewItemCick(sender, e);
+            //ListviewItemCick(sender, e);
         }
     }
 }

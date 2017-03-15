@@ -91,7 +91,7 @@ namespace HiNative.ViewModels
                     localSettings.Values["User_ID"] = res.profile.user_attributes.id;
                     localSettings.Values["API_Token"] = res.token;
                     await App.ViewModelLocator.Shell.CheckLoggedIn();
-                    App.ViewModelLocator.Main.InitPage();
+                    App.ViewModelLocator.Main.InitPageAsync();
                     _navigationService.NavigateTo(typeof(MainPage));
                     Username = string.Empty;
                     Password = string.Empty;
@@ -100,7 +100,10 @@ namespace HiNative.ViewModels
                 catch (Exception ex)
                 {
                     if (ex is HttpRequestException)
-                         await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
+                    {
+                        await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
+                        LoggerService.LogEvent("Login_failed");
+                    }
                     else
                         await new MessageDialog("The username or password your entered was incorrect").ShowAsync();
                 }
@@ -247,12 +250,16 @@ namespace HiNative.ViewModels
                     }
                     await App.ViewModelLocator.Shell.CheckLoggedIn();
                     App.ViewModelLocator.Main.CurrentUser = App.ViewModelLocator.Shell.CurrentUser;
-                    App.ViewModelLocator.Main.InitPage();
+                    App.ViewModelLocator.Main.InitPageAsync();
                     _navigationService.NavigateTo(typeof(MainPage));
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine(ex.Message);
+                    if (ex is HttpRequestException)
+                    {
+                        await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
+                    }
                     await new MessageDialog("Sign up failed, try a different username and/or email").ShowAsync();
                     LoggerService.LogEvent("Registration_failed");
                 }

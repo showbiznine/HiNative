@@ -4,6 +4,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:Controls="using:HiNative.Controls"
+      xmlns:Store="using:Microsoft.Advertising.WinRT.UI"
       xmlns:XamlBrewer="using:XamlBrewer.Uwp.Controls"
       xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
@@ -39,10 +40,20 @@
             <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.RowSpan="2">
+        <Store:AdControl x:Name="adQuestionPage"
+                         Width="320"
+                         Height="50"
+                         AdUnitId="336329"
+                         ApplicationId="c7ead89e-1e8d-4728-a855-d805ceccd3c7"
+                         HorizontalAlignment="Center"
+                         ErrorOccurred="adQuestionPage_ErrorOccurred"
+                         AdRefreshed="adQuestionPage_AdRefreshed"
+                         IsAutoRefreshEnabled="True"
+                         AutoRefreshIntervalInSeconds="20" />
+        <ScrollViewer Grid.Row="1">
             <StackPanel>
                 <Grid x:Name="grdQuestion"
                       Padding="0,0,0,12"
@@ -465,7 +476,8 @@
                                        TextWrapping="Wrap"
                                        Text="Codec issue: Some files may not play"
                                        VerticalAlignment="Center"
-                                       Grid.Column="1" />
+                                       Grid.Column="1"
+                                       Visibility="Collapsed" />
                         </Grid>
                         <Grid x:Name="grdAdditionlInfo"
                               Margin="16,16,16,4"
@@ -568,7 +580,8 @@
               VerticalAlignment="Bottom"
               BorderBrush="Black"
               BorderThickness="0"
-              Grid.RowSpan="2">
+              Height="50"
+              Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -735,11 +748,13 @@
         <ContentDialog x:Name="popEdit"
                        VerticalAlignment="Center"
                        Title="Edit"
-                       Margin="0"
+                       Margin="20,177,20,176"
                        PrimaryButtonText="Save"
                        SecondaryButtonText="Cancel"
-                       Grid.RowSpan="2"
-                       d:IsHidden="True">
+                       d:IsHidden="True"
+                       Height="255"
+                       Grid.Row="1"
+                       Width="320">
             <Grid>
                 <TextBox x:Name="txtEdit"
                          TextWrapping="Wrap"
@@ -750,7 +765,6 @@
         </ContentDialog>
         <MediaElement x:Name="mediaElement"
                       HorizontalAlignment="Left"
-                      Grid.RowSpan="2"
                       VerticalAlignment="Top"
                       AutoPlay="False"
                       Source="{Binding CurrentQuestion.audio_url}" />
@@ -761,20 +775,21 @@
                       Height="40"
                       Grid.Row="1"
                       IsActive="True"
-                      Visibility="Collapsed">
+                      Visibility="Collapsed"
+                      Margin="160,287,160,281">
             <ProgressRing.Foreground>
                 <SolidColorBrush Color="{StaticResource HiNativeOrange}" />
             </ProgressRing.Foreground>
         </ProgressRing>
         <Grid x:Name="grdLevelHint"
               HorizontalAlignment="Center"
-              Height="Auto"
-              Grid.RowSpan="2"
+              Height="0"
               Width="260"
               VerticalAlignment="Bottom"
-              Margin="0,0,0,70"
+              Margin="50,0,50,70"
               Visibility="Collapsed"
-              RenderTransformOrigin="0.5,0.5">
+              RenderTransformOrigin="0.5,0.5"
+              Grid.Row="1">
             <Grid.Background>
                 <SolidColorBrush Color="{ThemeResource SystemBaseLowColor}" />
             </Grid.Background>

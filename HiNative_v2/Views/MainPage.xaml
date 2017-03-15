@@ -110,11 +110,16 @@
                     Grid.Row="1" 
                     VerticalAlignment="Top"
                     Background="{ThemeResource TopBarBG}">
-            <Store:AdControl x:Name="adMainPage" Width="320"
+            <Store:AdControl x:Name="adMainPage" 
+                             Width="320"
                              Height="50"
                              AdUnitId="336329"
                              ApplicationId="c7ead89e-1e8d-4728-a855-d805ceccd3c7"
-                             HorizontalAlignment="Center" ErrorOccurred="adMainPage_ErrorOccurred" AdRefreshed="adMainPage_AdRefreshed" IsAutoRefreshEnabled="True" AutoRefreshIntervalInSeconds="20"/>
+                             HorizontalAlignment="Center" 
+                             ErrorOccurred="adMainPage_ErrorOccurred" 
+                             AdRefreshed="adMainPage_AdRefreshed" 
+                             IsAutoRefreshEnabled="True" 
+                             AutoRefreshIntervalInSeconds="20"/>
             <Grid x:Name="grdFilter"
                 Margin="0"
                 VerticalAlignment="Top"
@@ -222,7 +227,9 @@
                 </ProgressBar>
             </Grid>
         </StackPanel>
-        <Controls:NewQuestionControl x:Name="NewQuestionControl" Grid.Row="1"/>
+        <Controls:NewQuestionControl x:Name="NewQuestionControl" 
+                                     Grid.Row="1"
+                                     IsPaneOpen="{Binding IsNewQuestionPaneOpen, Mode=TwoWay}"/>
         <!--<StackPanel x:Name="stkAskQuestion"
                     Margin="0"
                     VerticalAlignment="Bottom"

@@ -126,9 +126,17 @@ namespace HiNative.ViewModels
                     #region Attachments
                     if (UploadImages.Count > 0)
                     {
-                        var file = await StorageFile.GetFileFromPathAsync(UploadImages[0].UriSource.AbsolutePath);
-                        var response = await DataService.UploadAttachment(file, true, false);
-                        answer.image = new HNImage { id = response.image.id };
+                        try
+                        {
+                            var file = await StorageFile.GetFileFromPathAsync(UploadImages[0].UriSource.AbsolutePath);
+                            var response = await DataService.UploadAttachment(file, true, false);
+                            answer.image = new HNImage { id = response.image.id };
+                        }
+                        catch (Exception)
+                        {
+                            await new MessageDialog("We're having trouble uploading that attachment").ShowAsync();
+                            LoggerService.LogEvent("Attachment_upload_failed");
+                        }
                     }
                     #endregion
 
@@ -209,7 +217,7 @@ namespace HiNative.ViewModels
 
         private async Task CheckCameras()
         {
-            var devices = await DeviceInformation.FindAllAsync(Windows.Devices.Enumeration.DeviceClass.VideoCapture);
+            var devices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
             IsCameraAvailable = false;
             if (devices.Count < 1)
                 IsCameraAvailable = false;
@@ -227,10 +235,18 @@ namespace HiNative.ViewModels
                 TotalVotes = TotalVotes + (int)key.count;
             }
             Answers = new ObservableCollection<HNAnswer>();
-            var temp = await DataService.LoadQuestionAndAnswers(qID);
-            foreach (var item in temp.question.answers)
+            try
             {
-                Answers.Add(item);
+                var temp = await DataService.LoadQuestionAndAnswers(qID);
+                foreach (var item in temp.question.answers)
+                {
+                    Answers.Add(item);
+                }
+            }
+            catch (Exception)
+            {
+                await new MessageDialog("We're having trouble loading this question").ShowAsync();
+                LoggerService.LogEvent("Load_question_failed");
             }
             InCall = false;
         }
@@ -240,16 +256,26 @@ namespace HiNative.ViewModels
             InCall = true;
             TotalVotes = 0;
             Answers = new ObservableCollection<HNAnswer>();
-            var temp = await DataService.LoadQuestionAndAnswers(qID);
-            CurrentQuestion = temp.question;
-            foreach (var key in CurrentQuestion.keywords)
+            try
             {
-                TotalVotes = TotalVotes + (int)key.count;
+                var temp = await DataService.LoadQuestionAndAnswers(qID);
+                CurrentQuestion = temp.question;
+                foreach (var key in CurrentQuestion.keywords)
+                {
+                    TotalVotes = TotalVotes + (int)key.count;
+                }
+                foreach (var item in temp.question.answers)
+                {
+                    Answers.Add(item);
+                }
+
             }
-            foreach (var item in temp.question.answers)
+            catch (Exception)
             {
-                Answers.Add(item);
+                await new MessageDialog("We're having trouble loading this question").ShowAsync();
+                LoggerService.LogEvent("Load_question_failed");
             }
+
             InCall = false;
         }
     }

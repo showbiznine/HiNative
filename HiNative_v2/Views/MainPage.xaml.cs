@@ -24,6 +24,7 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Shapes;
 using WinRTXamlToolkit.Controls.Extensions;
+using System.Threading.Tasks;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -34,15 +35,15 @@ namespace HiNative.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        Compositor _compositor;
-        private Visual _newQuestionList;
-        private Visual _newQuestionPanel;
-        private CompositeTransform _newQBtnTransform;
-        bool _menuOpen = false;
+        //Compositor _compositor;
+        //private Visual _newQuestionList;
+        //private Visual _newQuestionPanel;
+        //private CompositeTransform _newQBtnTransform;
+        //bool _menuOpen = false;
+        //private float _panelOffset;
+        //private ScalarKeyFrameAnimation _openAnimation;
+        //private ScalarKeyFrameAnimation _closeAnimation;
 
-        private float _panelOffset;
-        private ScalarKeyFrameAnimation _openAnimation;
-        private ScalarKeyFrameAnimation _closeAnimation;
         private ScrollViewer _listScroller;
         private bool _scrolling;
         private double _startPosition;
@@ -50,13 +51,13 @@ namespace HiNative.Views
         public MainPage()
         {
             this.InitializeComponent();
-            NewQuestionControl.ListviewItemCick += new EventHandler<ItemClickEventArgs>(NewQuestionItemClick);
+            //NewQuestionControl.ListviewItemCick += new EventHandler<ItemClickEventArgs>(NewQuestionItemClick);
         }
 
-        private void NewQuestionItemClick(object sender, ItemClickEventArgs e)
-        {
-            (DataContext as MainViewModel).NewQuestionClick(e);
-        }
+        //private void NewQuestionItemClick(object sender, ItemClickEventArgs e)
+        //{
+        //    (DataContext as MainViewModel).NewQuestionClick(e);
+        //}
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -200,7 +201,7 @@ namespace HiNative.Views
             }
         }
 
-        private void ListScroller_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        private async void ListScroller_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
         {
             // When 30 px from the end of the list, load more items
             ScrollViewer view = (ScrollViewer)sender;
@@ -208,7 +209,7 @@ namespace HiNative.Views
             if (progress < 60 & !App.ViewModelLocator.Main.InCall &&
                 App.ViewModelLocator.Main.PageNumber < App.ViewModelLocator.Main.MaxPages)
             {
-                App.ViewModelLocator.Main.LoadData(true);
+                await App.ViewModelLocator.Main.LoadData(true);
             }
         }
 

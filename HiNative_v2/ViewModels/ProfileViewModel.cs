@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Media.Imaging;
 using static HiNative.ViewModels.ProfileSearchViewModel;
+using Windows.UI.Popups;
 
 namespace HiNative.ViewModels
 {
@@ -59,10 +60,18 @@ namespace HiNative.ViewModels
         {
             CanEdit = false;
             User = new HNUserProfile();
-            User = await DataService.LoadProfile(uID);
-            if (UserName != User.user_attributes.name)
-                UserName = User.user_attributes.name;
-            CanEdit = User.user_attributes.id == App.ViewModelLocator.Shell.CurrentUser.user_attributes.id;
+            try
+            {
+                User = await DataService.LoadProfile(uID);
+                if (UserName != User.user_attributes.name)
+                    UserName = User.user_attributes.name;
+                CanEdit = User.user_attributes.id == App.ViewModelLocator.Shell.CurrentUser.user_attributes.id;
+            }
+            catch (Exception)
+            {
+                await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
+                LoggerService.LogEvent("Load_profile_failed");
+            }
         }
 
         private void SearchProfile(ProfileSearchType type)

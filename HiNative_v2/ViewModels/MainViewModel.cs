@@ -12,7 +12,6 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using HiNative.Services;
 using HiNative.API.Models;
-using HiNative.Services;
 using Windows.UI.Xaml;
 using Windows.UI.Popups;
 using System.Net.Http;
@@ -27,6 +26,7 @@ namespace HiNative.ViewModels
         private INavigationService _navigationService { get { return ServiceLocator.Current.GetInstance<INavigationService>(); } }
         public HNUserProfile CurrentUser { get; set; }
         public bool InCall { get; set; }
+        public bool IsNewQuestionPaneOpen { get; set; }
         public int PageNumber { get; set; }
         public int MaxPages { get; set; }
         public HNQuestionsResult QuestionsResult { get; set; }
@@ -56,17 +56,17 @@ namespace HiNative.ViewModels
             }
             else
             {
-                InitPage();
+                InitPageAsync();
             }
         }
 
-        public void InitPage()
-        {            
+        public async void InitPageAsync()
+        {
             CurrentUser = App.ViewModelLocator.Shell.CurrentUser;
             Filters = new HNFilter { interesting_questions_only = false, questions_not_answered_only = false, questions_with_audios_only = false };
             LoadTopics();
             PageNumber = 1;
-            LoadData(false);
+            await LoadData(false);
             InitializeCommands();
         }
 
@@ -77,15 +77,6 @@ namespace HiNative.ViewModels
             {
                 var q = args.ClickedItem as HNQuestion;
 
-                var lv = args.OriginalSource as ListView;
-                var lvi = lv.ContainerFromItem(q) as ListViewItem;
-                LastSelectedGrid = lvi.ContentTemplateRoot as Grid;
-
-                //if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
-                //{
-                //    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("questionRoot", LastSelectedGrid);
-
-                //}
                 App.ViewModelLocator.Question.CurrentQuestion = q;
                 App.ViewModelLocator.Question.LoadAnswers((int)q.id);
                 _navigationService.NavigateTo(typeof(QuestionPage));
@@ -94,23 +85,23 @@ namespace HiNative.ViewModels
             {
                 NewQuestionClick(args);
             });
-            SelectTopicCommand = new RelayCommand(() => LoadData(false));
+            SelectTopicCommand = new RelayCommand(async () => await LoadData(false));
             FilterChangedCommand = new RelayCommand(async () =>
             {
                 var res = await DataService.PostFilter(Filters);
                 if (res.IsSuccessStatusCode)
                 {
-                    LoadData(false);
+                    await LoadData(false);
                 }
                 else
                 {
                     await new MessageDialog("Failed to set filters", "Error").ShowAsync();
                 }
             });
-            RefreshCommand = new RelayCommand(() => LoadData(false));
-            GoToNotificationsCommand = new RelayCommand(() =>
+            RefreshCommand = new RelayCommand(async () => await LoadData(false));
+            GoToNotificationsCommand = new RelayCommand(async () =>
             {
-                App.ViewModelLocator.Notifications.LoadNotifications(false);
+                await App.ViewModelLocator.Notifications.LoadNotifications(false);
                 _navigationService.NavigateTo(typeof(NotificationsPage));
             });
         }
@@ -138,6 +129,7 @@ namespace HiNative.ViewModels
                 App.ViewModelLocator.Compose.SelectedTopic = App.ViewModelLocator.Compose.Topics[0];
             }
             App.ViewModelLocator.Compose.SetupQuestion();
+            IsNewQuestionPaneOpen = false;
             _navigationService.NavigateTo(typeof(ComposeQuestionPage));
         }
 
@@ -191,7 +183,15 @@ namespace HiNative.ViewModels
 
         public async Task CheckUnreadCount()
         {
-            UnreadCount = await DataService.GetUnreadCount();
+            try
+            {
+                UnreadCount = await DataService.GetUnreadCount();
+
+            }
+            catch (Exception)
+            {
+                await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
+            }
         }
     }
 }

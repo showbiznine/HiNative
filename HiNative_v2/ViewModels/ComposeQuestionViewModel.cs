@@ -180,9 +180,17 @@ namespace HiNative.ViewModels
                 #region Attachments
                 if (UploadImages.Count > 0)
                 {
-                    var file = await StorageFile.GetFileFromPathAsync(UploadImages[0].UriSource.AbsolutePath);
-                    var response = await DataService.UploadAttachment(file, true, false);
-                    question.image = new HNImage { id = response.image.id };
+                    try
+                    {
+                        var file = await StorageFile.GetFileFromPathAsync(UploadImages[0].UriSource.AbsolutePath);
+                        var response = await DataService.UploadAttachment(file, true, false);
+                        question.image = new HNImage { id = response.image.id };
+                    }
+                    catch (Exception)
+                    {
+                        await new MessageDialog("We're having trouble uploading that image").ShowAsync();
+                        LoggerService.LogEvent("Image_upload_failed");
+                    }
                 }
                 #endregion
 

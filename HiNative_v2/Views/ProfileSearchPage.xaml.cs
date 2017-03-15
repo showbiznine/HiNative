@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -50,14 +51,14 @@ namespace HiNative.Views
             }
         }
 
-        private void ListScroller_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        private async void ListScroller_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
         {
             // When 30 px from the end of the list, load more items
             ScrollViewer view = (ScrollViewer)sender;
             double progress = view.ScrollableHeight - view.VerticalOffset;
             if (progress < 60 & !App.ViewModelLocator.ProfileSearch.InCall && App.ViewModelLocator.ProfileSearch.PageNumber < App.ViewModelLocator.ProfileSearch.QuestionsResult.pagination.total_pages)
             {
-                App.ViewModelLocator.ProfileSearch.LoadData(true, ViewModels.ProfileSearchViewModel.ProfileSearchType.notype);
+                await App.ViewModelLocator.ProfileSearch.LoadData(true, ViewModels.ProfileSearchViewModel.ProfileSearchType.notype);
             }
         }
     }

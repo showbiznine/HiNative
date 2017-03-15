@@ -52,7 +52,7 @@ namespace HiNative
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             StoreLogger = StoreServicesCustomEventLogger.GetDefault();
             Debug.WriteLine(this.RequestedTheme);
@@ -90,7 +90,7 @@ namespace HiNative
             #endregion
 
             HockeyClient.Current.Configure("8de5fa42d2b445baaf5498c6cc23638b ");
-            SetupStoreAsync();
+            await SetupStoreAsync();
 
             Frame rootFrame = Window.Current.Content as Frame;
 

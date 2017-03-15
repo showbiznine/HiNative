@@ -26,6 +26,13 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#FF7040" />
       </uap:VisualElements>
       <Extensions>
+        <uap:Extension Category="windows.mediaPlayback">
+          <uap:MediaPlayback>
+            <uap:Codec Name="mp3" />
+            <uap:Codec Name="aac" />
+            <uap:Codec Name="mp4" />
+          </uap:MediaPlayback>
+        </uap:Extension>
         <Extension Category="windows.backgroundTasks" EntryPoint="HiNativeBG.BackgroundTask">
           <BackgroundTasks>
             <Task Type="general" />

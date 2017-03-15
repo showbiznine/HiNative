@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -50,7 +51,7 @@ namespace HiNative.Views
             }
         }
 
-        private void ListScroller_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        private async void ListScroller_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
         {
             // When 30 px from the end of the list, load more items
             ScrollViewer view = (ScrollViewer)sender;
@@ -58,7 +59,7 @@ namespace HiNative.Views
             if (progress < 60 & !App.ViewModelLocator.Notifications.InCall &&
                 App.ViewModelLocator.Notifications.PageNumber < App.ViewModelLocator.Notifications.ActivityRoot.pagination.total_pages)
             {
-                App.ViewModelLocator.Notifications.LoadNotifications(true);
+                await App.ViewModelLocator.Notifications.LoadNotifications(true);
             }
         }
     }
