@@ -129,7 +129,7 @@ namespace HiNative
             }
         }
 
-        private async void SetupStoreAsync()
+        private async Task SetupStoreAsync()
         {
             StoreServicesEngagementManager engagementManager = StoreServicesEngagementManager.GetDefault();
             await engagementManager.RegisterNotificationChannelAsync();

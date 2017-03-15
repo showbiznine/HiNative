@@ -207,7 +207,7 @@ namespace HiNative.ViewModels
             #endregion
         }
 
-        private async void CheckCameras()
+        private async Task CheckCameras()
         {
             var devices = await DeviceInformation.FindAllAsync(Windows.Devices.Enumeration.DeviceClass.VideoCapture);
             IsCameraAvailable = false;
@@ -218,7 +218,7 @@ namespace HiNative.ViewModels
             SelectPhotoCommand.CanExecute(IsCameraAvailable);
         }
 
-        public async void LoadAnswers(int qID)
+        public async Task LoadAnswers(int qID)
         {
             InCall = true;
             TotalVotes = 0;
@@ -235,7 +235,7 @@ namespace HiNative.ViewModels
             InCall = false;
         }
 
-        public async void LoadQuestion(int qID)
+        public async Task LoadQuestion(int qID)
         {
             InCall = true;
             TotalVotes = 0;

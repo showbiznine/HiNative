@@ -90,7 +90,7 @@ namespace HiNative.ViewModels
             });
         }
 
-        public async void LoadData(bool append, ProfileSearchType type)
+        public async Task LoadData(bool append, ProfileSearchType type)
         {
             if (type == ProfileSearchType.notype)
                 type = _currentType;
@@ -122,7 +122,7 @@ namespace HiNative.ViewModels
             InCall = false;
         }
 
-        public async void CheckUnreadCount()
+        public async Task CheckUnreadCount()
         {
             UnreadCount = await DataService.GetUnreadCount();
         }

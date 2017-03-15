@@ -60,7 +60,7 @@ namespace HiNative.ViewModels
             });
         }
 
-        public async void LoadNotifications(bool append)
+        public async Task LoadNotifications(bool append)
         {
             InCall = true;
             if (append)

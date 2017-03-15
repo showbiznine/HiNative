@@ -17,6 +17,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Popups;
 using System.Net.Http;
 using Windows.Foundation.Metadata;
+using System.Threading.Tasks;
 
 namespace HiNative.ViewModels
 {
@@ -154,7 +155,7 @@ namespace HiNative.ViewModels
             SelectedTopic = Topics[0];
         }
 
-        public async void LoadData(bool append)
+        public async Task LoadData(bool append)
         {
             if (append)
                 PageNumber++;
@@ -188,7 +189,7 @@ namespace HiNative.ViewModels
             InCall = false;
         }
 
-        public async void CheckUnreadCount()
+        public async Task CheckUnreadCount()
         {
             UnreadCount = await DataService.GetUnreadCount();
         }

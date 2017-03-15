@@ -229,7 +229,7 @@ namespace HiNative.ViewModels
             FrameNavigatedCommand = new RelayCommand(() => IsMenuOpen = false);
         }
 
-        private async void LeaveFeedbackAsync()
+        private async Task LeaveFeedbackAsync()
         {
             if (StoreServicesFeedbackLauncher.IsSupported())
             {

@@ -55,7 +55,7 @@ namespace HiNative.ViewModels
             SearchUserFeaturedAnswers = new RelayCommand(() => SearchProfile(ProfileSearchType.featured_answers));
         }
 
-        public async void LoadUser(int uID)
+        public async Task LoadUser(int uID)
         {
             CanEdit = false;
             User = new HNUserProfile();
