@@ -13,6 +13,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -66,7 +67,7 @@ namespace HiNative
             }
             else
             {
-                var titleBar = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TitleBar;
+                var titleBar = ApplicationView.GetForCurrentView().TitleBar;
 
                 // set up our brushes
                 var blue = (SolidColorBrush)Current.Resources["TopBarBG"];
@@ -74,18 +75,15 @@ namespace HiNative
                 var hoverB = (Color)Current.Resources["SystemAltLowColor"];
 
                 // override colors!
-                titleBar.BackgroundColor = blue.Color;
-                titleBar.ForegroundColor = Colors.White;
-                titleBar.ButtonBackgroundColor = blue.Color;
-                titleBar.ButtonForegroundColor = Colors.White;
-                titleBar.ButtonHoverBackgroundColor = hoverB;
-                titleBar.ButtonHoverForegroundColor = hoverF;
-                titleBar.ButtonPressedBackgroundColor = blue.Color;
-                titleBar.ButtonPressedForegroundColor = Colors.Black;
+                titleBar.BackgroundColor = Colors.Transparent;
+                titleBar.ButtonBackgroundColor = Colors.Transparent;
                 titleBar.InactiveBackgroundColor = blue.Color;
                 titleBar.InactiveForegroundColor = hoverF;
                 titleBar.ButtonInactiveBackgroundColor = blue.Color;
                 titleBar.ButtonInactiveForegroundColor = hoverF;
+
+                var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+                coreTitleBar.ExtendViewIntoTitleBar = true;
             }
             #endregion
 

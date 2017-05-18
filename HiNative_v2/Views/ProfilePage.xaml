@@ -445,7 +445,7 @@
                     </Grid>
                 </StackPanel>
             </ScrollViewer>
-            <Rectangle HorizontalAlignment="Stretch"
+            <Rectangle x:Name="recTop" HorizontalAlignment="Stretch"
                        VerticalAlignment="Stretch"
                        Fill="{ThemeResource TopBarBG}"
                        Margin="0" />

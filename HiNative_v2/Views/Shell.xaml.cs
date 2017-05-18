@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HiNative.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,9 +24,11 @@ namespace HiNative.Views
     /// </summary>
     public sealed partial class Shell : Page
     {
+        public ShellViewModel VM;
         public Shell()
         {
             this.InitializeComponent();
+            VM = this.DataContext as ShellViewModel;
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
             myFrame.Navigated += OnFrameNavigated;
         }
@@ -37,15 +40,15 @@ namespace HiNative.Views
                 AppViewBackButtonVisibility.Visible :
                 AppViewBackButtonVisibility.Collapsed;
 
-            if (myFrame.Content.ToString().Contains("Main"))
-                hmbHome.IsChecked = true;
-            else
-                hmbHome.IsChecked = false;
+            //if (myFrame.Content.ToString().Contains("Main"))
+            //    hmbHome.IsChecked = true;
+            //else
+            //    hmbHome.IsChecked = false;
 
-            if (myFrame.Content.ToString().Contains("Settings"))
-                hmbSettings.IsChecked = true;
-            else
-                hmbSettings.IsChecked = false;
+            //if (myFrame.Content.ToString().Contains("Settings"))
+            //    hmbSettings.IsChecked = true;
+            //else
+            //    hmbSettings.IsChecked = false;
         }
 
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
@@ -57,15 +60,28 @@ namespace HiNative.Views
             }
         }
 
-        private async void mySplitView_Loaded(object sender, RoutedEventArgs e)
+        //private async void mySplitView_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    await App.ViewModelLocator.Shell.CheckLoggedIn();
+        //}
+
+        private void NavigationView_SettingsInvoked(NavigationView sender, object args)
         {
-            await App.ViewModelLocator.Shell.CheckLoggedIn();
+            VM.navigationService.NavigateTo(typeof(SettingsPage));
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private async void myFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            //mySplitView.IsSwipeablePaneOpen = !mySplitView.IsSwipeablePaneOpen;
-            mySplitView.IsPaneOpen = !mySplitView.IsPaneOpen;
+            await App.ViewModelLocator.Shell.CheckLoggedIn();
+
+        }
+
+        private void NavView_Loaded(object sender, RoutedEventArgs e)
+        {
+            NavView.MenuItems.Add(new NavigationMenuItem()
+            { Text = "Home", Icon = new SymbolIcon(Symbol.Home), Tag = "home" });
+            NavView.MenuItems.Add(new NavigationMenuItem()
+            { Text = "Apps", Icon = new SymbolIcon(Symbol.AllApps), Tag = "apps" });
         }
     }
 }

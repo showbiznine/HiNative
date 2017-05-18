@@ -47,11 +47,34 @@ namespace HiNative.Views
         private ScrollViewer _listScroller;
         private bool _scrolling;
         private double _startPosition;
+        private Compositor _compositor;
 
         public MainPage()
         {
             this.InitializeComponent();
+            _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
+            SetupAnimations();
             //NewQuestionControl.ListviewItemCick += new EventHandler<ItemClickEventArgs>(NewQuestionItemClick);
+        }
+
+        private void SetupAnimations()
+        {
+            var topBarShowAnimation = _compositor.CreateScalarKeyFrameAnimation();
+            topBarShowAnimation.Target = "Translation.Y";
+            topBarShowAnimation.Duration = TimeSpan.FromMilliseconds(300);
+            topBarShowAnimation.InsertKeyFrame(0, -100f);
+            topBarShowAnimation.InsertKeyFrame(1, 0);
+
+            ElementCompositionPreview.SetImplicitShowAnimation(grdTop, topBarShowAnimation);
+
+            var topBarHideAnimation = _compositor.CreateScalarKeyFrameAnimation();
+            topBarHideAnimation.Target = "Translation.Y";
+            topBarHideAnimation.Duration = TimeSpan.FromMilliseconds(300);
+            topBarHideAnimation.InsertKeyFrame(1, -100f);
+
+            ElementCompositionPreview.SetIsTranslationEnabled(grdTop, true);
+            ElementCompositionPreview.SetImplicitShowAnimation(grdTop, topBarShowAnimation);
+            ElementCompositionPreview.SetImplicitHideAnimation(grdTop, topBarHideAnimation);
         }
 
         //private void NewQuestionItemClick(object sender, ItemClickEventArgs e)
@@ -218,13 +241,16 @@ namespace HiNative.Views
             var clickedItem = (HNQuestion)e.ClickedItem;
             var container = ((PullToRefreshListView)e.OriginalSource).ContainerFromItem(e.ClickedItem) as ListViewItem;
             var grid = container.ContentTemplateRoot;
-            //var questionRoot = grid.GetFirstDescendantOfType<Grid>();
-            //var profilePicture = grid.GetFirstDescendantOfType<Ellipse>();
+            App.ViewModelLocator.Main.LastSelectedGrid = (Grid)grid;
+            var questionRoot = grid.GetFirstDescendantOfType<Grid>();
+            var profilePicture = grid.GetFirstDescendantOfType<Ellipse>();
 
-            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
-            {
-                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("QuestionRoot", grid);
-            }
+            listView.PrepareConnectedAnimation("ProfilePicture", e.ClickedItem, "ellProfilePicture");
+
+            //if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
+            //{
+            //    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("QuestionRoot", grid);
+            //}
         }
 
         private void adMainPage_AdRefreshed(object sender, RoutedEventArgs e)

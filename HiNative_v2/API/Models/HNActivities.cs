@@ -10,6 +10,7 @@ namespace HiNative.API.Models
     public class HNActivities
     {
         public ObservableCollection<HNActivity> activities { get; set; }
+        public int unread_count { get; set; }
         public HNPagination pagination { get; set; }
     }
 }

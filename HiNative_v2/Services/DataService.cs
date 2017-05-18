@@ -19,6 +19,7 @@ namespace HiNative.Services
     public class DataService
     {
         static string _host = "https://hinative.com/api/v1/";
+        static string _hostV2 = "https://hinative.com/api/v2/";
         static Uri _missingImage = new Uri("ms-appx:/Assets/icon_h120.png");
 
         #region Users
@@ -532,7 +533,7 @@ namespace HiNative.Services
 
         public static async Task<HNUnreadCount> GetUnreadCount()
         {
-            string query = _host + "activities/unread_count";
+            string query = _hostV2 + "activities/unread_count";
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             HttpClient http = new HttpClient();
             http.DefaultRequestHeaders.Add("Authorization", "Token token=\"" + localSettings.Values["API_Token"] + "\"");
@@ -540,7 +541,7 @@ namespace HiNative.Services
             var response = await http.GetAsync(query);
             var jsonMessage = await response.Content.ReadAsStringAsync();
 
-            var result = JsonConvert.DeserializeObject<HNUnreadCount>(jsonMessage);
+             var result = JsonConvert.DeserializeObject<HNUnreadCount>(jsonMessage);
             return result;
         }
 

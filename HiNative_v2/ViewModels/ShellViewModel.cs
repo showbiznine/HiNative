@@ -27,9 +27,8 @@ namespace HiNative.ViewModels
     public class ShellViewModel : ViewModelBase
     {
         #region Fields
-        private INavigationService _navigationService { get { return ServiceLocator.Current.GetInstance<INavigationService>(); } }
+        public INavigationService navigationService { get { return ServiceLocator.Current.GetInstance<INavigationService>(); } }
         public HNUserProfile CurrentUser { get; set; }
-        public bool IsMenuOpen { get; set; }
 
         InterstitialAd myInterstitialAd = null;
         string myAppId = "c7ead89e-1e8d-4728-a855-d805ceccd3c7";
@@ -59,11 +58,10 @@ namespace HiNative.ViewModels
             }
             else
             {
-                CheckForUpdates();
+                //CheckForUpdates();
                 var task = RegisterBackgroundTask("CheckNotificationsTask",
                     new TimeTrigger(15, false),
                     null);
-                IsMenuOpen = false;
                 InitializeCommands();
                 SetupAds();
             }
@@ -212,21 +210,20 @@ namespace HiNative.ViewModels
             GoToCurrentUserProfileCommand = new RelayCommand(async () =>
             {
                 await App.ViewModelLocator.Profile.LoadUser(CurrentUser.user_attributes.id);
-                _navigationService.NavigateTo(typeof(ProfilePage));
+                navigationService.NavigateTo(typeof(ProfilePage));
             });
             GoToSettingsCommand = new RelayCommand(() => 
             {
-                _navigationService.NavigateTo(typeof(SettingsPage));
+                navigationService.NavigateTo(typeof(SettingsPage));
             });
             GoToHomeCommand = new RelayCommand(() => 
             {
-                _navigationService.NavigateTo(typeof(MainPage));
+                navigationService.NavigateTo(typeof(MainPage));
             });
             LeaveFeedbackCommand = new RelayCommand(async () =>
             {
                 await LeaveFeedbackAsync();
             });
-            FrameNavigatedCommand = new RelayCommand(() => IsMenuOpen = false);
         }
 
         private async Task LeaveFeedbackAsync()
@@ -261,10 +258,10 @@ namespace HiNative.ViewModels
                 if (id != null)
                 {
                     CurrentUser = await DataService.LoadProfile(Convert.ToInt32(id));
-                    _navigationService.NavigateTo(typeof(MainPage));
+                    navigationService.NavigateTo(typeof(MainPage));
                 }
                 else
-                    _navigationService.NavigateTo(typeof(LoginPage));
+                    navigationService.NavigateTo(typeof(LoginPage));
             }
             catch (Exception ex)
             {

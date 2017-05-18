@@ -16,23 +16,11 @@
         </Grid.RowDefinitions>
         <Grid x:Name="grdTopBar"
               Margin="0"
-              d:LayoutOverrides="TopPosition, BottomPosition"
               Background="{ThemeResource TopBarBG}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="48" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button x:Name="button"
-                    Content="&#xE700;"
-                    HorizontalAlignment="Stretch"
-                    Margin="0"
-                    VerticalAlignment="Stretch"
-                    d:LayoutOverrides="Width, Height"
-                    Background="#00000000"
-                    FontSize="24"
-                    FontFamily="Segoe MDL2 Assets"
-                    Foreground="{ThemeResource TopBarText}">
-            </Button>
             <TextBlock x:Name="textBlock"
                        Margin="12,0,0,0"
                        TextWrapping="Wrap"

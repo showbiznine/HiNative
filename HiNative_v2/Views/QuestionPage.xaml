@@ -74,9 +74,10 @@
                             Margin="0,12,0,0"
                             Background="#00000000">
                         <Ellipse x:Name="ellProfilePicture"
-                                 Stroke="#FFE86435">
+                                 Stroke="#FFE86435"
+                                 Loaded="ellProfilePicture_Loaded">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="{Binding CurrentQuestion.user.profile_image, Mode=OneWay}" />
+                                <ImageBrush ImageSource="{Binding CurrentQuestion.user.profile_image, Mode=OneWay}"/>
                             </Ellipse.Fill>
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Tapped">

@@ -50,18 +50,15 @@ namespace HiNative.Views
             base.OnNavigatedTo(e);
             if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
             {
-                var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("QuestionRoot");
+                //var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("QuestionRoot");
+                //if (anim != null)
+                //{
+                //    //anim.TryStart(grdQuestion);
+                //}
+                var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("ProfilePicture");
                 if (anim != null)
                 {
-                    anim.TryStart(grdQuestion);
-                }
-                else
-                {
-                    anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("ProfilePicture");
-                    if (anim != null)
-                    {
-                        anim.TryStart(App.ViewModelLocator.Question.LastClickedProfilePic);
-                    }
+                    anim.TryStart(ellProfilePicture, new UIElement[] { grdQuestion });
                 }
             }
         }
@@ -194,6 +191,11 @@ namespace HiNative.Views
         }
 
         private void adQuestionPage_AdRefreshed(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ellProfilePicture_Loaded(object sender, RoutedEventArgs e)
         {
 
         }

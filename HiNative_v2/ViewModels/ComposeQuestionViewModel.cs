@@ -72,7 +72,6 @@ namespace HiNative.ViewModels
 
         private void InitializeCommands()
         {
-            ToggleMenuCommand = new RelayCommand(() => { App.ViewModelLocator.Shell.IsMenuOpen = !App.ViewModelLocator.Shell.IsMenuOpen; });
             PostQuestionCommand = new RelayCommand(async () =>
             {
                 #region Build Question

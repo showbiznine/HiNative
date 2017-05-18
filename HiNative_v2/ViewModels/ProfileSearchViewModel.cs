@@ -71,7 +71,6 @@ namespace HiNative.ViewModels
 
         private void InitializeCommands()
         {
-            ToggleMenuCommand = new RelayCommand(() => { App.ViewModelLocator.Shell.IsMenuOpen = !App.ViewModelLocator.Shell.IsMenuOpen; });
             SelectQuestionCommand = new RelayCommand<ItemClickEventArgs>(args =>
             {
                 var q = args.ClickedItem as HNQuestion;
