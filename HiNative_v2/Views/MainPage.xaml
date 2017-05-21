@@ -26,46 +26,31 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="48" />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <ToolkitControls:PullToRefreshListView x:Name="listView"
-                  ItemTemplate="{StaticResource QuestionListTemplate}"
-                  ItemsSource="{Binding Questions}"
-                  SelectionMode="None"
-                  IsItemClickEnabled="True"
-                  ItemContainerStyle="{StaticResource ListViewItemStyle2}"
-                  Grid.Row="1"
-                  Padding="0,48,0,64"
-                  Loaded="listView_Loaded"
-                                               RefreshCommand="{Binding RefreshCommand}" Margin="0,50,0,0" ItemClick="listView_ItemClick">
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="ItemClick">
-                    <Core:InvokeCommandAction Command="{Binding SelectQuestionCommand}" />
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
-        </ToolkitControls:PullToRefreshListView>
-        <Grid x:Name="grdTop" Grid.RowSpan="2" VerticalAlignment="Top">
+        <StackPanel x:Name="grdTop" 
+              VerticalAlignment="Top"
+              Background="White"
+              Padding="32,64,0,0">
             <Grid x:Name="grdTopBar"
-                Margin="0,0,0,94"
-                Background="{ThemeResource TopBarBG}">
+                  Margin="0,0,0,8">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="48" />
                     <ColumnDefinition />
-                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <TextBlock x:Name="lblPageName"
-                    Margin="12,0"
-                    TextWrapping="Wrap"
-                    x:Uid="home_tab_bar_item_title" Text="Home"
-                    d:LayoutOverrides="Width"
-                    Grid.Column="1"
+                           Margin="12,0"
+                        TextWrapping="Wrap"
+                        x:Uid="home_tab_bar_item_title" 
+                           Text="HiNative"
+                    Grid.Column="0"
                     VerticalAlignment="Center"
-                    FontSize="20"
+                    FontSize="24"
                     TextLineBounds="Tight"
                     FontWeight="SemiBold"
                     FontFamily="ms-appx:/Fonts/Sofia_Pro_Soft_Bold.ttf#SofiaProSoftW01-Bold"
-                    Foreground="{ThemeResource TopBarText}" />
+                    Foreground="{ThemeResource MainOrangeBrush}" />
                 <Button x:Name="button_Copy"
                     HorizontalAlignment="Stretch"
                     Margin="0"
@@ -73,9 +58,9 @@
                     Background="#00000000"
                     FontSize="24"
                     FontFamily="Segoe UI Symbol"
-                    Grid.Column="2"
-                    Foreground="{ThemeResource TopBarText}"
-                    Command="{Binding GoToNotificationsCommand}">
+                    Grid.Column="1"
+                    Foreground="{ThemeResource MainOrangeBrush}"
+                    Command="{Binding GoToNotificationsCommand}" MinWidth="48">
                     <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center">
                         <TextBlock x:Name="textBlock6"
@@ -94,9 +79,10 @@
                     </StackPanel>
                 </Button>
             </Grid>
-            <StackPanel Orientation="Vertical" 
-                VerticalAlignment="Top"
-                Background="{ThemeResource TopBarBG}" Margin="0,48,0,0">
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Top"
+                        Background="White" 
+                        Margin="0,12,0,0">
                 <Store:AdControl x:Name="adMainPage" 
                     Width="320"
                     Height="50"
@@ -106,16 +92,16 @@
                     ErrorOccurred="adMainPage_ErrorOccurred" 
                     AdRefreshed="adMainPage_AdRefreshed" 
                     IsAutoRefreshEnabled="True" 
-                    AutoRefreshIntervalInSeconds="20"/>
+                    AutoRefreshIntervalInSeconds="20" Visibility="Collapsed" d:IsHidden="True"/>
                 <Grid x:Name="grdFilter"
                     Margin="0"
                     VerticalAlignment="Top"
                     Height="44">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
-                        <ColumnDefinition Width="44" />
-                        <ColumnDefinition Width="44" />
-                        <ColumnDefinition Width="44" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Horizontal"
                         d:LayoutOverrides="Width, Height, LeftPosition, RightPosition"
@@ -126,8 +112,8 @@
                             VerticalAlignment="Center"
                             TextLineBounds="Tight"
                             FontFamily="ms-appx:/Fonts/Sofia_Pro_Soft_Bold.ttf#SofiaProSoftW01-Bold"
-                            FontSize="16"
-                            Foreground="{ThemeResource TopBarText}"/>
+                            FontSize="36"
+                            Foreground="{ThemeResource MainOrangeBrush}"/>
                         <ComboBox x:Name="comboBox"
                             VerticalAlignment="Center"
                             d:LayoutOverrides="Width, LeftPosition, RightPosition"
@@ -138,7 +124,7 @@
                             ItemsSource="{Binding Topics}"
                             ItemTemplateSelector="{StaticResource LanguageCountrySelector}"
                             SelectedItem="{Binding SelectedTopic, Mode=TwoWay}"
-                            Foreground="{ThemeResource TopBarText}">
+                            Foreground="{ThemeResource MainOrangeBrush}" FontSize="36" Padding="12,5,0,5">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="SelectionChanged">
                                     <Core:InvokeCommandAction Command="{Binding SelectTopicCommand}" />
@@ -158,7 +144,7 @@
                         FontSize="22"
                         Style="{StaticResource FilterToggleButtonStyle}"
                         IsChecked="{Binding Filters.questions_not_answered_only, Mode=TwoWay}"
-                        Foreground="{ThemeResource TopBarText}">
+                        Foreground="{ThemeResource TopBarText}" Margin="8,0">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:InvokeCommandAction Command="{Binding FilterChangedCommand}" />
@@ -177,7 +163,7 @@
                         FontSize="22"
                         Style="{StaticResource FilterToggleButtonStyle}"
                         IsChecked="{Binding Filters.interesting_questions_only, Mode=TwoWay}"
-                        Foreground="{ThemeResource TopBarText}">
+                        Foreground="{ThemeResource TopBarText}" Margin="8,0">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:InvokeCommandAction Command="{Binding FilterChangedCommand}" />
@@ -196,7 +182,7 @@
                         FontSize="22"
                         Style="{StaticResource FilterToggleButtonStyle}"
                         IsChecked="{Binding Filters.questions_with_audios_only, Mode=TwoWay}"
-                        Foreground="{ThemeResource TopBarText}">
+                        Foreground="{ThemeResource TopBarText}" Margin="8,0">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
                                 <Core:InvokeCommandAction Command="{Binding FilterChangedCommand}" />
@@ -214,387 +200,25 @@
                     </ProgressBar>
                 </Grid>
             </StackPanel>
-        </Grid>
+            <ToolkitControls:PullToRefreshListView x:Name="listView"
+                                               ItemTemplate="{StaticResource QuestionListTemplate}"
+                                               ItemsSource="{Binding Questions}"
+                                               SelectionMode="None"
+                                               IsItemClickEnabled="True"
+                                               ItemContainerStyle="{StaticResource ListViewItemStyle2}"
+                                               Padding="32,24,32,64"
+                                               Loaded="listView_Loaded"
+                                               RefreshCommand="{Binding RefreshCommand}" 
+                                               Margin="0,0,-32,0" ItemClick="listView_ItemClick" Height="854">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="ItemClick">
+                        <Core:InvokeCommandAction Command="{Binding SelectQuestionCommand}" />
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </ToolkitControls:PullToRefreshListView>
+        </StackPanel>
         <Controls:NewQuestionControl x:Name="NewQuestionControl" 
                                      Grid.Row="1"
                                      IsPaneOpen="{Binding IsNewQuestionPaneOpen, Mode=TwoWay}"/>
-        <!--<StackPanel x:Name="stkAskQuestion"
-                    Margin="0"
-                    VerticalAlignment="Bottom"
-                    Grid.Row="1"
-                    >
-            <Border>
-                <Grid x:Name="grdNewQButton"
-                      Height="52"
-                      ManipulationMode="TranslateY"
-                      ManipulationStarted="grdNewQButton_ManipulationStarted"
-                      ManipulationDelta="grdNewQButton_ManipulationDelta"
-                      ManipulationCompleted="grdNewQButton_ManipulationCompleted"
-                      Tapped="grdNewQButton_Tapped">
-                    <Grid.RenderTransform>
-                        <CompositeTransform />
-                    </Grid.RenderTransform>
-
-                    <Rectangle x:Name="rectBg"
-                               Fill="{StaticResource MainOrangeBrush}"
-                               HorizontalAlignment="Stretch"
-                               VerticalAlignment="Stretch" />
-                    <Ellipse HorizontalAlignment="Center"
-                             Height="52"
-                             VerticalAlignment="Top"
-                             Width="52"
-                             Margin="0,-21,0,0"
-                             Fill="{StaticResource MainOrangeBrush}" />
-                    <TextBlock x:Name="textBlock1"
-                               HorizontalAlignment="Center"
-                               TextWrapping="Wrap"
-                               Text="ASK A QUESTION"
-                               VerticalAlignment="Top"
-                               Margin="0,24,0,0"
-                               FontWeight="Black"
-                               Foreground="White"
-                               CharacterSpacing="29" />
-                    <TextBlock x:Name="textBlock2"
-                               HorizontalAlignment="Center"
-                               TextWrapping="Wrap"
-                               Text="&#xE60B;"
-                               VerticalAlignment="Top"
-                               FontSize="36"
-                               Margin="0,-5,0,0"
-                               Foreground="White"
-                               FontFamily="ms-appx:/Fonts/icomoon.ttf#icomoon"
-                               TextLineBounds="Tight"
-                               FontWeight="Bold" />
-                </Grid>
-            </Border>
-
-            <Border>
-                <ListView x:Name="lstNewQuestion"
-                        BorderThickness="0,0,0,2"
-                        BorderBrush="#FFE86435"
-                        SelectionMode="None"
-                        VerticalAlignment="Top"
-                        ManipulationMode="None"
-                        Loaded="lstNewQuestion_Loaded"
-                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                        ScrollViewer.VerticalScrollMode="Disabled"
-                        IsItemClickEnabled="True">
-                    <Interactivity:Interaction.Behaviors>
-                        <Core:EventTriggerBehavior EventName="ItemClick">
-                            <Core:InvokeCommandAction Command="{Binding NewQuestionCommand}" />
-                        </Core:EventTriggerBehavior>
-                    </Interactivity:Interaction.Behaviors>
-                    <ListView.Background>
-                        <SolidColorBrush Color="{ThemeResource SystemChromeLowColor}" />
-                    </ListView.Background>
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalAlignment"
-                                    Value="Stretch" />
-                            <Setter Property="HorizontalContentAlignment"
-                                    Value="Stretch" />
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    <Grid x:Name="WhatsayQuestion"
-                          Height="64"
-                          VerticalAlignment="Top"
-                          Margin="0,0,0,0"
-                          BorderBrush="#FF424242"
-                          CornerRadius="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="48" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="1"
-                                    Margin="8,0,0,0"
-                                    Orientation="Vertical"
-                                    VerticalAlignment="Center">
-                            <TextBlock x:Name="textBlock3"
-                                       HorizontalAlignment="Left"
-                                       TextWrapping="Wrap"
-                                       Text="How do you say this?"
-                                       VerticalAlignment="Top">
-                                <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
-                                </TextBlock.Foreground>
-                            </TextBlock>
-                            <TextBlock x:Name="textBlock3_Copy5"
-                                       HorizontalAlignment="Left"
-                                       TextWrapping="Wrap"
-                                       Text="How do you say this in ~~?"
-                                       VerticalAlignment="Top"
-                                       Margin="0,4,0,0"
-                                       FontSize="12">
-                                <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{ThemeResource SystemBaseMediumLowColor}" />
-                                </TextBlock.Foreground>
-                            </TextBlock>
-                        </StackPanel>
-                        --><!--<Image x:Name="image" Source="Assets/Icons/Howsay.png" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4,0,0,0"/>--><!--
-                        <Border BorderThickness="0,0,0,0.5"
-                                Grid.Column="1">
-                            <Border.BorderBrush>
-                                <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
-                            </Border.BorderBrush>
-                        </Border>
-                        <TextBlock x:Name="textBlock_Copy4"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="&#xE60C;"
-                                   VerticalAlignment="Center"
-                                   FontFamily="ms-appx:/Fonts/icomoon.ttf#icomoon"
-                                   Foreground="#FF79E461"
-                                   FontSize="24"
-                                   Margin="0" />
-                    </Grid>
-                    <Grid x:Name="ChoiceQuestion"
-                          Height="48"
-                          VerticalAlignment="Top"
-                          Margin="0,0,0,0"
-                          BorderBrush="#FF424242"
-                          CornerRadius="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="48" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock x:Name="textBlock3_Copy"
-                                   HorizontalAlignment="Left"
-                                   TextWrapping="Wrap"
-                                   Text="Does this sound natural?"
-                                   VerticalAlignment="Center"
-                                   Grid.Column="1"
-                                   Margin="8,0,0,0">
-                            <TextBlock.Foreground>
-                                <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
-                            </TextBlock.Foreground>
-                        </TextBlock>
-                        <TextBlock x:Name="textBlock"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="&#xE60D;"
-                                   VerticalAlignment="Center"
-                                   FontFamily="ms-appx:/Fonts/icomoon.ttf#icomoon"
-                                   Foreground="#FF61BFE4"
-                                   FontSize="24" />
-                        <Border BorderThickness="0,0,0,0.5"
-                                Grid.Column="1"
-                                Margin="0">
-                            <Border.BorderBrush>
-                                <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
-                            </Border.BorderBrush>
-                        </Border>
-                    </Grid>
-                    <Grid x:Name="ExampleQuestion"
-                          Height="64"
-                          VerticalAlignment="Top"
-                          Margin="0,0,0,0"
-                          BorderBrush="#FF424242"
-                          CornerRadius="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="48" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock x:Name="textBlock3_Copy1"
-                                   HorizontalAlignment="Left"
-                                   TextWrapping="Wrap"
-                                   Text="Please show me example sentences with ~~."
-                                   VerticalAlignment="Center"
-                                   Grid.Column="1"
-                                   Margin="8,0">
-                            <TextBlock.Foreground>
-                                <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
-                            </TextBlock.Foreground>
-                        </TextBlock>
-                        <TextBlock x:Name="textBlock_Copy"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="&#xE65A;"
-                                   VerticalAlignment="Center"
-                                   FontFamily="ms-appx:/Fonts/icomoon.ttf#icomoon"
-                                   Foreground="#FFEA497E"
-                                   FontSize="24" />
-                        <Border BorderThickness="0,0,0,0.5"
-                                Grid.Column="1">
-                            <Border.BorderBrush>
-                                <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
-                            </Border.BorderBrush>
-                        </Border>
-                    </Grid>
-                    <Grid x:Name="MeaningQuestion"
-                          Height="48"
-                          VerticalAlignment="Top"
-                          Margin="0,0,0,0"
-                          BorderBrush="#FF424242"
-                          CornerRadius="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="48" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock x:Name="textBlock3_Copy2"
-                                   HorizontalAlignment="Left"
-                                   TextWrapping="Wrap"
-                                   Text="What does this mean?"
-                                   VerticalAlignment="Center"
-                                   Grid.Column="1"
-                                   Margin="8,0,0,0">
-                            <TextBlock.Foreground>
-                                <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
-                            </TextBlock.Foreground>
-                        </TextBlock>
-                        --><!--<Image x:Name="image_Copy2" Source="Assets/Icons/Whatmean.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="24"/>--><!--
-                        <Border BorderThickness="0,0,0,0.5"
-                                Grid.Column="1">
-                            <Border.BorderBrush>
-                                <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
-                            </Border.BorderBrush>
-                        </Border>
-                        <TextBlock x:Name="textBlock_Copy5"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="&#xE65C;"
-                                   VerticalAlignment="Center"
-                                   FontFamily="ms-appx:/Fonts/icomoon.ttf#icomoon"
-                                   Foreground="#FFE46161"
-                                   FontSize="24"
-                                   Margin="12" />
-                    </Grid>
-                    <Grid x:Name="DifferenceQuestion"
-                          Height="80"
-                          VerticalAlignment="Top"
-                          Margin="0,0,0,0"
-                          BorderBrush="#FF424242"
-                          CornerRadius="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="48" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="1"
-                                    Margin="0"
-                                    Orientation="Vertical"
-                                    VerticalAlignment="Center">
-                            <TextBlock x:Name="textBlock3_Copy3"
-                                       HorizontalAlignment="Left"
-                                       TextWrapping="Wrap"
-                                       Text="What's the difference?"
-                                       VerticalAlignment="Top"
-                                       Margin="8,0,0,0">
-                                <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
-                                </TextBlock.Foreground>
-                            </TextBlock>
-                            <TextBlock x:Name="textBlock3_Copy6"
-                                       HorizontalAlignment="Left"
-                                       TextWrapping="Wrap"
-                                       Text="What's the difference between these two? A and B. Feel free to provide example sentences."
-                                       VerticalAlignment="Top"
-                                       Margin="8,4,8,0"
-                                       FontSize="11">
-                                <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{ThemeResource SystemBaseMediumLowColor}" />
-                                </TextBlock.Foreground>
-                            </TextBlock>
-                        </StackPanel>
-                        <TextBlock x:Name="textBlock_Copy1"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="&#xE60F;"
-                                   VerticalAlignment="Center"
-                                   FontFamily="ms-appx:/Fonts/icomoon.ttf#icomoon"
-                                   Foreground="#FF5FA1E3"
-                                   FontSize="24" />
-                        <Border BorderThickness="0,0,0,0.5"
-                                Grid.Column="1">
-                            <Border.BorderBrush>
-                                <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
-                            </Border.BorderBrush>
-                        </Border>
-                    </Grid>
-                    <Grid x:Name="FreeQuestion"
-                          Height="72"
-                          VerticalAlignment="Top"
-                          Margin="0,0,0,0"
-                          BorderThickness="0,0,0,1"
-                          CornerRadius="0">
-                        <Grid.BorderBrush>
-                            <SolidColorBrush Color="{ThemeResource SystemBaseMediumLowColor}" />
-                        </Grid.BorderBrush>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="48" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="1"
-                                    Margin="0"
-                                    Orientation="Vertical"
-                                    VerticalAlignment="Center">
-                            <TextBlock x:Name="textBlock3_Copy4"
-                                       HorizontalAlignment="Left"
-                                       TextWrapping="Wrap"
-                                       Text="Free question"
-                                       VerticalAlignment="Top"
-                                       Margin="8,0,0,0">
-                                <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
-                                </TextBlock.Foreground>
-                            </TextBlock>
-                            <TextBlock x:Name="textBlock3_Copy7"
-                                       HorizontalAlignment="Left"
-                                       TextWrapping="Wrap"
-                                       Text="Ask about language, culture or anything else you want."
-                                       VerticalAlignment="Top"
-                                       Margin="8,4,8,0"
-                                       FontSize="11">
-                                <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{ThemeResource SystemBaseMediumLowColor}" />
-                                </TextBlock.Foreground>
-                            </TextBlock>
-                        </StackPanel>
-                        <TextBlock x:Name="textBlock_Copy2"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="&#xE637;"
-                                   VerticalAlignment="Center"
-                                   FontFamily="ms-appx:/Fonts/icomoon.ttf#icomoon"
-                                   Foreground="#FFFDB92C"
-                                   FontSize="24" />
-                    </Grid>
-                    <Grid x:Name="CountryQuestion"
-                          Height="72"
-                          VerticalAlignment="Top"
-                          Margin="0,0,0,0"
-                          BorderThickness="0"
-                          BorderBrush="#FF424242"
-                          CornerRadius="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="48" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="1"
-                                    Margin="0"
-                                    Orientation="Vertical"
-                                    VerticalAlignment="Center">
-                            <TextBlock x:Name="textBlock3_Copy8"
-                                       HorizontalAlignment="Left"
-                                       TextWrapping="Wrap"
-                                       Text="Ask about a country or region"
-                                       VerticalAlignment="Top"
-                                       Margin="8,0,0,0">
-                                <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
-                                </TextBlock.Foreground>
-                            </TextBlock>
-                        </StackPanel>
-                        <TextBlock x:Name="textBlock_Copy3"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="&#xE128;"
-                                   VerticalAlignment="Center"
-                                   FontFamily="Segoe MDL2 Assets"
-                                   Foreground="{StaticResource MainBlueBrush}"
-                                   FontSize="24" />
-                    </Grid>
-                </ListView>
-            </Border>
-
-        </StackPanel>-->
     </Grid>
 </Page>

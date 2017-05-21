@@ -130,8 +130,7 @@
                         IsPaneToggleButtonVisible="True"
                         Loaded="NavView_Loaded">
             <Frame x:Name="myFrame"
-                   Loaded="myFrame_Loaded"
-                   Padding="0,64,0,0">
+                   Loaded="myFrame_Loaded">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Navigated">
                         <Core:InvokeCommandAction Command="{Binding FrameNavigatedCommand}" />

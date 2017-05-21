@@ -48,6 +48,7 @@ namespace HiNative.Views
         private bool _scrolling;
         private double _startPosition;
         private Compositor _compositor;
+        private HNQuestion _lastClicked;
 
         public MainPage()
         {
@@ -82,17 +83,17 @@ namespace HiNative.Views
         //    (DataContext as MainViewModel).NewQuestionClick(e);
         //}
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             App.ViewModelLocator.Main.CheckUnreadCount();
             #region ConnectedAnimations
             if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
             {
-                var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("questionRoot");
+                var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("ProfilePicture");
                 if (anim != null)
                 {
-                    anim.TryStart(App.ViewModelLocator.Main.LastSelectedGrid);
+                    await listView.TryStartConnectedAnimationAsync(anim, _lastClicked, "ellProfilePicture");
                 }
             }
             #endregion
@@ -238,7 +239,7 @@ namespace HiNative.Views
 
         private void listView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var clickedItem = (HNQuestion)e.ClickedItem;
+            _lastClicked = (HNQuestion)e.ClickedItem;
             var container = ((PullToRefreshListView)e.OriginalSource).ContainerFromItem(e.ClickedItem) as ListViewItem;
             var grid = container.ContentTemplateRoot;
             App.ViewModelLocator.Main.LastSelectedGrid = (Grid)grid;

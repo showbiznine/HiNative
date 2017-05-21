@@ -50,11 +50,6 @@ namespace HiNative.Views
             base.OnNavigatedTo(e);
             if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
             {
-                //var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("QuestionRoot");
-                //if (anim != null)
-                //{
-                //    //anim.TryStart(grdQuestion);
-                //}
                 var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("ProfilePicture");
                 if (anim != null)
                 {
@@ -68,7 +63,7 @@ namespace HiNative.Views
             base.OnNavigatingFrom(e);
             if (e.NavigationMode == NavigationMode.Back && ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
             {
-                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("questionRoot", grdQuestion);
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ProfilePicture", ellProfilePicture);
             }
         }
 
