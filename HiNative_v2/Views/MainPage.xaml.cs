@@ -87,14 +87,12 @@ namespace HiNative.Views
         {
             base.OnNavigatedTo(e);
             App.ViewModelLocator.Main.CheckUnreadCount();
+
             #region ConnectedAnimations
-            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
+            var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("ProfilePicture");
+            if (anim != null)
             {
-                var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("ProfilePicture");
-                if (anim != null)
-                {
-                    await listView.TryStartConnectedAnimationAsync(anim, _lastClicked, "ellProfilePicture");
-                }
+                await listView.TryStartConnectedAnimationAsync(anim, _lastClicked, "ellProfilePicture");
             }
             #endregion
         }
@@ -247,11 +245,6 @@ namespace HiNative.Views
             var profilePicture = grid.GetFirstDescendantOfType<Ellipse>();
 
             listView.PrepareConnectedAnimation("ProfilePicture", e.ClickedItem, "ellProfilePicture");
-
-            //if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
-            //{
-            //    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("QuestionRoot", grid);
-            //}
         }
 
         private void adMainPage_AdRefreshed(object sender, RoutedEventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Azure.Mobile.Analytics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,14 @@ namespace HiNative.Services
     {
         public static void LogEvent(string eventName)
         {
-            Microsoft.HockeyApp.HockeyClient.Current.TrackEvent(eventName);
+            Analytics.TrackEvent(eventName);
+            //Microsoft.HockeyApp.HockeyClient.Current.TrackEvent(eventName);
+            App.StoreLogger.Log(eventName);
+        }
+
+        public static void LogEvent(string eventName, Dictionary<string, string> properties)
+        {
+            Analytics.TrackEvent(eventName, properties);
             App.StoreLogger.Log(eventName);
         }
     }

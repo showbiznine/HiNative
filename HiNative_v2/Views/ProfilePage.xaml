@@ -14,17 +14,64 @@
         <Grid.RowDefinitions>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="184" />
-                <RowDefinition Height="100" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+        <StackPanel>
+            <Grid x:Name="grdTopBar"
+              Margin="0"
+              BorderBrush="Black"
+              VerticalAlignment="Top" Height="200">
+                <Rectangle x:Name="recTop" HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Fill="{ThemeResource TopBarBG}"
+                Margin="0" />
+                <Button x:Name="btnEdit"
+                    Content="&#xE104;"
+                    HorizontalAlignment="Right"
+                    Margin="0"
+                    VerticalAlignment="Center"
+                    Foreground="White"
+                    FontSize="20"
+                    FontFamily="Segoe MDL2 Assets"
+                    Background="Transparent"
+                    IsEnabled="False"
+                    Width="48"
+                    Height="48"
+                    Visibility="{Binding CanEdit, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <TextBlock x:Name="lblUsername"
+                HorizontalAlignment="Center"
+                TextWrapping="Wrap"
+                Text="{Binding UserName}"
+                VerticalAlignment="Bottom"
+                FontSize="24"
+                FontWeight="SemiBold"
+                Foreground="{ThemeResource TopBarText}"/>
+                <Grid x:Name="grdProfilePicture"
+                Height="128"
+                Width="128"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+                    <!--<Image x:Name="imgMask"  Height="128" Width="128" Source="Assets/128px_CircleMask.png"/>-->
+                    <Ellipse x:Name="ellProfilePicture"
+                    Height="128"
+                    Width="128"
+                    VerticalAlignment="Bottom">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding ProfilePicture}" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Border Height="128"
+                    Width="128"
+                    VerticalAlignment="Bottom">
+                        <!--<Image x:Name="profilePicture"
+                           Source="{Binding User.profile_image, Mode=OneWay}" />-->
+                    </Border>
+                </Grid>
+            </Grid>
+
             <Grid Height="100"
-                  VerticalAlignment="Top"
-                  BorderThickness="0,0,0,1"
-                  BorderBrush="#7F808080"
-                  Grid.Row="1">
+                VerticalAlignment="Top"
+                BorderThickness="0,0,0,1"
+                BorderBrush="#7F808080"
+                  >
                 <Grid.Background>
                     <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
                 </Grid.Background>
@@ -33,12 +80,12 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Border BorderBrush="#7F808080"
-                        BorderThickness="0,0,1,0"
-                        d:IsHidden="True" />
+                    BorderThickness="0,0,1,0"
+                    d:IsHidden="True" />
                 <Grid x:Name="grdQuestions"
-                      Margin="0"
-                      BorderBrush="#7F808080"
-                      BorderThickness="0,0,1,0">
+                    Margin="0"
+                    BorderBrush="#7F808080"
+                    BorderThickness="0,0,1,0">
                     <Grid.Background>
                         <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
                     </Grid.Background>
@@ -48,25 +95,25 @@
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                     <TextBlock x:Name="textBlock2"
-                               HorizontalAlignment="Left"
-                               TextWrapping="Wrap"
-                               Text="Questions"
-                               VerticalAlignment="Top"
-                               Margin="12,0,0,0"
-                               FontSize="26.667">
+                        HorizontalAlignment="Left"
+                        TextWrapping="Wrap"
+                        Text="Questions"
+                        VerticalAlignment="Top"
+                        Margin="12,0,0,0"
+                        FontSize="26.667">
                         <TextBlock.Foreground>
                             <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                         </TextBlock.Foreground>
                     </TextBlock>
                     <TextBlock x:Name="lblQuestionsNumber"
-                               HorizontalAlignment="Right"
-                               TextWrapping="Wrap"
-                               Text="{Binding User.number_of_questions}"
-                               VerticalAlignment="Bottom"
-                               Margin="0,0,12,12"
-                               Foreground="#FFE86435"
-                               FontSize="32"
-                               FontWeight="Medium">
+                        HorizontalAlignment="Right"
+                        TextWrapping="Wrap"
+                        Text="{Binding User.number_of_questions}"
+                        VerticalAlignment="Bottom"
+                        Margin="0,0,12,12"
+                        Foreground="#FFE86435"
+                        FontSize="32"
+                        FontWeight="Medium">
                         <TextBlock.Transitions>
                             <TransitionCollection>
                                 <ContentThemeTransition />
@@ -75,8 +122,8 @@
                     </TextBlock>
                 </Grid>
                 <Grid x:Name="grdAnswers"
-                      Grid.Column="1"
-                      Margin="0">
+                    Grid.Column="1"
+                    Margin="0">
                     <Grid.Background>
                         <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
                     </Grid.Background>
@@ -86,25 +133,25 @@
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                     <TextBlock x:Name="textBlock2_Copy"
-                               HorizontalAlignment="Left"
-                               TextWrapping="Wrap"
-                               Text="Answers"
-                               VerticalAlignment="Top"
-                               Margin="12,0,0,0"
-                               FontSize="26.667">
+                        HorizontalAlignment="Left"
+                        TextWrapping="Wrap"
+                        Text="Answers"
+                        VerticalAlignment="Top"
+                        Margin="12,0,0,0"
+                        FontSize="26.667">
                         <TextBlock.Foreground>
                             <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                         </TextBlock.Foreground>
                     </TextBlock>
                     <TextBlock x:Name="lblAnswersNumber"
-                               HorizontalAlignment="Right"
-                               TextWrapping="Wrap"
-                               Text="{Binding User.number_of_answers}"
-                               VerticalAlignment="Bottom"
-                               Margin="0,0,12,12"
-                               Foreground="#FFE86435"
-                               FontSize="32"
-                               FontWeight="Medium">
+                        HorizontalAlignment="Right"
+                        TextWrapping="Wrap"
+                        Text="{Binding User.number_of_answers}"
+                        VerticalAlignment="Bottom"
+                        Margin="0,0,12,12"
+                        Foreground="#FFE86435"
+                        FontSize="32"
+                        FontWeight="Medium">
                         <TextBlock.Transitions>
                             <TransitionCollection>
                                 <ContentThemeTransition />
@@ -113,19 +160,19 @@
                     </TextBlock>
                 </Grid>
             </Grid>
-            <ScrollViewer Grid.Row="2"
-                          VerticalScrollMode="Enabled">
+            <ScrollViewer
+                VerticalScrollMode="Enabled" Height="796">
                 <ScrollViewer.Background>
                     <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
                 </ScrollViewer.Background>
                 <StackPanel>
                     <Grid x:Name="grdBookmarks"
-                          Margin="0"
-                          BorderBrush="#7F808080"
-                          BorderThickness="0,0,0,1"
-                          Height="56"
-                          VerticalAlignment="Top"
-                          Visibility="{Binding User.id, Converter={StaticResource EditVisibilityConverter}}">
+                        Margin="0"
+                        BorderBrush="#7F808080"
+                        BorderThickness="0,0,0,1"
+                        Height="56"
+                        VerticalAlignment="Top"
+                        Visibility="{Binding User.id, Converter={StaticResource EditVisibilityConverter}}">
                         <Grid.Background>
                             <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
                         </Grid.Background>
@@ -135,44 +182,44 @@
                             <ColumnDefinition Width="56" />
                         </Grid.ColumnDefinitions>
                         <TextBlock x:Name="textBlock4"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="&#xE0B4;"
-                                   VerticalAlignment="Center"
-                                   FontFamily="Segoe MDL2 Assets"
-                                   FontSize="26">
+                            HorizontalAlignment="Center"
+                            TextWrapping="Wrap"
+                            Text="&#xE0B4;"
+                            VerticalAlignment="Center"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="26">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                         <TextBlock x:Name="textBlock5"
-                                   HorizontalAlignment="Left"
-                                   TextWrapping="Wrap"
-                                   Text="Bookmarks"
-                                   VerticalAlignment="Center"
-                                   Grid.Column="1"
-                                   FontSize="18"
-                                   TextLineBounds="Tight">
+                            HorizontalAlignment="Left"
+                            TextWrapping="Wrap"
+                            Text="Bookmarks"
+                            VerticalAlignment="Center"
+                            Grid.Column="1"
+                            FontSize="18"
+                            TextLineBounds="Tight">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                         <TextBlock x:Name="lblBookmarksNumber"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="{Binding User.number_of_bookmarks}"
-                                   VerticalAlignment="Center"
-                                   Grid.Column="2"
-                                   FontSize="24"
-                                   Foreground="#FFE86435"
-                                   FontWeight="SemiBold" />
+                            HorizontalAlignment="Center"
+                            TextWrapping="Wrap"
+                            Text="{Binding User.number_of_bookmarks}"
+                            VerticalAlignment="Center"
+                            Grid.Column="2"
+                            FontSize="24"
+                            Foreground="#FFE86435"
+                            FontWeight="SemiBold" />
                     </Grid>
                     <Grid x:Name="grdQuickResponses"
-                          Margin="0"
-                          BorderBrush="#7F808080"
-                          BorderThickness="0,0,0,1"
-                          Height="56"
-                          VerticalAlignment="Top">
+                        Margin="0"
+                        BorderBrush="#7F808080"
+                        BorderThickness="0,0,0,1"
+                        Height="56"
+                        VerticalAlignment="Top">
                         <Grid.Background>
                             <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
                         </Grid.Background>
@@ -187,44 +234,44 @@
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                         <TextBlock x:Name="textBlock7"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="&#xE916;"
-                                   VerticalAlignment="Center"
-                                   FontFamily="Segoe MDL2 Assets"
-                                   FontSize="26">
+                            HorizontalAlignment="Center"
+                            TextWrapping="Wrap"
+                            Text="&#xE916;"
+                            VerticalAlignment="Center"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="26">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                         <TextBlock x:Name="textBlock8"
-                                   HorizontalAlignment="Left"
-                                   TextWrapping="Wrap"
-                                   Text="Quick Responses"
-                                   VerticalAlignment="Center"
-                                   Grid.Column="1"
-                                   FontSize="18"
-                                   TextLineBounds="Tight">
+                            HorizontalAlignment="Left"
+                            TextWrapping="Wrap"
+                            Text="Quick Responses"
+                            VerticalAlignment="Center"
+                            Grid.Column="1"
+                            FontSize="18"
+                            TextLineBounds="Tight">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                         <TextBlock x:Name="lblQuickResponses"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="{Binding User.number_of_quick_responses}"
-                                   VerticalAlignment="Center"
-                                   Grid.Column="2"
-                                   FontSize="24"
-                                   Foreground="#FFE86435"
-                                   FontWeight="SemiBold" />
+                            HorizontalAlignment="Center"
+                            TextWrapping="Wrap"
+                            Text="{Binding User.number_of_quick_responses}"
+                            VerticalAlignment="Center"
+                            Grid.Column="2"
+                            FontSize="24"
+                            Foreground="#FFE86435"
+                            FontWeight="SemiBold" />
                     </Grid>
                     <Grid x:Name="grdLikes"
-                          Margin="0"
-                          BorderBrush="#7F808080"
-                          BorderThickness="0,0,0,1"
-                          Height="56"
-                          VerticalAlignment="Top">
+                        Margin="0"
+                        BorderBrush="#7F808080"
+                        BorderThickness="0,0,0,1"
+                        Height="56"
+                        VerticalAlignment="Top">
                         <Grid.Background>
                             <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
                         </Grid.Background>
@@ -239,44 +286,44 @@
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                         <TextBlock x:Name="textBlock10"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="&#xEB52;"
-                                   VerticalAlignment="Center"
-                                   FontFamily="Segoe MDL2 Assets"
-                                   FontSize="26">
+                            HorizontalAlignment="Center"
+                            TextWrapping="Wrap"
+                            Text="&#xEB52;"
+                            VerticalAlignment="Center"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="26">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                         <TextBlock x:Name="textBlock11"
-                                   HorizontalAlignment="Left"
-                                   TextWrapping="Wrap"
-                                   Text="Number of likes"
-                                   VerticalAlignment="Center"
-                                   Grid.Column="1"
-                                   FontSize="18"
-                                   TextLineBounds="Tight">
+                            HorizontalAlignment="Left"
+                            TextWrapping="Wrap"
+                            Text="Number of likes"
+                            VerticalAlignment="Center"
+                            Grid.Column="1"
+                            FontSize="18"
+                            TextLineBounds="Tight">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                         <TextBlock x:Name="lblLiked"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="{Binding User.number_of_likes}"
-                                   VerticalAlignment="Center"
-                                   Grid.Column="2"
-                                   FontSize="24"
-                                   Foreground="#FFE86435"
-                                   FontWeight="SemiBold" />
+                            HorizontalAlignment="Center"
+                            TextWrapping="Wrap"
+                            Text="{Binding User.number_of_likes}"
+                            VerticalAlignment="Center"
+                            Grid.Column="2"
+                            FontSize="24"
+                            Foreground="#FFE86435"
+                            FontWeight="SemiBold" />
                     </Grid>
                     <Grid x:Name="grdFeaturedAnswers"
-                          Margin="0"
-                          BorderBrush="#7F808080"
-                          BorderThickness="0,0,0,1"
-                          Height="56"
-                          VerticalAlignment="Top">
+                        Margin="0"
+                        BorderBrush="#7F808080"
+                        BorderThickness="0,0,0,1"
+                        Height="56"
+                        VerticalAlignment="Top">
                         <Grid.Background>
                             <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
                         </Grid.Background>
@@ -291,43 +338,43 @@
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                         <TextBlock x:Name="textBlock13"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="&#xE90A;"
-                                   VerticalAlignment="Center"
-                                   FontFamily="Segoe MDL2 Assets"
-                                   FontSize="26">
+                            HorizontalAlignment="Center"
+                            TextWrapping="Wrap"
+                            Text="&#xE90A;"
+                            VerticalAlignment="Center"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="26">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                         <TextBlock x:Name="textBlock14"
-                                   HorizontalAlignment="Left"
-                                   TextWrapping="Wrap"
-                                   VerticalAlignment="Center"
-                                   Grid.Column="1"
-                                   FontSize="18"
-                                   Text="Featured answers"
-                                   TextLineBounds="Tight">
+                            HorizontalAlignment="Left"
+                            TextWrapping="Wrap"
+                            VerticalAlignment="Center"
+                            Grid.Column="1"
+                            FontSize="18"
+                            Text="Featured answers"
+                            TextLineBounds="Tight">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                         <TextBlock x:Name="lblFeaturedAnswers"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="{Binding User.number_of_featured_answers}"
-                                   VerticalAlignment="Center"
-                                   Grid.Column="2"
-                                   FontSize="24"
-                                   Foreground="#FFE86435"
-                                   FontWeight="SemiBold" />
+                            HorizontalAlignment="Center"
+                            TextWrapping="Wrap"
+                            Text="{Binding User.number_of_featured_answers}"
+                            VerticalAlignment="Center"
+                            Grid.Column="2"
+                            FontSize="24"
+                            Foreground="#FFE86435"
+                            FontWeight="SemiBold" />
                     </Grid>
                     <Grid x:Name="grdNativeLanguages"
-                          Margin="0"
-                          BorderBrush="#7F808080"
-                          BorderThickness="0,0,0,1"
-                          VerticalAlignment="Top">
+                        Margin="0"
+                        BorderBrush="#7F808080"
+                        BorderThickness="0,0,0,1"
+                        VerticalAlignment="Top">
                         <Grid.Background>
                             <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
                         </Grid.Background>
@@ -340,43 +387,43 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <TextBlock x:Name="textBlock1"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="&#xE909;"
-                                   VerticalAlignment="Center"
-                                   FontFamily="Segoe MDL2 Assets"
-                                   FontSize="26">
+                            HorizontalAlignment="Center"
+                            TextWrapping="Wrap"
+                            Text="&#xE909;"
+                            VerticalAlignment="Center"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="26">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                         <TextBlock x:Name="textBlock3"
-                                   HorizontalAlignment="Left"
-                                   TextWrapping="Wrap"
-                                   Text="Native Language(s)"
-                                   VerticalAlignment="Center"
-                                   Grid.Column="1"
-                                   FontSize="18"
-                                   TextLineBounds="Tight">
+                            HorizontalAlignment="Left"
+                            TextWrapping="Wrap"
+                            Text="Native Language(s)"
+                            VerticalAlignment="Center"
+                            Grid.Column="1"
+                            FontSize="18"
+                            TextLineBounds="Tight">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                         <ListView x:Name="lstNativeLanguages"
-                                  Grid.ColumnSpan="2"
-                                  VerticalAlignment="Top"
-                                  Grid.Row="1"
-                                  SelectionMode="None"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                                  ScrollViewer.VerticalScrollMode="Disabled"
-                                  ItemsSource="{Binding User.user_attributes.native_languages_attributes}"
-                                  DisplayMemberPath="language_name" />
+                            Grid.ColumnSpan="2"
+                            VerticalAlignment="Top"
+                            Grid.Row="1"
+                            SelectionMode="None"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                            ScrollViewer.VerticalScrollMode="Disabled"
+                            ItemsSource="{Binding User.user_attributes.native_languages_attributes}"
+                            DisplayMemberPath="language_name" />
                     </Grid>
                     <Grid x:Name="grdStudyLanguages"
-                          Margin="0"
-                          BorderBrush="#7F808080"
-                          BorderThickness="0,0,0,1"
-                          VerticalAlignment="Top">
+                        Margin="0"
+                        BorderBrush="#7F808080"
+                        BorderThickness="0,0,0,1"
+                        VerticalAlignment="Top">
                         <Grid.Background>
                             <SolidColorBrush Color="{ThemeResource SystemAltHighColor}" />
                         </Grid.Background>
@@ -389,38 +436,38 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <TextBlock x:Name="textBlock16"
-                                   HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   Text="&#xE909;"
-                                   VerticalAlignment="Center"
-                                   FontFamily="Segoe MDL2 Assets"
-                                   FontSize="26">
+                            HorizontalAlignment="Center"
+                            TextWrapping="Wrap"
+                            Text="&#xE909;"
+                            VerticalAlignment="Center"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="26">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                         <TextBlock x:Name="textBlock17"
-                                   HorizontalAlignment="Left"
-                                   TextWrapping="Wrap"
-                                   Text="Study Language(s)"
-                                   VerticalAlignment="Center"
-                                   Grid.Column="1"
-                                   FontSize="18"
-                                   TextLineBounds="Tight">
+                            HorizontalAlignment="Left"
+                            TextWrapping="Wrap"
+                            Text="Study Language(s)"
+                            VerticalAlignment="Center"
+                            Grid.Column="1"
+                            FontSize="18"
+                            TextLineBounds="Tight">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{ThemeResource SystemBaseMediumHighColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                         <ListView x:Name="lstStudyLanguages"
-                                  Grid.ColumnSpan="2"
-                                  Margin="0"
-                                  VerticalAlignment="Top"
-                                  Grid.Row="1"
-                                  SelectionMode="None"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                                  ScrollViewer.VerticalScrollMode="Disabled"
-                                  DisplayMemberPath="language_name"
-                                  ItemsSource="{Binding User.user_attributes.study_languages_attributes}">
+                            Grid.ColumnSpan="2"
+                            Margin="0"
+                            VerticalAlignment="Top"
+                            Grid.Row="1"
+                            SelectionMode="None"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                            ScrollViewer.VerticalScrollMode="Disabled"
+                            DisplayMemberPath="language_name"
+                            ItemsSource="{Binding User.user_attributes.study_languages_attributes}">
                             <!--<ListView.ItemTemplate>
                                 <DataTemplate x:DataType="Data:LanguagesModel">
                                     <Grid>
@@ -445,62 +492,7 @@
                     </Grid>
                 </StackPanel>
             </ScrollViewer>
-            <Rectangle x:Name="recTop" HorizontalAlignment="Stretch"
-                       VerticalAlignment="Stretch"
-                       Fill="{ThemeResource TopBarBG}"
-                       Margin="0" />
-            <Grid x:Name="grdProfilePicture"
-                  Height="128"
-                  Width="128"
-                  VerticalAlignment="Top"
-                  HorizontalAlignment="Center"
-                  Margin="0,12,0,4">
-                <Ellipse x:Name="ellProfilePicture"
-                         Height="128"
-                         Width="128"
-                         VerticalAlignment="Bottom">
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="{Binding ProfilePicture}" />
-                    </Ellipse.Fill>
-                </Ellipse>
-                <Border Height="128"
-                        Width="128"
-                        VerticalAlignment="Bottom">
-                    <!--<Image x:Name="profilePicture"
-                           Source="{Binding User.profile_image, Mode=OneWay}" />-->
-                </Border>
-                <!--<Image x:Name="imgMask"  Height="128" Width="128" Source="Assets/128px_CircleMask.png"/>-->
-            </Grid>
-            <TextBlock x:Name="lblUsername"
-                       HorizontalAlignment="Center"
-                       TextWrapping="Wrap"
-                       Text="{Binding UserName}"
-                       VerticalAlignment="Bottom"
-                       Margin="0,0,0,4"
-                       FontSize="24"
-                       FontWeight="SemiBold"
-                       Foreground="{ThemeResource TopBarText}">
-            </TextBlock>
-        </Grid>
-        <Grid x:Name="grdTopBar"
-              Margin="0"
-              BorderBrush="Black"
-              Grid.Row="1"
-              VerticalAlignment="Top">
-            <Button x:Name="btnEdit"
-                    Content="&#xE104;"
-                    HorizontalAlignment="Right"
-                    Margin="0"
-                    VerticalAlignment="Center"
-                    Foreground="White"
-                    FontSize="20"
-                    FontFamily="Segoe MDL2 Assets"
-                    Background="Transparent"
-                    IsEnabled="False"
-                    Width="48"
-                    Height="48"
-                    Visibility="{Binding CanEdit, Converter={StaticResource BooleanToVisibilityConverter}}" />
-        </Grid>
+        </StackPanel>
 
     </Grid>
 

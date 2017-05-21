@@ -18,7 +18,7 @@ namespace HiNative.Services
         {
             _deferral = taskInstance.GetDeferral();
             var unreadCount = await DataService.GetUnreadCount();
-            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             //localSettings.Values["to_ignore"] = 0; //Init
             _lastID = (localSettings.Values["to_ignore"] != null ? (int)localSettings.Values["to_ignore"] : 0);
 

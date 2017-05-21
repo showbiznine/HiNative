@@ -48,13 +48,10 @@ namespace HiNative.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
+            var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("ProfilePicture");
+            if (anim != null)
             {
-                var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("ProfilePicture");
-                if (anim != null)
-                {
-                    anim.TryStart(ellProfilePicture, new UIElement[] { grdQuestion });
-                }
+                anim.TryStart(ellProfilePicture, new UIElement[] { grdQuestion });
             }
         }
 
@@ -186,11 +183,6 @@ namespace HiNative.Views
         }
 
         private void adQuestionPage_AdRefreshed(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ellProfilePicture_Loaded(object sender, RoutedEventArgs e)
         {
 
         }

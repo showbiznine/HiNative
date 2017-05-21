@@ -32,7 +32,18 @@ namespace HiNative.Views
         {
             this.InitializeComponent();
             _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
+            (ellProfilePicture.Fill as ImageBrush).ImageOpened += ProfilePicture_ImageOpened;
             SetupAnimations();
+        }
+
+        private void ProfilePicture_ImageOpened(object sender, RoutedEventArgs e)
+        {
+            //var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("ProfilePicture");
+            //if (anim != null)
+            //{
+            //    ellProfilePicture.Opacity = 1;
+            //    anim.TryStart(ellProfilePicture, new UIElement[] { lblUsername });
+            //}
         }
 
         private void SetupAnimations()
@@ -63,13 +74,8 @@ namespace HiNative.Views
                 var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("ProfilePicture");
                 if (anim != null)
                 {
-                    //ellProfilePicture.Opacity = 1;
-                    anim.TryStart(ellProfilePicture);
-                }
-                var usernameAnim = ConnectedAnimationService.GetForCurrentView().GetAnimation("Username");
-                if (usernameAnim != null)
-                {
-                    usernameAnim.TryStart(lblUsername);
+                    ellProfilePicture.Opacity = 1;
+                    anim.TryStart(ellProfilePicture, new UIElement[] { lblUsername });
                 }
             }
         }

@@ -32,9 +32,9 @@
         <StackPanel x:Name="grdTop" 
               VerticalAlignment="Top"
               Background="White"
-              Padding="32,64,0,0">
+              Padding="0,64,0,0">
             <Grid x:Name="grdTopBar"
-                  Margin="0,0,0,8">
+                  Margin="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition Width="Auto" />
@@ -206,10 +206,10 @@
                                                SelectionMode="None"
                                                IsItemClickEnabled="True"
                                                ItemContainerStyle="{StaticResource ListViewItemStyle2}"
-                                               Padding="32,24,32,64"
+                                               Padding="0,24,0,64"
                                                Loaded="listView_Loaded"
                                                RefreshCommand="{Binding RefreshCommand}" 
-                                               Margin="0,0,-32,0" ItemClick="listView_ItemClick" Height="854">
+                                               Margin="0" ItemClick="listView_ItemClick" Height="854">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="ItemClick">
                         <Core:InvokeCommandAction Command="{Binding SelectQuestionCommand}" />

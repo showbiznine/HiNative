@@ -78,7 +78,6 @@ namespace HiNative.ViewModels
             {
                 LastClickedProfilePic = args.OriginalSource as Ellipse;
                 var parentGrid = LastClickedProfilePic.Parent as Grid;
-                LastClickedUsername = parentGrid.FindName("lblAnswerUsername") as TextBlock;
                 var dc = LastClickedProfilePic.DataContext as HNAnswer;
                 App.ViewModelLocator.Profile.LoadUser((int)dc.user.id);
                 App.ViewModelLocator.Profile.ProfilePicture = dc.user.profile_image;
@@ -86,7 +85,6 @@ namespace HiNative.ViewModels
                 if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
                 {
                     ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ProfilePicture", LastClickedProfilePic);
-                    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("Username", LastClickedUsername);
                 }
                 _navigationService.NavigateTo(typeof(ProfilePage));
 
@@ -95,14 +93,12 @@ namespace HiNative.ViewModels
             {
                 LastClickedProfilePic = args.OriginalSource as Ellipse;
                 var parentGrid = (LastClickedProfilePic.Parent as Border).Parent as Grid;
-                LastClickedUsername = parentGrid.FindName("lblUsername") as TextBlock;
                 App.ViewModelLocator.Profile.LoadUser((int)CurrentQuestion.user.id);
                 App.ViewModelLocator.Profile.ProfilePicture = CurrentQuestion.user.profile_image;
                 App.ViewModelLocator.Profile.UserName = CurrentQuestion.user.name;
                 if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
                 {
                     ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ProfilePicture", LastClickedProfilePic);
-                    ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("Username", LastClickedUsername);
                 }
                 _navigationService.NavigateTo(typeof(ProfilePage));
             });

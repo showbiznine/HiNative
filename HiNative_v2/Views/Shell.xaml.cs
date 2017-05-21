@@ -73,7 +73,6 @@ namespace HiNative.Views
         private async void myFrame_Loaded(object sender, RoutedEventArgs e)
         {
             await App.ViewModelLocator.Shell.CheckLoggedIn();
-
         }
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)
@@ -81,7 +80,7 @@ namespace HiNative.Views
             NavView.MenuItems.Add(new NavigationMenuItem()
             { Text = "Home", Icon = new SymbolIcon(Symbol.Home), Tag = "home" });
             NavView.MenuItems.Add(new NavigationMenuItem()
-            { Text = "Apps", Icon = new SymbolIcon(Symbol.AllApps), Tag = "apps" });
+            { Text = "My Profile", Icon = new SymbolIcon(Symbol.Contact), Tag = "profile" });
         }
     }
 }
