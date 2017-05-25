@@ -19,7 +19,7 @@ namespace HiNative.Services
 
         public static void LogEvent(string eventName, Dictionary<string, string> parameters)
         {
-            Microsoft.HockeyApp.HockeyClient.Current.TrackEvent(eventName,);
+            Microsoft.HockeyApp.HockeyClient.Current.TrackEvent(eventName);
             App.StoreLogger.Log(eventName);
             Analytics.TrackEvent(eventName, parameters);
         }

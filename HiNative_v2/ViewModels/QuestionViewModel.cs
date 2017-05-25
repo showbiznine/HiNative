@@ -49,6 +49,8 @@ namespace HiNative.ViewModels
         public RelayCommand<TappedRoutedEventArgs> GoToOPProfileCommand { get; set; }
         public RelayCommand<TappedRoutedEventArgs> GoToProfileCommand { get; set; }
 
+        public RelayCommand<HNAnswer> ReplyCommand { get; set; }
+
         public RelayCommand SubmitAnswerCommand { get; set; }
         public RelayCommand<ItemClickEventArgs> SelectOption { get; set; }
 
@@ -91,6 +93,7 @@ namespace HiNative.ViewModels
                 _navigationService.NavigateTo(typeof(ProfilePage));
 
             });
+
             GoToOPProfileCommand = new RelayCommand<TappedRoutedEventArgs>(args =>
             {
                 LastClickedProfilePic = args.OriginalSource as Ellipse;
@@ -105,6 +108,15 @@ namespace HiNative.ViewModels
                     ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("Username", LastClickedUsername);
                 }
                 _navigationService.NavigateTo(typeof(ProfilePage));
+            });
+
+            ReplyCommand = new RelayCommand<HNAnswer>(args =>
+            {
+                var atTag = string.Format("@{0} ", args.user.name);
+                if (string.IsNullOrWhiteSpace(AnswerText))
+                 AnswerText = atTag;
+                else if (!AnswerText.Contains(atTag))
+                 AnswerText = AnswerText + string.Format("@{0} ", args.user.name);
             });
 
             SubmitAnswerCommand = new RelayCommand(async () =>
@@ -159,11 +171,13 @@ namespace HiNative.ViewModels
                 else
                     await new MessageDialog("The answer box is empty").ShowAsync();
             });
+
             SelectOption = new RelayCommand<ItemClickEventArgs>(args =>
             {
                 var lst = args.OriginalSource as ListView;
                 int i = lst.IndexFromContainer(args.ClickedItem as Grid);
             });
+
             #region Attachments
 
             SelectPhotoCommand = new RelayCommand(async () =>

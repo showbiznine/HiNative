@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HiNative.API.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -194,6 +195,26 @@ namespace HiNative.Views
         }
 
         private void adQuestionPage_AdRefreshed(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnReply_Click(object sender, RoutedEventArgs e)
+        {
+            txtAnswer.Focus(FocusState.Programmatic);
+        }
+
+        private void btnBookmark_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLike_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnMoreOptionsAnswer_Click(object sender, RoutedEventArgs e)
         {
 
         }
