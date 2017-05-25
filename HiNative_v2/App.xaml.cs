@@ -2,6 +2,8 @@
 using HiNative.Services;
 using HiNative.ViewModels;
 using HiNative.Views;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.HockeyApp;
 using Microsoft.Services.Store.Engagement;
 using System;
@@ -94,7 +96,8 @@ namespace HiNative
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = false;
 
-            HockeyClient.Current.Configure("8de5fa42d2b445baaf5498c6cc23638b ");
+            HockeyClient.Current.Configure("8de5fa42d2b445baaf5498c6cc23638b");
+            MobileCenter.Start("21f70b6e-4147-4b7d-869d-7b71c6c6001d", typeof(Analytics));
             await SetupStoreAsync();
 
             Frame rootFrame = Window.Current.Content as Frame;
