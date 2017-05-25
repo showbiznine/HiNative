@@ -31,11 +31,6 @@ namespace HiNative.ViewModels
         public HNUserProfile CurrentUser { get; set; }
         public bool IsMenuOpen { get; set; }
 
-        InterstitialAd myInterstitialAd = null;
-        string myAppId = "c7ead89e-1e8d-4728-a855-d805ceccd3c7";
-        string myAdUnitId = "336474";
-        public bool AdReady = false;
-
         private StoreContext context = null;
         #endregion
 
@@ -46,10 +41,6 @@ namespace HiNative.ViewModels
         public RelayCommand FrameNavigatedCommand { get; set; }
         public RelayCommand LeaveFeedbackCommand { get; set; }
         #endregion
-
-        public EventHandler InterstitialAdCompleted { get; set; }
-        public EventHandler InterstitialAdCanceled { get; set; }
-        public EventHandler InterstitialAdError { get; set; }
 
         public ShellViewModel()
         {
@@ -65,7 +56,6 @@ namespace HiNative.ViewModels
                     null);
                 IsMenuOpen = false;
                 InitializeCommands();
-                SetupAds();
             }
         }
 
@@ -111,58 +101,6 @@ namespace HiNative.ViewModels
                 }
             }
         }
-
-        #region Ads
-        private void SetupAds()
-        {
-            myInterstitialAd = new InterstitialAd();
-            myInterstitialAd.AdReady += MyInterstitialAd_AdReady;
-            myInterstitialAd.ErrorOccurred += MyInterstitialAd_ErrorOccurred;
-            myInterstitialAd.Completed += MyInterstitialAd_Completed;
-            myInterstitialAd.Cancelled += MyInterstitialAd_Cancelled;
-
-            RequestAd();
-        }
-
-        public void RequestAd()
-        {
-            myInterstitialAd.RequestAd(AdType.Video, myAppId, myAdUnitId);
-        }
-
-        public bool ShowAd()
-        {
-            try
-            {
-                myInterstitialAd.Show();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        private void MyInterstitialAd_Completed(object sender, object e)
-        {
-            LoggerService.LogEvent("Interstitial_ad_watched");
-            AdReady = false;
-        }
-
-        private void MyInterstitialAd_Cancelled(object sender, object e)
-        {
-            LoggerService.LogEvent("Interstitial_ad_canceled");
-        }
-
-        private void MyInterstitialAd_AdReady(object sender, object e)
-        {
-            AdReady = true;
-        }
-
-        private void MyInterstitialAd_ErrorOccurred(object sender, AdErrorEventArgs e)
-        {
-            LoggerService.LogEvent("Interstitial_ad_error");
-        } 
-        #endregion
 
         #region Background Task
         private async Task<BackgroundTaskRegistration> RegisterBackgroundTask(string name,
