@@ -13,6 +13,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -56,6 +57,7 @@ namespace HiNative
         {
             StoreLogger = StoreServicesCustomEventLogger.GetDefault();
             Debug.WriteLine(this.RequestedTheme);
+
             #region Title/Status bar
             if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
             {
@@ -88,6 +90,9 @@ namespace HiNative
                 titleBar.ButtonInactiveForegroundColor = hoverF;
             }
             #endregion
+
+            CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = false;
 
             HockeyClient.Current.Configure("8de5fa42d2b445baaf5498c6cc23638b ");
             await SetupStoreAsync();
