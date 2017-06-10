@@ -4,8 +4,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:Controls="using:HiNative.Controls"
-      xmlns:Store="using:Microsoft.Advertising.WinRT.UI"
-      xmlns:XamlBrewer="using:XamlBrewer.Uwp.Controls"
+      xmlns:Toolkit="using:Microsoft.Toolkit.Uwp.UI.Converters"
       xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:Media="using:Microsoft.Xaml.Interactions.Media"
@@ -14,6 +13,10 @@
       mc:Ignorable="d"
       DataContext="{Binding Question, Source={StaticResource Locator}}"
       NavigationCacheMode="Required">
+
+    <Page.Resources>
+        <Toolkit:BoolToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Page.Resources>
 
     <Grid x:Name="grdMain"
           Height="{Binding ActualHeight, ElementName=page, Mode=OneWay}">
@@ -43,16 +46,6 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Store:AdControl x:Name="adQuestionPage"
-                         Width="320"
-                         Height="50"
-                         AdUnitId="336329"
-                         ApplicationId="c7ead89e-1e8d-4728-a855-d805ceccd3c7"
-                         HorizontalAlignment="Center"
-                         ErrorOccurred="adQuestionPage_ErrorOccurred"
-                         AdRefreshed="adQuestionPage_AdRefreshed"
-                         IsAutoRefreshEnabled="True"
-                         AutoRefreshIntervalInSeconds="20" />
         <ScrollViewer Grid.Row="1">
             <StackPanel>
                 <Grid x:Name="grdQuestion"
@@ -978,7 +971,6 @@
             <Grid.RenderTransform>
                 <CompositeTransform />
             </Grid.RenderTransform>
-            <XamlBrewer:BackDrop BlurAmount="5" />
             <TextBlock x:Name="lblHint"
                        HorizontalAlignment="Center"
                        TextWrapping="Wrap"

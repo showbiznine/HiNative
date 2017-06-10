@@ -48,6 +48,20 @@ namespace HiNative
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            this.UnhandledException += OnUnhandledException;
+        }
+
+        private void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            e.Handled = true;
+#if !DEBUG
+   // log
+#else
+            if (Debugger.IsAttached)
+            {
+                Debugger.Break();
+            }
+#endif
         }
 
         /// <summary>

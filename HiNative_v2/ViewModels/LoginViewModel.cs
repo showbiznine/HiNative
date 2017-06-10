@@ -90,7 +90,7 @@ namespace HiNative.ViewModels
                     ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
                     localSettings.Values["User_ID"] = res.profile.user_attributes.id;
                     localSettings.Values["API_Token"] = res.token;
-                    await App.ViewModelLocator.Shell.CheckLoggedIn();
+                    App.ViewModelLocator.Shell.CheckLoggedIn();
                     App.ViewModelLocator.Main.InitPageAsync();
                     _navigationService.NavigateTo(typeof(MainPage));
                     Username = string.Empty;
@@ -248,7 +248,7 @@ namespace HiNative.ViewModels
                         localSettings.Values["API_Token"] = createdUser.token;
                         localSettings.Values["User_ID"] = createdUser.profile.user_attributes.id;
                     }
-                    await App.ViewModelLocator.Shell.CheckLoggedIn();
+                    App.ViewModelLocator.Shell.CheckLoggedIn();
                     App.ViewModelLocator.Main.CurrentUser = App.ViewModelLocator.Shell.CurrentUser;
                     App.ViewModelLocator.Main.InitPageAsync();
                     _navigationService.NavigateTo(typeof(MainPage));

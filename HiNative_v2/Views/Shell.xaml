@@ -5,7 +5,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:Controls="using:HiNative.Controls"
       xmlns:Gesture="using:GestureControls.Controls"
-      xmlns:XamlBrewer="using:XamlBrewer.Uwp.Controls"
       xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
       x:Class="HiNative.Views.Shell"
@@ -179,12 +178,10 @@
 
         <SplitView x:Name="mySplitView"
                    Margin="0"
-                   Loaded="mySplitView_Loaded"
-                   PaneBackground="#BF000000"
+                   PaneBackground="#FF000000"
                    IsPaneOpen="{Binding IsMenuOpen, Mode=TwoWay}">
             <SplitView.Pane>
                 <Grid>
-                    <XamlBrewer:BackDrop BlurAmount="5" TintColor="Black" TintAlpha="100"/>
                     <StackPanel VerticalAlignment="Top">
                         <Grid Height="200">
                             <Grid VerticalAlignment="Center"

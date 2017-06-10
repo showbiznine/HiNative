@@ -113,10 +113,11 @@ namespace HiNative.ViewModels
             ReplyCommand = new RelayCommand<HNAnswer>(args =>
             {
                 var atTag = string.Format("@{0} ", args.user.name);
+
                 if (string.IsNullOrWhiteSpace(AnswerText))
                  AnswerText = atTag;
                 else if (!AnswerText.Contains(atTag))
-                 AnswerText = AnswerText + string.Format("@{0} ", args.user.name);
+                 AnswerText = AnswerText + " " + atTag;
             });
 
             SubmitAnswerCommand = new RelayCommand(async () =>

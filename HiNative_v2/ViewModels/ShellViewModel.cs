@@ -3,7 +3,6 @@ using GalaSoft.MvvmLight.Command;
 using HiNative.Services;
 using HiNative.Views;
 using HiNative.API.Models;
-using HiNative.Services;
 using Microsoft.Advertising.WinRT.UI;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Services.Store.Engagement;
@@ -190,7 +189,7 @@ namespace HiNative.ViewModels
             var success = await Windows.System.Launcher.LaunchUriAsync(new Uri("mailto:hinative_uwp@outlook.com"));
         }
 
-        public async Task CheckLoggedIn()
+        public void CheckLoggedIn()
         {
             try
             {
@@ -198,7 +197,7 @@ namespace HiNative.ViewModels
                 var id = localSettings.Values["User_ID"];
                 if (id != null)
                 {
-                    CurrentUser = await DataService.LoadProfile(Convert.ToInt32(id));
+                    CurrentUser = DataService.LoadProfile(Convert.ToInt32(id));
                     _navigationService.NavigateTo(typeof(MainPage));
                 }
                 else
@@ -207,7 +206,7 @@ namespace HiNative.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
+                //new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
             }
         }
     }

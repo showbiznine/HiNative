@@ -27,7 +27,13 @@ namespace HiNative.Views
         {
             this.InitializeComponent();
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+            myFrame.Loaded += MyFrame_Loaded;
             myFrame.Navigated += OnFrameNavigated;
+        }
+
+        private void MyFrame_Loaded(object sender, RoutedEventArgs e)
+        {
+            App.ViewModelLocator.Shell.CheckLoggedIn();
         }
 
         private void OnFrameNavigated(object sender, NavigationEventArgs e)
@@ -55,11 +61,6 @@ namespace HiNative.Views
                 e.Handled = true;
                 myFrame.GoBack();
             }
-        }
-
-        private async void mySplitView_Loaded(object sender, RoutedEventArgs e)
-        {
-            await App.ViewModelLocator.Shell.CheckLoggedIn();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

@@ -62,7 +62,7 @@ namespace HiNative.ViewModels
             User = new HNUserProfile();
             try
             {
-                User = await DataService.LoadProfile(uID);
+                User = DataService.LoadProfile(uID);
                 if (UserName != User.user_attributes.name)
                     UserName = User.user_attributes.name;
                 CanEdit = User.user_attributes.id == App.ViewModelLocator.Shell.CurrentUser.user_attributes.id;

@@ -22,15 +22,15 @@ namespace HiNative.Services
         static Uri _missingImage = new Uri("ms-appx:/Assets/icon_h120.png");
 
         #region Users
-        public static async Task<HNUserProfile> LoadProfile(int profileID)
+        public static HNUserProfile LoadProfile(int profileID)
         {
             string query = _host + "profiles/" + profileID;
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
             HttpClient http = new HttpClient();
             http.DefaultRequestHeaders.Add("Authorization", "Token token=\"" + localSettings.Values["API_Token"] + "\"");
-            var res = await http.GetAsync(query);
-            var json = await res.Content.ReadAsStringAsync();
+            var res = http.GetAsync(query).Result;
+            var json = res.Content.ReadAsStringAsync().Result;
 
             var result = JsonConvert.DeserializeObject<HNUserResult>(json);
 
@@ -137,7 +137,7 @@ namespace HiNative.Services
 
         #region Questions
 
-        public static async Task<int> PopulateQuestions(int queryID, int pageNumber, ObservableCollection<HNQuestion> questions, bool append, bool language)
+        public static int PopulateQuestions(int queryID, int pageNumber, ObservableCollection<HNQuestion> questions, bool append, bool language)
         {
 
             var questionsDataWrapper = new HNQuestionsResult();
@@ -145,7 +145,7 @@ namespace HiNative.Services
             #region PriorityQuestions
             if (!append)
             {
-                questionsDataWrapper = await LoadQuestions(queryID, 1, 1, language);
+                questionsDataWrapper = LoadQuestions(queryID, 1, 1, language);
                 results = questionsDataWrapper.questions;
                 foreach (var question in results)
                 {
@@ -165,10 +165,11 @@ namespace HiNative.Services
                     questions.Add(question);
                 } 
             }
+            Debug.WriteLine("Loaded premium questions");
             #endregion
 
             #region PlebQuestions
-            questionsDataWrapper = await LoadQuestions(queryID, pageNumber, 0, language);
+            questionsDataWrapper = LoadQuestions(queryID, pageNumber, 0, language);
             var maxPages = questionsDataWrapper.pagination.total_pages;
             results = questionsDataWrapper.questions;
 
@@ -194,20 +195,22 @@ namespace HiNative.Services
                 }
                 else break;
             }
+            Debug.WriteLine("Loaded normal questions");
             return maxPages;
             #endregion
         }
 
-        public static async Task<HNQuestionsResult> LoadQuestions(int queryID, int pageNumber, int priority, bool language)
+        public static HNQuestionsResult LoadQuestions(int queryID, int pageNumber, int priority, bool language)
         {
             string criteria = language ? "language_id=" : "country_id=";
             string query = _host + "questions?" + criteria + queryID + "&page=" + pageNumber + "&prior=" + priority;
-            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             HttpClient http = new HttpClient();
+
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             http.DefaultRequestHeaders.Add("Authorization", "Token token=\"" + localSettings.Values["API_Token"] + "\"");
 
-            var res = await http.GetAsync(query);
-            var json = await res.Content.ReadAsStringAsync();
+            var res = http.GetAsync(query).Result;
+            var json = res.Content.ReadAsStringAsync().Result;
 
             var result = JsonConvert.DeserializeObject<HNQuestionsResult>(json);
             //_premiumQs = priority == 1 ? result.questions.Count : 0;
@@ -530,15 +533,15 @@ namespace HiNative.Services
         }
         #endregion
 
-        public static async Task<HNUnreadCount> GetUnreadCount()
+        public static HNUnreadCount GetUnreadCount()
         {
             string query = _host + "activities/unread_count";
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             HttpClient http = new HttpClient();
             http.DefaultRequestHeaders.Add("Authorization", "Token token=\"" + localSettings.Values["API_Token"] + "\"");
 
-            var response = await http.GetAsync(query);
-            var jsonMessage = await response.Content.ReadAsStringAsync();
+            var response = http.GetAsync(query).Result;
+            var jsonMessage = response.Content.ReadAsStringAsync().Result;
 
             var result = JsonConvert.DeserializeObject<HNUnreadCount>(jsonMessage);
             return result;

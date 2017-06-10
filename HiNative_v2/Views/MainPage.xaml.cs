@@ -35,161 +35,67 @@ namespace HiNative.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        //Compositor _compositor;
-        //private Visual _newQuestionList;
-        //private Visual _newQuestionPanel;
-        //private CompositeTransform _newQBtnTransform;
-        //bool _menuOpen = false;
-        //private float _panelOffset;
-        //private ScalarKeyFrameAnimation _openAnimation;
-        //private ScalarKeyFrameAnimation _closeAnimation;
-
+        private Compositor _compositor;
         private ScrollViewer _listScroller;
         private bool _scrolling;
         private double _startPosition;
+        private MainViewModel VM;
 
         public MainPage()
         {
             this.InitializeComponent();
-            //NewQuestionControl.ListviewItemCick += new EventHandler<ItemClickEventArgs>(NewQuestionItemClick);
+            VM = this.DataContext as MainViewModel;
+            //SetupAnimations();
         }
-
-        //private void NewQuestionItemClick(object sender, ItemClickEventArgs e)
-        //{
-        //    (DataContext as MainViewModel).NewQuestionClick(e);
-        //}
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             App.ViewModelLocator.Main.CheckUnreadCount();
             #region ConnectedAnimations
-            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
+            var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("questionRoot");
+            if (anim != null)
             {
-                var anim = ConnectedAnimationService.GetForCurrentView().GetAnimation("questionRoot");
-                if (anim != null)
-                {
-                    anim.TryStart(App.ViewModelLocator.Main.LastSelectedGrid);
-                }
+                anim.TryStart(App.ViewModelLocator.Main.LastSelectedGrid);
             }
             #endregion
         }
 
-        //private void lstNewQuestion_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    SetupAnimations();
-        //    CloseMenuInstantly();
-        //}
+        #region Composition
+        private void SetupAnimations()
+        {
+            _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
+            ElementCompositionPreview.SetIsTranslationEnabled(lblPageName, true);
 
-        //#region Composition
-        //private void SetupAnimations()
-        //{
-        //    _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
-        //    _newQuestionPanel = ElementCompositionPreview.GetElementVisual(stkAskQuestion);
-        //    _panelOffset = _newQuestionPanel.Offset.Y;
+            #region Top Bar
+            var topBarHide = _compositor.CreateScalarKeyFrameAnimation();
+            topBarHide.Duration = TimeSpan.FromMilliseconds(300);
+            topBarHide.InsertKeyFrame(1, -100f);
+            topBarHide.Target = "Translate.Y";
+            ElementCompositionPreview.SetImplicitHideAnimation(lblPageName, topBarHide);
 
-        //    #region Synced offset
 
-        //    //Keep the offsets of the pan area and PaneRoot on sync
-        //    var offsetExpressionAnimation = _compositor.CreateExpressionAnimation();
-        //    offsetExpressionAnimation.Expression = "button.Offset.Y";
-        //    offsetExpressionAnimation.SetReferenceParameter("button", _newQuestionPanel);
+            var topBarShow = _compositor.CreateScalarKeyFrameAnimation();
+            topBarShow.Duration = TimeSpan.FromMilliseconds(300);
+            topBarShow.InsertKeyFrame(0, -100f);
+            topBarShow.InsertKeyFrame(1, 0f);
+            topBarShow.Target = "Translate.Y";
+            ElementCompositionPreview.SetImplicitShowAnimation(lblPageName, topBarShow);
 
-        //    #endregion
+            #endregion
 
-        //    #region Open Animation
-        //    _openAnimation = _compositor.CreateScalarKeyFrameAnimation();
-        //    _openAnimation.Duration = TimeSpan.FromMilliseconds(300);
-        //    _openAnimation.InsertKeyFrame(1.0f, (float)(_panelOffset - lstNewQuestion.ActualHeight));
-        //    #endregion
+            #region New Question Button
 
-        //    #region Close Animation
-        //    _closeAnimation = _compositor.CreateScalarKeyFrameAnimation();
-        //    _closeAnimation.Duration = TimeSpan.FromMilliseconds(300);
-        //    _closeAnimation.InsertKeyFrame(1.0f, (float)(_panelOffset + lstNewQuestion.ActualHeight));
-        //    #endregion
-        //}
-
-        //private void grdNewQButton_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
-        //{
-        //    _newQBtnTransform = grdNewQButton.GetCompositeTransform();
-        //}
-
-        //private void grdNewQButton_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
-        //{
-        //    var y = e.Delta.Translation.Y;
-
-        //    var offset = _newQuestionPanel.Offset.Y;
-
-        //    // keep the pan within the boundary
-        //    if (offset < 0) return;
-        //    if (offset > lstNewQuestion.ActualHeight)
-        //    {
-        //        _newQuestionPanel.Offset = new Vector3(0, (float)(lstNewQuestion.ActualHeight), 0);
-        //        return;
-        //    }
-
-        //    _newQuestionPanel.Offset = new Vector3(0, offset + (float)y, 0);
-        //    // while we are panning the PanArea on X axis, let's sync the PaneRoot's position X too
-        //}
-
-        //private void grdNewQButton_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
-        //{
-        //    var y = e.Velocities.Linear.Y;
-
-        //    var initialTranslation = lstNewQuestion.ActualHeight;
-
-        //    // ignore a little bit velocity (+/-0.1)
-        //    if (y <= -0.1)
-        //    {
-        //        OpenMenu();
-        //    }
-        //    else if (y > -0.1 && y < 0.1)
-        //    {
-        //        if (Math.Abs(_newQBtnTransform.TranslateY) < Math.Abs(lstNewQuestion.ActualHeight) / 2)
-        //        {
-        //            OpenMenu();
-        //        }
-        //        else
-        //        {
-        //            CloseMenu();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        CloseMenu();
-        //    }
-        //}
-
-        //private void OpenMenu()
-        //{
-        //    _panelOffset = _newQuestionPanel.Offset.Y;
-        //    _newQuestionPanel.StartAnimation("Offset.Y", _openAnimation);
-        //    _menuOpen = true;
-        //}
-
-        //private void CloseMenu()
-        //{
-        //    _panelOffset = _newQuestionPanel.Offset.Y;
-        //    _newQuestionPanel.StartAnimation("Offset.Y", _closeAnimation);
-        //    _menuOpen = false;
-        //}
-
-        //private void CloseMenuInstantly()
-        //{
-        //    //_newQuestionButton.Offset = new Vector3(0, (float)(lstNewQuestion.ActualHeight + adMainPage.ActualHeight), 0);
-        //    _newQuestionPanel.Offset = new Vector3(0, (float)(_panelOffset + lstNewQuestion.ActualHeight), 0);
-        //    _menuOpen = false;
-        //    _panelOffset = _newQuestionPanel.Offset.Y;
-        //}
-        //#endregion
+            #endregion
+        }
+        #endregion
 
         private void listView_Loaded(object sender, RoutedEventArgs e)
         {
-            var compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
-            _listScroller = listView.GetFirstDescendantOfType<ScrollViewer>();
-            _listScroller.ViewChanged += ListScroller_ViewChanged;
-            _listScroller.ViewChanging += _listScroller_ViewChanging;
+            //var compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
+            //_listScroller = listView.GetFirstDescendantOfType<ScrollViewer>();
+            //_listScroller.ViewChanged += ListScroller_ViewChanged;
+            //_listScroller.ViewChanging += _listScroller_ViewChanging;
         }
 
         private void _listScroller_ViewChanging(object sender, ScrollViewerViewChangingEventArgs e)
@@ -201,7 +107,7 @@ namespace HiNative.Views
             }
         }
 
-        private async void ListScroller_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        private void ListScroller_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
         {
             // When 30 px from the end of the list, load more items
             ScrollViewer view = (ScrollViewer)sender;
@@ -209,36 +115,27 @@ namespace HiNative.Views
             if (progress < 60 & !App.ViewModelLocator.Main.InCall &&
                 App.ViewModelLocator.Main.PageNumber < App.ViewModelLocator.Main.MaxPages)
             {
-                await App.ViewModelLocator.Main.LoadData(true);
-            }
-        }
-
-        private void listView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            var clickedItem = (HNQuestion)e.ClickedItem;
-            var container = ((PullToRefreshListView)e.OriginalSource).ContainerFromItem(e.ClickedItem) as ListViewItem;
-            var grid = container.ContentTemplateRoot;
-            //var questionRoot = grid.GetFirstDescendantOfType<Grid>();
-            //var profilePicture = grid.GetFirstDescendantOfType<Ellipse>();
-
-            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.Animation.ConnectedAnimationService"))
-            {
-                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("QuestionRoot", grid);
+                App.ViewModelLocator.Main.LoadData(true);
             }
         }
 
         private void adMainPage_AdRefreshed(object sender, RoutedEventArgs e)
         {
-            if (adMainPage.HasAd)
-                adMainPage.Visibility = Visibility.Visible;
-            else
-                adMainPage.Visibility = Visibility.Collapsed;
+            //if (adMainPage.HasAd)
+            //    adMainPage.Visibility = Visibility.Visible;
+            //else
+            //    adMainPage.Visibility = Visibility.Collapsed;
         }
 
         private void adMainPage_ErrorOccurred(object sender, Microsoft.Advertising.WinRT.UI.AdErrorEventArgs e)
         {
-            adMainPage.Visibility = Visibility.Collapsed;
+            //adMainPage.Visibility = Visibility.Collapsed;
             //adMainPage.Refresh();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            //SetupAnimations();
         }
     }
 }

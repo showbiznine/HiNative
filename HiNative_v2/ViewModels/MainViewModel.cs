@@ -17,6 +17,7 @@ using Windows.UI.Popups;
 using System.Net.Http;
 using Windows.Foundation.Metadata;
 using System.Threading.Tasks;
+using Microsoft.Toolkit.Uwp.UI.Controls;
 
 namespace HiNative.ViewModels
 {
@@ -41,7 +42,6 @@ namespace HiNative.ViewModels
         #region Commands
         public RelayCommand ToggleMenuCommand { get; set; }
         public RelayCommand SelectTopicCommand { get; set; }
-        public RelayCommand<ItemClickEventArgs> SelectQuestionCommand { get; set; }
         public RelayCommand<ItemClickEventArgs> NewQuestionCommand { get; set; }
         public RelayCommand FilterChangedCommand { get; set; }
         public RelayCommand RefreshCommand { get; set; }
@@ -60,45 +60,40 @@ namespace HiNative.ViewModels
             }
         }
 
-        public async void InitPageAsync()
+        public void InitPageAsync()
         {
             CurrentUser = App.ViewModelLocator.Shell.CurrentUser;
             Filters = new HNFilter { interesting_questions_only = false, questions_not_answered_only = false, questions_with_audios_only = false };
             LoadTopics();
             PageNumber = 1;
-            await LoadData(false);
+            LoadData(false);
             InitializeCommands();
         }
 
         private void InitializeCommands()
         {
-            ToggleMenuCommand = new RelayCommand(() => { App.ViewModelLocator.Shell.IsMenuOpen = !App.ViewModelLocator.Shell.IsMenuOpen; });
-            SelectQuestionCommand = new RelayCommand<ItemClickEventArgs>(args =>
+            ToggleMenuCommand = new RelayCommand(() => 
             {
-                var q = args.ClickedItem as HNQuestion;
-
-                App.ViewModelLocator.Question.CurrentQuestion = q;
-                App.ViewModelLocator.Question.LoadAnswers((int)q.id);
-                _navigationService.NavigateTo(typeof(QuestionPage));
+                App.ViewModelLocator.Shell.IsMenuOpen = !App.ViewModelLocator.Shell.IsMenuOpen;
             });
             NewQuestionCommand = new RelayCommand<ItemClickEventArgs>(args =>
             {
                 NewQuestionClick(args);
             });
-            SelectTopicCommand = new RelayCommand(async () => await LoadData(false));
+            SelectTopicCommand = new RelayCommand(() => LoadData(false));
             FilterChangedCommand = new RelayCommand(async () =>
             {
                 var res = await DataService.PostFilter(Filters);
                 if (res.IsSuccessStatusCode)
                 {
-                    await LoadData(false);
+                    LoadData(false);
                 }
                 else
                 {
                     await new MessageDialog("Failed to set filters", "Error").ShowAsync();
                 }
             });
-            RefreshCommand = new RelayCommand(async () => await LoadData(false));
+            RefreshCommand = new RelayCommand(async () => LoadData(false));
             GoToNotificationsCommand = new RelayCommand(async () =>
             {
                 await App.ViewModelLocator.Notifications.LoadNotifications(false);
@@ -147,7 +142,7 @@ namespace HiNative.ViewModels
             SelectedTopic = Topics[0];
         }
 
-        public async Task LoadData(bool append)
+        public void LoadData(bool append)
         {
             if (append)
                 PageNumber++;
@@ -169,29 +164,41 @@ namespace HiNative.ViewModels
                     Questions = new ObservableCollection<HNQuestion>();
                 }
 
-                MaxPages = await DataService.PopulateQuestions(id, PageNumber, Questions, append, true);
+                MaxPages = DataService.PopulateQuestions(id, PageNumber, Questions, append, true);
             }
             catch (Exception ex)
             {
                 if (ex is HttpRequestException)
-                    await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
+                    //await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
                 if (append)
                     PageNumber--;
             }
             InCall = false;
         }
 
-        public async Task CheckUnreadCount()
+        public void CheckUnreadCount()
         {
             try
             {
-                UnreadCount = await DataService.GetUnreadCount();
+                UnreadCount = DataService.GetUnreadCount();
 
             }
             catch (Exception)
             {
-                await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
+                //await new MessageDialog("We're having trouble connecting to the HiNative servers").ShowAsync();
             }
+        }
+
+        public void QuestionClick(object sender, ItemClickEventArgs e)
+        {
+            var clickedItem = (HNQuestion)e.ClickedItem;
+            var container = ((ListView)e.OriginalSource).ContainerFromItem(e.ClickedItem) as ListViewItem;
+            LastSelectedGrid = container.ContentTemplateRoot as Grid;
+            ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("QuestionRoot", LastSelectedGrid);
+
+            App.ViewModelLocator.Question.CurrentQuestion = clickedItem;
+            App.ViewModelLocator.Question.LoadAnswers((int)clickedItem.id);
+            _navigationService.NavigateTo(typeof(QuestionPage));
         }
     }
 }

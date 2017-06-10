@@ -17,7 +17,7 @@ namespace HiNative.Services
         public static async Task CheckNotificationsTask(IBackgroundTaskInstance taskInstance)
         {
             _deferral = taskInstance.GetDeferral();
-            var res = await DataService.GetUnreadCount();
+            var res = DataService.GetUnreadCount();
             var unreadCount = res.activities.unread_count;
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             //localSettings.Values["to_ignore"] = 0; //Init

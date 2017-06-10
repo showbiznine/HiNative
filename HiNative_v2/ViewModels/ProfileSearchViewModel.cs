@@ -122,9 +122,9 @@ namespace HiNative.ViewModels
             InCall = false;
         }
 
-        public async Task CheckUnreadCount()
+        public void CheckUnreadCount()
         {
-            UnreadCount = await DataService.GetUnreadCount();
+            UnreadCount = DataService.GetUnreadCount();
         }
     }
 }
